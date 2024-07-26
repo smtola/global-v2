@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Koulen&family=Lexend:wght@100..900&display=swap');
+.clip-path{
+    clip-path: polygon(0% 0%, 100% 15%, 100% 61%, 0% 73%);
+}
+.clip-path-2{
+    clip-path: polygon(0 22%, 100% 0, 100% 77%, 0 100%);
+}
