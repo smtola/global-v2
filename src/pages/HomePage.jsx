@@ -346,10 +346,32 @@ const HomePage = () => {
                               className="w-64 h-64 object-cover"
                             />
                           </div>
-                          <div className="bg-[#0469FF] w-64 h-64">2</div>
+                          <div className="bg-[#0469FF] p-9 w-64 h-64">
+                            <h1 className="text-[25px] text-[#eee] font-['koulen']">
+                              tax solution services
+                            </h1>
+                            <p className="text-[14px] text-[#eee] font-['inter']">
+                              Your Perfect Business Consultant
+                            </p>
+                            <p className="text-[14px] text-[#eee] font-['inter']">
+                              Thank you for your visit on our website. Please
+                              explore...
+                            </p>
+                          </div>
                         </div>
                         <div className="flex justify-center">
-                          <div className="bg-[#CCD8E8] w-64 h-64">1</div>
+                          <div className="bg-[#CCD8E8] p-9 w-64 h-64">
+                            <h1 className="text-[25px] text-[#162252] font-['koulen']">
+                              tax report
+                            </h1>
+                            <p className="text-[14px] text-[#162252] font-['inter']">
+                              Your Perfect Business Consultant
+                            </p>
+                            <p className="text-[14px] text-[#162252] font-['inter']">
+                              Thank you for your visit on our website. Please
+                              explore...
+                            </p>
+                          </div>
                           <div>
                             <img
                               src={imgBanner}
@@ -369,10 +391,33 @@ const HomePage = () => {
                               className="w-64 h-64 object-cover"
                             />
                           </div>
-                          <div className="bg-[#CCD8E8] w-64 h-64">2</div>
+                          <div className="bg-[#CCD8E8] p-9 w-64 h-64">
+                            <h1 className="text-[25px] text-[#162252] font-['koulen']">
+                              tax planning strategies
+                            </h1>
+                            <p className="text-[14px] text-[#162252] font-['inter']">
+                              Your Perfect Business Consultant
+                            </p>
+                            <p className="text-[14px] text-[#162252] font-['inter']">
+                              Thank you for your visit on our website. Please
+                              explore...
+                            </p>
+                          </div>
                         </div>
                         <div className="flex justify-center">
-                          <div className="bg-[#0469FF] w-64 h-64">1</div>
+                          <div className="bg-[#0469FF] p-9 w-64 h-64">
+                            {" "}
+                            <h1 className="text-[25px] text-[#eee] font-['koulen']">
+                              accounting system
+                            </h1>
+                            <p className="text-[14px] text-[#eee] font-['inter']">
+                              Your Perfect Business Consultant
+                            </p>
+                            <p className="text-[14px] text-[#eee] font-['inter']">
+                              Thank you for your visit on our website. Please
+                              explore...
+                            </p>
+                          </div>
                           <div>
                             <img
                               src={imgBanner}
@@ -386,7 +431,11 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#ffffff] w-full h-full py-96 clip-path-2 mt-24"></div>
+              <div className="bg-[#ffffff] w-full h-full clip-path-2 mt-24">
+                <h1 className="text-[40px] text-center font-medium font-['koulen'] pt-[66vh] pb-[12vh] text-[#162252]">
+                  why us
+                </h1>
+              </div>
             </div>
           </div>
         </div>
