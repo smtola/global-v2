@@ -1,8 +1,18 @@
+import { NavLink } from "react-router-dom";
 import imgLogo from "../../assets/images/Global consultancy  Logo Final.png";
-const Navbar = () => {
+const Navbar = ({home,about,services,client}) => {
+  const activeLink = 'text-green-500';
+  const removeActive = '';
+
+  const scrollToSection = (elementRef)=>{
+    window.scrollTo({
+      top:elementRef.current.offsetTop,
+      behavior: "smooth",
+    })
+  };
   return (
     <>
-      <header className="shadow-md z-50">
+      <header className="bg-[#ffffff] shadow-md z-[99999] fixed w-full">
         <div className="w-full max-w-screen-md xl:max-w-screen-xl mx-auto py-5 z-50">
           <div className="flex items-center justify-between z-50">
             <div>
@@ -17,16 +27,24 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="relative z-50">
+        <div className="relative z-50 ">
           <nav className="bg-blue-900 w-full max-w-screen-md mx-auto p-5 absolute translate-x-[-50%] left-[50%] -top-4">
             <div className="w-full max-w-screen-xl mx-auto ">
               <ul className="flex justify-center items-center gap-[3vw] text-white">
-                <li>Home</li>
-                <li>About us</li>
-                <li>Services</li>
-                <li>{"Client's Testimonial"}</li>
-                <li>Blog</li>
-                <li>Career</li>
+                <li className="cursor-pointer">
+                  <NavLink to={"#home"} onClick={()=> scrollToSection(home)}>Home</NavLink></li>
+                <li className="cursor-pointer ">
+                  <NavLink to={"#about-us"} onClick={()=> scrollToSection(about)}>About us</NavLink></li>
+                <li className="cursor-pointer ">
+                  <NavLink to={"#services"} onClick={()=> scrollToSection(services)}>Services</NavLink></li>
+                <li className="cursor-pointer ">
+                  <NavLink to={"#client"} onClick={()=> scrollToSection(client)}>{"Client's Testimonial"}</NavLink></li>
+                <li>
+                  <NavLink className={({isActive}) => isActive ? activeLink : removeActive} to={"/blog"}>Blog</NavLink>
+                  </li>
+                <li>
+                  <NavLink className={({isActive}) => isActive ? activeLink : removeActive} to={"/career"}>Career</NavLink>
+                  </li>
               </ul>
             </div>
           </nav>

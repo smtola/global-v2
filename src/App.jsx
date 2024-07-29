@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import './App.css';
 import HomePage from './pages/HomePage';
 import Blog from './pages/Blog';
@@ -10,16 +10,16 @@ const router = createBrowserRouter([
   element: <HomePage />
   },
   {
-    path: '/Blog',
+    path: '/blog',
     element: <Blog/>
   },
   {
-    path: '/Career',
+    path: '/career',
     element: <Career/>
   }
 ])
 function App() {
-  return <RouterProvider router={ router } />
+  return <RouterProvider router={router} /> ;
 }
 
 export default App
