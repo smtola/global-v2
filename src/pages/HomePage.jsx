@@ -20,12 +20,12 @@ const HomePage = () => {
       <section ref={home}>
         <div className="relative">
           <img src={imgBanner} className="w-full clip-path" />
-          <div className="w-full absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
+          <div className="w-full absolute left-[50%] lg:top-[60%] 2xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
             <div className="w-full h-[56vh] ps-[24vh]">
-              <h1 className="text-[144px] font-['koulen'] text-[#39B6FF] font-normal h-[144px]">
+              <h1 className="lg:text-[120px] 2xl:text-[144px] font-['koulen'] text-[#39B6FF] font-normal lg:h-[120px] 2xl:h-[144px]">
                 Global
               </h1>
-              <h1 className="text-[77px] font-['koulen'] text-[#233C96] font-normal h-[100px]">
+              <h1 className="lg:text-[65px] 2xl:text-[77px] font-['koulen'] text-[#233C96] font-normal lg:h-[70px] 2xl:h-[100px]">
                 Consultancy
               </h1>
               <p className="text-[22px] font-['inter'] text-[#233C96] font-normal">
@@ -61,7 +61,7 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="bg-[#0b298a] w-full p-[24vh] clip-path-2">
+          <div className="bg-[#0b298a] w-full lg:p-[34vh] 2xl:p-[24vh] clip-path-2">
             <div className="max-screen-lg w-full mx-auto text-[#eee]">
               <div className="flex justify-center gap-5 pb-4">
                 <div>
@@ -175,7 +175,7 @@ const HomePage = () => {
           <div className="relative pb-[44vh] z-20">
             <div className="absolute bottom-0 flex items-center translate-x-[-50%] left-[35%]">
               <div>
-                <img src={imgFounder} className="w-[54vh]" />
+                <img src={imgFounder} className="lg:w-[128vh] 2xl:w-[54vh]" />
               </div>
               <div className=" w-full max-w-lg text-[#0b298a]">
                 <h1 className="text-[50px] font-['koulen'] text-[#233C96] font-normal h-[40px]">
@@ -196,7 +196,7 @@ const HomePage = () => {
                   <summary className="bg-blue-900 px-3 py-2 text-[#eee] rounded-full select-none">
                     Read More
                   </summary>
-                  <p className="w-[100vh] p-2 shadow-xl bg-white/30 backdrop-blur-[90px] bg-opacity-100 my-3 absolute rounded-2xl text-[#0b298a] transition delay-1000 duration-2000 z-50">
+                  <p className="lg:w-[84vh] 2xl:w-[100vh] p-2 shadow-xl bg-white/30 backdrop-blur-[90px] bg-opacity-100 my-3 absolute rounded-2xl text-[#0b298a] transition delay-1000 duration-2000 z-50">
                     Dear valued clients and partners, 
                     <br />
                     <br />
@@ -284,9 +284,9 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="w-full max-w-screen-xl mx-auto">
-            <div>
-              <h1 className="text-center text-[#233c96] font-['koulen'] text-[44px]">
+          <div className="w-full max-w-screen-xl mx-auto my-10">
+            <div className="p-5">
+              <h1 className="text-center text-[#233c96] font-['koulen'] text-[44px] my-5">
                 Business Registration Documents
               </h1>
               <div>
@@ -392,7 +392,7 @@ const HomePage = () => {
           </h1>
 
           <div className="bg-[#233c96] clip-path-4">
-            <div className="flex items-center justify-center pt-[16vh] pb-12">
+            <div className="flex items-center justify-center lg:pt-[26vh] lg:pb-12 2xl:pt-[16vh] 2xl:pb-16">
               <div className="w-full max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-3 gap-[3vw]">
                   <div className="w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
@@ -473,7 +473,7 @@ const HomePage = () => {
       </section>
 
       <section ref={client}>
-        <div className="relative">
+        <div className="relative pt-0 lg:pt-24">
           <div className="w-full max-w-screen-xl mx-auto">
             <div className="h-full pb-[56vh] bg-[#ffffff]">
               <div>
@@ -496,7 +496,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="absolute w-full translate-x-[-50%] left-[50%] translate-y-[-50%] top-[55%] z-10">
+          <div className="absolute translate-x-[-50%] left-[50%] translate-y-[-50%] top-[55%] z-10">
             <div className="w-full max-w-screen-xl mx-auto">
               <div className="flex justify-center gap-3 my-3">
                 <div className="flex justify-center">

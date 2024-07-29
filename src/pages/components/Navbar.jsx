@@ -13,7 +13,7 @@ const Navbar = ({home,about,services,client}) => {
   return (
     <>
       <header className="bg-[#ffffff] shadow-md z-[99999] fixed w-full">
-        <div className="w-full max-w-screen-md xl:max-w-screen-xl mx-auto py-5 z-50">
+        <div className="w-full lg:max-w-screen-lg max-w-screen-xl mx-auto py-5 z-50">
           <div className="flex items-center justify-between z-50">
             <div>
               <img src={imgLogo} alt="logo" width="64" />
@@ -27,7 +27,7 @@ const Navbar = ({home,about,services,client}) => {
             </div>
           </div>
         </div>
-        <div className="relative z-50 ">
+        <div className="relative z-[9999] ">
           <nav className="bg-blue-900 w-full max-w-screen-md mx-auto p-5 absolute translate-x-[-50%] left-[50%] -top-4">
             <div className="w-full max-w-screen-xl mx-auto ">
               <ul className="flex justify-center items-center gap-[3vw] text-white">
