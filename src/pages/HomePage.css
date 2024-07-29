@@ -7,3 +7,12 @@
 .clip-path-2{
     clip-path: polygon(0% 18%,100% 0%,100% 84%,0% 100%);
 }
+.clip-path-3{
+    clip-path: polygon(0 0, 100% 0, 100% 81%, 0% 100%);
+}
+.clip-path-4{
+    clip-path: polygon(0 18%, 100% 0, 100% 100%, 0% 100%);
+}
+.clip-path-5{
+    clip-path: polygon(0 0, 100% 0, 100% 81%, 0% 100%);
+}
