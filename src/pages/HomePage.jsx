@@ -19,19 +19,19 @@ const HomePage = () => {
       <Navbar home={home} about={about_us} services={services} client={client}/>
       <section ref={home}>
         <div className="relative">
-          <img src={imgBanner} className="w-full clip-path" />
-          <div className="w-full absolute left-[50%] lg:top-[60%] 2xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
+          <img src={imgBanner} className="w-full h-[40vh] md:h-[50vh] xl:h-screen clip-path" />
+          <div className="w-full absolute left-[5%] md:left-[26%] xl:left-[50%] top-[92%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
             <div className="w-full h-[56vh] ps-[24vh]">
-              <h1 className="lg:text-[120px] 2xl:text-[144px] font-['koulen'] text-[#39B6FF] font-normal lg:h-[120px] 2xl:h-[144px]">
+              <h1 className="text-[64px] md:text-[100px] lg:text-[120px] xl:text-[144px] font-['koulen'] text-[#39B6FF] font-normal h-[68px] md:h-[100px] lg:h-[120px] xl:h-[144px]">
                 Global
               </h1>
-              <h1 className="lg:text-[65px] 2xl:text-[77px] font-['koulen'] text-[#233C96] font-normal lg:h-[70px] 2xl:h-[100px]">
+              <h1 className="text-[34px] md:text-[53px] lg:text-[65px] xl:text-[77px] font-['koulen'] text-[#233C96] font-normal h-[40px] md:h-[60px] lg:h-[70px] xl:h-[100px]">
                 Consultancy
               </h1>
-              <p className="text-[22px] font-['inter'] text-[#233C96] font-normal">
+              <p className="text-[12px] md:text-[22px] font-['inter'] text-[#233C96] font-normal">
                 Your Perfect Business <br /> Consultant
               </p>
-              <p className="text-[16px] font-['inter'] text-[#233C96] font-normal ">
+              <p className="text-[11px] md:text-[16px] font-['inter'] text-[#233C96] font-normal ">
                 Thank you for your visit on our website.
                 <br /> Please explore...
               </p>
@@ -42,18 +42,18 @@ const HomePage = () => {
 
       <section ref={about_us}>
         <div className="w-full bg-[#ffffff]">
-          <div className="text-center font-['inter'] text-[#0b298a] w-full max-w-lg mx-auto">
-            <h1 className="text-[30px] font-['koulen'] font-medium">
+          <div className="text-center font-['inter'] text-[#0b298a] p-5 md:p-12">
+            <h1 className="text-[24px] md:text-[44px] font-['koulen'] font-medium">
               Global Consultancy Co.,ltd
             </h1>
-            <p>
+            <p className="text-[16px] md:text-[24px]">
               a tax agency business where specializes in providing tax solutions
               services, accounting system services, training and development to
               support clients under legal landscapes. In 2016, the business was
               registered as an entity and got license as a Tax Agent.
             </p>
             <br />
-            <p>
+            <p className="text-[16px] md:text-[24px]">
               Mr. Sophanha Khoum, the founder of Global Consultancy, aims to
               improve tax awareness to better understand about legal landscape
               in Cambodia. Global Consultancy is located in Times Square
@@ -61,17 +61,17 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="bg-[#0b298a] w-full lg:p-[34vh] 2xl:p-[24vh] clip-path-2">
-            <div className="max-screen-lg w-full mx-auto text-[#eee]">
+          <div className="bg-[#0b298a] w-full px-5 py-[8vh] md:py-[32vh] clip-path-2">
+            <div className="lg:max-w-screen-md xl:max-w-screen-lg w-full mx-auto text-[#eee]">
               <div className="flex justify-center gap-5 pb-4">
                 <div>
-                  <img src={iconVission} className="w-16 mt-4" />
+                  <img src={iconVission} className="w-32 md:w-28 xl:w-20 mt-4" />
                 </div>
                 <div>
-                  <h1 className="text-[54px] font-['koulen'] font-medium">
+                  <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium">
                     Vision
                   </h1>
-                  <p className="font-['inter']">
+                  <p className="font-['inter'] md:text-[20px]">
                     At Global Consultancy Co.,Ltd. we believe in the value of
                     relationships. We view every client relationship like a
                     partnership, and truly believe
@@ -80,13 +80,13 @@ const HomePage = () => {
               </div>
               <div className="flex justify-center gap-5 pt-4">
                 <div>
-                  <img src={iconMission} className="w-16" />
+                  <img src={iconMission} className="w-32 md:w-28 xl:w-20 mt-2" />
                 </div>
                 <div>
-                  <h1 className="text-[54px] font-['koulen'] font-medium mt-2">
+                  <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium mt-2">
                     Mission
                   </h1>
-                  <p className="font-['inter']">
+                  <p className="font-['inter'] md:text-[20px]">
                     At Global Consultancy Co.,Ltd. we believe in the value of
                     relationships. We view every client relationship like a
                     partnership, and truly believe
@@ -94,18 +94,18 @@ const HomePage = () => {
                 </div>
               </div>
 
-              <h1 className="text-center  text-[54px] font-['koulen'] font-medium my-12 underline">
+              <h1 className="text-center text-[30px] md:text-[54px] font-['koulen'] font-medium my-12 underline">
                 Core Values
               </h1>
-              <div className="flex justify-center gap-[4vw] max-w-screen-lg mx-auto my-5">
+              <div className="flex justify-center flex-wrap md:flex-nowrap gap-[4vw] max-w-screen-lg mx-auto my-5">
                 <div>
                   <div className="flex justify-center gap-2 font-['inter'] py-3">
                     <div>
                       <span>.</span>
                     </div>
                     <div>
-                      <h1 className="font-bold">Integrity</h1>
-                      <p>
+                      <h1 className="font-bold text-[20px]">Integrity</h1>
+                      <p className="text-[20px]">
                         At Global Consultancy Co.,Ltd. we believe in the value
                         of relationships. We view every client relationship like
                         a partnership, and truly believe
@@ -117,8 +117,8 @@ const HomePage = () => {
                       <span>.</span>
                     </div>
                     <div>
-                      <h1 className="font-bold">Integrity</h1>
-                      <p>
+                      <h1 className="font-bold text-[20px]">Integrity</h1>
+                      <p className="text-[20px]">
                         At Global Consultancy Co.,Ltd. we believe in the value
                         of relationships. We view every client relationship like
                         a partnership, and truly believe
@@ -133,8 +133,8 @@ const HomePage = () => {
                       <span>.</span>
                     </div>
                     <div>
-                      <h1 className="font-bold">Integrity</h1>
-                      <p>
+                      <h1 className="font-bold text-[20px]">Integrity</h1>
+                      <p className="text-[20px]">
                         At Global Consultancy Co.,Ltd. we believe in the value
                         of relationships. We view every client relationship like
                         a partnership, and truly believe
@@ -146,8 +146,8 @@ const HomePage = () => {
                       <span>.</span>
                     </div>
                     <div>
-                      <h1 className="font-bold">Integrity</h1>
-                      <p>
+                      <h1 className="font-bold text-[20px]">Integrity</h1>
+                      <p className="text-[20px]">
                         At Global Consultancy Co.,Ltd. we believe in the value
                         of relationships. We view every client relationship like
                         a partnership, and truly believe
@@ -159,8 +159,8 @@ const HomePage = () => {
                       <span>.</span>
                     </div>
                     <div>
-                      <h1 className="font-bold">Integrity</h1>
-                      <p>
+                      <h1 className="font-bold text-[20px]">Integrity</h1>
+                      <p className="text-[20px]">
                         At Global Consultancy Co.,Ltd. we believe in the value
                         of relationships. We view every client relationship like
                         a partnership, and truly believe
@@ -172,31 +172,31 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="relative pb-[44vh] z-20">
-            <div className="absolute bottom-0 flex items-center translate-x-[-50%] left-[35%]">
+          <div className="relative pb-[28vh] md:pb-[25vh] xl:pb-[64vh] z-20">
+            <div className="absolute bottom-0 flex w-full justify-center items-center translate-x-[-50%] left-[47%] md:left-[47%] ">
               <div>
-                <img src={imgFounder} className="lg:w-[128vh] 2xl:w-[54vh]" />
+                <img src={imgFounder} className="w-[190vh] md:w-[172vh] lg:w-[100vh] xl:w-[172vh]" />
               </div>
-              <div className=" w-full max-w-lg text-[#0b298a]">
-                <h1 className="text-[50px] font-['koulen'] text-[#233C96] font-normal h-[40px]">
+              <div className="text-[#0b298a] md:mt-20">
+                <h1 className="text-[16px] md:text-[24px] font-['koulen'] text-[#233C96] font-normal md:h-[40px]">
                   Sophanha Khoum
                 </h1>
-                <h1 className="text-[50px] font-['koulen'] text-[#233C96] font-normal h-[40px]">
+                <h1 className="text-[16px] md:text-[24px] font-['koulen'] text-[#233C96] font-normal h-[5px] md:h-[40px]">
                   Founder | CEO
                 </h1>
                 <br />
-                <p>
+                <p className="text-[9px] font-['inter'] md:text-[20px]">
                   Mr.Khoum Sopanha achieved a Master degree of Finance from
                   National University of Management. He further held a BA from
                   institute of Foreign Languages and IT degree from Royal
                   University of Phnom Penh.
                 </p>
 
-                <details className="w-32 my-2 cursor-pointer">
-                  <summary className="bg-blue-900 px-3 py-2 text-[#eee] rounded-full select-none">
+                <details className="w-30 text-center md:w-32 my-2 cursor-pointer">
+                  <summary className="bg-blue-900 px-3 py-2 text-[12px] md:text-[15px] text-[#eee] rounded-full select-none">
                     Read More
                   </summary>
-                  <p className="lg:w-[84vh] 2xl:w-[100vh] p-2 shadow-xl bg-white/30 backdrop-blur-[90px] bg-opacity-100 my-3 absolute rounded-2xl text-[#0b298a] transition delay-1000 duration-2000 z-50">
+                  <p className="w-[22rem] left-[54%] md:left-[53%] lg:left-[68%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-white/30 backdrop-blur-[90px] bg-opacity-100 my-3 absolute rounded-2xl text-[#0b298a] transition delay-1000 duration-2000 z-50">
                     Dear valued clients and partners, 
                     <br />
                     <br />
@@ -233,50 +233,47 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="bg-blue-600 pt-24 pb-32 clip-path-3 z-10">
+          <div className="bg-blue-600 px-5 pt-3 pb-12 md:pt-24 md:pb-32 clip-path-3 z-10">
             <div className="flex justify-center items-center gap-[10vw]">
               <div>
-                <div className="flex gap-[1vw] items-center justify-center">
+                <div className="flex gap-[2vw] items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="-5 -2 24 24"
-                    className="border-2 p-2 rounded-full"
-                    width="94"
+                    className="border-2 p-2 rounded-full w-14"
                     fill="#ffffff"
                   >
                     <path d="M3.534 10.07a1 1 0 1 1 .733 1.86A3.579 3.579 0 0 0 2 15.26V17a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1.647a3.658 3.658 0 0 0-2.356-3.419 1 1 0 1 1 .712-1.868A5.658 5.658 0 0 1 14 15.353V17a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3v-1.74a5.579 5.579 0 0 1 3.534-5.19zM7 0a4 4 0 0 1 4 4v2a4 4 0 1 1-8 0V4a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v2a2 2 0 1 0 4 0V4a2 2 0 0 0-2-2z"></path>
                   </svg>
-                  <h1 className="text-center text-[#fff] font-['koulen'] text-[44px]">
+                  <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
                     Founder
                   </h1>
                 </div>
               </div>
               <div>
-                <div className="flex gap-[1vw] items-center py-5">
+                <div className="flex gap-[2vw] items-center py-5">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="border-2 p-2 rounded-full"
+                    className="border-2 p-2 rounded-full w-14"
                     viewBox="-5 -2 24 24"
-                    width="94"
                     fill="#ffffff"
                   >
                     <path d="M3.534 10.07a1 1 0 1 1 .733 1.86A3.579 3.579 0 0 0 2 15.26V17a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1.647a3.658 3.658 0 0 0-2.356-3.419 1 1 0 1 1 .712-1.868A5.658 5.658 0 0 1 14 15.353V17a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3v-1.74a5.579 5.579 0 0 1 3.534-5.19zM7 0a4 4 0 0 1 4 4v2a4 4 0 1 1-8 0V4a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v2a2 2 0 1 0 4 0V4a2 2 0 0 0-2-2z"></path>
                   </svg>
-                  <h1 className="text-center text-[#fff] font-['koulen'] text-[44px]">
+                  <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
                     Tax & Accounting (6)
                   </h1>
                 </div>
-                <div className="flex gap-[1vw] items-center py-5">
+                <div className="flex gap-[2vw] items-center py-5">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="-2 -1.5 24 24"
-                    className="border-2 p-2 rounded-full"
-                    width="94"
+                    className="border-2 p-2 rounded-full w-14"
                     fill="#ffffff"
                   >
                     <path d="M3.534 11.07a1 1 0 1 1 .733 1.86A3.579 3.579 0 0 0 2 16.26V18a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1.647a3.658 3.658 0 0 0-2.356-3.419 1 1 0 1 1 .712-1.868A5.658 5.658 0 0 1 14 16.353V18a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3v-1.74a5.579 5.579 0 0 1 3.534-5.19zM7 1a4 4 0 0 1 4 4v2a4 4 0 1 1-8 0V5a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v2a2 2 0 1 0 4 0V5a2 2 0 0 0-2-2zm9 17a1 1 0 0 1 0-2h1a1 1 0 0 0 1-1v-1.838a3.387 3.387 0 0 0-2.316-3.213 1 1 0 1 1 .632-1.898A5.387 5.387 0 0 1 20 15.162V17a3 3 0 0 1-3 3h-1zM13 2a1 1 0 0 1 0-2 4 4 0 0 1 4 4v2a4 4 0 0 1-4 4 1 1 0 0 1 0-2 2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"></path>
                   </svg>
-                  <h1 className="text-center text-[#fff] font-['koulen'] text-[44px]">
+                  <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
                     Partner (5)
                   </h1>
                 </div>
@@ -284,20 +281,20 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="w-full max-w-screen-xl mx-auto my-10">
+          <div className="w-full max-w-screen-xl mx-auto my-3 md:my-10">
             <div className="p-5">
-              <h1 className="text-center text-[#233c96] font-['koulen'] text-[44px] my-5">
+              <h1 className="text-center text-[#233c96] font-['koulen'] text-[24px] md:text-[44px] my-5">
                 Business Registration Documents
               </h1>
               <div>
                 <div className="bg-gray-200 px-24 py-80">
                   <h1>a</h1>
                 </div>
-                <div className="flex gap-4 ">
-                  <div className="bg-gray-200 px-[19.2rem] py-96 my-5">
+                <div className="flex flex-wrap md:flex-nowrap gap-4 ">
+                  <div className="bg-gray-200 px-[50%] md:px-[11rem] lg:px-[14.8rem] xl:px-[19.2rem] py-96 ">
                     <h1>a</h1>
                   </div>
-                  <div className="bg-gray-200 px-[19rem] py-96 my-5">
+                  <div className="bg-gray-200 px-[50%] md:px-[11rem] lg:px-[14.8rem] xl:px-[19rem] py-96 ">
                     <h1>a</h1>
                   </div>
                 </div>
@@ -308,93 +305,98 @@ const HomePage = () => {
       </section>
 
       <section ref={services}>
-        <div className="p-5">
-          <h1 className="text-center text-[#233c96] font-['koulen'] text-[44px] py-5">
+        <div className="px-5 pt-24">
+          <h1 className="text-center text-[#233c96] font-['koulen'] text-[44px] py-10">
             Our Services
           </h1>
           <div className="w-full max-w-screen-xl mx-auto pt-10 relative">
-            <div className="p-5 bg-[#182760] w-[7vh] h-[7vh] absolute translate-x-[-50%] left-[15%] top-[-1%] rotate-[134deg] z-50">
+          <div>
+            <div className="p-6 bg-[#182760] w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[2.5%] md:left-[16%] md:top-[7%] rotate-[134deg] z-50">
               <img src={iconTax} className="rotate-[-134deg]" />
             </div>
-            <div className="p-5 bg-[#182760] w-[7vh] h-[7vh] absolute translate-x-[-50%] left-[50%] top-[-1%] rotate-[134deg] z-50">
+            <div className="p-6 bg-[#182760] w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[35.1%] md:left-[50%] md:top-[7%] rotate-[134deg] z-50">
               <img src={iconAccount} className="rotate-[-134deg]" />
             </div>
-            <div className="p-5 bg-[#182760] w-[7vh] h-[7vh] absolute translate-x-[-50%] left-[85%] top-[-1%] rotate-[134deg] z-50">
+            <div className="p-6 bg-[#182760] w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[70.5%] md:left-[84%] md:top-[7%] rotate-[134deg] z-50">
               <img src={iconTrande} className="rotate-[-134deg]" />
             </div>
+          </div>
             {/* background */}
-            <div className="p-5 bg-gradient-to-r from-cyan-500 to-blue-500 w-[7vh] h-[7vh] absolute translate-x-[-50%] z-20 left-[15%] top-[1%] rotate-[134deg]">
-              <img src={iconTax} className="rotate-[-134deg]" />
-            </div>
-            <div className="p-5 bg-gradient-to-r from-cyan-500 to-blue-500 w-[7vh] h-[7vh] absolute translate-x-[-50%] z-20 left-[50%] top-[1%] rotate-[134deg]">
-              <img src={iconAccount} className="rotate-[-134deg]" />
-            </div>
-            <div className="p-5 bg-gradient-to-r from-cyan-500 to-blue-500 w-[7vh] h-[7vh] absolute translate-x-[-50%] z-20 left-[85%] top-[1%] rotate-[134deg]">
-              <img src={iconTrande} className="rotate-[-134deg]" />
-            </div>
+          <div>
+              <div className="p-6 bg-gradient-to-r from-cyan-500 to-blue-500 w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[2.9%] md:left-[16%] md:top-[9%] rotate-[134deg]">
+                <img src={iconTax} className="rotate-[-134deg]" />
+              </div>
+              <div className="p-6 bg-gradient-to-r from-cyan-500 to-blue-500 w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[35.5%] md:left-[50%] md:top-[9%] rotate-[134deg]">
+                <img src={iconAccount} className="rotate-[-134deg]" />
+              </div>
+              <div className="p-6 bg-gradient-to-r from-cyan-500 to-blue-500 w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[70.9%] md:left-[84%] md:top-[9%] rotate-[134deg]">
+                <img src={iconTrande} className="rotate-[-134deg]" />
+              </div>
+          </div>
             {/* content */}
-            <div className="flex justify-center gap-[2vw] z-50 ">
-              <div className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 p-5">
-                <ul className="text-center text-[#233c96] text-[20px] p-16 shadow-lg">
-                  <li className="py-3">Tax Solution Services </li>
-                  <li className="py-3">Tax planning strategies</li>
-                  <li className="py-3">Tax reports</li>
+            <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] z-50 ">
+              <div className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 md:p-2 lg:p-6 xl:p-12">
+              <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax Solution Services </li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax planning strategies</li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax reports</li>
                 </ul>
               </div>
-              <div className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 p-5 shadow-lg">
-                <ul className="text-center text-[#233c96] text-[20px] p-16">
-                  <li className="py-3">Accounting System Services </li>
-                  <li className="py-3">Financial solutions guidance</li>
-                  <li className="py-3">Enhance validity in Tax Submission</li>
+              <div className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 md:p-2 lg:p-6 xl:p-12 shadow-lg">
+              <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Accounting System Services </li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Financial solutions guidance</li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Enhance validity in Tax Submission</li>
                 </ul>
               </div>
-              <div className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 p-5 shadow-lg">
-                <ul className="text-center text-[#233c96] text-[20px] p-16 ">
-                  <li className="py-3">Training and Development</li>
-                  <li className="py-3">
+              <div className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 md:p-2 lg:p-6 xl:p-12 shadow-lg">
+              <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12 ">
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Training and Development</li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
                     Financial and accounting knowledge establishment
                   </li>
-                  <li className="py-3">Legal support</li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Legal support</li>
                 </ul>
               </div>
             </div>
-            <div className="flex justify-center gap-[2vw] absolute top-8">
-              <div className="w-full bg-gray-200 p-5">
-                <ul className="text-center text-[#233c96] text-[20px] p-16">
-                  <li className="py-3">Tax Solution Services </li>
-                  <li className="py-3">Tax planning strategies</li>
-                  <li className="py-3">Tax reports</li>
+
+            <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] absolute top-8">
+              <div className="w-full bg-gray-200 md:p-2 lg:p-6 xl:p-12">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax Solution Services </li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax planning strategies</li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax reports</li>
                 </ul>
               </div>
-              <div className="w-full bg-gray-200 p-5">
-                <ul className="text-center text-[#233c96] text-[20px] p-16">
-                  <li className="py-3">Accounting System Services </li>
-                  <li className="py-3">Financial solutions guidance</li>
-                  <li className="py-3">Enhance validity in Tax Submission</li>
+              <div className="w-full bg-gray-200 md:p-2 lg:p-6 xl:p-12">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Accounting System Services </li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Financial solutions guidance</li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Enhance validity in Tax Submission</li>
                 </ul>
               </div>
-              <div className="w-full bg-gray-200 p-5">
-                <ul className="text-center text-[#233c96] text-[20px] p-16 ">
-                  <li className="py-3">Training and Development</li>
-                  <li className="py-3">
+              <div className="w-full bg-gray-200 md:p-2 lg:p-6 xl:p-12">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12 ">
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Training and Development</li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
                     Financial and accounting knowledge establishment
                   </li>
-                  <li className="py-3">Legal support</li>
+                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Legal support</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="full">
-          <h1 className="text-center text-[#233c96] font-['koulen'] text-[44px] pt-9">
+        <div className="w-full">
+          <h1 className="text-center text-[#233c96] font-['koulen'] text-[44px] pt-5 md:pt-12 xl:pt-9">
             Why Us
           </h1>
 
           <div className="bg-[#233c96] clip-path-4">
-            <div className="flex items-center justify-center lg:pt-[26vh] lg:pb-12 2xl:pt-[16vh] 2xl:pb-16">
-              <div className="w-full max-w-screen-xl mx-auto">
-                <div className="grid grid-cols-3 gap-[3vw]">
+            <div className="flex items-center justify-center py-[10vh] md:pt-[20vh] md:pb-12 xl:pt-[26vh] xl:pb-16">
+              <div className="w-full max-w-screen md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
                   <div className="w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       1
@@ -454,7 +456,7 @@ const HomePage = () => {
                       satisfaction. 
                     </p>
                   </div>
-                  <div className="hidden md:block"></div>
+                  <div className="hidden lg:block"></div>
                   <div className="w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       7
@@ -473,114 +475,103 @@ const HomePage = () => {
       </section>
 
       <section ref={client}>
-        <div className="relative pt-0 lg:pt-24">
-          <div className="w-full max-w-screen-xl mx-auto">
-            <div className="h-full pb-[56vh] bg-[#ffffff]">
+        <div className="relative pt-0 md:pt-24">
+          <div className="w-full max-w-sm md:max-w-screen-xl mx-auto">
+            <div className="h-full md:pb-[36vh] xl:pb-[56vh] bg-[#ffffff]">
               <div>
                 <h1 className="text-[45px] text-[#182760] text-center font-['koulen'] font-medium pt-12">
                   Our clients
                 </h1>
-                <p className="text-center text-[#182760] pb-5">
+                <p className="text-center text-[#182760] pb-0 md:pb-5">
                   We have both International clients and Local clients who use
                   our services.
                 </p>
               </div>
               <div className="flex justify-center gap-[4vw] my-10">
-                <div className="w-24 h-24 rounded-full bg-gray-200"></div>
-                <div className="w-24 h-24 rounded-full bg-gray-200 scale-110"></div>
-                <div className="w-24 h-24 rounded-full bg-gray-200 scale-125"></div>
-                <div className="w-24 h-24 rounded-full bg-gray-200 scale-125"></div>
-                <div className="w-24 h-24 rounded-full bg-gray-200 scale-110"></div>
-                <div className="w-24 h-24 rounded-full bg-gray-200"></div>
+                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200"></div>
+                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 scale-110"></div>
+                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 scale-125"></div>
+                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 scale-125"></div>
+                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 scale-110"></div>
+                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200"></div>
               </div>
             </div>
           </div>
 
-          <div className="absolute translate-x-[-50%] left-[50%] translate-y-[-50%] top-[55%] z-10">
-            <div className="w-full max-w-screen-xl mx-auto">
-              <div className="flex justify-center gap-3 my-3">
-                <div className="flex justify-center">
-                  <div className="w-[30vh] overflow-hidden">
-                    <img src={imgBanner} className="w-full h-full" />
-                  </div>
-
-                  <div className="w-[30vh] p-5 bg-[#182760]">
-                    <h1 className="text-[#ffffff] font-['koulen'] text-[50px]">
-                      tax solution <br /> services
-                    </h1>
-                    <p className="text-[#ffffff] font-['inter']">
-                      Your Perfect Business Consultant
-                    </p>
-                    <p className="text-[#ffffff] font-['inter']">
-                      Thank you for your visit on our website. <br />
-                      Please explore...
-                    </p>
-                  </div>
+          <div className="md:absolute z-10 md:translate-x-[-50%] md:left-[50%] md:top-[43%] lg:top-[37%] flex flex-wrap gap-[1vh] lg:gap-[2vh]">
+            <div className="flex justify-center flex-wrap md:flex-nowrap gap-[1vh] lg:gap-[2vh]">
+              <div className="flex justify-center">
+                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
+                  <img src={imgBanner} className="object w-full h-full"/>
                 </div>
-                <div className="flex justify-center">
-                  <div className="w-[30vh] overflow-hidden">
-                    <img src={imgBanner} className="w-full h-full" />
-                  </div>
-                  <div className="w-[30vh] p-5 bg-[#CCD8E8]">
-                    <h1 className="text-[#182760] font-['koulen'] text-[50px]">
-                      tax planning strategies
-                    </h1>
-                    <p className="text-[#182760] font-['inter']">
-                      Your Perfect Business Consultant
-                    </p>
-                    <p className="text-[#182760] font-['inter']">
-                      Thank you for your visit on our website. <br />
-                      Please explore...
-                    </p>
-                  </div>
+                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760] order-first md:order-none">
+                  <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
+                  tax solution
+                  services
+                  </h1>
+                  <p className="text-[#eee] pb-5">
+                    Your Perfect Business Consultant
+                    Thank you for your visit on our website. Please explore...
+                  </p>
                 </div>
               </div>
 
-              <div className="flex justify-center gap-3 my-3">
-                <div className="flex justify-center">
-                  <div className="w-[30vh] p-5 bg-[#CCD8E8]">
-                    <h1 className="text-[#182760] font-['koulen'] text-[50px]">
-                      tax report
-                    </h1>
-                    <p className="text-[#182760] font-['inter']">
-                      Your Perfect Business Consultant
-                    </p>
-                    <p className="text-[#182760] font-['inter']">
-                      Thank you for your visit on our website. <br />
-                      Please explore...
-                    </p>
-                  </div>
-                  <div className="w-[30vh] overflow-hidden">
-                    <img src={imgBanner} className="w-full h-full" />
-                  </div>
+              <div className="flex justify-center order-first md:order-none">
+                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
+                  <img src={imgBanner} className="object w-full h-full"/>
                 </div>
+                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#eee]">
+                  <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
+                  tax planning
+                  strategies
+                  </h1>
+                  <p className=" text-[#182760] pb-5">
+                  Your Perfect Business Consultant
+                  Thank you for your visit on our website. Please explore...
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex justify-center gap-[1vh] flex-wrap md:flex-nowrap lg:gap-[2vh]">
+              <div className="flex justify-center">
+                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#eee]">
+                  <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
+                  tax report
+                  </h1>
+                  <p className=" text-[#182760] pb-5">
+                  Your Perfect Business Consultant
+                  Thank you for your visit on our website. Please explore...
+                  </p>
+                </div>
+                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
+                  <img src={imgBanner} className="object w-full h-full"/>
+                </div>
+              </div>
 
-                <div className="flex justify-center">
-                  <div className="w-[30vh] p-5 bg-[#182760]">
-                    <h1 className="text-[#ffffff] font-['koulen'] text-[50px]">
-                      accounting system
-                    </h1>
-                    <p className="text-[#ffffff] font-['inter']">
-                      Your Perfect Business Consultant
-                    </p>
-                    <p className="text-[#ffffff] font-['inter']">
-                      Thank you for your visit on our website. <br />
-                      Please explore...
-                    </p>
-                  </div>
-                  <div className="w-[30vh] overflow-hidden">
-                    <img src={imgBanner} className="w-full h-full" />
-                  </div>
+              <div className="flex justify-center">
+                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760]">
+                  <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
+                  accounting
+                  system
+                  </h1>
+                  <p className="text-[#eee] pb-5">
+                    Your Perfect Business Consultant
+                    Thank you for your visit on our website. Please explore...
+                  </p>
+                </div>
+                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
+                  <img src={imgBanner} className="object w-full h-full"/>
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-full bg-[#0469FF] pb-[50vh] clip-path-5"></div>
+          <div className="w-full bg-[#0469FF] md:pb-[30vh] xl:pb-[50vh] clip-path-5"></div>
         </div>
       </section>
 
       <footer>
-        <div className="w-full max-w-screen-xl mx-auto py-5">
+        <div className="w-full md:max-w-screen-md xl:max-w-screen-lg mx-auto px-4 py-5">
           <div>
             <h1 className="text-[30px] text-[#182760] font-['koulen'] my-2">
               Contact Us
