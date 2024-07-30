@@ -41,9 +41,9 @@ const HomePage = () => {
       </section>
 
       <section ref={about_us}>
-        <div className="w-full bg-[#ffffff]">
+        <div className="w-full max-w-screen-lg mx-auto bg-[#ffffff]">
           <div className="text-center font-['inter'] text-[#0b298a] p-5 md:p-12">
-            <h1 className="text-[24px] md:text-[44px] font-['koulen'] font-medium">
+            <h1 className="text-[24px] text-center md:text-[44px] font-['koulen'] font-medium">
               Global Consultancy Co.,ltd
             </h1>
             <p className="text-[16px] md:text-[24px]">
@@ -61,7 +61,7 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="bg-[#0b298a] w-full px-5 py-[8vh] md:py-[32vh] clip-path-2">
+          <div className="bg-[#0b298a] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
             <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl w-full mx-auto text-[#eee]">
               <div className="flex justify-center gap-5 pb-4">
                 <div>
@@ -94,7 +94,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              <h1 className="text-center text-[30px] md:text-[54px] font-['koulen'] font-medium my-12 underline">
+              <h1 className="text-start text-[30px] md:text-[54px] font-['koulen'] font-medium my-12 underline">
                 Core Values
               </h1>
               <div className="flex justify-center flex-wrap md:flex-nowrap gap-[4vw] max-w-screen-lg 2xl:max-w-screen-xl mx-auto my-5">
@@ -105,7 +105,7 @@ const HomePage = () => {
                     </div>
                     <div>
                       <h1 className="font-bold text-[20px]">Integrity</h1>
-                      <p className="text-[20px]">
+                      <p className="md:text-[20px]">
                         At Global Consultancy Co.,Ltd. we believe in the value
                         of relationships. We view every client relationship like
                         a partnership, and truly believe
@@ -118,7 +118,7 @@ const HomePage = () => {
                     </div>
                     <div>
                       <h1 className="font-bold text-[20px]">Integrity</h1>
-                      <p className="text-[20px]">
+                      <p className="md:text-[20px]">
                         At Global Consultancy Co.,Ltd. we believe in the value
                         of relationships. We view every client relationship like
                         a partnership, and truly believe
@@ -134,7 +134,7 @@ const HomePage = () => {
                     </div>
                     <div>
                       <h1 className="font-bold text-[20px]">Integrity</h1>
-                      <p className="text-[20px]">
+                      <p className="md:text-[20px]">
                         At Global Consultancy Co.,Ltd. we believe in the value
                         of relationships. We view every client relationship like
                         a partnership, and truly believe
@@ -147,7 +147,7 @@ const HomePage = () => {
                     </div>
                     <div>
                       <h1 className="font-bold text-[20px]">Integrity</h1>
-                      <p className="text-[20px]">
+                      <p className="md:text-[20px]">
                         At Global Consultancy Co.,Ltd. we believe in the value
                         of relationships. We view every client relationship like
                         a partnership, and truly believe
@@ -160,7 +160,7 @@ const HomePage = () => {
                     </div>
                     <div>
                       <h1 className="font-bold text-[20px]">Integrity</h1>
-                      <p className="text-[20px]">
+                      <p className="md:text-[20px]">
                         At Global Consultancy Co.,Ltd. we believe in the value
                         of relationships. We view every client relationship like
                         a partnership, and truly believe
@@ -310,25 +310,25 @@ const HomePage = () => {
           </h1>
           <div className="w-full max-w-screen-xl mx-auto pt-10 relative">
           <div>
-            <div className="p-6 bg-[#182760] w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[2.5%] md:left-[16%] md:top-[7%] rotate-[134deg] z-50">
+            <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[2.5%] md:left-[16%] md:top-[7%] rotate-[134deg] z-50">
               <img src={iconTax} className="rotate-[-134deg]" />
             </div>
-            <div className="p-6 bg-[#182760] w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[35.1%] md:left-[50%] md:top-[7%] rotate-[134deg] z-50">
+            <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[35.1%] md:left-[50%] md:top-[7%] rotate-[134deg] z-50">
               <img src={iconAccount} className="rotate-[-134deg]" />
             </div>
-            <div className="p-6 bg-[#182760] w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[70.5%] md:left-[84%] md:top-[7%] rotate-[134deg] z-50">
+            <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[70.5%] md:left-[84%] md:top-[7%] rotate-[134deg] z-50">
               <img src={iconTrande} className="rotate-[-134deg]" />
             </div>
           </div>
             {/* background */}
           <div>
-              <div className="p-6 bg-gradient-to-r from-cyan-500 to-blue-500 w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[2.9%] md:left-[16%] md:top-[9%] rotate-[134deg]">
+              <div className="p-5 bg-gradient-to-r from-cyan-500 to-blue-500 w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[2.9%] md:left-[16%] md:top-[9%] rotate-[134deg]">
                 <img src={iconTax} className="rotate-[-134deg]" />
               </div>
-              <div className="p-6 bg-gradient-to-r from-cyan-500 to-blue-500 w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[35.5%] md:left-[50%] md:top-[9%] rotate-[134deg]">
+              <div className="p-5 bg-gradient-to-r from-cyan-500 to-blue-500 w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[35.5%] md:left-[50%] md:top-[9%] rotate-[134deg]">
                 <img src={iconAccount} className="rotate-[-134deg]" />
               </div>
-              <div className="p-6 bg-gradient-to-r from-cyan-500 to-blue-500 w-[7vh] xl:w-[11vh] h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[70.9%] md:left-[84%] md:top-[9%] rotate-[134deg]">
+              <div className="p-5 bg-gradient-to-r from-cyan-500 to-blue-500 w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[70.9%] md:left-[84%] md:top-[9%] rotate-[134deg]">
                 <img src={iconTrande} className="rotate-[-134deg]" />
               </div>
           </div>
@@ -396,59 +396,59 @@ const HomePage = () => {
             <div className="flex items-center justify-center py-[10vh] md:pt-[20vh] md:pb-12 xl:pt-[26vh] xl:pb-16">
               <div className="w-full max-w-screen md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
-                  <div className="w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       1
                     </h1>
-                    <p className="text-[12pt] text-[#ffffff] font-['inter']">
+                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       License: We provide professional tax services, which the
                       license is issued by regulations and ethics to meet
                       certain standards of competency.
                     </p>
                   </div>
-                  <div className="w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       2
                     </h1>
-                    <p className="text-[12pt] text-[#ffffff] font-['inter']">
+                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       Strong tax service provider: We handle a substantial
                       client base and provide comprehensive tax services up to
                       300 clients.
                     </p>
                   </div>
-                  <div className="w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       3
                     </h1>
-                    <p className="text-[12pt] text-[#ffffff] font-['inter']">
+                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       Affordable service: We ensure the agency’s tax services
                       are accessible to clients with quality and expertise.
                     </p>
                   </div>
-                  <div className="w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       4
                     </h1>
-                    <p className="text-[12pt] text-[#ffffff] font-['inter']">
+                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       Free-of-charge training and accounting system: We help
                       clients improve their financial efficiency.
                     </p>
                   </div>
-                  <div className="w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       5
                     </h1>
-                    <p className="text-[12pt] text-[#ffffff] font-['inter']">
+                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       Problem-solving Audit: We assist clients with
                       audit-related issues involved in expert guidance and
                       support during tax audits to ensure compliance.
                     </p>
                   </div>
-                  <div className="w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       6
                     </h1>
-                    <p className="text-[12pt] text-[#ffffff] font-['inter']">
+                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       Qualified team: Global Consultancy comprises
                       professionals in tax law, accounting,and financial
                       management for high-quality service and client
@@ -456,11 +456,11 @@ const HomePage = () => {
                     </p>
                   </div>
                   <div className="hidden lg:block"></div>
-                  <div className="w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       7
                     </h1>
-                    <p className="text-[12pt] text-[#ffffff] font-['inter']">
+                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                        Clients’ supports: We help clients prepare for
                       interactions with tax authorities, auditors or financial
                       institutions to ensure effective communication.
@@ -534,7 +534,7 @@ const HomePage = () => {
             
             <div className="flex justify-center gap-[1vh] flex-wrap md:flex-nowrap lg:gap-[2vh]">
               <div className="flex justify-center">
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#eee]">
+                <div className=" w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#eee]">
                   <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
                   tax <br className="hidden md:block"/>  report
                   </h1>

@@ -19,7 +19,7 @@ const Navbar = ({home,about,services,client}) => {
               <img src={imgLogo} alt="logo" width="64" />
             </div>
             <div>
-              <ul className="flex justify-end flex-wrap lg:flex-nowrap gap-[2vw]">
+              <ul className="hidden md:flex  flex-wrap lg:flex-nowrap gap-[2vw]">
                 <li className="text-[11px] lg:text-[18px]">Global Consultancy</li>
                 <li className="text-[11px] lg:text-[18px]">info@global-consultancy.biz</li>
                 <li className="text-[11px] lg:text-[18px]">+855 17 966 659 / +855 69 666 499</li>
