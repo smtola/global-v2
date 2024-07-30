@@ -177,7 +177,7 @@ const HomePage = () => {
               <div>
                 <img src={imgFounder} className="w-[190vh] md:w-[172vh] lg:w-[100vh] xl:w-[172vh]" />
               </div>
-              <div className="text-[#0b298a] md:mt-20">
+              <div className="text-[#0b298a] mt-10 md:mt-20">
                 <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] font-['koulen'] text-[#233C96] font-normal md:h-[40px]">
                   Sophanha Khoum
                 </h1>
