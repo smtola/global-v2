@@ -193,10 +193,10 @@ const HomePage = () => {
                 </p>
 
                 <details className="w-30 text-center md:w-32 my-2 cursor-pointer">
-                  <summary className="bg-blue-900 px-3 py-2 text-[12px] md:text-[15px] text-[#eee] rounded-full select-none">
+                  <summary className="bg-blue-900 px-3 py-2 text-[12px] md:text-[15px] text-[#eee] rounded-xl select-none">
                     Read More
                   </summary>
-                  <p className="text-start w-full left-[54%] md:left-[53%] lg:left-[68%] xl:left-[66%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-white/30 backdrop-blur-[90px] bg-opacity-100 my-3 absolute rounded-2xl text-[#0b298a] transition delay-1000 duration-2000 z-50">
+                  <p className="text-start w-full left-[54%] md:left-[53%] lg:left-[68%] xl:left-[66%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-[#7978789a] backdrop-blur-[100px] bg-opacity-100 my-3 absolute rounded-2xl text-[#eee] transition delay-1000 duration-2000 z-50">
                     Dear valued clients and partners, 
                     <br />
                     <br />
@@ -396,7 +396,7 @@ const HomePage = () => {
             <div className="flex items-center justify-center py-[10vh] md:pt-[20vh] md:pb-12 xl:pt-[26vh] xl:pb-16">
               <div className="w-full max-w-screen md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:rounded-md hover:backdrop-blur-[10px] hover:bg-opacity-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       1
                     </h1>
@@ -406,7 +406,7 @@ const HomePage = () => {
                       certain standards of competency.
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:rounded-md hover:backdrop-blur-[10px] hover:bg-opacity-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       2
                     </h1>
@@ -416,7 +416,7 @@ const HomePage = () => {
                       300 clients.
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:rounded-md hover:backdrop-blur-[10px] hover:bg-opacity-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       3
                     </h1>
@@ -425,7 +425,7 @@ const HomePage = () => {
                       are accessible to clients with quality and expertise.
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:backdrop-blur-[60px] hover:bg-op1city-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       4
                     </h1>
@@ -434,7 +434,7 @@ const HomePage = () => {
                       clients improve their financial efficiency.
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:rounded-md hover:backdrop-blur-[10px] hover:bg-opacity-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       5
                     </h1>
@@ -444,7 +444,7 @@ const HomePage = () => {
                       support during tax audits to ensure compliance.
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:backdrop-blur-[60px] hover:bg-op1city-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       6
                     </h1>
@@ -456,7 +456,7 @@ const HomePage = () => {
                     </p>
                   </div>
                   <div className="hidden lg:block"></div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:rounded-md hover:backdrop-blur-[10px] hover:bg-opacity-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       7
                     </h1>
