@@ -1,3 +1,39 @@
-li a.active{
-    color:red;
+.menu{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    padding:60px 40px;
+    clip-path: circle(13% at right top);
+    transition: clip-path 500ms;
+}
+
+.menu.visible{
+    clip-path: circle(100%);
+}
+.menu.visible  ul > li a{
+    visibility: visible;
+    opacity: 1;
+}
+
+.isClickMenu{
+    display: block !important;
+    opacity: 1;
+    transition: all 500ms;
+}
+
+.isClickClose{  
+    display: none;
+    
+    transition: all 500ms;
+}
+
+.isClickMenu.hidden{
+    display: none;
+}
+.isClickClose.show{
+    display: block;
+    opacity: 1;
 }
