@@ -19,13 +19,13 @@ const HomePage = () => {
       <Navbar home={home} about={about_us} services={services} client={client}/>
       <section ref={home}>
         <div className="relative">
-          <img src={imgBanner} className="w-full h-[40vh] md:h-[50vh] xl:h-screen clip-path" />
-          <div className="w-full absolute left-[5%] md:left-[26%] xl:left-[50%] top-[92%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
+          <img src={imgBanner} className="w-full h-[44vh] md:h-[50vh] xl:h-screen clip-path" />
+          <div className="w-full absolute left-[7%] md:left-[26%] xl:left-[50%] top-[88%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
             <div className="w-full h-[56vh] ps-[24vh]">
-              <h1 className="text-[64px] md:text-[100px] lg:text-[120px] xl:text-[144px] font-['koulen'] text-[#39B6FF] font-normal h-[68px] md:h-[100px] lg:h-[120px] xl:h-[144px]">
+              <h1 className="text-[48px] md:text-[100px] lg:text-[120px] xl:text-[144px] font-['koulen'] text-[#39B6FF] font-normal h-[48px] md:h-[100px] lg:h-[120px] xl:h-[144px]">
                 Global
               </h1>
-              <h1 className="text-[34px] md:text-[53px] lg:text-[65px] xl:text-[77px] font-['koulen'] text-[#233C96] font-normal h-[40px] md:h-[60px] lg:h-[70px] xl:h-[100px]">
+              <h1 className="text-[26px] md:text-[53px] lg:text-[65px] xl:text-[77px] font-['koulen'] text-[#233C96] font-normal h-[35px] md:h-[60px] lg:h-[70px] xl:h-[100px]">
                 Consultancy
               </h1>
               <p className="text-[12px] md:text-[22px] font-['inter'] text-[#233C96] font-normal">
