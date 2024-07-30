@@ -62,7 +62,7 @@ const HomePage = () => {
           </div>
 
           <div className="bg-[#0b298a] w-full px-5 py-[8vh] md:py-[32vh] clip-path-2">
-            <div className="lg:max-w-screen-md xl:max-w-screen-lg w-full mx-auto text-[#eee]">
+            <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl w-full mx-auto text-[#eee]">
               <div className="flex justify-center gap-5 pb-4">
                 <div>
                   <img src={iconVission} className="w-32 md:w-28 xl:w-20 mt-4" />
@@ -97,7 +97,7 @@ const HomePage = () => {
               <h1 className="text-center text-[30px] md:text-[54px] font-['koulen'] font-medium my-12 underline">
                 Core Values
               </h1>
-              <div className="flex justify-center flex-wrap md:flex-nowrap gap-[4vw] max-w-screen-lg mx-auto my-5">
+              <div className="flex justify-center flex-wrap md:flex-nowrap gap-[4vw] max-w-screen-lg 2xl:max-w-screen-xl mx-auto my-5">
                 <div>
                   <div className="flex justify-center gap-2 font-['inter'] py-3">
                     <div>
@@ -178,10 +178,10 @@ const HomePage = () => {
                 <img src={imgFounder} className="w-[190vh] md:w-[172vh] lg:w-[100vh] xl:w-[172vh]" />
               </div>
               <div className="text-[#0b298a] md:mt-20">
-                <h1 className="text-[16px] md:text-[24px] font-['koulen'] text-[#233C96] font-normal md:h-[40px]">
+                <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] font-['koulen'] text-[#233C96] font-normal md:h-[40px]">
                   Sophanha Khoum
                 </h1>
-                <h1 className="text-[16px] md:text-[24px] font-['koulen'] text-[#233C96] font-normal h-[5px] md:h-[40px]">
+                <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] font-['koulen'] text-[#233C96] font-normal h-[5px] md:h-[40px]">
                   Founder | CEO
                 </h1>
                 <br />
@@ -196,7 +196,7 @@ const HomePage = () => {
                   <summary className="bg-blue-900 px-3 py-2 text-[12px] md:text-[15px] text-[#eee] rounded-full select-none">
                     Read More
                   </summary>
-                  <p className="w-[22rem] left-[54%] md:left-[53%] lg:left-[68%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-white/30 backdrop-blur-[90px] bg-opacity-100 my-3 absolute rounded-2xl text-[#0b298a] transition delay-1000 duration-2000 z-50">
+                  <p className="text-start w-full left-[54%] md:left-[53%] lg:left-[68%] xl:left-[66%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-white/30 backdrop-blur-[90px] bg-opacity-100 my-3 absolute rounded-2xl text-[#0b298a] transition delay-1000 duration-2000 z-50">
                     Dear valued clients and partners, 
                     <br />
                     <br />
@@ -222,10 +222,9 @@ const HomePage = () => {
                     expand our services, enhance client satisfaction and
                     implement new strategies to serve our clients the best
                     possible service. 
-                    <br /> <br />
-                    Warm regards,
-                    <br />  Mr. Khoum Sopanha 
-                    <br />  Founder, Global Consultancy
+                    <br /> <br /> Warm regards,
+                    <br />Mr. Khoum Sopanha 
+                    <br />Founder, Global Consultancy
                     <br /> 
                   </p>
                 </details>
@@ -287,14 +286,14 @@ const HomePage = () => {
                 Business Registration Documents
               </h1>
               <div>
-                <div className="bg-gray-200 px-24 py-80">
+                <div className="bg-gray-200 w-full h-[680px] max-w-screen-xl mx-auto my-2">
                   <h1>a</h1>
                 </div>
-                <div className="flex flex-wrap md:flex-nowrap gap-4 ">
-                  <div className="bg-gray-200 px-[50%] md:px-[11rem] lg:px-[14.8rem] xl:px-[19.2rem] py-96 ">
+                <div className="flex flex-wrap md:flex-nowrap justify-center gap-[.5rem] my-2">
+                  <div className="bg-gray-200 w-full h-[680px] max-w-screen-md mx-auto">
                     <h1>a</h1>
                   </div>
-                  <div className="bg-gray-200 px-[50%] md:px-[11rem] lg:px-[14.8rem] xl:px-[19rem] py-96 ">
+                  <div className="bg-gray-200 w-full h-[680px] max-w-screen-md mx-auto">
                     <h1>a</h1>
                   </div>
                 </div>
@@ -395,7 +394,7 @@ const HomePage = () => {
 
           <div className="bg-[#233c96] clip-path-4">
             <div className="flex items-center justify-center py-[10vh] md:pt-[20vh] md:pb-12 xl:pt-[26vh] xl:pb-16">
-              <div className="w-full max-w-screen md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto">
+              <div className="w-full max-w-screen md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
                   <div className="w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-white/30 hover:rounded-md hover:backdrop-blur-[60px] hover:bg-opacity-100 hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
@@ -498,7 +497,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="md:absolute z-10 md:translate-x-[-50%] md:left-[50%] md:top-[43%] lg:top-[37%] flex flex-wrap gap-[1vh] lg:gap-[2vh]">
+          <div className="md:absolute z-10 md:translate-x-[-50%] md:left-[50%] md:top-[43%] lg:top-[37%] 2xl:top-[40%] flex flex-wrap gap-[1vh] lg:gap-[2vh]">
             <div className="flex justify-center flex-wrap md:flex-nowrap gap-[1vh] lg:gap-[2vh]">
               <div className="flex justify-center">
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
@@ -537,10 +536,10 @@ const HomePage = () => {
               <div className="flex justify-center">
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#eee]">
                   <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
-                  tax report
+                  tax <br className="hidden md:block"/>  report
                   </h1>
                   <p className=" text-[#182760] pb-5">
-                  Your Perfect Business Consultant
+                  Your Perfect  Business Consultant
                   Thank you for your visit on our website. Please explore...
                   </p>
                 </div>
@@ -552,11 +551,11 @@ const HomePage = () => {
               <div className="flex justify-center">
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760]">
                   <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
-                  accounting
+                  accounting <br className="hidden md:block"/>
                   system
                   </h1>
                   <p className="text-[#eee] pb-5">
-                    Your Perfect Business Consultant
+                    Your Perfect  Business Consultant
                     Thank you for your visit on our website. Please explore...
                   </p>
                 </div>
@@ -571,7 +570,7 @@ const HomePage = () => {
       </section>
 
       <footer>
-        <div className="w-full md:max-w-screen-md xl:max-w-screen-lg mx-auto px-4 py-5">
+        <div className="w-full md:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto px-4 py-5">
           <div>
             <h1 className="text-[30px] text-[#182760] font-['koulen'] my-2">
               Contact Us

@@ -13,7 +13,7 @@ const Navbar = ({home,about,services,client}) => {
   return (
     <>
       <header className="bg-[#ffffff] shadow-md z-[99999] fixed w-full">
-        <div className="w-full px-5 xl:max-w-screen-lg mx-auto py-5 z-50">
+        <div className="w-full px-5 xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto py-5 z-50">
           <div className="flex items-center justify-between z-50">
             <div>
               <img src={imgLogo} alt="logo" width="64" />
