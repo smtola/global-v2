@@ -48,17 +48,17 @@ const Navbar = ({home,about,services,client}) => {
         <div className="menu md:hidden block">
          <ul className="flex justify-center flex-col items-center gap-[4vw] mt-5 text-[#0469FF]">
             <li className="cursor-pointer text-[22px]" onClick={handleRemove}>
-              <NavLink to={"#home"} onClick={()=> scrollToSection(home)}>Home</NavLink></li>
+              <NavLink to={"/"} onClick={()=> scrollToSection(home)}>Home</NavLink></li>
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
-              <NavLink to={"#about-us"} onClick={()=> scrollToSection(about)}>About us</NavLink></li>
+              <NavLink to={"/"} onClick={()=> scrollToSection(about)}>About us</NavLink></li>
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
-              <NavLink to={"#services"} onClick={()=> scrollToSection(services)}>Services</NavLink></li>
+              <NavLink to={"/"} onClick={()=> scrollToSection(services)}>Services</NavLink></li>
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
-              <NavLink to={"#client"} onClick={()=> scrollToSection(client)}>{"Client's Testimonial"}</NavLink></li>
-            <li>
+              <NavLink to={"/"} onClick={()=> scrollToSection(client)}>{"Client's Testimonial"}</NavLink></li>
+            <li onClick={handleRemove}>
               <NavLink className="text-[22px]" to={"/blog"}>Blog</NavLink>
               </li>
-            <li>
+            <li onClick={handleRemove}>
               <NavLink className="text-[22px]" to={"/career"}>Career</NavLink>
               </li>
           </ul>
@@ -68,13 +68,13 @@ const Navbar = ({home,about,services,client}) => {
             <div className="w-full max-w-screen-xl mx-auto ">
               <ul className="flex justify-center items-center gap-[3vw] text-[#eee]">
                 <li className="cursor-pointer font- hover:font-bold active:font-bold">
-                  <NavLink to={"#home"} onClick={()=> scrollToSection(home)}>Home</NavLink></li>
+                  <NavLink to={"/"} onClick={()=> scrollToSection(home)}>Home</NavLink></li>
                 <li className="cursor-pointer font-normal hover:font-bold active:font-bold">
-                  <NavLink to={"#about-us"} onClick={()=> scrollToSection(about)}>About us</NavLink></li>
+                  <NavLink to={"/"} onClick={()=> scrollToSection(about)}>About us</NavLink></li>
                 <li className="cursor-pointer font-normal hover:font-bold active:font-bold">
-                  <NavLink to={"#services"} onClick={()=> scrollToSection(services)}>Services</NavLink></li>
+                  <NavLink to={"/"} onClick={()=> scrollToSection(services)}>Services</NavLink></li>
                 <li className="cursor-pointer font-normal hover:font-bold active:font-bold">
-                  <NavLink to={"#client"} onClick={()=> scrollToSection(client)}>{"Client's Testimonial"}</NavLink></li>
+                  <NavLink to={"/"} onClick={()=> scrollToSection(client)}>{"Client's Testimonial"}</NavLink></li>
                 <li>
                   <NavLink className="font-normal hover:font-bold active:font-bold" to={"/blog"}>Blog</NavLink>
                   </li>
