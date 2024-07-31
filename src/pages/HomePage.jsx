@@ -3,24 +3,28 @@ import {useRef} from "react";
 import "./HomePage.css";
 import imgBanner from "../assets/images/banner/cover.jpg";
 import imgFounder from "../assets/images/founder.png";
-import iconVission from "../assets/images/icon/vission.png";
+import iconVission from "../assets/images/icon/vision.png";
 import iconMission from "../assets/images/icon/mission.png";
 import iconTrande from "../assets/images/icon/trande.png";
 import iconAccount from "../assets/images/icon/account.png";
 import iconTax from "../assets/images/icon/tax.png";
+import founderIcon from "../assets/images/icon-founder.png";
+import accountingIcon from "../assets/images/accounting.png";
+import partnerIcon from "../assets/images/partner.png";
 
 const HomePage = () => {
   const home = useRef(null);
   const about_us = useRef(null);
   const services = useRef(null);
   const client = useRef(null);
+  const iconsTick = <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -7 24 24" width="28" fill="currentColor"><path d="M5.486 9.73a.997.997 0 0 1-.707-.292L.537 5.195A1 1 0 1 1 1.95 3.78l3.535 3.535L11.85.952a1 1 0 0 1 1.415 1.414L6.193 9.438a.997.997 0 0 1-.707.292z"></path></svg>;
   return (
     <>
       <Navbar home={home} about={about_us} services={services} client={client}/>
       <section ref={home}>
         <div className="relative">
           <img src={imgBanner} className="w-full h-[44vh] md:h-[50vh] xl:h-screen clip-path" />
-          <div className="w-full absolute left-[7%] md:left-[26%] xl:left-[50%] top-[88%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
+          <div className="w-full absolute left-[7%] md:left-[26%] xl:left-[50%] top-[97%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
             <div className="w-full h-[56vh] ps-[24vh]">
               <h1 className="text-[48px] md:text-[100px] lg:text-[120px] xl:text-[144px] font-['koulen'] text-[#39B6FF] font-normal h-[48px] md:h-[100px] lg:h-[120px] xl:h-[144px]">
                 Global
@@ -41,8 +45,8 @@ const HomePage = () => {
       </section>
 
       <section ref={about_us}>
-        <div className="w-full max-w-screen-lg mx-auto bg-[#ffffff]">
-          <div className="text-center font-['inter'] text-[#0b298a] p-5 md:p-12">
+        <div className="w-ful bg-[#ffffff]">
+          <div className="w-full max-w-screen-lg mx-auto text-center font-['inter'] text-[#050076] p-5 md:p-12">
             <h1 className="text-[24px] text-center md:text-[44px] font-['koulen'] font-medium">
               Global Consultancy Co.,ltd
             </h1>
@@ -61,7 +65,7 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="bg-[#0b298a] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
+          <div className="bg-[#0469FF] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
             <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl w-full mx-auto text-[#eee]">
               <div className="flex justify-center gap-5 pb-4">
                 <div>
@@ -94,14 +98,16 @@ const HomePage = () => {
                 </div>
               </div>
 
-              <h1 className="text-start text-[30px] md:text-[54px] font-['koulen'] font-medium my-12 underline">
+              <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium mt-5">
                 Core Values
               </h1>
               <div className="flex justify-center flex-wrap md:flex-nowrap gap-[4vw] max-w-screen-lg 2xl:max-w-screen-xl mx-auto my-5">
                 <div>
                   <div className="flex justify-center gap-2 font-['inter'] py-3">
                     <div>
-                      <span>.</span>
+                      <span>
+                        {iconsTick}
+                      </span>
                     </div>
                     <div>
                       <h1 className="font-bold text-[20px]">Integrity</h1>
@@ -114,14 +120,12 @@ const HomePage = () => {
                   </div>
                   <div className="flex justify-center gap-2 font-['inter'] py-3">
                     <div>
-                      <span>.</span>
+                      <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">Integrity</h1>
+                      <h1 className="font-bold text-[20px]">Excellence</h1>
                       <p className="md:text-[20px]">
-                        At Global Consultancy Co.,Ltd. we believe in the value
-                        of relationships. We view every client relationship like
-                        a partnership, and truly believe
+                      We are committed to excellence in every aspect of our work and continuously striving to deliver sustainable results.
                       </p>
                     </div>
                   </div>
@@ -130,40 +134,34 @@ const HomePage = () => {
                 <div>
                   <div className="flex justify-center gap-2 font-['inter'] py-3">
                     <div>
-                      <span>.</span>
+                      <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">Integrity</h1>
+                      <h1 className="font-bold text-[20px]">Customer satisfaction</h1>
                       <p className="md:text-[20px]">
-                        At Global Consultancy Co.,Ltd. we believe in the value
-                        of relationships. We view every client relationship like
-                        a partnership, and truly believe
+                        We prioritize our clients and understand their needs to exceed their expectation.
                       </p>
                     </div>
                   </div>
                   <div className="flex justify-center gap-2 font-['inter'] py-3">
                     <div>
-                      <span>.</span>
+                      <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">Integrity</h1>
+                      <h1 className="font-bold text-[20px]">Innovation</h1>
                       <p className="md:text-[20px]">
-                        At Global Consultancy Co.,Ltd. we believe in the value
-                        of relationships. We view every client relationship like
-                        a partnership, and truly believe
+                      We innovate a culture where technologies is widely open to address global complex.
                       </p>
                     </div>
                   </div>
                   <div className="flex justify-center gap-2 font-['inter'] py-3">
                     <div>
-                      <span>.</span>
+                      <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">Integrity</h1>
+                      <h1 className="font-bold text-[20px]">Collaboration</h1>
                       <p className="md:text-[20px]">
-                        At Global Consultancy Co.,Ltd. we believe in the value
-                        of relationships. We view every client relationship like
-                        a partnership, and truly believe
+                      We believe in the power of collaboration, working closely with clients and partners to achieved share goals.
                       </p>
                     </div>
                   </div>
@@ -177,15 +175,15 @@ const HomePage = () => {
               <div>
                 <img src={imgFounder} className="w-[190vh] md:w-[172vh] lg:w-[100vh] xl:w-[172vh]" />
               </div>
-              <div className="text-[#0b298a] mt-10 md:mt-20">
-                <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] font-['koulen'] text-[#233C96] font-normal md:h-[40px]">
+              <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20">
+                <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal md:h-[40px]">
                   Sophanha Khoum
                 </h1>
-                <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] font-['koulen'] text-[#233C96] font-normal h-[5px] md:h-[40px]">
+                <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal h-[5px] md:h-[40px]">
                   Founder | CEO
                 </h1>
                 <br />
-                <p className="text-[9px] font-['inter'] md:text-[20px]">
+                <p className="text-[9px] md:text-[20px]">
                   Mr.Khoum Sopanha achieved a Master degree of Finance from
                   National University of Management. He further held a BA from
                   institute of Foreign Languages and IT degree from Royal
@@ -193,7 +191,7 @@ const HomePage = () => {
                 </p>
 
                 <details className="w-30 text-center md:w-32 my-2 cursor-pointer">
-                  <summary className="bg-blue-900 px-3 py-2 text-[12px] md:text-[15px] text-[#eee] rounded-xl select-none">
+                  <summary className="bg-gradient-to-r from-[#C2F6FF] to-[#05A4FE] px-3 py-2 text-[12px] md:text-[15px] text-[#182760] rounded-xl select-none">
                     Read More
                   </summary>
                   <p className="text-start w-full left-[54%] md:left-[53%] lg:left-[68%] xl:left-[66%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-[#7978789a] backdrop-blur-[100px] bg-opacity-100 my-3 absolute rounded-2xl text-[#eee] transition delay-1000 duration-2000 z-50">
@@ -236,14 +234,7 @@ const HomePage = () => {
             <div className="flex justify-center items-center gap-[10vw]">
               <div>
                 <div className="flex gap-[2vw] items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="-5 -2 24 24"
-                    className="border-2 p-2 rounded-full w-14"
-                    fill="#ffffff"
-                  >
-                    <path d="M3.534 10.07a1 1 0 1 1 .733 1.86A3.579 3.579 0 0 0 2 15.26V17a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1.647a3.658 3.658 0 0 0-2.356-3.419 1 1 0 1 1 .712-1.868A5.658 5.658 0 0 1 14 15.353V17a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3v-1.74a5.579 5.579 0 0 1 3.534-5.19zM7 0a4 4 0 0 1 4 4v2a4 4 0 1 1-8 0V4a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v2a2 2 0 1 0 4 0V4a2 2 0 0 0-2-2z"></path>
-                  </svg>
+                  <img src={founderIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
                     Founder
                   </h1>
@@ -251,27 +242,13 @@ const HomePage = () => {
               </div>
               <div>
                 <div className="flex gap-[2vw] items-center py-5">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="border-2 p-2 rounded-full w-14"
-                    viewBox="-5 -2 24 24"
-                    fill="#ffffff"
-                  >
-                    <path d="M3.534 10.07a1 1 0 1 1 .733 1.86A3.579 3.579 0 0 0 2 15.26V17a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1.647a3.658 3.658 0 0 0-2.356-3.419 1 1 0 1 1 .712-1.868A5.658 5.658 0 0 1 14 15.353V17a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3v-1.74a5.579 5.579 0 0 1 3.534-5.19zM7 0a4 4 0 0 1 4 4v2a4 4 0 1 1-8 0V4a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v2a2 2 0 1 0 4 0V4a2 2 0 0 0-2-2z"></path>
-                  </svg>
+                <img src={accountingIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
                     Tax & Accounting (6)
                   </h1>
                 </div>
                 <div className="flex gap-[2vw] items-center py-5">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="-2 -1.5 24 24"
-                    className="border-2 p-2 rounded-full w-14"
-                    fill="#ffffff"
-                  >
-                    <path d="M3.534 11.07a1 1 0 1 1 .733 1.86A3.579 3.579 0 0 0 2 16.26V18a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1.647a3.658 3.658 0 0 0-2.356-3.419 1 1 0 1 1 .712-1.868A5.658 5.658 0 0 1 14 16.353V18a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3v-1.74a5.579 5.579 0 0 1 3.534-5.19zM7 1a4 4 0 0 1 4 4v2a4 4 0 1 1-8 0V5a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v2a2 2 0 1 0 4 0V5a2 2 0 0 0-2-2zm9 17a1 1 0 0 1 0-2h1a1 1 0 0 0 1-1v-1.838a3.387 3.387 0 0 0-2.316-3.213 1 1 0 1 1 .632-1.898A5.387 5.387 0 0 1 20 15.162V17a3 3 0 0 1-3 3h-1zM13 2a1 1 0 0 1 0-2 4 4 0 0 1 4 4v2a4 4 0 0 1-4 4 1 1 0 0 1 0-2 2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"></path>
-                  </svg>
+                <img src={partnerIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
                     Partner (5)
                   </h1>
@@ -282,7 +259,7 @@ const HomePage = () => {
 
           <div className="w-full max-w-screen-xl mx-auto my-3 md:my-10">
             <div className="p-5">
-              <h1 className="text-center text-[#233c96] font-['koulen'] text-[24px] md:text-[44px] my-5">
+              <h1 className="text-center text-[#0469FF] font-['koulen'] text-[24px] md:text-[44px] my-5">
                 Business Registration Documents
               </h1>
               <div>
@@ -305,7 +282,7 @@ const HomePage = () => {
 
       <section ref={services}>
         <div className="px-5 pt-24">
-          <h1 className="text-center text-[#233c96] font-['koulen'] text-[44px] py-10">
+          <h1 className="text-center text-[#182760] font-['koulen'] text-[44px] py-10">
             Our Services
           </h1>
           <div className="w-full max-w-screen-xl mx-auto pt-10 relative">
@@ -322,33 +299,33 @@ const HomePage = () => {
           </div>
             {/* background */}
           <div>
-              <div className="p-5 bg-gradient-to-r from-cyan-500 to-blue-500 w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[2.9%] md:left-[16%] md:top-[9%] rotate-[134deg]">
+              <div className="p-5 bg-gradient-to-r from-[#7c29f1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[2.9%] md:left-[16%] md:top-[9%] rotate-[134deg]">
                 <img src={iconTax} className="rotate-[-134deg]" />
               </div>
-              <div className="p-5 bg-gradient-to-r from-cyan-500 to-blue-500 w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[35.5%] md:left-[50%] md:top-[9%] rotate-[134deg]">
+              <div className="p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[35.5%] md:left-[50%] md:top-[9%] rotate-[134deg]">
                 <img src={iconAccount} className="rotate-[-134deg]" />
               </div>
-              <div className="p-5 bg-gradient-to-r from-cyan-500 to-blue-500 w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[70.9%] md:left-[84%] md:top-[9%] rotate-[134deg]">
+              <div className="p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[70.9%] md:left-[84%] md:top-[9%] rotate-[134deg]">
                 <img src={iconTrande} className="rotate-[-134deg]" />
               </div>
           </div>
             {/* content */}
             <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] z-50 ">
-              <div className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 md:p-2 lg:p-6 xl:p-12">
+              <div className="w-full bg-gradient-to-r from-[#7c29f1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
               <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax Solution Services </li>
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax planning strategies</li>
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax reports</li>
                 </ul>
               </div>
-              <div className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 md:p-2 lg:p-6 xl:p-12 shadow-lg">
+              <div className="w-full bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
               <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Accounting System Services </li>
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Financial solutions guidance</li>
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Enhance validity in Tax Submission</li>
                 </ul>
               </div>
-              <div className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 md:p-2 lg:p-6 xl:p-12 shadow-lg">
+              <div className="w-full bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
               <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12 ">
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Training and Development</li>
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
@@ -361,21 +338,21 @@ const HomePage = () => {
 
             <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] absolute top-8">
               <div className="w-full bg-gray-200 md:p-2 lg:p-6 xl:p-12">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                <ul className="text-center text-[#182760] text-[20px] py-20 md:pt-14 xl:p-12">
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax Solution Services </li>
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax planning strategies</li>
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax reports</li>
                 </ul>
               </div>
               <div className="w-full bg-gray-200 md:p-2 lg:p-6 xl:p-12">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                <ul className="text-center text-[#182760] text-[20px] py-20 md:pt-14 xl:p-12">
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Accounting System Services </li>
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Financial solutions guidance</li>
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Enhance validity in Tax Submission</li>
                 </ul>
               </div>
               <div className="w-full bg-gray-200 md:p-2 lg:p-6 xl:p-12">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12 ">
+                <ul className="text-center text-[#182760] text-[20px] py-20 md:pt-14 xl:p-12 ">
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Training and Development</li>
                   <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
                     Financial and accounting knowledge establishment
@@ -388,15 +365,15 @@ const HomePage = () => {
         </div>
 
         <div className="w-full">
-          <h1 className="text-center text-[#233c96] font-['koulen'] text-[44px] pt-5 md:pt-12 xl:pt-9">
+          <h1 className="text-center text-[#203686] font-['koulen'] text-[44px] pt-5 md:pt-12 xl:pt-9">
             Why Us
           </h1>
 
-          <div className="bg-[#233c96] clip-path-4">
+          <div className="bg-[#0469FF] clip-path-4">
             <div className="flex items-center justify-center py-[10vh] md:pt-[20vh] md:pb-12 xl:pt-[26vh] xl:pb-16">
               <div className="w-full max-w-screen md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:rounded-md hover:backdrop-blur-[10px] hover:bg-opacity-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       1
                     </h1>
@@ -406,7 +383,7 @@ const HomePage = () => {
                       certain standards of competency.
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:rounded-md hover:backdrop-blur-[10px] hover:bg-opacity-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       2
                     </h1>
@@ -416,7 +393,7 @@ const HomePage = () => {
                       300 clients.
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:rounded-md hover:backdrop-blur-[10px] hover:bg-opacity-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       3
                     </h1>
@@ -425,7 +402,7 @@ const HomePage = () => {
                       are accessible to clients with quality and expertise.
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:backdrop-blur-[60px] hover:bg-op1city-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       4
                     </h1>
@@ -434,7 +411,7 @@ const HomePage = () => {
                       clients improve their financial efficiency.
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:rounded-md hover:backdrop-blur-[10px] hover:bg-opacity-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       5
                     </h1>
@@ -444,7 +421,7 @@ const HomePage = () => {
                       support during tax audits to ensure compliance.
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:backdrop-blur-[60px] hover:bg-op1city-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       6
                     </h1>
@@ -456,7 +433,7 @@ const HomePage = () => {
                     </p>
                   </div>
                   <div className="hidden lg:block"></div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#79787847] hover:rounded-md hover:backdrop-blur-[10px] hover:bg-opacity-100 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       7
                     </h1>
@@ -487,12 +464,12 @@ const HomePage = () => {
                 </p>
               </div>
               <div className="flex justify-center gap-[4vw] my-10">
-                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200"></div>
-                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 scale-110"></div>
-                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 scale-125"></div>
-                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 scale-125"></div>
-                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 scale-110"></div>
-                <div className="w-10 md:w-16 h-10 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200"></div>
+                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200"></div>
+                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-110"></div>
+                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-125"></div>
+                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-125"></div>
+                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-110"></div>
+                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200"></div>
               </div>
             </div>
           </div>
@@ -519,7 +496,7 @@ const HomePage = () => {
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
                   <img src={imgBanner} className="object w-full h-full"/>
                 </div>
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#eee]">
+                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
                   <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
                   tax planning
                   strategies
@@ -534,7 +511,7 @@ const HomePage = () => {
             
             <div className="flex justify-center gap-[1vh] flex-wrap md:flex-nowrap lg:gap-[2vh]">
               <div className="flex justify-center">
-                <div className=" w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#eee]">
+                <div className=" w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
                   <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
                   tax <br className="hidden md:block"/>  report
                   </h1>
@@ -642,8 +619,8 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="w-full bg-[#182760] p-5">
-          <h1 className="text-[#eee] text-center text-[20px] font-['inter']">
+        <div className="w-full bg-[#0469FF] p-5">
+          <h1 className="text-[#eee] text-center text-[16px] font-['inter']">
             Copyright @ {new Date().getFullYear()}, <b>Global Consultancy</b>
           </h1>
         </div>
