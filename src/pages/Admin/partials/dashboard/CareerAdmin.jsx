@@ -6,7 +6,7 @@ const CareerAdmin = () => {
     {/* Chart built with Chart.js 3 */}
     <div className="grow max-sm:max-h-[128px] xl:max-h-[128px]">
       {/* Change the height attribute to adjust the chart height */}
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                 <tr>

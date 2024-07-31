@@ -2,6 +2,11 @@ import  Navbar  from "./components/Navbar";
 import Footer from "./components/Footer";
 import banner from "../assets/images/banner/cover.jpg";
 import CareerCardd from "./components/CareerCardd";
+import icon_1 from "../assets/images/icon/icon-1-01.png";
+import icon_2 from "../assets/images/icon/icon-1-05.png";
+import icon_3 from "../assets/images/icon/icon-1-03.png";
+import icon_4 from "../assets/images/icon/icon-1-04.png";
+
 const Career = () => {
   const content = [
     {
@@ -41,33 +46,41 @@ const Career = () => {
             <img src={banner} alt="" />
           </div>
         <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
-          <div className="w-full !max-w-lg lg:!max-w-[56rem] mx-auto text-[#233C96]">
+          <div className="w-full !max-w-lg lg:!max-w-screen-xl mx-auto text-[#233C96]">
             <h1 className="!text-[30px] text-center font-['lexend'] font-bold md:!text-[54px]">Life at Global Consultancy</h1>
            
            <div className="grid grid-cols-1 md:grid-cols-2 py-7 gap-10">
-              <div>
-                <div></div>
+              <div className="flex">
+                <div>
+                    <img src={icon_3} alt="" width={300}/>
+                </div>
                 <div>
                   <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Striving for Excellence</h1>
                   <p>Through creativity and innovation, we strive to deliver the highest quality in every work that we do. Our team enjoys taking up challenges that keep them excited every day.</p>
                 </div>
               </div>
-              <div>
-                <div></div>
+              <div className="flex">
+                <div>
+                    <img src={icon_1} alt="" width={364}/>
+                </div>
                 <div>
                   <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Culture of Learning</h1>
                   <p>We encourage our team to explore their potentials to the fullest. We offer continuous learning and opportunities that help them to get outside of their comfort zone and grow each day.</p>
                 </div>
               </div>
-              <div>
-                <div></div>
+              <div className="flex">
+                <div>
+                    <img src={icon_4} alt="" width={364}/>
+                </div>
                 <div>
                   <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Happiness at Work</h1>
                   <p>At KOUPREY, we offer a casual and comfortable working environment for our team, in which they can feel “home” in the office. Our green office space serves as a great place to de-stress (and photo shooting).</p>
                 </div>
               </div>
-              <div>
-                <div></div>
+              <div className="flex">
+                <div>
+                    <img src={icon_2} alt="" width={134}/>
+                </div>
                 <div>
                   <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Enjoy Freebies</h1>
                   <p>Come and join us for free coffee and snacks!.</p>
@@ -76,7 +89,7 @@ const Career = () => {
            </div>
           </div>
 
-          <div className="py-5 w-full max-w-screen-lg mx-auto">
+          <div className="py-5 w-full max-w-screen-xl mx-auto">
             <h1 className="!text-[30px] text-[#233C96] text-center font-['lexend'] font-bold md:!text-[54px]">Open Position</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] py-7">
               {content.map(({img,title,dics})=>
