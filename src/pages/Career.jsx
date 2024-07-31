@@ -6,7 +6,7 @@ import icon_1 from "../assets/images/icon/icon-1-01.png";
 import icon_2 from "../assets/images/icon/icon-1-05.png";
 import icon_3 from "../assets/images/icon/icon-1-03.png";
 import icon_4 from "../assets/images/icon/icon-1-04.png";
-
+import Scroll from "../Scroll";
 const Career = () => {
   const content = [
     {
@@ -27,6 +27,7 @@ const Career = () => {
   ]
   return (
     <>
+      <Scroll/>
        <Navbar />
         <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
           <div className="w-full !max-w-lg lg:!max-w-[56rem] text-[#233C96]">

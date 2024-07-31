@@ -4,10 +4,12 @@ import DashboardCard01 from "./partials/dashboard/BlogAdmin";
 import Sidebar from "./partials/Sidebar";
 import Header from "./partials/Header";
 import { Outlet } from "react-router-dom";
+import Scroll from "../../Scroll";
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
+    <Scroll/>
       <div className="flex h-screen overflow-hidden">
         {/* Sidebar */}
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />

@@ -1,6 +1,7 @@
 import { Typography, Card, CardBody } from "@material-tailwind/react";
 import  Navbar  from "./components/Navbar";
 import Footer from "./components/Footer";
+import Scroll from "../Scroll";
 function ContentCard({ img, title, desc }) {
   return (
     <Card
@@ -64,6 +65,7 @@ const contents = [
 const Blog = () => {
   return (
     <>
+      <Scroll/>
       <Navbar />
       <section className="container mx-auto px-10 py-24 lg:py-44 transition-all duration-500">
       <Typography
