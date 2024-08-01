@@ -68,7 +68,7 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="bg-[#0469FF] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
+          <div className="bg-[#314bb2] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
             <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl w-full mx-auto text-[#eee]">
               <div className="flex justify-center gap-5 pb-4">
                 <div>
@@ -233,7 +233,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="bg-blue-600 px-5 pt-3 pb-12 md:pt-24 md:pb-32 clip-path-3 z-10">
+          <div className="bg-[#314bb2] px-5 pt-3 pb-12 md:pt-24 md:pb-32 clip-path-3 z-10">
             <div className="flex justify-center items-center gap-[10vw]">
               <div>
                 <div className="flex gap-[2vw] items-center justify-center">
@@ -262,7 +262,7 @@ const HomePage = () => {
 
           <div className="w-full max-w-screen-xl mx-auto my-3 md:my-10">
             <div className="p-5">
-              <h1 className="text-center text-[#0469FF] font-['koulen'] text-[24px] md:text-[44px] my-5">
+              <h1 className="text-center text-[#314bb2] font-['koulen'] text-[24px] md:text-[44px] my-5">
                 Business Registration Documents
               </h1>
               <div>
@@ -372,7 +372,7 @@ const HomePage = () => {
             Why Us
           </h1>
 
-          <div className="bg-[#0469FF] clip-path-4">
+          <div className="bg-[#314bb2] clip-path-4">
             <div className="flex items-center justify-center py-[10vh] md:pt-[20vh] md:pb-12 xl:pt-[26vh] xl:pb-16">
               <div className="w-full max-w-screen md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
@@ -545,7 +545,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className="w-full bg-[#0469FF] md:pb-[30vh] xl:pb-[50vh] clip-path-5"></div>
+          <div className="w-full bg-[#314bb2] md:pb-[30vh] xl:pb-[50vh] clip-path-5"></div>
         </div>
       </section>
 

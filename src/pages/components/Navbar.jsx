@@ -64,7 +64,7 @@ const Navbar = ({home,about,services,client}) => {
           </ul>
         </div>
         <div className="relative z-[9999] ">
-          <nav className="hidden md:block bg-[#0469FF] w-full sm:max-w-[550px] md:max-w-screen-sm xl:max-w-screen-md mx-auto p-5 absolute translate-x-[-50%] left-[50%] -top-4">
+          <nav className="hidden md:block bg-[#314bb2] w-full sm:max-w-[550px] md:max-w-screen-sm xl:max-w-screen-md mx-auto p-5 absolute translate-x-[-50%] left-[50%] -top-4">
             <div className="w-full max-w-screen-xl mx-auto ">
               <ul className="flex justify-center items-center gap-[3vw] text-[#eee]">
                 <li className="cursor-pointer font- hover:font-bold active:font-bold">
