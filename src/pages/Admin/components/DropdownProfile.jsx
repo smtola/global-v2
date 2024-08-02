@@ -1,17 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import Transition from './Transition';
-
 import UserAvatar from '../../../assets/images/founder.png';
-
 function DropdownProfile({
-  align
+  align,
+  fullName
 }) {
+  let navigate = useNavigate();
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
+
+  const handleLogout = ()=>{
+    sessionStorage.removeItem('token');
+    navigate('/login');
+  }
 
   // close on click outside
   useEffect(() => {
@@ -45,7 +50,7 @@ function DropdownProfile({
       >
         <img className="w-8 h-8 rounded-full" src={UserAvatar} width="32" height="32" alt="User" />
         <div className="flex items-center truncate">
-          <span className="truncate ml-2 text-sm font-medium text-gray-600  group-hover:text-gray-800">Username</span>
+          <span className="truncate ml-2 text-sm font-medium text-gray-600  group-hover:text-gray-800">{fullName.user.user_metadata.full_name}</span>
           <svg className="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 " viewBox="0 0 12 12">
             <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
           </svg>
@@ -68,15 +73,21 @@ function DropdownProfile({
           onBlur={() => setDropdownOpen(false)}
         >
           <div className="pt-0.5 pb-2 px-3 mb-1 border-b border-gray-200 ">
-            <div className="font-medium text-gray-800 ">Acme Inc.</div>
-            <div className="text-xs text-gray-500 italic">Administrator</div>
+            <h1 className="text-xs text-gray-500 italic uppercase">{fullName.user.role}</h1>
           </div>
           <ul>
             <li>
               <Link
                 className="font-medium text-sm text-[#233C96] hover:text-[#30448b]flex items-center py-1 px-3"
-                to="/login"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
+                 to="profile"
+              >
+                Profile
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="font-medium text-sm text-[#233C96] hover:text-[#30448b]flex items-center py-1 px-3"
+                onClick={handleLogout}
               >
                 Sign Out
               </Link>

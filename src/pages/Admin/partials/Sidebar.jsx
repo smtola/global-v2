@@ -4,7 +4,6 @@ import { NavLink, useLocation } from "react-router-dom";
 const Sidebar = ({
     sidebarOpen,
     setSidebarOpen,
-    variant = 'default',
   }) => {
     const location = useLocation();
     const { pathname } = location;
@@ -127,28 +126,6 @@ const Sidebar = ({
                   <span className="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                     Career
                   </span>
-                </div>
-              </NavLink>
-            </li>
-            {/* user */}
-            <li className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] ${pathname.includes("user") && "from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]"}`}>
-              <NavLink
-                end
-                to="user"
-                className={`block text-[#000099] truncate transition duration-150 ${
-                  pathname.includes("user") ? "" : "hover:text-[#000099]"
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <div className="grow flex items-center">
-                    <svg className={`shrink-0 fill-current ${pathname.includes('messages') ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'}`} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                      <path d="M13.95.879a3 3 0 0 0-4.243 0L1.293 9.293a1 1 0 0 0-.274.51l-1 5a1 1 0 0 0 1.177 1.177l5-1a1 1 0 0 0 .511-.273l8.414-8.414a3 3 0 0 0 0-4.242L13.95.879ZM11.12 2.293a1 1 0 0 1 1.414 0l1.172 1.172a1 1 0 0 1 0 1.414l-8.2 8.2-3.232.646.646-3.232 8.2-8.2Z" />
-                      <path d="M10 14a1 1 0 1 0 0 2h5a1 1 0 1 0 0-2h-5Z" />
-                    </svg>
-                    <span className="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      User
-                    </span>
-                  </div>
                 </div>
               </NavLink>
             </li>

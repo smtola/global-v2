@@ -3,9 +3,9 @@ import {supabase} from '../../../../config/db';
 const BlogAdmin = () => {
 const [title, setTittle] = useState('');
 const [description, setDescription] = useState('');
-const [titleEdit, setTittleEdit] = useState('');
-const [descriptionEdit, setDescriptionEdit] = useState('');
-const [imageShow, setImageShow] = useState('');
+const [file, setFile] = useState();
+const [fileDefault, setFileDefault] = useState([]);
+const [image, setImage] = useState('');
 const [imageFile, setImageFile] = useState(null);
 const [uploading, setUploading] = useState(false);
 const [blogId, setBlogId] = useState('');
@@ -28,10 +28,30 @@ const [showModalEdit, setShowModalEdit] = useState(false);
           .from('blogs') 
           .select('*');
 
+      const dataWithUrls = await Promise.all(
+        tableData.map(async (item) => {
+          if (item.images) {
+            // Generate public URL for the image
+            const { data:img_url, error: urlError } = supabase
+              .storage
+              .from('images') // Replace with your storage bucket name
+              .getPublicUrl(`blogs/${item.images}`); // item.image is the file path
+
+            if (urlError) {
+              throw urlError;
+            }
+
+            return { ...item, images: img_url.publicUrl }; // Append public URL to item
+          }
+          return item;
+        })
+      );
+
       if (tableError) {
           throw tableError;
       }
-      setData(tableData);
+      setFileDefault(tableData);
+      setData(dataWithUrls);
       } catch (err) {
       setError(err.message);
       } finally {
@@ -41,7 +61,9 @@ const [showModalEdit, setShowModalEdit] = useState(false);
     // file change
     const handleFileChange = (e) => {
         setImageFile(e.target.files[0]);
-      };
+        setFile(URL.createObjectURL(e.target.files[0]));
+    };
+
     // create 
     const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,8 +78,8 @@ const [showModalEdit, setShowModalEdit] = useState(false);
     const fileName = `${Date.now()}_${imageFile.name}`;
     const { error: uploadError } = await supabase
         .storage
-        .from('blogs_images') // Your Supabase Storage bucket name
-        .upload(fileName, imageFile);
+        .from('images') // Your Supabase Storage bucket name
+        .upload(`blogs/${fileName}`, imageFile);
 
     if (uploadError) {
         console.error('Error uploading image:', uploadError.message);
@@ -65,22 +87,10 @@ const [showModalEdit, setShowModalEdit] = useState(false);
         return;
     }
 
-    // Get the public URL of the uploaded image÷
-        const { data:img_url, error: urlError } = supabase
-        .storage
-        .from('blogs_images')
-        .getPublicUrl(fileName,60);
-
-        if (urlError) {
-        console.error('Error getting image URL:', urlError.message);
-        setUploading(false);
-        return { publicURL, error: urlError.message };
-        }
-
     // Insert product details into Supabase database
     const { error: insertError } = await supabase
         .from('blogs')
-        .insert([{ title, description, images: img_url.publicUrl }]);
+        .insert([{ title, description, images: fileName }]);
 
     if (insertError) {
         console.error('Error inserting product:', insertError.message);
@@ -124,8 +134,8 @@ const [showModalEdit, setShowModalEdit] = useState(false);
         // Delete the image file from Supabase Storage
         const { error: deleteFileError } = await supabase
         .storage
-        .from('blogs_images') // Your bucket name
-        .remove([imageFileName]);
+        .from('images') // Your bucket name
+        .remove([`blogs/${imageFileName}`]);
 
         if (deleteFileError) {
         setError(`Error deleting file: ${deleteFileError.message}`);
@@ -157,18 +167,14 @@ const [showModalEdit, setShowModalEdit] = useState(false);
         const fileName = `${Date.now()}_${file.name}`;
         const { error: uploadError } = await supabase
             .storage
-            .from('blogs_images') // Your Supabase Storage bucket name
-            .upload(fileName, file);
+            .from('images') // Your Supabase Storage bucket name
+            .upload(`blogs/${fileName}`, file);
 
         if (uploadError) {
         throw uploadError;
         }
 
-        const { data:img_url } = supabase.storage
-        .from('blogs_images')
-        .getPublicUrl(fileName);
-
-        return img_url.publicUrl;
+        return fileName;
     };
 
     const editId = async (id) =>{
@@ -176,9 +182,14 @@ const [showModalEdit, setShowModalEdit] = useState(false);
       data.map((blog) => {
         if (blog.id === id) {
             setBlogId(blog.id);
-            setTittleEdit(blog.title);
-            setDescriptionEdit(blog.description);
-            setImageShow(blog.images);
+            setTittle(blog.title);
+            setDescription(blog.description);
+            setImageFile(blog.images);
+        }
+      })
+      fileDefault.map((file) => {
+        if (file.id === id) {
+          setImage(file.images);
         }
       })
     }
@@ -207,13 +218,39 @@ const [showModalEdit, setShowModalEdit] = useState(false);
         }
 
         setUploading(true);
+        const { data: blog, error: fetchError } = await supabase
+        .from('blogs')
+        .select('images')
+        .eq('id', blogId)
+        .single();
 
+        if (fetchError) {
+        setError(`Error fetching blog: ${fetchError.message}`);
+        setUploading(false);
+        return;
+        }
+
+        if (!blog) {
+        setError('Blog not found');
+        setUploading(false);
+        return;
+        }
+
+        const imageUrls = blog.images;
+        const imageFileName = imageUrls.substring(imageUrls.lastIndexOf('/') + 1);
+
+        // Delete the image file from Supabase Storage
+        await supabase
+        .storage
+        .from('images') // Your bucket name
+        .remove([`blogs/${imageFileName}`]);
         try {
         let imageUrl = null;
         if (imageFile) {
             imageUrl = await uploadImage(imageFile);
+        }else{
+            imageUrl = await uploadImage(image);
         }
-
         await updateBlog(imageUrl);
 
         alert('Blog updated successfully!');
@@ -334,7 +371,6 @@ const [showModalEdit, setShowModalEdit] = useState(false);
                                       type="text" 
                                       className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "  
                                       placeholder="Title"
-                                      defaultValue={title}
                                       onChange={(e) => setTittle(e.target.value)}
                                       required
                                     />
@@ -354,7 +390,6 @@ const [showModalEdit, setShowModalEdit] = useState(false);
                                       className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "  
                                       placeholder="Description"
                                       rows="1"
-                                      defaultValue={description}
                                       onChange={(e) => setDescription(e.target.value)}
                                       required
                                     />
@@ -437,8 +472,8 @@ const [showModalEdit, setShowModalEdit] = useState(false);
                                       type="text" 
                                       className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "  
                                       placeholder="Title"
-                                      defaultValue={titleEdit}
-                                      onChange={(e) => setTittleEdit(e.target.value)}
+                                      defaultValue={title}
+                                      onChange={(e) => setTittle(e.target.value)}
                                       required
                                     />
                                 </div>
@@ -457,8 +492,8 @@ const [showModalEdit, setShowModalEdit] = useState(false);
                                       className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "  
                                       placeholder="Description"
                                       rows="1"
-                                      defaultValue={descriptionEdit}
-                                      onChange={(e) => setDescriptionEdit(e.target.value)}
+                                      defaultValue={description}
+                                      onChange={(e) => setDescription(e.target.value)}
                                       required
                                     />
                                 </div>
@@ -467,7 +502,7 @@ const [showModalEdit, setShowModalEdit] = useState(false);
                               <div className='my-2'>
                                 <label className="block mb-2 text-sm font-medium text-gray-400">Image</label>
                                 <div className="flex items-center justify-center w-full">
-                                  <img src={imageShow} className='w-full h-36 object-contain'/>
+                                  <img src={file || imageFile} className='w-full h-36 object-contain'/>
                                 </div>
                                 <div className="flex items-center justify-center w-full">
                                     <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100">
@@ -481,7 +516,8 @@ const [showModalEdit, setShowModalEdit] = useState(false);
                                           id="dropzone-file" 
                                           type="file" 
                                           className="hidden" 
-                                          onChange={(e) => setImageFile(e.target.files[0])}
+                                          accept="image/*"
+                                          onChange={handleFileChange}
                                           required
                                         />
                                     </label>

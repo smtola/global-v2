@@ -1,6 +1,7 @@
 import UserMenu from "../components/DropdownProfile";
 const Header = ({  sidebarOpen,
   setSidebarOpen,
+  userName
 }) => {
   
   return (
@@ -31,7 +32,7 @@ const Header = ({  sidebarOpen,
         {/* Header: Right side */}
         <div className="flex items-center space-x-3">
           <hr className="w-px h-6 bg-gray-200 dark:bg-gray-700/60 border-none" />
-          <UserMenu align="right" />
+          <UserMenu fullName={userName} align="right" />
 
         </div>
 
