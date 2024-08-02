@@ -2,6 +2,8 @@ import { Typography, Card, CardBody } from "@material-tailwind/react";
 import  Navbar  from "./components/Navbar";
 import Footer from "./components/Footer";
 import Scroll from "../Scroll";
+import {supabase} from '../config/db';
+import { useState,useEffect } from "react";
 function ContentCard({ img, title, desc }) {
   return (
     <Card
@@ -30,44 +32,44 @@ function ContentCard({ img, title, desc }) {
   );
 }
 
-const contents = [
-  {
-    img: "https://www.material-tailwind.com/image/blog-11.jpeg",
-    title: "Search and Discovery",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-  },
-  {
-    img: "https://www.material-tailwind.com/image/blog-10.jpeg",
-    title: "Last visits in US",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-  },
-  {
-    img: "https://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-blog2.jpg",
-    title: "Grow in a beautiful area",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-  },
-  {
-    img: "https://www.material-tailwind.com/image/blog-11.jpeg",
-    title: "Search and Discovery",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-  },
-  {
-    img: "https://www.material-tailwind.com/image/blog-10.jpeg",
-    title: "Last visits in US",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-  },
-  {
-    img: "https://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-blog2.jpg",
-    title: "Grow in a beautiful area",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-  },
-];
 const Blog = () => {
+  const [data, setData] = useState([]);
+  useEffect(()=>{
+    fectData();
+  },[]);
+
+  const fectData = async ()=>{
+    const { data: blogData } = await supabase
+     .from('blogs')
+     .select('*')
+     .order('title', { ascending: false });
+
+     const dataWithUrls = await Promise.all(
+        blogData.map(async (item) => {
+        if (item.images) {
+          // Generate public URL for the image
+          const { data:img_url, error: urlError } = supabase
+            .storage
+            .from('images') // Replace with your storage bucket name
+            .getPublicUrl(`blogs/${item.images}`); // item.image is the file path
+
+          if (urlError) {
+            throw urlError;
+          }
+
+          return { ...item, images: img_url.publicUrl }; // Append public URL to item
+        }
+        return item;
+      })
+    );
+    setData(dataWithUrls);
+  }
+
   return (
     <>
       <Scroll/>
       <Navbar />
-      <section className="container mx-auto px-10 py-24 lg:py-44 transition-all duration-500">
+      <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
       <Typography
         className="!text-2xl !font-['lexend'] text-[#233C96] !font-bold !leading-snug lg:!text-3xl"
       >
@@ -82,8 +84,8 @@ const Blog = () => {
       </Typography>
 
       <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-3">
-        {contents.map(({ img, title, desc }) => (
-          <ContentCard key={title} img={img} title={title} desc={desc} />
+        {data.map((item,index) => (
+          <ContentCard key={index} img={item.images} title={item.title} desc={item.description} />
         ))}
       </div>
       </section>

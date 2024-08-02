@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider,Navigate } from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 
@@ -13,7 +13,6 @@ import Login from "./pages/Admin/LoginPage";
 
 function App() {
   const [token,setToken] = useState(false);
-
   if(token) {
     sessionStorage.setItem('token', JSON.stringify(token));
   }
@@ -40,19 +39,19 @@ function App() {
     },
     { 
       path: "/dashboard",
-      element:token? <Dashboard token={token}/> :"",
+      element:token? <Dashboard token={token}/> : <Navigate to='/login'/>,
       children: [
         {
           index: true,
-          element:token? <BlogAdmin /> : "",
+          element:token? <BlogAdmin /> : <Navigate to='/login'/>,
         },
         {
           path: "profile",
-          element:token? <User /> : "",
+          element:token? <User /> : <Navigate to='/login'/>,
         },
         {
           path: "career",
-          element:token? <Career_2 /> : "",
+          element:token? <Career_2 /> : <Navigate to='/login'/>,
         },
       ],
     },

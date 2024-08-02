@@ -7,24 +7,40 @@ import icon_2 from "../assets/images/icon/icon-1-05.png";
 import icon_3 from "../assets/images/icon/icon-1-03.png";
 import icon_4 from "../assets/images/icon/icon-1-04.png";
 import Scroll from "../Scroll";
+import {supabase} from '../config/db';
+import { useState,useEffect } from "react";
 const Career = () => {
-  const content = [
-    {
-      img:banner,
-      title: "Accounting",
-      dics: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    },
-    {
-      img:banner,
-      title: "Supervisor",
-      dics: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    },
-    {
-      img:banner,
-      title: "Management",
-      dics: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    },
-  ]
+  const [data, setData] = useState([]);
+  useEffect(()=>{
+    fectData();
+  },[]);
+
+  const fectData = async ()=>{
+    const { data: blogData } = await supabase
+     .from('careers')
+     .select('*')
+     .order('title', { ascending: false });
+
+     const dataWithUrls = await Promise.all(
+        blogData.map(async (item) => {
+        if (item.images) {
+          // Generate public URL for the image
+          const { data:img_url, error: urlError } = supabase
+            .storage
+            .from('images') // Replace with your storage bucket name
+            .getPublicUrl(`careers/${item.images}`); // item.image is the file path
+
+          if (urlError) {
+            throw urlError;
+          }
+
+          return { ...item, images: img_url.publicUrl }; // Append public URL to item
+        }
+        return item;
+      })
+    );
+    setData(dataWithUrls);
+  }
   return (
     <>
       <Scroll/>
@@ -93,9 +109,9 @@ const Career = () => {
           <div className="py-5 w-full max-w-screen-xl mx-auto">
             <h1 className="!text-[30px] text-[#233C96] text-center font-['lexend'] font-bold md:!text-[54px]">Open Position</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] py-7">
-              {content.map(({img,title,dics})=>
+              {data.map((item)=>
                 ( 
-                  <CareerCardd img={img} title={title} dics={dics}/>
+                  <CareerCardd img={item.images} title={item.title} dics={item.description}/>
                 ))}
             </div>
           </div>

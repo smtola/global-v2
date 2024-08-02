@@ -32,11 +32,11 @@ const LoginPage = ({setToken}) => {
 
   return (
     <>
-      <div className='container mx-auto flex flex-col justify-center items-center min-h-[90vh] p-5'>
+      <div className='container mx-auto flex flex-col justify-center items-center min-h-[50vh] lg:min-h-[90vh] p-5'>
           <div>
-            <img src="/logo.jpg" width="280" className='mx-auto'/>
+            <img src="/logo.jpg" className='mx-auto w-44 md:w-52'/>
           </div>
-          <div className='flex flex-wrap md:flex-nowrap justify-center items-center w-full max-w-xl max-h-xl shadow-md rounded-lg bg-[#eee] p-0 m-0'>
+          <div className='flex flex-wrap md:flex-nowrap justify-center items-center w-full max-w-sm lg:max-w-xl lg:max-h-xl shadow-md rounded-lg bg-[#eee] p-0 m-0'>
             <div className='w-full'>
               <img src={imgLogin} className='w-[100%] object-contain mx-auto' />
             </div>
