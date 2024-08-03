@@ -55,13 +55,13 @@ const Navbar = ({home,about,services,client}) => {
         <div className="menu md:hidden block">
          <ul className="flex justify-center flex-col items-center gap-[4vw] mt-5 text-[#0469FF]">
             <li className="cursor-pointer text-[22px]" onClick={handleRemove}>
-              <NavLink to={"/home"}>{t('home')}</NavLink></li>
+              <NavLink to={"/#home"}>{t('home')}</NavLink></li>
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
-              <NavLink to={"/home"}>{t('about_us')}</NavLink></li>
+              <NavLink to={"/#about_us"}>{t('about_us')}</NavLink></li>
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
-              <NavLink to={"/home"}>{t('services')}</NavLink></li>
+              <NavLink to={"/#services"}>{t('services')}</NavLink></li>
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
-              <NavLink to={"/home"}>{t('client')}</NavLink></li>
+              <NavLink to={"/#client"}>{t('client')}</NavLink></li>
             <li onClick={handleRemove}>
               <NavLink className="text-[22px]" to={"/blog"}>{t('blog')}</NavLink>
               </li>
