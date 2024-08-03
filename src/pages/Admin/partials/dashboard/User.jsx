@@ -1,7 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import {supabase} from '../../../../config/db';
+import { useNavigate } from 'react-router-dom';
+const User = ({token}) => {
+    const navigate = useNavigate();
 
-const User = () => {
+    useEffect(() => {
+      if (!token) {
+        navigate('/login');
+      }
+    }, [token, navigate]);
+  
+    if (!token) {
+      return null; // Render nothing or a loading spinner while redirecting
+    }
   const [showModal, setShowModal] = useState(false);
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [formData, setFormData] = useState({

@@ -13,6 +13,7 @@ import iconTax from "../assets/images/icon/tax.png";
 import founderIcon from "../assets/images/icon-founder.png";
 import accountingIcon from "../assets/images/accounting.png";
 import partnerIcon from "../assets/images/partner.png";
+import { useTranslation } from 'react-i18next';
 
 const HomePage = () => {
   const home = useRef(null);
@@ -20,6 +21,7 @@ const HomePage = () => {
   const services = useRef(null);
   const client = useRef(null);
   const iconsTick = <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -7 24 24" width="28" fill="currentColor"><path d="M5.486 9.73a.997.997 0 0 1-.707-.292L.537 5.195A1 1 0 1 1 1.95 3.78l3.535 3.535L11.85.952a1 1 0 0 1 1.415 1.414L6.193 9.438a.997.997 0 0 1-.707.292z"></path></svg>;
+  const {t} = useTranslation();
   return (
     <>
       <Scroll />
@@ -29,18 +31,17 @@ const HomePage = () => {
           <img src={imgBanner} className="w-full h-[44vh] md:h-[50vh] xl:h-screen clip-path" />
           <div className="w-full absolute left-[7%] md:left-[26%] xl:left-[50%] top-[97%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
             <div className="w-full h-[56vh] ps-[24vh]">
-              <h1 className="text-[48px] md:text-[100px] lg:text-[120px] xl:text-[144px] font-['koulen'] text-[#39B6FF] font-normal h-[48px] md:h-[100px] lg:h-[120px] xl:h-[144px]">
-                Global
+              <h1 className="text-[48px] md:text-[100px] lg:text-[120px] xl:text-[144px] 2xl:text-[164px] font-['koulen'] text-[#39B6FF] font-normal h-[48px] md:h-[100px] lg:h-[120px] xl:h-[144px] 2xl:h-[164px]">
+                {t('welcome_1')}
               </h1>
-              <h1 className="text-[26px] md:text-[53px] lg:text-[65px] xl:text-[77px] font-['koulen'] text-[#233C96] font-normal h-[35px] md:h-[60px] lg:h-[70px] xl:h-[100px]">
-                Consultancy
+              <h1 className="text-[26px] md:text-[53px] lg:text-[65px] xl:text-[77px] 2xl:text-[87px] font-['koulen'] text-[#233C96] font-normal h-[35px] md:h-[60px] lg:h-[70px] xl:h-[100px]">
+                {t('welcome_2')}
               </h1>
               <p className="text-[12px] md:text-[22px] font-['inter'] text-[#233C96] font-normal">
-                Your Perfect Business <br /> Consultant
+                {t('welcome')}
               </p>
-              <p className="text-[11px] md:text-[16px] font-['inter'] text-[#233C96] font-normal ">
-                Thank you for your visit on our website.
-                <br /> Please explore...
+              <p className="text-[11px] md:text-[16px] font-['inter'] text-[#233C96] font-normal w-64">
+                {t('welcome_p')}
               </p>
             </div>
           </div>
@@ -51,58 +52,48 @@ const HomePage = () => {
         <div className="w-ful bg-[#ffffff]">
           <div className="w-full max-w-screen-lg mx-auto text-center font-['inter'] text-[#050076] p-5 md:p-12">
             <h1 className="text-[24px] text-center md:text-[44px] font-['koulen'] font-medium">
-              Global Consultancy Co.,ltd
+              {t('about_title')}
             </h1>
             <p className="text-[16px] md:text-[24px]">
-              a tax agency business where specializes in providing tax solutions
-              services, accounting system services, training and development to
-              support clients under legal landscapes. In 2016, the business was
-              registered as an entity and got license as a Tax Agent.
+              {t('about_p_1')}
             </p>
             <br />
             <p className="text-[16px] md:text-[24px]">
-              Mr. Sophanha Khoum, the founder of Global Consultancy, aims to
-              improve tax awareness to better understand about legal landscape
-              in Cambodia. Global Consultancy is located in Times Square
-              Building.
+              {t('about_p_2')}
             </p>
           </div>
 
           <div className="bg-[#314bb2] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
             <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl w-full mx-auto text-[#eee]">
               <div className="flex justify-center gap-5 pb-4">
-                <div>
+                {/* <div>
                   <img src={iconVission} className="w-32 md:w-28 xl:w-20 mt-4" />
-                </div>
+                </div> */}
                 <div>
                   <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium">
-                    Vision
+                  {t('vision')}
                   </h1>
                   <p className="font-['inter'] md:text-[20px]">
-                    At Global Consultancy Co.,Ltd. we believe in the value of
-                    relationships. We view every client relationship like a
-                    partnership, and truly believe
+                  {t('vision_detail')}
                   </p>
                 </div>
               </div>
               <div className="flex justify-center gap-5 pt-4">
-                <div>
+                {/* <div>
                   <img src={iconMission} className="w-32 md:w-28 xl:w-20 mt-2" />
-                </div>
+                </div> */}
                 <div>
                   <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium mt-2">
-                    Mission
+                  {t('mission')}
                   </h1>
                   <p className="font-['inter'] md:text-[20px]">
-                    At Global Consultancy Co.,Ltd. we believe in the value of
-                    relationships. We view every client relationship like a
-                    partnership, and truly believe
+                     {t('about_p_1')}
                   </p>
                 </div>
               </div>
 
               <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium mt-5">
-                Core Values
+                {t('core_value')}
               </h1>
               <div className="flex justify-center flex-wrap md:flex-nowrap gap-[4vw] max-w-screen-lg 2xl:max-w-screen-xl mx-auto my-5">
                 <div>
@@ -113,11 +104,9 @@ const HomePage = () => {
                       </span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">Integrity</h1>
+                      <h1 className="font-bold text-[20px]">{t('itegrity')}</h1>
                       <p className="md:text-[20px]">
-                        At Global Consultancy Co.,Ltd. we believe in the value
-                        of relationships. We view every client relationship like
-                        a partnership, and truly believe
+                      {t('itegrity_detail')}
                       </p>
                     </div>
                   </div>
@@ -126,9 +115,9 @@ const HomePage = () => {
                       <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">Excellence</h1>
+                      <h1 className="font-bold text-[20px]">{t('excellence')}</h1>
                       <p className="md:text-[20px]">
-                      We are committed to excellence in every aspect of our work and continuously striving to deliver sustainable results.
+                      {t('excellence_detail')}
                       </p>
                     </div>
                   </div>
@@ -140,9 +129,9 @@ const HomePage = () => {
                       <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">Customer satisfaction</h1>
+                      <h1 className="font-bold text-[20px]">{t('cs')}</h1>
                       <p className="md:text-[20px]">
-                        We prioritize our clients and understand their needs to exceed their expectation.
+                      {t('cs_detail')}
                       </p>
                     </div>
                   </div>
@@ -151,9 +140,9 @@ const HomePage = () => {
                       <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">Innovation</h1>
+                      <h1 className="font-bold text-[20px]">{t('innovation')}</h1>
                       <p className="md:text-[20px]">
-                      We innovate a culture where technologies is widely open to address global complex.
+                      {t('innovation_detail')}
                       </p>
                     </div>
                   </div>
@@ -162,9 +151,9 @@ const HomePage = () => {
                       <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">Collaboration</h1>
+                      <h1 className="font-bold text-[20px]">{t('collaboration')}</h1>
                       <p className="md:text-[20px]">
-                      We believe in the power of collaboration, working closely with clients and partners to achieved share goals.
+                      {t('innovation_detail')}
                       </p>
                     </div>
                   </div>
@@ -180,52 +169,39 @@ const HomePage = () => {
               </div>
               <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20">
                 <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal md:h-[40px]">
-                  Sophanha Khoum
+                  {t('founder_name')}
                 </h1>
                 <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal h-[5px] md:h-[40px]">
-                  Founder | CEO
+                  {t('founder')} | CEO
                 </h1>
                 <br />
                 <p className="text-[9px] md:text-[20px]">
-                  Mr.Khoum Sopanha achieved a Master degree of Finance from
-                  National University of Management. He further held a BA from
-                  institute of Foreign Languages and IT degree from Royal
-                  University of Phnom Penh.
+                  {t('education')}
                 </p>
 
                 <details className="w-30 text-center md:w-32 my-2 cursor-pointer">
                   <summary className="bg-gradient-to-r from-[#C2F6FF] to-[#05A4FE] px-3 py-2 text-[12px] md:text-[15px] text-[#182760] rounded-xl select-none">
-                    Read More
+                    {t('message')}
                   </summary>
                   <p className="text-start w-full left-[54%] md:left-[53%] lg:left-[68%] xl:left-[66%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-[#7978789a] backdrop-blur-[100px] bg-opacity-100 my-3 absolute rounded-2xl text-[#eee] transition delay-1000 duration-2000 z-50">
-                    Dear valued clients and partners, 
+                    {t('message_detail_1')} 
                     <br />
                     <br />
-                    As the CEO of Global Consultancy, I would like to express my
-                    deepest gratitude for your continued trust and support. We
-                    are able to thrive and excel in providing the best tax
-                    solution services, accounting system services, training and
-                    development. <br />
+                    {t('message_detail_2')}
+                     <br />
                     <br />
-                    In this dynamic era, we understand the importance of staying
-                    informed and prepared. We have always offered reliable tax
-                    solutions to meet our clients’ needs. We dedicate to staying
-                    ahead of the legal landscape, ensuring we deliver accurate
-                    and effective tax solutions and consultancy. <br />
+                    {t('message_detail_3')}  
                     <br />
-                    We are committed to providing tax solutions and affordable
-                    services to our clients. To leverage legal industry, we
-                    contribute to problem-solving for the related documents’
-                    audit to ensure an exceptional consultancy service. With our
-                    qualified team, we provide training to our partners and
-                    accounting system for free-of-charge. <br /> <br />
-                    I am proud of the achievements we have established. We
-                    expand our services, enhance client satisfaction and
-                    implement new strategies to serve our clients the best
-                    possible service. 
-                    <br /> <br /> Warm regards,
-                    <br />Mr. Khoum Sopanha 
-                    <br />Founder, Global Consultancy
+                    <br />
+                    {t('message_detail_4')} 
+                     <br /> <br />
+                    {t('message_detail_5')}  
+                    <br /> <br /> 
+                    {t('message_detail_6')} 
+                    <br />
+                    {t('message_detail_7')} 
+                    <br />
+                    {t('message_detail_8')} 
                     <br /> 
                   </p>
                 </details>
@@ -239,7 +215,7 @@ const HomePage = () => {
                 <div className="flex gap-[2vw] items-center justify-center">
                   <img src={founderIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                    Founder
+                    {t('founder_ch')}
                   </h1>
                 </div>
               </div>
@@ -247,13 +223,13 @@ const HomePage = () => {
                 <div className="flex gap-[2vw] items-center py-5">
                 <img src={accountingIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                    Tax & Accounting (6)
+                  {t('t_&_a')}
                   </h1>
                 </div>
                 <div className="flex gap-[2vw] items-center py-5">
                 <img src={partnerIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                    Partner (5)
+                  {t('partner')}
                   </h1>
                 </div>
               </div>
@@ -263,7 +239,7 @@ const HomePage = () => {
           <div className="w-full max-w-screen-xl mx-auto my-3 md:my-10">
             <div className="p-5">
               <h1 className="text-center text-[#314bb2] font-['koulen'] text-[24px] md:text-[44px] my-5">
-                Business Registration Documents
+                {t('brc')}
               </h1>
               <div>
                 <div className="bg-gray-200 w-full h-[680px] max-w-screen-xl mx-auto my-2">
@@ -284,92 +260,92 @@ const HomePage = () => {
       </section>
 
       <section ref={services}>
-        <div className="px-5 pt-24">
-          <h1 className="text-center text-[#182760] font-['koulen'] text-[44px] py-10">
-            Our Services
+        <div className="px-5 py-24">
+          <h1 className="text-center text-[#182760] font-['koulen'] text-[44px] py-14 mb-10">
+            {t('ourservice')}
           </h1>
           <div className="w-full max-w-screen-xl mx-auto pt-10 relative">
-          <div>
-            <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[2.5%] md:left-[16%] md:top-[7%] rotate-[134deg] z-50">
-              <img src={iconTax} className="rotate-[-134deg]" />
-            </div>
-            <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[35.1%] md:left-[50%] md:top-[7%] rotate-[134deg] z-50">
-              <img src={iconAccount} className="rotate-[-134deg]" />
-            </div>
-            <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[70.5%] md:left-[84%] md:top-[7%] rotate-[134deg] z-50">
-              <img src={iconTrande} className="rotate-[-134deg]" />
-            </div>
-          </div>
-            {/* background */}
-          <div>
-              <div className="p-5 bg-gradient-to-r from-[#7c29f1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[2.9%] md:left-[16%] md:top-[9%] rotate-[134deg]">
+            <div>
+              <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[2.5%] md:left-[16%] md:top-[7%] rotate-[134deg] z-50">
                 <img src={iconTax} className="rotate-[-134deg]" />
               </div>
-              <div className="p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[35.5%] md:left-[50%] md:top-[9%] rotate-[134deg]">
+              <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[36%] md:left-[50%] md:top-[7%] rotate-[134deg] z-50">
                 <img src={iconAccount} className="rotate-[-134deg]" />
               </div>
-              <div className="p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[70.9%] md:left-[84%] md:top-[9%] rotate-[134deg]">
+              <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[72%] md:left-[84%] md:top-[7%] rotate-[134deg] z-50">
                 <img src={iconTrande} className="rotate-[-134deg]" />
               </div>
-          </div>
-            {/* content */}
-            <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] z-50 ">
-              <div className="w-full bg-gradient-to-r from-[#7c29f1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-              <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax Solution Services </li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax planning strategies</li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax reports</li>
-                </ul>
-              </div>
-              <div className="w-full bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-              <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Accounting System Services </li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Financial solutions guidance</li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Enhance validity in Tax Submission</li>
-                </ul>
-              </div>
-              <div className="w-full bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-              <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12 ">
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Training and Development</li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
-                    Financial and accounting knowledge establishment
-                  </li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Legal support</li>
-                </ul>
-              </div>
             </div>
+              {/* background */}
+            <div>
+                <div className="p-5 bg-gradient-to-r from-[#7c29f1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[2.9%] md:left-[16%] md:top-[9%] rotate-[134deg]">
+                  <img src={iconTax} className="rotate-[-134deg]" />
+                </div>
+                <div className="p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[36.6%] md:left-[50%] md:top-[9%] rotate-[134deg]">
+                  <img src={iconAccount} className="rotate-[-134deg]" />
+                </div>
+                <div className="p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[72.5%] md:left-[84%] md:top-[9%] rotate-[134deg]">
+                  <img src={iconTrande} className="rotate-[-134deg]" />
+                </div>
+            </div>
+              {/* content */}
+              <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] z-50 ">
+                <div className="w-full bg-gradient-to-r from-[#7c29f1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tss')}</b></li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_1')}</li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_2')}</li>
+                  </ul>
+                </div>
+                <div className="w-full bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('ass')}</b> </li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_1')}</li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_2')}</li>
+                  </ul>
+                </div>
+                <div className="w-full bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12 ">
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tad')}</b></li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
+                    {t('tad_content_2')}
+                    </li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tad_content_2')}</li>
+                  </ul>
+                </div>
+              </div>
 
-            <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] absolute top-8">
-              <div className="w-full bg-gray-200 md:p-2 lg:p-6 xl:p-12">
-                <ul className="text-center text-[#182760] text-[20px] py-20 md:pt-14 xl:p-12">
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax Solution Services </li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax planning strategies</li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Tax reports</li>
-                </ul>
+              <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] absolute top-8">
+              <div className="w-full bg-[#eee] md:p-2 lg:p-6 xl:p-12 shadow-xl">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tss')}</b></li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_1')}</li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_2')}</li>
+                  </ul>
+                </div>
+                <div className="w-full bg-[#eee] md:p-2 lg:p-6 xl:p-12 shadow-xl">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('ass')}</b> </li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_1')}</li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_2')}</li>
+                  </ul>
+                </div>
+                <div className="w-full bg-[#eee] md:p-2 lg:p-6 xl:p-12 shadow-xl">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12 ">
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tad')}</b></li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
+                    {t('tad_content_1')}
+                    </li>
+                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tad_content_2')}</li>
+                  </ul>
+                </div>
               </div>
-              <div className="w-full bg-gray-200 md:p-2 lg:p-6 xl:p-12">
-                <ul className="text-center text-[#182760] text-[20px] py-20 md:pt-14 xl:p-12">
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Accounting System Services </li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Financial solutions guidance</li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Enhance validity in Tax Submission</li>
-                </ul>
-              </div>
-              <div className="w-full bg-gray-200 md:p-2 lg:p-6 xl:p-12">
-                <ul className="text-center text-[#182760] text-[20px] py-20 md:pt-14 xl:p-12 ">
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Training and Development</li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
-                    Financial and accounting knowledge establishment
-                  </li>
-                  <li className="py-3 text-[24px] md:text-[20px] font-['inter']">Legal support</li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
 
         <div className="w-full">
-          <h1 className="text-center text-[#203686] font-['koulen'] text-[44px] pt-5 md:pt-12 xl:pt-9">
-            Why Us
+          <h1 className="text-center text-[#203686] font-['koulen'] text-[44px] pt-10 md:pt-12 xl:pt-9">
+            {t('why_us')}
           </h1>
 
           <div className="bg-[#314bb2] clip-path-4">
@@ -377,73 +353,60 @@ const HomePage = () => {
               <div className="w-full max-w-screen md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
-                    <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                      1
-                    </h1>
+                    <h2 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
+                      {t('num_1')}
+                    </h2>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                      License: We provide professional tax services, which the
-                      license is issued by regulations and ethics to meet
-                      certain standards of competency.
+                      {t('why_us_1')}
+                    </p>
+                  </div>
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                    <h2 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
+                    {t('num_2')}
+                    </h2>
+                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
+                    {t('why_us_2')}
+                    </p>
+                  </div>
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                    <h2 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
+                    {t('num_3')}
+                    </h2>
+                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
+                    {t('why_us_3')}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                      2
+                    {t('num_4')}
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                      Strong tax service provider: We handle a substantial
-                      client base and provide comprehensive tax services up to
-                      300 clients.
+                    {t('why_us_4')}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                      3
+                    {t('num_5')}
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                      Affordable service: We ensure the agency’s tax services
-                      are accessible to clients with quality and expertise.
+                    {t('why_us_5')}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                      4
+                    {t('num_6')}
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                      Free-of-charge training and accounting system: We help
-                      clients improve their financial efficiency.
-                    </p>
-                  </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
-                    <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                      5
-                    </h1>
-                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                      Problem-solving Audit: We assist clients with
-                      audit-related issues involved in expert guidance and
-                      support during tax audits to ensure compliance.
-                    </p>
-                  </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
-                    <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                      6
-                    </h1>
-                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                      Qualified team: Global Consultancy comprises
-                      professionals in tax law, accounting,and financial
-                      management for high-quality service and client
-                      satisfaction. 
+                    {t('why_us_6')} 
                     </p>
                   </div>
                   <div className="hidden lg:block"></div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                      7
+                    {t('num_7')}
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                       Clients’ supports: We help clients prepare for
-                      interactions with tax authorities, auditors or financial
-                      institutions to ensure effective communication.
+                    {t('why_us_7')}
                     </p>
                   </div>
                 </div>
@@ -459,11 +422,10 @@ const HomePage = () => {
             <div className="h-full md:pb-[36vh] xl:pb-[56vh] bg-[#ffffff]">
               <div>
                 <h1 className="text-[45px] text-[#182760] text-center font-['koulen'] font-medium pt-12">
-                  Our clients
+                  {t('ourClient')}
                 </h1>
                 <p className="text-center text-[#182760] pb-0 md:pb-5">
-                  We have both International clients and Local clients who use
-                  our services.
+                {t('client_details')}
                 </p>
               </div>
               <div className="flex justify-center gap-[4vw] my-10">

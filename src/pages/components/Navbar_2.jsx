@@ -55,13 +55,13 @@ const Navbar = ({home,about,services,client}) => {
         <div className="menu md:hidden block">
          <ul className="flex justify-center flex-col items-center gap-[4vw] mt-5 text-[#0469FF]">
             <li className="cursor-pointer text-[22px]" onClick={handleRemove}>
-              <NavLink to={"/"} onClick={()=> scrollToSection(home)}>{t('home')}</NavLink></li>
+              <NavLink to={"/home"}>{t('home')}</NavLink></li>
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
-              <NavLink to={"/"} onClick={()=> scrollToSection(about)}>{t('about_us')}</NavLink></li>
+              <NavLink to={"/home"}>{t('about_us')}</NavLink></li>
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
-              <NavLink to={"/"} onClick={()=> scrollToSection(services)}>{t('services')}</NavLink></li>
+              <NavLink to={"/home"}>{t('services')}</NavLink></li>
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
-              <NavLink to={"/"} onClick={()=> scrollToSection(client)}>{t('client')}</NavLink></li>
+              <NavLink to={"/home"}>{t('client')}</NavLink></li>
             <li onClick={handleRemove}>
               <NavLink className="text-[22px]" to={"/blog"}>{t('blog')}</NavLink>
               </li>
@@ -75,13 +75,13 @@ const Navbar = ({home,about,services,client}) => {
             <div className="w-full max-w-screen-xl mx-auto ">
               <ul className="flex justify-center items-center gap-[3vw] text-[#eee]">
                 <li className="cursor-pointer font- hover:font-bold active:font-bold">
-                  <NavLink to="/#home" onClick={()=> scrollToSection(home)}>{t('home')}</NavLink></li>
+                  <NavLink to="/#home">{t('home')}</NavLink></li>
                 <li className="cursor-pointer font-normal hover:font-bold active:font-bold">
-                  <NavLink to="/#about-us" onClick={()=> scrollToSection(about)}>{t('about_us')}</NavLink></li>
+                  <NavLink to="/#about-us">{t('about_us')}</NavLink></li>
                 <li className="cursor-pointer font-normal hover:font-bold active:font-bold">
-                  <NavLink to="/#service" onClick={()=> scrollToSection(services)}>{t('services')}</NavLink></li>
+                  <NavLink to="/#services">{t('services')}</NavLink></li>
                 <li className="cursor-pointer font-normal hover:font-bold active:font-bold">
-                  <NavLink to="/#client" onClick={()=> scrollToSection(client)}>{t('client')}</NavLink></li>
+                  <NavLink to="/#client">{t('client')}</NavLink></li>
                 <li>
                   <NavLink className="font-normal hover:font-bold active:font-bold" to="/blog">{t('blog')}</NavLink>
                   </li>

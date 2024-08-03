@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Sidebar from "./partials/Sidebar";
 import Header from "./partials/Header";
-import { Outlet } from "react-router-dom";
+import { Outlet,useNavigate } from "react-router-dom";
 import Scroll from "../../Scroll";
 const Dashboard = ({token}) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+    }
+  }, [token, navigate]);
+
+  if (!token) {
+    return null; // Render nothing or a loading spinner while redirecting
+  }
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>

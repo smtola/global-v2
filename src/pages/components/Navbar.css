@@ -6,7 +6,7 @@
     right: 0;
     background-color: #ffffff;
     padding:60px 40px;
-    clip-path: circle(13% at right top);
+    clip-path: circle(11% at right top);
     transition: clip-path 500ms;
 }
 

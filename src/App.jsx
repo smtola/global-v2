@@ -13,6 +13,7 @@ import Login from "./pages/Admin/LoginPage";
 
 function App() {
   const [token,setToken] = useState(false);
+  
   if(token) {
     sessionStorage.setItem('token', JSON.stringify(token));
   }
@@ -39,19 +40,19 @@ function App() {
     },
     { 
       path: "/dashboard",
-      element:token? <Dashboard token={token}/> : <Navigate to='/login'/>,
+      element:<Dashboard token={token}/>,
       children: [
         {
           index: true,
-          element:token? <BlogAdmin /> : <Navigate to='/login'/>,
+          element:<BlogAdmin token={token}/>,
         },
         {
           path: "profile",
-          element:token? <User /> : <Navigate to='/login'/>,
+          element:<User token={token}/>,
         },
         {
           path: "career",
-          element:token? <Career_2 /> : <Navigate to='/login'/>,
+          element:<Career_2 token={token}/>,
         },
       ],
     },

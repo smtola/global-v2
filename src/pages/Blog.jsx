@@ -1,10 +1,12 @@
 import { Typography, Card, CardBody } from "@material-tailwind/react";
-import  Navbar  from "./components/Navbar";
+import  Navbar_2  from "./components/Navbar_2";
 import Footer from "./components/Footer";
 import Scroll from "../Scroll";
 import {supabase} from '../config/db';
 import { useState,useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 function ContentCard({ img, title, desc }) {
+  
   return (
     <Card
       className="relative grid min-h-[30rem] items-end overflow-hidden rounded-xl"
@@ -33,6 +35,7 @@ function ContentCard({ img, title, desc }) {
 }
 
 const Blog = () => {
+  const {t} = useTranslation();
   const [data, setData] = useState([]);
   useEffect(()=>{
     fectData();
@@ -68,7 +71,7 @@ const Blog = () => {
   return (
     <>
       <Scroll/>
-      <Navbar />
+      <Navbar_2 />
       <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
       <Typography
         className="!text-2xl !font-['lexend'] text-[#233C96] !font-bold !leading-snug lg:!text-3xl"
