@@ -1,68 +1,51 @@
 import { useEffect, useState } from "react";
-import { createBrowserRouter, RouterProvider,Navigate } from "react-router-dom";
 import "./App.css";
-import HomePage from "./pages/HomePage";
-
-import Blog from "./pages/Blog";
-import Career from "./pages/Career";
-import Dashboard from "./pages/Admin/Dashboard";
-import BlogAdmin from "./pages/Admin/partials/dashboard/BlogAdmin";
-import User from "./pages/Admin/partials/dashboard/User";
-import Career_2 from "./pages/Admin/partials/dashboard/CareerAdmin";
-import Login from "./pages/Admin/LoginPage";
-
+import {
+  HomePage,
+  Blog,
+  Career,
+  Dashboard,
+  Login,
+  BlogAdmin,
+  CareerAdmin,
+  Profile,
+} from "./RootLayout";
+import {Route,Routes} from "react-router-dom";
 function App() {
-  const [token,setToken] = useState(false);
   
-  if(token) {
-    sessionStorage.setItem('token', JSON.stringify(token));
+  const [token,setToken] = useState(false);
+
+  if(token){
+    sessionStorage.setItem("token", JSON.stringify(token));
   }
 
   useEffect(()=>{
-    if(sessionStorage.getItem('token')){
-      let data = JSON.parse(sessionStorage.getItem('token'))
-      setToken(data);
+    const storedToken = sessionStorage.getItem("token");
+    if(storedToken){
+      setToken(JSON.parse(storedToken));
     }
   },[])
 
-  const router = createBrowserRouter([
+ return(
+  <Routes>
+    <Route path="/" element={<HomePage />} />
+    <Route path="/blog" element={<Blog />} />
+    <Route path="/career" element={<Career />} />
+    <Route path="/login" element={<Login setToken={setToken} />} />
     {
-      path: "/",
-      element: <HomePage />,
-    },
-    {
-      path: "/blog",
-      element: <Blog />,
-    },
-    {
-      path: "/career",
-      element: <Career />,
-    },
-    { 
-      path: "/dashboard",
-      element:<Dashboard token={token}/>,
-      children: [
-        {
-          index: true,
-          element:<BlogAdmin token={token}/>,
-        },
-        {
-          path: "profile",
-          element:<User token={token}/>,
-        },
-        {
-          path: "career",
-          element:<Career_2 token={token}/>,
-        },
-      ],
-    },
-    {
-      path: "/login",
-      element: <Login setToken={setToken}/>,
-    },
-  ]);
+      token ? (
+        <Route path="/dashboard" element={<Dashboard token={token}/>} >
+          <Route index={true} element={<BlogAdmin />} />
+          <Route path="/dashboard/career" element={<CareerAdmin />} />
+          <Route path="/dashboard/profile" element={<Profile token={token}/>} />
+        </Route>
+      )
 
-  return <RouterProvider router={router} />;
+      :
+      <Route path={"*"} element={<Login setToken={setToken} />} />
+    }
+  </Routes>
+ )
 }
 
 export default App;

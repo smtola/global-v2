@@ -6,7 +6,7 @@ function DropdownProfile({
   align,
   fullName
 }) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
 

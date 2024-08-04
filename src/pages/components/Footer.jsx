@@ -68,7 +68,9 @@ const Footer = () => {
                 </svg>
               </span>
               <span>
-                info@global-consultancy.biz sopanha@global-consultancy.biz
+                info@global-consultancy.biz 
+                <br/>
+                sopanha@global-consultancy.biz
               </span>
             </li>
           </ul>

@@ -3,32 +3,36 @@ import imgLogin from '../../assets/images/login.png';
 import {supabase} from '../../config/db';
 import { useNavigate } from 'react-router-dom';
 const LoginPage = ({setToken}) => {
-  let navigator =  useNavigate();
-  const [user,setUser] = useState({
-    email:'',
-    password:'',
-  })
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) =>{
-    setUser((prevFromData) => {
-      return {...prevFromData, [e.target.name]: e.target.value};
-    })
-  }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try{
-      const {data, error} = await supabase.auth.signInWithPassword({
-        email:user.email,
-        password:user.password,
-      })
-      if(error) throw error;
+  const handleSignIn = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+
+    try {
+      // Sign in with Supabase authentication
+      const { data, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (authError) {
+        setError(authError.message);
+        setLoading(false);
+        return;
+      }
       setToken(data);
-      navigator('/dashboard');
-    }catch(error){
-      alert(error.message);
+      navigate('/dashboard'); 
+    } catch (error) {
+      setError('Your email address or password is incorrect');
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <>
@@ -42,16 +46,17 @@ const LoginPage = ({setToken}) => {
             </div>
             <div className='w-full p-5'>
               <h1 className='text-[#233C96] font-["lexend"] font-bold text-[25px] text-center my-5'>Login</h1>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSignIn}>
+              {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
                 <div className="mb-5">
-                  <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#233C96]">Your email</label>
+                  <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#233C96]">Username or Email</label>
                   <input 
-                  type="email" 
-                  name="email" 
+                  type="text" 
                   className="text-sm rounded-lg focus:border-blue-500 block w-full max-w-lg p-2.5 bg-gray-300 border-gray-600 placeholder-gray-400 text-[#233C96]" 
-                  placeholder="Your email address" 
-                  onChange={handleChange}
-                  required 
+                  placeholder="Username or Email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                   />
                 </div>
                 <div className="mb-5">
@@ -61,11 +66,15 @@ const LoginPage = ({setToken}) => {
                   name="password" 
                   className="text-sm rounded-lg block w-full max-w-lg p-2.5 bg-gray-300 border-gray-3600 placeholder-gray-400 text-[#233C96] focus:border-blue-500" 
                   placeholder="Password" 
-                  onChange={handleChange}
-                  required 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                   />
                 </div>
-                <button type="submit" className="w-full float-end text-white focus:ring-4 focus:outline-none font-medium rounded-md text-sm sm:w-auto px-5 py-2.5 text-center bg-[#3b71ca] hover:bg-[#4f83d7]">Sign In</button>
+                <button type="submit" disabled={loading} className="w-full float-end text-white focus:ring-4 focus:outline-none font-medium rounded-md text-sm sm:w-auto px-5 py-2.5 text-center bg-[#3b71ca] hover:bg-[#4f83d7]">
+                {loading ? 'Signing in...' : 'Sign In'}
+                </button>
+                
               </form>
             </div>
           </div>

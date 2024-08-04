@@ -66,9 +66,9 @@ const HomePage = () => {
           <div className="bg-[#314bb2] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
             <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl w-full mx-auto text-[#eee]">
               <div className="flex justify-center gap-5 pb-4">
-                {/* <div>
-                  <img src={iconVission} className="w-32 md:w-28 xl:w-20 mt-4" />
-                </div> */}
+                <div>
+                  <img src={iconVission} className="w-20 md:w-20 xl:w-12 mt-3" />
+                </div>
                 <div>
                   <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium">
                   {t('vision')}
@@ -79,15 +79,15 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="flex justify-center gap-5 pt-4">
-                {/* <div>
-                  <img src={iconMission} className="w-32 md:w-28 xl:w-20 mt-2" />
-                </div> */}
+                <div>
+                  <img src={iconMission} className="w-44 md:w-48 xl:w-32 mt-4" />
+                </div>
                 <div>
                   <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium mt-2">
                   {t('mission')}
                   </h1>
                   <p className="font-['inter'] md:text-[20px]">
-                     {t('about_p_1')}
+                     {t('mission_detail')}
                   </p>
                 </div>
               </div>
@@ -179,8 +179,8 @@ const HomePage = () => {
                   {t('education')}
                 </p>
 
-                <details className="w-30 text-center md:w-32 my-2 cursor-pointer">
-                  <summary className="bg-gradient-to-r from-[#C2F6FF] to-[#05A4FE] px-3 py-2 text-[12px] md:text-[15px] text-[#182760] rounded-xl select-none">
+                <details className="w-30 text-center md:w-44 my-2 cursor-pointer">
+                  <summary className="bg-gradient-to-r from-[#C2F6FF] to-[#05A4FE] px-3 py-2 text-[12px] md:text-[17px] text-[#182760] rounded-xl select-none">
                     {t('message')}
                   </summary>
                   <p className="text-start w-full left-[54%] md:left-[53%] lg:left-[68%] xl:left-[66%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-[#7978789a] backdrop-blur-[100px] bg-opacity-100 my-3 absolute rounded-2xl text-[#eee] transition delay-1000 duration-2000 z-50">
@@ -291,21 +291,21 @@ const HomePage = () => {
               {/* content */}
               <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] z-50 ">
                 <div className="w-full bg-gradient-to-r from-[#7c29f1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10">
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tss')}</b></li>
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_1')}</li>
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_2')}</li>
                   </ul>
                 </div>
                 <div className="w-full bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10">
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('ass')}</b> </li>
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_1')}</li>
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_2')}</li>
                   </ul>
                 </div>
                 <div className="w-full bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12 ">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10 ">
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tad')}</b></li>
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
                     {t('tad_content_2')}
@@ -317,21 +317,21 @@ const HomePage = () => {
 
               <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] absolute top-8">
               <div className="w-full bg-[#eee] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10">
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tss')}</b></li>
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_1')}</li>
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_2')}</li>
                   </ul>
                 </div>
                 <div className="w-full bg-[#eee] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12">
+                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10">
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('ass')}</b> </li>
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_1')}</li>
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_2')}</li>
                   </ul>
                 </div>
                 <div className="w-full bg-[#eee] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-12 ">
+                  <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10 ">
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tad')}</b></li>
                     <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
                     {t('tad_content_1')}

@@ -4,17 +4,6 @@ import Header from "./partials/Header";
 import { Outlet,useNavigate } from "react-router-dom";
 import Scroll from "../../Scroll";
 const Dashboard = ({token}) => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!token) {
-      navigate('/login');
-    }
-  }, [token, navigate]);
-
-  if (!token) {
-    return null; // Render nothing or a loading spinner while redirecting
-  }
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
@@ -42,7 +31,7 @@ const Dashboard = ({token}) => {
               </div>
 
               {/* Cards */}
-              <div className="grid grid-cols-12 gap-6">
+              <div>
                 <Outlet />
               </div>
             </div>

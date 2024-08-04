@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../../../config/db";
-import { useNavigate } from "react-router-dom";
-const BlogAdmin = ({token}) => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!token) {
-      navigate('/login');
-    }
-  }, [token, navigate]);
-
-  if (!token) {
-    return null; // Render nothing or a loading spinner while redirecting
-  }
+const BlogAdmin = () => {
   const [title, setTittle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState();

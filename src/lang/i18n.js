@@ -15,7 +15,7 @@ i18n
         translation: khTranslation,
       },
     },
-    lng: 'en', // default language
+    lng: localStorage.getItem('language') || 'en', // default language
     fallbackLng: 'en', // fallback language
     interpolation: {
       escapeValue: false,

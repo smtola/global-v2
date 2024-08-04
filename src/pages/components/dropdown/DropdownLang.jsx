@@ -8,10 +8,17 @@ function DropdownLang({
   align
 }) {
   const { i18n } = useTranslation();
-  const [btnChange, setBtnChange] = useState();
+  const [btnChange, setBtnChange] = useState(localStorage.getItem('language') || 'en');
+
+  useEffect(() => {
+    // Set the initial language when the component mounts
+    i18n.changeLanguage(btnChange);
+  }, [btnChange, i18n]);
+
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setBtnChange(lng);
+    localStorage.setItem('language', lng); // Persist the language choice
   };
   
   const [dropdownOpen, setDropdownOpen] = useState(false);
