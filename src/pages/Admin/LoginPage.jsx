@@ -2,6 +2,8 @@ import { useState } from 'react';
 import imgLogin from '../../assets/images/login.png';
 import {supabase} from '../../config/db';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const LoginPage = ({setToken}) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -22,14 +24,45 @@ const LoginPage = ({setToken}) => {
       });
 
       if (authError) {
-        setError(authError.message);
+        toast.error(authError.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce
+          });
         setLoading(false);
         return;
       }
       setToken(data);
       navigate('/dashboard'); 
+      toast.success('Login successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+        });
     } catch (error) {
-      setError('Your email address or password is incorrect');
+      toast.error('Your email address or password is incorrect', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+        });
       setLoading(false);
     }
   };

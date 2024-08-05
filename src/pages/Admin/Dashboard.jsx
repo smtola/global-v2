@@ -1,7 +1,7 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import Sidebar from "./partials/Sidebar";
 import Header from "./partials/Header";
-import { Outlet,useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Scroll from "../../Scroll";
 const Dashboard = ({token}) => {
 
@@ -21,15 +21,6 @@ const Dashboard = ({token}) => {
           <main className="grow">
             <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
               {/* Dashboard actions */}
-              <div className="sm:flex sm:justify-between sm:items-center mb-8">
-                {/* Left: Title */}
-                <div className="mb-4 sm:mb-0">
-                  <h1 className="text-2xl md:text-3xl text-gray-800 font-bold">
-                    Dashboard
-                  </h1>
-                </div>
-              </div>
-
               {/* Cards */}
               <div>
                 <Outlet />

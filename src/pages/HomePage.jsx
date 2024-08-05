@@ -13,6 +13,9 @@ import iconTax from "../assets/images/icon/tax.png";
 import founderIcon from "../assets/images/icon-founder.png";
 import accountingIcon from "../assets/images/accounting.png";
 import partnerIcon from "../assets/images/partner.png";
+import certificateImage from '../assets/images/certificate.jpg';
+import vatImage from '../assets/images/VAT-2023.jpg';
+import ahNhabanImage from '../assets/images/អាជ្ញាប័ណ្ណភ្នាក់ងារ_Fianl_update.jpg';
 import { useTranslation } from 'react-i18next';
 
 const HomePage = () => {
@@ -30,7 +33,7 @@ const HomePage = () => {
         <div className="relative">
           <img src={imgBanner} className="w-full h-[44vh] md:h-[50vh] xl:h-screen clip-path" />
           <div className="w-full absolute left-[7%] md:left-[26%] xl:left-[50%] top-[97%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
-            <div className="w-full h-[56vh] ps-[24vh]">
+            <div className="w-full h-[56vh] ps-[24vh]" >
               <h1 className="text-[48px] md:text-[100px] lg:text-[120px] xl:text-[144px] 2xl:text-[164px] font-['koulen'] text-[#39B6FF] font-normal h-[48px] md:h-[100px] lg:h-[120px] xl:h-[144px] 2xl:h-[164px]">
                 {t('welcome_1')}
               </h1>
@@ -50,8 +53,9 @@ const HomePage = () => {
 
       <section ref={about_us}>
         <div className="w-ful bg-[#ffffff]">
-          <div className="w-full max-w-screen-lg mx-auto text-center font-['inter'] text-[#050076] p-5 md:p-12">
-            <h1 className="text-[24px] text-center md:text-[44px] font-['koulen'] font-medium">
+          <div className="w-full max-w-screen-xl mx-auto text-start font-['inter'] text-[#050076] p-5 md:p-12"
+          >
+            <h1 className="text-[24px] md:text-[44px] font-['koulen'] font-medium">
               {t('about_title')}
             </h1>
             <p className="text-[16px] md:text-[24px]">
@@ -62,12 +66,11 @@ const HomePage = () => {
               {t('about_p_2')}
             </p>
           </div>
-
           <div className="bg-[#314bb2] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
             <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl w-full mx-auto text-[#eee]">
-              <div className="flex justify-center gap-5 pb-4">
+              <div className="flex gap-5 pb-4">
                 <div>
-                  <img src={iconVission} className="w-20 md:w-20 xl:w-12 mt-3" />
+                  <img src={iconVission} className="w-20 md:w-20 xl:w-14 mt-4" />
                 </div>
                 <div>
                   <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium">
@@ -78,7 +81,7 @@ const HomePage = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex justify-center gap-5 pt-4">
+              <div className="flex gap-5 pt-4">
                 <div>
                   <img src={iconMission} className="w-44 md:w-48 xl:w-32 mt-4" />
                 </div>
@@ -242,15 +245,15 @@ const HomePage = () => {
                 {t('brc')}
               </h1>
               <div>
-                <div className="bg-gray-200 w-full h-[680px] max-w-screen-xl mx-auto my-2">
-                  <h1>a</h1>
+                <div className="bg-gray-200 w-full max-w-screen-xl mx-auto my-2">
+                 <img src={certificateImage}/>
                 </div>
                 <div className="flex flex-wrap md:flex-nowrap justify-center gap-[.5rem] my-2">
-                  <div className="bg-gray-200 w-full h-[680px] max-w-screen-md mx-auto">
-                    <h1>a</h1>
+                  <div className="bg-gray-200 w-full max-w-screen-md mx-auto">
+                  <img src={vatImage}/>
                   </div>
-                  <div className="bg-gray-200 w-full h-[680px] max-w-screen-md mx-auto">
-                    <h1>a</h1>
+                  <div className="bg-gray-200 w-full max-w-screen-md mx-auto">
+                  <img src={ahNhabanImage}/>
                   </div>
                 </div>
               </div>
@@ -260,83 +263,75 @@ const HomePage = () => {
       </section>
 
       <section ref={services}>
-        <div className="px-5 py-24">
-          <h1 className="text-center text-[#182760] font-['koulen'] text-[44px] py-14 mb-10">
+        <div className="px-5 py-20">
+          <h1 className="text-center text-[#182760] font-['koulen'] text-[44px] mb-14">
             {t('ourservice')}
           </h1>
           <div className="w-full max-w-screen-xl mx-auto pt-10 relative">
             <div>
-              <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[2.5%] md:left-[16%] md:top-[7%] rotate-[134deg] z-50">
+              <div className="p-4 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[2.5%] md:left-[27%] md:top-[5%] lg:left-[32%] lg:top-[5%] xl:left-[12%] xl:top-[12%] rotate-[134deg] z-50">
                 <img src={iconTax} className="rotate-[-134deg]" />
               </div>
-              <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[36%] md:left-[50%] md:top-[7%] rotate-[134deg] z-50">
+              <div className="p-4 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[27.5%] md:left-[73%] md:top-[5%] lg:left-[68%] lg:top-[5%] xl:left-[37%] xl:top-[12%] rotate-[134deg] z-50">
                 <img src={iconAccount} className="rotate-[-134deg]" />
               </div>
-              <div className="p-5 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[72%] md:left-[84%] md:top-[7%] rotate-[134deg] z-50">
+              <div className="p-4 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[52.5%] md:left-[27%] md:top-[55%] lg:left-[32%] lg:top-[57%] xl:left-[62%] xl:top-[12%] rotate-[134deg] z-50">
+                <img src={iconTrande} className="rotate-[-134deg]" />
+              </div>
+              <div className="p-4 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[78.5%] md:left-[73%] md:top-[55%] lg:left-[68%] lg:top-[57%] xl:left-[88%] xl:top-[12%] rotate-[134deg] z-50">
                 <img src={iconTrande} className="rotate-[-134deg]" />
               </div>
             </div>
               {/* background */}
             <div>
-                <div className="p-5 bg-gradient-to-r from-[#7c29f1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[2.9%] md:left-[16%] md:top-[9%] rotate-[134deg]">
+                <div className="p-4 bg-gradient-to-r from-[#7c29f1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[3%] md:left-[27%] md:top-[6%] lg:left-[32%] lg:top-[6%] xl:left-[12%] xl:top-[14%] rotate-[134deg]">
                   <img src={iconTax} className="rotate-[-134deg]" />
                 </div>
-                <div className="p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[36.6%] md:left-[50%] md:top-[9%] rotate-[134deg]">
+                <div className="p-4 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[28%] md:left-[73%] md:top-[6%] lg:left-[68%] lg:top-[6%] xl:left-[37%] xl:top-[14%] rotate-[134deg]">
                   <img src={iconAccount} className="rotate-[-134deg]" />
                 </div>
-                <div className="p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[11vh] md:h-[7vh] xl:h-[11vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[72.5%] md:left-[84%] md:top-[9%] rotate-[134deg]">
+                <div className="p-4 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[53%] md:left-[27%] md:top-[56%] lg:left-[32%] lg:top-[58%] xl:left-[62%] xl:top-[14%] rotate-[134deg]">
+                  <img src={iconTrande} className="rotate-[-134deg]" />
+                </div>
+                <div className="p-4 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[79%] md:left-[73%] md:top-[56%] lg:left-[68%] lg:top-[58%] xl:left-[88%] xl:top-[14%] rotate-[134deg]">
                   <img src={iconTrande} className="rotate-[-134deg]" />
                 </div>
             </div>
               {/* content */}
-              <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] z-50 ">
-                <div className="w-full bg-gradient-to-r from-[#7c29f1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10">
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tss')}</b></li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_1')}</li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_2')}</li>
+              <div className="flex flex-wrap xl:flex-nowrap justify-center gap-x-[3vh] gap-y-[10vh] md:gap-y-[9vw] xl:gap-[2vw]">
+                <div className="w-full md:max-w-xs xl:max-w-xl bg-[#eee] shadow-xl">
+                  <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
+                    <li className="py-3 text-[16px] font-['inter']"><b>{t('tss')}</b></li>
+                    <li className="py-3 text-[16px] font-['inter']">{t('tss_content_1')}</li>
+                    <li className="py-3 text-[16px] font-['inter']">{t('tss_content_2')}</li>
                   </ul>
                 </div>
-                <div className="w-full bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10">
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('ass')}</b> </li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_1')}</li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_2')}</li>
+                <div className="w-full md:max-w-xs xl:max-w-xl bg-[#eee] shadow-xl">
+                <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
+                    <li className="py-3 text-[16px] font-['inter']"><b>{t('ass')}</b> </li>
+                    <li className="py-3 text-[16px] font-['inter']">{t('ass_content_1')}</li>
+                    <li className="py-3 text-[16px] font-['inter']">{t('ass_content_2')}</li>
                   </ul>
                 </div>
-                <div className="w-full bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10 ">
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tad')}</b></li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
-                    {t('tad_content_2')}
-                    </li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tad_content_2')}</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap md:flex-nowrap justify-center gap-[20vw] md:gap-[2vw] absolute top-8">
-              <div className="w-full bg-[#eee] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10">
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tss')}</b></li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_1')}</li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tss_content_2')}</li>
-                  </ul>
-                </div>
-                <div className="w-full bg-[#eee] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10">
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('ass')}</b> </li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_1')}</li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('ass_content_2')}</li>
-                  </ul>
-                </div>
-                <div className="w-full bg-[#eee] md:p-2 lg:p-6 xl:p-12 shadow-xl">
-                  <ul className="text-center text-[#233c96] text-[20px] py-20 md:pt-14 xl:p-10 ">
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']"><b>{t('tad')}</b></li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">
+                <div className="w-full md:max-w-xs xl:max-w-xl bg-[#eee] shadow-xl">
+                  <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16 ">
+                    <li className="py-3 text-[16px] font-['inter']"><b>{t('tad')}</b></li>
+                    <li className="py-3 text-[16px] font-['inter']">
                     {t('tad_content_1')}
                     </li>
-                    <li className="py-3 text-[24px] md:text-[20px] font-['inter']">{t('tad_content_2')}</li>
+                    <li className="py-3 text-[16px] font-['inter']">{t('tad_content_2')}</li>
+                  </ul>
+                </div>
+                <div className="w-full md:max-w-xs xl:max-w-xl bg-[#eee] shadow-xl">
+                  <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16 ">
+                    <li className="py-3 text-[16px] font-['inter']"><b>{t('bsr')}</b></li>
+                    <li className=" text-[16px] font-['inter']">
+                    {t('bsr_content_1')}
+                    </li>
+                    <li className="text-[16px] font-['inter']">{t('bsr_content_2')}</li>
+                    <li className="text-[16px] font-['inter']">{t('bsr_content_3')}</li>
+                    <li className="pt-3 text-[16px] font-['inter']">{t('bsr_content_4')}</li>
+                    <li className="text-[16px] font-['inter']">{t('bsr_content_5')}</li>
                   </ul>
                 </div>
               </div>
@@ -352,7 +347,7 @@ const HomePage = () => {
             <div className="flex items-center justify-center py-[10vh] md:pt-[20vh] md:pb-12 xl:pt-[26vh] xl:pb-16">
               <div className="w-full max-w-screen md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50 hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50 hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h2 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                       {t('num_1')}
                     </h2>
@@ -360,7 +355,7 @@ const HomePage = () => {
                       {t('why_us_1')}
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h2 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                     {t('num_2')}
                     </h2>
@@ -368,7 +363,7 @@ const HomePage = () => {
                     {t('why_us_2')}
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h2 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                     {t('num_3')}
                     </h2>
@@ -376,7 +371,7 @@ const HomePage = () => {
                     {t('why_us_3')}
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                     {t('num_4')}
                     </h1>
@@ -384,7 +379,7 @@ const HomePage = () => {
                     {t('why_us_4')}
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                     {t('num_5')}
                     </h1>
@@ -392,7 +387,7 @@ const HomePage = () => {
                     {t('why_us_5')}
                     </p>
                   </div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                     {t('num_6')}
                     </h1>
@@ -401,7 +396,7 @@ const HomePage = () => {
                     </p>
                   </div>
                   <div className="hidden lg:block"></div>
-                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all delay-150 duration-300">
+                  <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
                     {t('num_7')}
                     </h1>

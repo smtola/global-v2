@@ -68,7 +68,7 @@ const Career = () => {
           <div className="w-full !max-w-lg lg:!max-w-screen-xl mx-auto text-[#233C96]">
             <h1 className="!text-[30px] text-center font-['lexend'] font-bold md:!text-[54px]">Life at Global Consultancy</h1>
            
-           <div className="grid grid-cols-1 md:grid-cols-2 py-7 gap-10">
+           <div className="grid grid-cols-1 lg:grid-cols-2 py-7 gap-10">
               <div className="flex items-center justify-start">
                 <div>
                     <img src={icon_3} alt="" width={364}/>
@@ -110,7 +110,7 @@ const Career = () => {
 
           <div className="py-5 w-full max-w-screen-xl mx-auto">
             <h1 className="!text-[30px] text-[#233C96] text-center font-['lexend'] font-bold md:!text-[54px]">Open Position</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] py-7">
+            <div className="flex justify-center items-center flex-col lg:flex-row gap-[2vw] py-7">
               {data.map((item,index)=>
                 ( 
                   <CareerCardd key={index} img={item.images} title={item.title} dics={item.description}/>

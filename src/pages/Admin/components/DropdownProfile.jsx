@@ -1,23 +1,35 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link,NavLink,useNavigate } from 'react-router-dom';
 import Transition from './Transition';
 import UserAvatar from '../../../assets/images/founder.png';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function DropdownProfile({
   align,
   fullName
 }) {
-  const navigate = useNavigate();
-
+  
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  
   const trigger = useRef(null);
   const dropdown = useRef(null);
-
-  const handleLogout = ()=>{
+  
+  const navigate = useNavigate();
+  const handleLogout = () => {
     sessionStorage.removeItem('token');
     navigate('/login');
-  }
-
+    toast.success('You was logout!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      });
+  };
   // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }) => {
@@ -48,7 +60,7 @@ function DropdownProfile({
         onClick={() => setDropdownOpen(!dropdownOpen)}
         aria-expanded={dropdownOpen}
       >
-        <img className="w-8 h-8 rounded-full" src={UserAvatar} width="32" height="32" alt="User" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="28" fill="currentColor"><path d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-14a4 4 0 0 1 4 4v2a4 4 0 1 1-8 0V8a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v2a2 2 0 1 0 4 0V8a2 2 0 0 0-2-2zM5.91 16.876a8.033 8.033 0 0 1-1.58-1.232 5.57 5.57 0 0 1 2.204-1.574 1 1 0 1 1 .733 1.86c-.532.21-.993.538-1.358.946zm8.144.022a3.652 3.652 0 0 0-1.41-.964 1 1 0 1 1 .712-1.868 5.65 5.65 0 0 1 2.284 1.607 8.032 8.032 0 0 1-1.586 1.225z"></path></svg>
         <div className="flex items-center truncate">
           <span className="truncate ml-2 text-sm font-medium text-gray-600  group-hover:text-gray-800">{fullName.user.user_metadata.full_name}</span>
           <svg className="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 " viewBox="0 0 12 12">
@@ -85,12 +97,12 @@ function DropdownProfile({
               </Link>
             </li>
             <li>
-              <Link
-                className="font-medium text-sm text-[#233C96] hover:text-[#30448b]flex items-center py-1 px-3"
+              <a
+                className="cursor-pointer font-medium text-sm text-[#233C96] hover:text-[#30448b]flex items-center py-1 px-3"
                 onClick={handleLogout}
               >
-                Sign Out
-              </Link>
+                Log Out
+              </a>
             </li>
           </ul>
         </div>

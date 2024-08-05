@@ -11,6 +11,7 @@ import {
   Profile,
 } from "./RootLayout";
 import {Route,Routes} from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 function App() {
   
   const [token,setToken] = useState(false);
@@ -27,24 +28,38 @@ function App() {
   },[])
 
  return(
-  <Routes>
-    <Route path="/" element={<HomePage />} />
-    <Route path="/blog" element={<Blog />} />
-    <Route path="/career" element={<Career />} />
-    <Route path="/login" element={<Login setToken={setToken} />} />
-    {
-      token ? (
-        <Route path="/dashboard" element={<Dashboard token={token}/>} >
-          <Route index={true} element={<BlogAdmin />} />
-          <Route path="/dashboard/career" element={<CareerAdmin />} />
-          <Route path="/dashboard/profile" element={<Profile token={token}/>} />
-        </Route>
-      )
-
-      :
-      <Route path={"*"} element={<Login setToken={setToken} />} />
-    }
-  </Routes>
+  <>
+      <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+      transition: Bounce
+    />
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/career" element={<Career />} />
+      <Route path="/login" element={<Login setToken={setToken} />} />
+      {
+        token ? (
+          <Route path="/dashboard" element={<Dashboard token={token}/>} >
+            <Route index element={<BlogAdmin />} />
+            <Route path="career" element={<CareerAdmin />} />
+            <Route path="profile" element={<Profile token={token}/>} />
+          </Route>
+        )
+        :
+        <Route path="*" element={<Login setToken={setToken} />} />
+      }
+    </Routes>
+  </>
  )
 }
 
