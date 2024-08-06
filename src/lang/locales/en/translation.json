@@ -49,21 +49,33 @@
     "oc":"Organization Chart",
     "ourservice":"Our Services",
     "ourservice_detail":"At Global Consultancy, we provide tax solution services, accounting system services, training and development.",
+   
     "tss":"Tax Solution Services",
     "tss_content_1":"Tax planning strategies",
     "tss_content_2":"Tax reports",
+
     "ass":"Accounting System Services",
     "ass_content_1":"Financial solutions guidance",
     "ass_content_2":"Enhance validity in Tax Submission",
+
     "tad":"Training and Development",
     "tad_content_1":"Financial and accounting knowledge establishment",
     "tad_content_2":"Legal support",
+
     "bsr":" Business Registration ",
     "bsr_content_1":"Small Enterprise",
     "bsr_content_2":"Medium Enterprise",
     "bsr_content_3":"Large Enterprise ",
-    "bsr_content_4":"Company's Update",
-    "bsr_content_5":"Company Closure",
+
+    "cu":"Company’s update",
+    "cu_content_1":"Capital adjustment",
+    "cu_content_2":"Address",
+    "cu_content_3":"Strategic planning",
+
+    "cc":"Company’s closure ",
+    "cc_content_1":"Tax reports",
+    "cc_content_2":"Public registry",
+    "cc_content_3":"Security fund and asset management",
 
     "why_us":"Why Us",
     "why_us_1":"Licensed Professional Services: We offer expert tax services, authorized by regulatory standards and ethical guidelines to ensure a high level of competency.",

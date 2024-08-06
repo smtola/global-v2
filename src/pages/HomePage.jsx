@@ -263,75 +263,102 @@ const HomePage = () => {
       </section>
 
       <section ref={services}>
-        <div className="px-5 py-20">
-          <h1 className="text-center text-[#182760] font-['koulen'] text-[44px] mb-14">
+        <div className="px-5 py-10">
+          <h1 className="text-center text-[#314bb2] font-['koulen'] text-[24px] md:text-[44px] mb-14">
             {t('ourservice')}
           </h1>
-          <div className="w-full max-w-screen-xl mx-auto pt-10 relative">
+          <div className="w-full max-w-screen-lg mx-auto pt-10 relative">
             <div>
-              <div className="p-4 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[2.5%] md:left-[27%] md:top-[5%] lg:left-[32%] lg:top-[5%] xl:left-[12%] xl:top-[12%] rotate-[134deg] z-50">
+              <div className="p-4 lg:p-6 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] md:left-[25%] lg:left-[15%] lg:top-[5%] xl:top-[6%] rotate-[134deg] z-50">
                 <img src={iconTax} className="rotate-[-134deg]" />
               </div>
-              <div className="p-4 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[27.5%] md:left-[73%] md:top-[5%] lg:left-[68%] lg:top-[5%] xl:left-[37%] xl:top-[12%] rotate-[134deg] z-50">
+              <div className="p-4 lg:p-5 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[17.5%] md:left-[75%] md:top-[3%] lg:left-[49%] lg:top-[5%] xl:top-[6%] rotate-[134deg] z-50">
                 <img src={iconAccount} className="rotate-[-134deg]" />
               </div>
-              <div className="p-4 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[52.5%] md:left-[27%] md:top-[55%] lg:left-[32%] lg:top-[57%] xl:left-[62%] xl:top-[12%] rotate-[134deg] z-50">
-                <img src={iconTrande} className="rotate-[-134deg]" />
+              <div className="p-4 lg:p-5 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[33.5%] md:left-[25%] md:top-[36%] lg:left-[84%] lg:top-[5%] xl:top-[6%] rotate-[134deg] z-50">
+                <img src={iconTrande} className="rotate-[-134deg]" width="64"/>
               </div>
-              <div className="p-4 bg-[#182760] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[78.5%] md:left-[73%] md:top-[55%] lg:left-[68%] lg:top-[57%] xl:left-[88%] xl:top-[12%] rotate-[134deg] z-50">
-                <img src={iconTrande} className="rotate-[-134deg]" />
+
+              <div className="p-4 lg:p-6 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[49.2%] md:left-[75%] md:top-[36%] lg:left-[15%] lg:top-[55%] xl:top-[54.7%] rotate-[134deg] z-50">
+                <img src={iconTax} className="rotate-[-134deg]" />
+              </div>
+              <div className="p-4 lg:p-5 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[67.1%] md:left-[75%] md:top-[72%] lg:left-[49%] lg:top-[55%] xl:top-[54.7%] rotate-[134deg] z-50">
+                <img src={iconAccount} className="rotate-[-134deg]" />
+              </div>
+              <div className="p-4 lg:p-5 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[85%] md:left-[25%] md:top-[72%] lg:left-[84%] lg:top-[55%] xl:top-[54.7%] rotate-[134deg] z-50">
+                <img src={iconTrande} className="rotate-[-134deg]" width="64"/>
               </div>
             </div>
               {/* background */}
             <div>
-                <div className="p-4 bg-gradient-to-r from-[#7c29f1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[3%] md:left-[27%] md:top-[6%] lg:left-[32%] lg:top-[6%] xl:left-[12%] xl:top-[14%] rotate-[134deg]">
+                <div className="p-4 lg:p-6 bg-gradient-to-r from-[#7c29f1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[2%] md:left-[25%] md:top-[4%] lg:left-[15%] lg:top-[6%] xl:top-[7%] rotate-[134deg]">
                   <img src={iconTax} className="rotate-[-134deg]" />
                 </div>
-                <div className="p-4 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[28%] md:left-[73%] md:top-[6%] lg:left-[68%] lg:top-[6%] xl:left-[37%] xl:top-[14%] rotate-[134deg]">
-                  <img src={iconAccount} className="rotate-[-134deg]" />
+                <div className="p-4 lg:p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[17.8%] md:left-[75%] md:top-[4%] lg:left-[49%] lg:top-[6%] xl:top-[7%] rotate-[134deg]">
+                  <img src={iconAccount} className="rotate-[-134deg]"/>
                 </div>
-                <div className="p-4 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[53%] md:left-[27%] md:top-[56%] lg:left-[32%] lg:top-[58%] xl:left-[62%] xl:top-[14%] rotate-[134deg]">
-                  <img src={iconTrande} className="rotate-[-134deg]" />
+                <div className="p-4 lg:p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[33.8%] md:left-[25%] md:top-[36.9%] lg:left-[84%] lg:top-[6%] xl:top-[7%] rotate-[134deg]">
+                  <img src={iconTrande} className="rotate-[-134deg]" width="64"/>
                 </div>
-                <div className="p-4 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD] w-[9vh] h-[9vh] md:w-[7vh] xl:w-[7vh] md:h-[7vh] xl:h-[7vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[79%] md:left-[73%] md:top-[56%] lg:left-[68%] lg:top-[58%] xl:left-[88%] xl:top-[14%] rotate-[134deg]">
-                  <img src={iconTrande} className="rotate-[-134deg]" />
+
+                <div className="p-4 lg:p-6 bg-gradient-to-r from-[#7c29f1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[49.5%] md:left-[75%] md:top-[36.9%] lg:left-[15%] lg:top-[56%] xl:top-[56%] rotate-[134deg]">
+                  <img src={iconTax} className="rotate-[-134deg]" />
+                </div>
+                <div className="p-4 lg:p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[67.4%] md:left-[75%] md:top-[73%] lg:left-[49%] lg:top-[56%] xl:top-[56%] rotate-[134deg]">
+                  <img src={iconAccount} className="rotate-[-134deg]"/>
+                </div>
+                <div className="p-4 lg:p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[85.3%] md:left-[25%] md:top-[73%] lg:left-[84%] lg:top-[56%] xl:top-[56%] rotate-[134deg]">
+                  <img src={iconTrande} className="rotate-[-134deg]" width="64"/>
                 </div>
             </div>
               {/* content */}
-              <div className="flex flex-wrap xl:flex-nowrap justify-center gap-x-[3vh] gap-y-[10vh] md:gap-y-[9vw] xl:gap-[2vw]">
-                <div className="w-full md:max-w-xs xl:max-w-xl bg-[#eee] shadow-xl">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-x-[3vw] gap-y-[9vh]">
+                <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                   <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
-                    <li className="py-3 text-[16px] font-['inter']"><b>{t('tss')}</b></li>
-                    <li className="py-3 text-[16px] font-['inter']">{t('tss_content_1')}</li>
-                    <li className="py-3 text-[16px] font-['inter']">{t('tss_content_2')}</li>
+                    <li className="py-3 text-[17px] font-['inter']"><b>{t('tss')}</b></li>
+                    <li className="py-3 text-[17px] font-['inter']">{t('tss_content_1')}</li>
+                    <li className="py-3 text-[17px] font-['inter']">{t('tss_content_2')}</li>
                   </ul>
                 </div>
-                <div className="w-full md:max-w-xs xl:max-w-xl bg-[#eee] shadow-xl">
+                <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                 <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
-                    <li className="py-3 text-[16px] font-['inter']"><b>{t('ass')}</b> </li>
-                    <li className="py-3 text-[16px] font-['inter']">{t('ass_content_1')}</li>
-                    <li className="py-3 text-[16px] font-['inter']">{t('ass_content_2')}</li>
+                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap"><b>{t('ass')}</b> </li>
+                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">{t('ass_content_1')}</li>
+                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">{t('ass_content_2')}</li>
                   </ul>
                 </div>
-                <div className="w-full md:max-w-xs xl:max-w-xl bg-[#eee] shadow-xl">
+                <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                   <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16 ">
-                    <li className="py-3 text-[16px] font-['inter']"><b>{t('tad')}</b></li>
-                    <li className="py-3 text-[16px] font-['inter']">
+                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap"><b>{t('tad')}</b></li>
+                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">
                     {t('tad_content_1')}
                     </li>
-                    <li className="py-3 text-[16px] font-['inter']">{t('tad_content_2')}</li>
+                    <li className="py-3 text-[17px] font-['inter'] px-3">{t('tad_content_2')}</li>
                   </ul>
                 </div>
-                <div className="w-full md:max-w-xs xl:max-w-xl bg-[#eee] shadow-xl">
+
+                <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
+                  <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
+                    <li className="py-3 text-[17px] font-['inter']"><b>{t('bsr')}</b></li>
+                    <li className="py-3 text-[17px] font-['inter']">{t('bsr_content_1')}</li>
+                    <li className="py-3 text-[17px] font-['inter']">{t('bsr_content_2')}</li>
+                    <li className="py-3 text-[17px] font-['inter']">{t('bsr_content_3')}</li>
+                  </ul>
+                </div>
+                <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
+                <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
+                    <li className="py-3 text-[17px] font-['inter']"><b>{t('cu')}</b> </li>
+                    <li className="py-3 text-[17px] font-['inter']">{t('cu_content_1')}</li>
+                    <li className="py-3 text-[17px] font-['inter']">{t('cu_content_2')}</li>
+                    <li className="py-3 text-[17px] font-['inter']">{t('cu_content_3')}</li>
+                  </ul>
+                </div>
+                <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                   <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16 ">
-                    <li className="py-3 text-[16px] font-['inter']"><b>{t('bsr')}</b></li>
-                    <li className=" text-[16px] font-['inter']">
-                    {t('bsr_content_1')}
-                    </li>
-                    <li className="text-[16px] font-['inter']">{t('bsr_content_2')}</li>
-                    <li className="text-[16px] font-['inter']">{t('bsr_content_3')}</li>
-                    <li className="pt-3 text-[16px] font-['inter']">{t('bsr_content_4')}</li>
-                    <li className="text-[16px] font-['inter']">{t('bsr_content_5')}</li>
+                    <li className="py-3 text-[17px] font-['inter'] px-2"><b>{t('cc')}</b></li>
+                    <li className="py-3 text-[17px] font-['inter'] px-2"> {t('cc_content_1')}</li>
+                    <li className="py-3 text-[17px] font-['inter'] px-2">{t('cc_content_2')}</li>
+                    <li className="py-3 text-[17px] font-['inter'] px-2 text-wrap">{t('cc_content_3')}</li>
                   </ul>
                 </div>
               </div>
@@ -339,7 +366,7 @@ const HomePage = () => {
         </div>
 
         <div className="w-full">
-          <h1 className="text-center text-[#203686] font-['koulen'] text-[44px] pt-10 md:pt-12 xl:pt-9">
+          <h1 className="text-center text-[#314bb2] font-['koulen'] text-[24px] md:text-[44px] py-10 md:pt-12 xl:pt-9">
             {t('why_us')}
           </h1>
 
