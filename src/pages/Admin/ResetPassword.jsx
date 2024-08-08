@@ -1,32 +1,83 @@
-import React, { useEffect, useState } from 'react';
-import {supabase} from '../../config/db';
+import React, { useState, useEffect } from 'react';
+import { supabase } from '../../config/db'; // Adjust path as needed
+import { useLocation } from 'react-router-dom';
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    const handleAuthChange = async (event, session) => {
-      if (event === 'PASSWORD_RECOVERY') {
-        const newPassword = prompt("What would you like your new password to be?");
-        if (newPassword) {
-          const { data, error } = await supabase.auth.updateUser({ password: newPassword });
-          if (error) {
-            setMessage('Error updating password.');
+    const queryParams = new URLSearchParams(location.search);
+    const accessToken = queryParams.get('access_token');
+    const refreshToken = queryParams.get('refresh_token');
+
+    if (accessToken && refreshToken) {
+      const handlePasswordReset = async () => {
+        try {
+          setLoading(true);
+          const { data, error } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken,
+          });
+
+          if (error) throw error;
+
+          const { error: updateError } = await supabase.auth.updateUser({ password: newPassword });
+
+          if (updateError) {
+            setMessage('Error updating password: ' + updateError.message);
           } else {
             setMessage('Password updated successfully!');
           }
+        } catch (error) {
+          setMessage('Error: ' + error.message);
+        } finally {
+          setLoading(false);
         }
+      };
+
+      handlePasswordReset();
+    }
+  }, [location.search, newPassword]);
+
+  const handleSubmit = async () => {
+    if (!newPassword) {
+      setMessage('Please enter a new password.');
+      return;
+    }
+
+    const queryParams = new URLSearchParams(location.search);
+    const accessToken = queryParams.get('access_token');
+    const refreshToken = queryParams.get('refresh_token');
+
+    if (accessToken && refreshToken) {
+      try {
+        setLoading(true);
+        const { data, error } = await supabase.auth.setSession({
+          access_token: accessToken,
+          refresh_token: refreshToken,
+        });
+
+        if (error) throw error;
+
+        const { error: updateError } = await supabase.auth.updateUser({ password: newPassword });
+
+        if (updateError) {
+          setMessage('Error updating password: ' + updateError.message);
+        } else {
+          setMessage('Password updated successfully!');
+        }
+      } catch (error) {
+        setMessage('Error: ' + error.message);
+      } finally {
+        setLoading(false);
       }
-    };
-
-    supabase.auth.onAuthStateChange(handleAuthChange);
-
-    // Cleanup function to unsubscribe from the auth state changes
-    return () => {
-      supabase.auth.onAuthStateChange().unsubscribe();
-    };
-  }, []);
+    } else {
+      setMessage('Invalid session.');
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
@@ -40,10 +91,11 @@ const ResetPassword = () => {
           className="w-full p-2 border border-gray-300 rounded mb-4"
         />
         <button
-          onClick={handlePasswordReset}
+          onClick={handleSubmit}
           className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          disabled={loading}
         >
-          Update Password
+          {loading ? 'Updating...' : 'Update Password'}
         </button>
         {message && <p className="mt-4 text-red-500">{message}</p>}
       </div>

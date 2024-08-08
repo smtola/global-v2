@@ -1,16 +1,33 @@
 import { useState } from 'react';
 import imgLogin from '../../assets/images/login.png';
 import {supabase} from '../../config/db';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const LoginPage = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
+  localStorage.removeItem('jwt');
+   const setSession = async (access_token, refresh_token) => {
+    try {
+      const { data, error } = await supabase.auth.setSession({
+        access_token,
+        refresh_token
+      });
+  
+      if (error) {
+        console.error('Error setting session:', error.message);
+        return { success: false, error: error.message };
+      } else {
+        console.log('Session set successfully:', data);
+        return { success: true, data };
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error.message);
+      return { success: false, error: error.message };
+    }
+  }
 
   const handleSignIn = async (event) => {
     event.preventDefault();
@@ -38,10 +55,15 @@ const LoginPage = () => {
         setLoading(false);
         return;
       }
-
+      sessionStorage.setItem('tokens', JSON.stringify(data));
+      
+    // Assuming tokens are retrieved from data.session
+    const { access_token, refresh_token } = data.session;
+    const result = await setSession(access_token, refresh_token);
     
     // Extract the JWT token
-    const token = data?.session?.access_token;
+    if(result.success){
+      const token = data?.session?.access_token;
     
     if (token) {
       // Save JWT to localStorage
@@ -55,9 +77,23 @@ const LoginPage = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
+        transition: Bounce
       });
-      navigate('/dashboard'); 
+      }else{
+        toast.error('Failed to set session', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce
+        });
+        setLoading(false);
       }
+    }
     } catch (error) {
       toast.error('Your email address or password is incorrect', {
         position: "top-right",

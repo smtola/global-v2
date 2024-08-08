@@ -4,8 +4,9 @@ import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const User = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showModalEdit, setShowModalEdit] = useState(false);
   const [users, setUsers] = useState([]);
-  const [usersId, setUserId] = useState([]);
+  const [role, setRole] = useState('');
   const [formData, setFormdata] = useState({
     email: '',
     password: '',
@@ -140,6 +141,37 @@ const User = () => {
       setLoading(false);
     }
   };
+
+  // const handleChangeRole = async () => {
+  //   if (!role) {
+  //     alert('Please enter a role.');
+  //     return;
+  //   }
+
+  //   try {
+  //      users?.map(async (user)=>{
+  //       if (!user) {
+  //         throw new Error('User not found');
+  //       }
+  //       const { data, error } = await supabase.auth.updateUser({
+  //         data: {
+  //           app_metadata: {
+  //             ...user.app_metadata,
+  //             role // Update the role
+  //           }
+  //         }
+  //       });
+  //       if (error) {
+  //         throw error;
+  //       }
+  //     });
+
+  //     // Update user role in app_metadata
+  //     alert('Role updated successfully!');
+  //   } catch (error) {
+  //     alert('Error updating role: ' + error.message);
+  //   }
+  // };
   
   if (loading) return (
     <div className="text-center min-h-[100vh] z-[99999]">
@@ -213,7 +245,7 @@ return (
                   {user.email}
                 </td>
                 <td className="px-6 py-4">
-                  {user.app_metadata.role}
+                    {user.app_metadata.role}
                 </td>
                 <td className="px-6 py-4">
                   {new Date(user.created_at).toLocaleString('en-US', { timeZone: 'Asia/Phnom_Penh' })}
@@ -329,6 +361,56 @@ return (
       </div>
       </>
   ) : null}
+  {/* modalAdd */}
+  {/* {showModalEdit ? (
+      <>
+      <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+          <div className="relative w-full my-6 mx-auto max-w-sm md:max-w-md">
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                  <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
+                  <h3 className="text-xl text-gray-500 font-semibold">Edit Role</h3>
+                  <button
+                      className=" float-right"
+                      onClick={() => {setShowModalEdit(false);}}
+                  >
+                      <span className="relative text-gray-500 cursor-pointer opacity-7 h-6 w-6 text-xl block hover:text-[#314bb2]">
+                          <h1>x</h1>
+                      </span>
+                  </button>
+                  </div>
+                  <div className="p-2 flex-auto">
+                      <form className="max-w-lg mx-auto" onSubmit={handleChangeRole}>
+                        <input
+                            type="text"
+                            value={role}
+                            onChange={(e) => setRole(e.target.value)}
+                            placeholder="New role"
+                            className="w-full p-2 border border-gray-300 rounded mb-4"
+                          />
+
+                          <div className='flex justify-end border-t mt-2 pt-3 border-solid border-gray-300'>
+                          <button
+                              className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
+                              type="button"
+                              onClick={() => {setShowModalEdit(false);}}
+                          >
+                              Cancel
+                          </button>
+                          <button
+                              className="text-white bg-[#314bb2] active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                              type="submit"
+                              disabled={loading}
+                          >
+                            {loading ? 'Submit...' : 'Submit'}
+                          </button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </>
+  ) : null} */}
 </>
 
 )

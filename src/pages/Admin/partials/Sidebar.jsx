@@ -1,19 +1,19 @@
 import  React ,{ useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-
+import { supabase } from "../../../config/db";
 const Sidebar = ({
     sidebarOpen,
     setSidebarOpen,
   }) => {
     const location = useLocation();
     const { pathname } = location;
-  
+    const token = sessionStorage.getItem('tokens');
+    const role = JSON.parse(token)?.user?.app_metadata?.role;
     const trigger = useRef(null);
     const sidebar = useRef(null);
-  
     const storedSidebarExpanded = localStorage.getItem("sidebar-expanded");
     const [sidebarExpanded, setSidebarExpanded] = useState(storedSidebarExpanded === null ? false : storedSidebarExpanded === "true");
-  
+    
     // close on click outside
     useEffect(() => {
       const clickHandler = ({ target }) => {
@@ -129,6 +129,7 @@ const Sidebar = ({
                 </div>
               </NavLink>
             </li>
+            {role === 'admin' ? 
             <li className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] ${pathname.includes("profile") && "from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]"}`}>
               <NavLink
                 end
@@ -149,6 +150,9 @@ const Sidebar = ({
                 </div>
               </NavLink>
             </li>
+            :
+            null
+          }
           </ul>
         </div>
       </div>

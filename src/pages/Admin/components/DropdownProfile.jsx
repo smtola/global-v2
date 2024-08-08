@@ -4,7 +4,6 @@ import Transition from './Transition';
 import UserAvatar from '../../../assets/images/founder.png';
 import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {jwtDecode} from 'jwt-decode';
 function DropdownProfile({
   align,
 }) {
@@ -13,18 +12,10 @@ function DropdownProfile({
   const trigger = useRef(null);
   const dropdown = useRef(null);
   const navigate = useNavigate();
-  const [decodedToken, setDecodedToken] = useState(null);
-  const token = localStorage.getItem('jwt');
+  const token = sessionStorage.getItem('tokens');
+  const userName = JSON.parse(token)?.user?.user_metadata?.full_name;
+  const role = JSON.parse(token)?.user?.app_metadata?.role;
   
-  useEffect(() => {
-    try {
-      const decoded = jwtDecode(token);
-      setDecodedToken(decoded);
-    } catch (error) {
-      console.error('Invalid token', error);
-    }
-  },[])
-
   const handleLogout = () => {
     localStorage.removeItem('jwt');
     navigate('/login');
@@ -38,10 +29,8 @@ function DropdownProfile({
       progress: undefined,
       theme: "light",
       transition: Bounce,
-      });
+    });
   };
-
-
   // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }) => {
@@ -74,7 +63,7 @@ function DropdownProfile({
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="28" fill="currentColor"><path d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-14a4 4 0 0 1 4 4v2a4 4 0 1 1-8 0V8a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v2a2 2 0 1 0 4 0V8a2 2 0 0 0-2-2zM5.91 16.876a8.033 8.033 0 0 1-1.58-1.232 5.57 5.57 0 0 1 2.204-1.574 1 1 0 1 1 .733 1.86c-.532.21-.993.538-1.358.946zm8.144.022a3.652 3.652 0 0 0-1.41-.964 1 1 0 1 1 .712-1.868 5.65 5.65 0 0 1 2.284 1.607 8.032 8.032 0 0 1-1.586 1.225z"></path></svg>
         <div className="flex items-center truncate">
-          <span className="truncate ml-2 text-sm font-medium text-gray-600  group-hover:text-gray-800">{decodedToken.user_metadata.full_name}</span>
+          <span className="truncate ml-2 text-sm font-medium text-gray-600  group-hover:text-gray-800">{userName}</span>
           <svg className="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 " viewBox="0 0 12 12">
             <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
           </svg>
@@ -97,7 +86,7 @@ function DropdownProfile({
           onBlur={() => setDropdownOpen(false)}
         >
           <div className="pt-0.5 pb-2 px-3 mb-1 border-b border-gray-200 ">
-            <h1 className="text-xs text-gray-500 italic uppercase">{decodedToken.app_metadata.role}</h1>
+            <h1 className="text-xs text-gray-500 italic uppercase">{role}</h1>
           </div>
           <ul>
             <li>
