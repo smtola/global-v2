@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "./App.css";
 import {
   HomePage,
@@ -9,23 +8,12 @@ import {
   BlogAdmin,
   CareerAdmin,
   Profile,
+  ResetPasswordRequest,
+  ResetPassword
 } from "./RootLayout";
 import {Route,Routes} from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 function App() {
-  
-  const [token,setToken] = useState(false);
-
-  if(token){
-    sessionStorage.setItem("token", JSON.stringify(token));
-  }
-
-  useEffect(()=>{
-    const storedToken = sessionStorage.getItem("token");
-    if(storedToken){
-      setToken(JSON.parse(storedToken));
-    }
-  },[])
 
  return(
   <>
@@ -46,18 +34,14 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/career" element={<Career />} />
-      <Route path="/login" element={<Login setToken={setToken} />} />
-      {
-        token ? (
-          <Route path="/dashboard" element={<Dashboard token={token}/>} >
-            <Route index element={<BlogAdmin />} />
-            <Route path="career" element={<CareerAdmin />} />
-            <Route path="profile" element={<Profile token={token}/>} />
-          </Route>
-        )
-        :
-        <Route path="*" element={<Login setToken={setToken} />} />
-      }
+      <Route path="/login" element={<Login  />} />
+      <Route path="/dashboard" element={<Dashboard />} >
+        <Route index element={<BlogAdmin />} />
+        <Route path="career" element={<CareerAdmin />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="resetpassordrequest" element={<ResetPasswordRequest />} />
+        <Route path="resetpassword" element={<ResetPassword />} />
+      </Route>
     </Routes>
   </>
  )

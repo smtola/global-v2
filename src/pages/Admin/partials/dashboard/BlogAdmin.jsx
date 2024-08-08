@@ -15,6 +15,7 @@ const BlogAdmin = () => {
   const [loading, setLoading] = useState(true);
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalEdit, setShowModalEdit] = useState(false);
+  const token = localStorage.getItem("jwt");
   useEffect(() => {
     fetchData();
   }, []);

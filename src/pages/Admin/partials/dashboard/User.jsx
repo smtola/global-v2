@@ -1,17 +1,42 @@
 import React, {useEffect, useState} from 'react'
 import {supabase} from '../../../../config/db';
-import { toast } from 'react-toastify';
+import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const User = ({token}) => {
+const User = () => {
   const [showModal, setShowModal] = useState(false);
-  const [showContent, setShowContent] = useState(true);
-
+  const [users, setUsers] = useState([]);
+  const [usersId, setUserId] = useState([]);
   const [formData, setFormdata] = useState({
     email: '',
     password: '',
     fullName: '',
   });
   const [loading, setLoading] = useState(false);
+
+  useEffect(()=>{
+    fetchUser();
+  },[])
+  const fetchUser = async ()=>{
+    try {
+      const { data: { users }, error } = await supabase.auth.admin.listUsers();
+      if(error) throw error;
+      setUsers(users);
+    }catch(err){
+      toast.error(err.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+        });
+    }finally {
+      setLoading(false);
+    }
+  }
 
   const handleChange = (event)=>{
     setFormdata((prevFormData)=>{
@@ -22,21 +47,57 @@ const User = ({token}) => {
     })
   }
 
+  const handleDelete = async (id) => {
+    setLoading(true);
+    try {
+      // Delete user
+      await supabase.auth.admin.deleteUser(id);
+      toast.success('User deleted successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+        });
+      fetchUser();
+    } catch (error) {
+      toast.error(error.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+        });
+    } finally {
+      setLoading(false);
+    }
+  }
+
   const handleSignUp = async (event) => {
     event.preventDefault();
     setLoading(true);
 
     try {
       // Sign up with Supabase authentication
-      const {data, error: authError } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.admin.createUser({
         email:formData.email,
         password:formData.password,
-        options:{
-          data:{
-            full_name:formData.fullName,
-          }
+        user_metadata:{
+          full_name: formData.fullName
+        },
+        app_metadata: {
+          role:'user'
         }
       });
+
        toast.warn('Check your email to virfy email for sign up!', {
         position: "top-right",
         autoClose: 5000,
@@ -80,45 +141,101 @@ const User = ({token}) => {
     }
   };
   
+  if (loading) return (
+    <div className="text-center min-h-[100vh] z-[99999]">
+      <div role="status">
+        <svg aria-hidden="true" className="inline w-8 h-8 text-gray-200 animate-spin fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+        </svg>
+        <span className="sr-only">Loading...</span>
+      </div>
+    </div>
+  );
 return (
-  <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-    {showContent?
-        <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-2xl">
-        <div className="flex flex-col items-center">
-          <div>
-            <h1 className="'font-['koulen'] font-medium text-[30px] text-[#314BB2]">User Information</h1>
-  
-            <div>
-              <p className="text-[#5A5A5A] text-sm">
-                Full Name: {token.user.user_metadata.full_name}
-              </p>
-              <p className="text-[#5A5A5A] text-sm">
-                Email: {token.user.user_metadata.email}
-              </p>
-              <p className="text-[#5A5A5A] text-sm">
-                Created: {new Date(token.user.created_at).toUTCString()}
-              </p>
-            </div>
-          </div>
-  
-          <div className="mt-4 flex flex-row space-y-2 gap-4">
-            <button
-              onClick={() => {setShowModal(true);setShowContent(false);}}
-              className=" text-[#314BB2] py-2 px-4 rounded hover:underline transition-all duration-300"
-            >
-              New User
-            </button>
-            <button
-              onClick={() => alert('Reset Password')}
-              className=" text-red-600 py-2 px-4 rounded hover:underline transition-all duration-300"
-            >
-              Reset Password
-            </button>
+  <>
+  <div className="flex flex-col col-span-full bg-white/30 shadow-sm rounded-xl">
+        {/*Add Button */}
+        <div className="sm:flex sm:justify-between sm:items-center mb-8">
+                {/* Left: Title */}
+          <div className="mb-4 sm:mb-0">
+            <h1 className="text-2xl md:text-3xl text-gray-800 font-bold">
+              Users
+            </h1>
           </div>
         </div>
+        <div className="flex justify-end">
+          <button
+            className="bg-[#314bb2] text-[#ffffff] active:bg-[#4262e1] 2xl:w-[10%]
+            font-bold px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+            type="button"
+            onClick={() => setShowModal(true)}
+          >
+            Add Users
+          </button>
         </div>
-     : null}
-
+        <div className="grow max-sm:max-h-[128px] xl:max-h-[128px]">
+          {/* Change the height attribute to adjust the chart height */}
+          <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table className="w-full text-sm text-left text-gray-500">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
+                <tr>
+                  <th scope="col" className="px-6 py-3">
+                    Name
+                  </th>
+                  <th scope="col" className="px-6 py-3 ">
+                    Email
+              </th>
+              <th scope="col" className="px-6 py-3">
+                    Type
+              </th>
+              <th scope="col" className="px-6 py-3">
+                    Created_at
+              </th>
+              <th scope="col" className="px-6 py-3">
+                <span className="sr-only">Action</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user, index) => (
+              <tr
+                key={user.id}
+                className="bg-white border-b hover:bg-gray-50 "
+              >
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
+                >
+                  {index + 1} : {user.user_metadata.full_name}
+                </th>
+                <td className="px-6 py-4 truncate...">
+                  {user.email}
+                </td>
+                <td className="px-6 py-4">
+                  {user.app_metadata.role}
+                </td>
+                <td className="px-6 py-4">
+                  {new Date(user.created_at).toLocaleString('en-US', { timeZone: 'Asia/Phnom_Penh' })}
+                </td>
+                <td className="px-6 py-4 text-right">
+                  <button
+                    onClick={() => {
+                      handleDelete(user.id);
+                    }}
+                    className="font-medium px-2 text-red-600 hover:underline"
+                    disabled={loading}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -2 24 24" width="28" fill="red"><path d="M6 2V1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1h4a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-.133l-.68 10.2a3 3 0 0 1-2.993 2.8H5.826a3 3 0 0 1-2.993-2.796L2.137 7H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4zm10 2H2v1h14V4zM4.141 7l.687 10.068a1 1 0 0 0 .998.932h6.368a1 1 0 0 0 .998-.934L13.862 7h-9.72zM7 8a1 1 0 0 1 1 1v7a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v7a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"></path></svg>
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
   {/* modalAdd */}
   {showModal ? (
       <>
@@ -212,7 +329,7 @@ return (
       </div>
       </>
   ) : null}
-</div>
+</>
 
 )
 }

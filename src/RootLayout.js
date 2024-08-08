@@ -6,7 +6,8 @@ import Login from "./pages/Admin/LoginPage";
 import BlogAdmin from "./pages/Admin/partials/dashboard/BlogAdmin";
 import CareerAdmin from "./pages/Admin/partials/dashboard/CareerAdmin";
 import Profile from "./pages/Admin/partials/dashboard/User";
-
+import ResetPasswordRequest from "./pages/Admin/ PasswordResetRequest";
+import ResetPassword from "./pages/Admin/ResetPassword";
 export {
     HomePage,
     Blog,
@@ -16,4 +17,6 @@ export {
     BlogAdmin,
     CareerAdmin,
     Profile,
+    ResetPasswordRequest,
+    ResetPassword
 }

@@ -4,7 +4,7 @@ import {supabase} from '../../config/db';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const LoginPage = ({setToken}) => {
+const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,8 +38,14 @@ const LoginPage = ({setToken}) => {
         setLoading(false);
         return;
       }
-      setToken(data);
-      navigate('/dashboard'); 
+
+    
+    // Extract the JWT token
+    const token = data?.session?.access_token;
+    
+    if (token) {
+      // Save JWT to localStorage
+      localStorage.setItem('jwt', token);
       toast.success('Login successfully!', {
         position: "top-right",
         autoClose: 5000,
@@ -49,8 +55,9 @@ const LoginPage = ({setToken}) => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        transition: Bounce
-        });
+      });
+      navigate('/dashboard'); 
+      }
     } catch (error) {
       toast.error('Your email address or password is incorrect', {
         position: "top-right",
