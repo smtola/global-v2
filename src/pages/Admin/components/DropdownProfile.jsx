@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { NavLink,useNavigate } from 'react-router-dom';
 import Transition from './Transition';
-import UserAvatar from '../../../assets/images/founder.png';
+import { supabase } from '../../../config/db'; // Adjust path as needed
 import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function DropdownProfile({
@@ -16,7 +16,8 @@ function DropdownProfile({
   const userName = JSON.parse(token)?.user?.user_metadata?.full_name;
   const role = JSON.parse(token)?.user?.app_metadata?.role;
   
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut()
     localStorage.removeItem('jwt');
     navigate('/login');
     toast.success('You was logout!', {
