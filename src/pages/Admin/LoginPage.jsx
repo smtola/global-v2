@@ -41,9 +41,9 @@ const LoginPage = () => {
       });
 
       if (authError) {
-        toast.error(authError.message, {
+        toast.error('Your email address or password is incorrect', {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -55,22 +55,23 @@ const LoginPage = () => {
         setLoading(false);
         return;
       }
-      sessionStorage.setItem('tokens', JSON.stringify(data));
+      localStorage.setItem('tokens', JSON.stringify(data));
       
-    // Assuming tokens are retrieved from data.session
-    const { access_token, refresh_token } = data.session;
-    const result = await setSession(access_token, refresh_token);
-    
-    // Extract the JWT token
-    if(result.success){
-      const token = data?.session?.access_token;
-    
-    if (token) {
-      // Save JWT to localStorage
-      localStorage.setItem('jwt', token);
+      const { access_token, refresh_token } = data.session;
+      
+      setSession(access_token, refresh_token);
+      // Set session with tokens
+      const { error: sessionError } = await supabase.auth.setSession({
+        access_token,
+        refresh_token,
+      });
+
+      if (sessionError) {
+        throw new Error('Failed to set session');
+      }
       toast.success('Login successfully!', {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -78,26 +79,13 @@ const LoginPage = () => {
         progress: undefined,
         theme: "light",
         transition: Bounce
-      });
-      }else{
-        toast.error('Failed to set session', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce
         });
-        setLoading(false);
-      }
-    }
+      // Save JWT to localStorage
+      localStorage.setItem('jwt', access_token);
     } catch (error) {
       toast.error('Your email address or password is incorrect', {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

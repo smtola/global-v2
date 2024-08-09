@@ -12,7 +12,7 @@ function DropdownProfile({
   const trigger = useRef(null);
   const dropdown = useRef(null);
   const navigate = useNavigate();
-  const token = sessionStorage.getItem('tokens');
+  const token = localStorage.getItem('tokens');
   const userName = JSON.parse(token)?.user?.user_metadata?.full_name;
   const role = JSON.parse(token)?.user?.app_metadata?.role;
   

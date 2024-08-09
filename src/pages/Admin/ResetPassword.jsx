@@ -1,104 +1,98 @@
-import React, { useState, useEffect } from 'react';
-import { supabase } from '../../config/db'; // Adjust path as needed
-import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { supabase } from '../../config/db';
+import { toast, Bounce } from 'react-toastify';
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
-  const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  
+  // Extract token from URL
+  const queryParams = new URLSearchParams(location.search);
+  console.log(queryParams);
+  
+  const token = queryParams.get('token');
 
+  console.log(token);
+  
   useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
-    const accessToken = queryParams.get('access_token');
-    const refreshToken = queryParams.get('refresh_token');
-
-    if (accessToken && refreshToken) {
-      const handlePasswordReset = async () => {
-        try {
-          setLoading(true);
-          const { data, error } = await supabase.auth.setSession({
-            access_token: accessToken,
-            refresh_token: refreshToken,
-          });
-
-          if (error) throw error;
-
-          const { error: updateError } = await supabase.auth.updateUser({ password: newPassword });
-
-          if (updateError) {
-            setMessage('Error updating password: ' + updateError.message);
-          } else {
-            setMessage('Password updated successfully!');
-          }
-        } catch (error) {
-          setMessage('Error: ' + error.message);
-        } finally {
-          setLoading(false);
-        }
-      };
-
-      handlePasswordReset();
+    if (!token) {
+      toast.error('Invalid or missing token.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
     }
-  }, [location.search, newPassword]);
+  }, [token, navigate]);
 
-  const handleSubmit = async () => {
-    if (!newPassword) {
-      setMessage('Please enter a new password.');
-      return;
-    }
+  const handlePasswordReset = async (event) => {
+    event.preventDefault();
+    setLoading(true);
 
-    const queryParams = new URLSearchParams(location.search);
-    const accessToken = queryParams.get('access_token');
-    const refreshToken = queryParams.get('refresh_token');
+    const { data, error } = await supabase.auth.updateUser({ password: newPassword }, { access_token: token });
 
-    if (accessToken && refreshToken) {
-      try {
-        setLoading(true);
-        const { data, error } = await supabase.auth.setSession({
-          access_token: accessToken,
-          refresh_token: refreshToken,
-        });
-
-        if (error) throw error;
-
-        const { error: updateError } = await supabase.auth.updateUser({ password: newPassword });
-
-        if (updateError) {
-          setMessage('Error updating password: ' + updateError.message);
-        } else {
-          setMessage('Password updated successfully!');
-        }
-      } catch (error) {
-        setMessage('Error: ' + error.message);
-      } finally {
-        setLoading(false);
-      }
+    if (error) {
+      toast.error(`Error updating password: ${error.message}`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
     } else {
-      setMessage('Invalid session.');
+      toast.success('Password updated successfully!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+      navigate('/login');
     }
+
+    setLoading(false);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Reset Your Password</h2>
-        <input
-          type="password"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-          placeholder="New password"
-          className="w-full p-2 border border-gray-300 rounded mb-4"
-        />
+    <div className="container mx-auto flex flex-col justify-center items-center min-h-[50vh] p-5">
+      <h1 className="text-[#233C96] font-bold text-2xl mb-4">Reset Password</h1>
+      <form onSubmit={handlePasswordReset} className="w-full max-w-sm bg-[#eee] p-5 rounded-lg shadow-md">
+        <div className="mb-4">
+          <label htmlFor="newPassword" className="block mb-2 text-sm font-medium text-[#233C96]">New Password</label>
+          <input
+            type="password"
+            id="newPassword"
+            className="block w-full p-2.5 bg-gray-200 border-gray-300 rounded-lg"
+            placeholder="Enter new password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+            required
+          />
+        </div>
         <button
-          onClick={handleSubmit}
-          className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          type="submit"
           disabled={loading}
+          className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
         >
           {loading ? 'Updating...' : 'Update Password'}
         </button>
-        {message && <p className="mt-4 text-red-500">{message}</p>}
-      </div>
+      </form>
     </div>
   );
 };

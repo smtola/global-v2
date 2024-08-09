@@ -1,16 +1,41 @@
 import React, { useState } from 'react';
 import {supabase} from '../../config/db';
+import { toast,Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const ResetPasswordRequest = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
   const handlePasswordReset = async () => {
-    const { data, error } = await supabase.auth.resetPasswordForEmail(email);
+    
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email)
     if (error) {
-      setMessage('Error sending password reset email.');
+      // Handle the error
+      toast.error('Error sending password reset email:', error.message, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+        });
     } else {
-      setMessage('Password reset email sent! Please check your inbox.');
+      // Handle the success
+      toast.success('Password reset email sent successfully', data, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+        });
     }
   };
 

@@ -44,8 +44,8 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="resetpassordrequest" element={<ResetPasswordRequest />} />
           <Route path="tokenmanager" element={<TokenManager />} />
+          <Route path="resetpassword" element={<ResetPassword />} />
         </Route>
-        <Route path="resetpassword" element={<ResetPassword />} />
       </Routes>
       <AuthHandler/>
     </Router>
