@@ -90,14 +90,14 @@ function DropdownProfile({
             <h1 className="text-xs text-gray-500 italic uppercase">{role}</h1>
           </div>
           <ul>
-            <li>
+            {/* <li>
               <NavLink
                 className="cursor-pointer font-medium text-sm text-[#233C96] hover:text-[#30448b]flex items-center py-1 px-3"
                 to={"resetpassordrequest"}
               >
                 Reset Password
               </NavLink>
-            </li>
+            </li> */}
             <li className='my-3'>
               <a
                 className="cursor-pointer font-medium text-sm text-[#233C96] hover:text-[#30448b]flex items-center py-1 px-3"

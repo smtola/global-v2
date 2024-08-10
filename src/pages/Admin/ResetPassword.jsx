@@ -11,12 +11,8 @@ const ResetPassword = () => {
   
   // Extract token from URL
   const queryParams = new URLSearchParams(location.search);
-  console.log(queryParams);
-  
   const token = queryParams.get('token');
 
-  console.log(token);
-  
   useEffect(() => {
     if (!token) {
       toast.error('Invalid or missing token.', {
@@ -30,6 +26,7 @@ const ResetPassword = () => {
         theme: "light",
         transition: Bounce
       });
+      navigate('/login');
     }
   }, [token, navigate]);
 
@@ -37,7 +34,24 @@ const ResetPassword = () => {
     event.preventDefault();
     setLoading(true);
 
-    const { data, error } = await supabase.auth.updateUser({ password: newPassword }, { access_token: token });
+    if (!token) {
+      toast.error('Token is missing.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+      setLoading(false);
+      return;
+    }
+
+    // Reset password using Supabase's API
+    const { error } = await supabase.auth.api.updateUserById(token, { password: newPassword });
 
     if (error) {
       toast.error(`Error updating password: ${error.message}`, {

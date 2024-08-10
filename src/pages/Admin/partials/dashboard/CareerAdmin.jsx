@@ -51,17 +51,7 @@ const CareerAdmin = () => {
       setFileDefault(tableData);
       setData(dataWithUrls);
     } catch (err) {
-      toast.error(err.message, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce
-        });
+      console.log(err.message);
     } finally {
       setLoading(false);
     }
