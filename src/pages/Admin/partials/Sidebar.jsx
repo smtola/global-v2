@@ -97,7 +97,7 @@ const Sidebar = ({
                 end
                 to="/dashboard"
                 className={`block text-[#000099] truncate transition duration-150 ${
-                  pathname.includes("inbox") ? "" : "hover:text-[#000099]"
+                  pathname.includes("blog") ? "" : "hover:text-[#000099]"
                 }`}
               >
                 <div className="flex items-center">

@@ -2,12 +2,14 @@ import { useState } from 'react';
 import imgLogin from '../../assets/images/login.png';
 import {supabase} from '../../config/db';
 import { toast,Bounce } from 'react-toastify';
+import {useNavigate} from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   localStorage.removeItem('jwt');
    const setSession = async (access_token, refresh_token) => {
     try {
@@ -80,6 +82,8 @@ const LoginPage = () => {
         theme: "light",
         transition: Bounce
         });
+        // navigate('');
+        window.location.href = "/dashboard";
       // Save JWT to localStorage
       localStorage.setItem('jwt', access_token);
     } catch (error) {
@@ -100,13 +104,13 @@ const LoginPage = () => {
 
   return (
     <>
-      <div className='container mx-auto flex flex-col justify-center items-center min-h-[50vh] lg:min-h-[90vh] p-5'>
+      <div className='container mx-auto flex flex-col justify-center items-center min-h-[48vh] lg:min-h-[90vh] p-5'>
           <div>
-            <img src="/logo.jpg" className='mx-auto w-44 md:w-52'/>
+            <img src="/logo.jpg" className='mx-auto w-36 md:w-52'/>
           </div>
           <div className='flex flex-wrap md:flex-nowrap justify-center items-center w-full max-w-sm lg:max-w-xl lg:max-h-xl shadow-md rounded-lg bg-[#eee] p-0 m-0'>
             <div className='w-full'>
-              <img src={imgLogin} className='w-[100%] object-contain mx-auto' />
+              <img src={imgLogin} className='w-full object-contain mx-auto' />
             </div>
             <div className='w-full p-5'>
               <h1 className='text-[#233C96] font-["lexend"] font-bold text-[25px] text-center my-5'>Login</h1>

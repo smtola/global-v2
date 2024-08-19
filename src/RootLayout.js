@@ -8,7 +8,6 @@ import CareerAdmin from "./pages/Admin/partials/dashboard/CareerAdmin";
 import Profile from "./pages/Admin/partials/dashboard/User";
 import ResetPasswordRequest from "./pages/Admin/ PasswordResetRequest";
 import ResetPassword from "./pages/Admin/ResetPassword";
-import AuthHandler from "./pages/Admin/components/AuthHandler";
 import TokenManager from "./pages/Admin/components/TokenManager";
 export {
     HomePage,
@@ -21,6 +20,5 @@ export {
     Profile,
     ResetPasswordRequest,
     ResetPassword,
-    AuthHandler,
     TokenManager
 }

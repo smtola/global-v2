@@ -10,7 +10,6 @@ import {
   Profile,
   ResetPasswordRequest,
   ResetPassword,
-  AuthHandler,
   TokenManager
 } from "./RootLayout";
 import { BrowserRouter as Router,Route,Routes} from "react-router-dom";
@@ -39,7 +38,7 @@ function App() {
         <Route path="/career" element={<Career />} />
         <Route path="/login" element={<Login  />} />
         <Route path="/dashboard" element={<Dashboard />} >
-          <Route index element={<BlogAdmin />} />
+          <Route index={true} element={<BlogAdmin />} />
           <Route path="career" element={<CareerAdmin />} />
           <Route path="profile" element={<Profile />} />
           <Route path="resetpassordrequest" element={<ResetPasswordRequest />} />
@@ -47,7 +46,6 @@ function App() {
           <Route path="resetpassword" element={<ResetPassword />} />
         </Route>
       </Routes>
-      <AuthHandler/>
     </Router>
   </>
  )
