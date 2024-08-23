@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import {useRef} from "react";
+import {useRef,useState} from "react";
 import "./HomePage.css";
 import Scroll from "../Scroll";
 import imgBanner from "../assets/images/banner/cover.jpg";
@@ -16,7 +16,7 @@ import partnerIcon from "../assets/images/partner.png";
 import certificateImage from '../assets/images/certificate.jpg';
 import vatImage from '../assets/images/VAT-2023.jpg';
 import ahNhabanImage from '../assets/images/អាជ្ញាប័ណ្ណភ្នាក់ងារ_Fianl_update.jpg';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../hooks/useTranslation';
 
 const HomePage = () => {
   const home = useRef(null);
@@ -24,27 +24,26 @@ const HomePage = () => {
   const services = useRef(null);
   const client = useRef(null);
   const iconsTick = <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -7 24 24" width="28" fill="currentColor"><path d="M5.486 9.73a.997.997 0 0 1-.707-.292L.537 5.195A1 1 0 1 1 1.95 3.78l3.535 3.535L11.85.952a1 1 0 0 1 1.415 1.414L6.193 9.438a.997.997 0 0 1-.707.292z"></path></svg>;
-  const {t} = useTranslation();
+  const defaultLangCode = localStorage.getItem('language') || 'en';
+  const translations = useTranslation(defaultLangCode);
+  
   return (
     <>
       <Scroll />
-      <Navbar home={home} about={about_us} services={services} client={client}/>
+      <Navbar translations={translations} home={home} about={about_us} services={services} client={client}/>
       <section ref={home}>
         <div className="relative">
           <img src={imgBanner} className="w-full h-[50vh] xl:h-screen clip-path" />
           <div className="w-full absolute left-[5%] md:left-[26%] xl:left-[50%] top-[80%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
             <div className="w-full h-[56vh] ps-[24vh]" >
-              <h1 className="text-[48px] md:text-[100px] lg:text-[120px] xl:text-[144px] 2xl:text-[164px] font-['koulen'] text-[#39B6FF] font-normal h-[48px] md:h-[100px] lg:h-[120px] xl:h-[144px] 2xl:h-[164px]">
-                {t('welcome_1')}
-              </h1>
-              <h1 className="text-[26px] md:text-[53px] lg:text-[65px] xl:text-[77px] 2xl:text-[87px] font-['koulen'] text-[#233C96] font-normal h-[35px] md:h-[60px] lg:h-[70px] xl:h-[100px]">
-                {t('welcome_2')}
-              </h1>
-              <p className="text-[12px] md:text-[22px] font-['inter'] text-[#233C96] font-normal">
-                {t('welcome')}
-              </p>
-              <p className="text-[11px] md:text-[16px] font-['inter'] text-[#233C96] font-normal w-64">
-                {t('welcome_p')}
+                <h1 className="text-[48px] md:text-[100px] lg:text-[120px] xl:text-[144px] 2xl:text-[164px] font-['koulen'] text-[#39B6FF] font-normal h-[48px] md:h-[100px] lg:h-[120px] xl:h-[144px] 2xl:h-[164px]">
+                  Global
+                </h1>
+                <h1 className="text-[26px] md:text-[53px] lg:text-[65px] xl:text-[77px] 2xl:text-[87px] font-['koulen'] text-[#233C96] font-normal h-[35px] md:h-[60px] lg:h-[70px] xl:h-[100px]">
+                  Consultancy
+                </h1>
+                <p className="text-[11px] md:text-[16px] font-['inter'] text-[#233C96] font-normal w-64">
+                {translations['welcome'] || 'Loading...'}
               </p>
             </div>
           </div>
@@ -56,14 +55,10 @@ const HomePage = () => {
           <div className="w-full max-w-screen-xl mx-auto text-start font-['inter'] text-[#050076] p-5 md:p-12"
           >
             <h1 className="text-[24px] md:text-[44px] font-['koulen'] font-medium">
-              {t('about_title')}
+              Global Consultancy
             </h1>
             <p className="text-[16px] md:text-[24px]">
-              {t('about_p_1')}
-            </p>
-            <br />
-            <p className="text-[16px] md:text-[24px]">
-              {t('about_p_2')}
+              {translations['about_p'] || 'Loading...'}
             </p>
           </div>
           <div className="bg-[#314bb2] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
@@ -74,10 +69,10 @@ const HomePage = () => {
                 </div>
                 <div>
                   <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium">
-                  {t('vision')}
+                  {translations['vision_title'] || 'Loading...'}
                   </h1>
                   <p className="font-['inter'] md:text-[20px]">
-                  {t('vision_detail')}
+                  {translations['vision_detail'] || 'Loading...'}
                   </p>
                 </div>
               </div>
@@ -87,16 +82,16 @@ const HomePage = () => {
                 </div>
                 <div>
                   <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium mt-2">
-                  {t('mission')}
+                     {translations['mission_title'] || 'Loading...'}
                   </h1>
                   <p className="font-['inter'] md:text-[20px]">
-                     {t('mission_detail')}
+                      {translations['mission_detail'] || 'Loading...'}
                   </p>
                 </div>
               </div>
 
               <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium mt-5">
-                {t('core_value')}
+                {translations['core_value'] || 'Loading...'}
               </h1>
               <div className="flex justify-center flex-wrap md:flex-nowrap gap-[4vw] max-w-screen-lg 2xl:max-w-screen-xl mx-auto my-5">
                 <div>
@@ -107,9 +102,9 @@ const HomePage = () => {
                       </span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">{t('itegrity')}</h1>
+                      <h1 className="font-bold text-[20px]">{translations['integrity_title'] || 'Loading...'}</h1>
                       <p className="md:text-[20px]">
-                      {t('itegrity_detail')}
+                      {translations['integrity_detail'] || 'Loading...'}
                       </p>
                     </div>
                   </div>
@@ -118,9 +113,9 @@ const HomePage = () => {
                       <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">{t('excellence')}</h1>
+                      <h1 className="font-bold text-[20px]">{translations['excellence_title'] || 'Loading...'}</h1>
                       <p className="md:text-[20px]">
-                      {t('excellence_detail')}
+                        {translations['excellence_detail'] || 'Loading...'}
                       </p>
                     </div>
                   </div>
@@ -132,9 +127,9 @@ const HomePage = () => {
                       <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">{t('cs')}</h1>
+                      <h1 className="font-bold text-[20px]">{translations['cs'] || 'Loading...'}</h1>
                       <p className="md:text-[20px]">
-                      {t('cs_detail')}
+                      {translations['cs_detail'] || 'Loading...'}
                       </p>
                     </div>
                   </div>
@@ -143,9 +138,9 @@ const HomePage = () => {
                       <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">{t('innovation')}</h1>
+                      <h1 className="font-bold text-[20px]">{translations['innovation'] || 'Loading...'}</h1>
                       <p className="md:text-[20px]">
-                      {t('innovation_detail')}
+                      {translations['innovation_detail'] || 'Loading...'}
                       </p>
                     </div>
                   </div>
@@ -154,9 +149,9 @@ const HomePage = () => {
                       <span>{iconsTick}</span>
                     </div>
                     <div>
-                      <h1 className="font-bold text-[20px]">{t('collaboration')}</h1>
+                      <h1 className="font-bold text-[20px]">{translations['collaboration'] || 'Loading...'}</h1>
                       <p className="md:text-[20px]">
-                      {t('innovation_detail')}
+                      {translations['collaboration_detail'] || 'Loading...'}
                       </p>
                     </div>
                   </div>
@@ -171,41 +166,29 @@ const HomePage = () => {
                 <img src={imgFounder} className="w-[190vh] md:w-[172vh] lg:w-[100vh] xl:w-[172vh]" />
               </div>
               <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20">
-                <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal md:h-[40px]">
-                  {t('founder_name')}
+                <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal">
+                {translations['founder_name'] || 'Loading...'}
                 </h1>
-                <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal h-[5px] md:h-[40px]">
-                  {t('founder')} | CEO
-                </h1>
+                <p className="text-[16px] md:text-[24px] lg:text-[38px] text-[#233C96] font-normal">
+                {translations['founder_title'] || 'Loading...'}
+                </p>
                 <br />
                 <p className="text-[9px] md:text-[20px]">
-                  {t('education')}
+                {translations['education'] || 'Loading...'}
                 </p>
 
                 <details className="w-30 text-center md:w-44 my-2 cursor-pointer">
                   <summary className="bg-gradient-to-r from-[#C2F6FF] to-[#05A4FE] px-3 py-2 text-[12px] md:text-[17px] text-[#182760] rounded-xl select-none">
-                    {t('message')}
+                  {translations['btn_ms'] || 'Loading...'}
                   </summary>
                   <p className="text-start w-full left-[54%] md:left-[53%] lg:left-[68%] xl:left-[66%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-[#7978789a] backdrop-blur-[100px] bg-opacity-100 my-3 absolute rounded-2xl text-[#eee] transition delay-1000 duration-2000 z-50">
-                    {t('message_detail_1')} 
+                  {translations['header'] || 'Loading...'}
                     <br />
                     <br />
-                    {t('message_detail_2')}
-                     <br />
-                    <br />
-                    {t('message_detail_3')}  
+                    {translations['body'] || 'Loading...'}
                     <br />
                     <br />
-                    {t('message_detail_4')} 
-                     <br /> <br />
-                    {t('message_detail_5')}  
-                    <br /> <br /> 
-                    {t('message_detail_6')} 
-                    <br />
-                    {t('message_detail_7')} 
-                    <br />
-                    {t('message_detail_8')} 
-                    <br /> 
+                    {translations['footer'] || 'Loading...'}
                   </p>
                 </details>
               </div>
@@ -218,7 +201,7 @@ const HomePage = () => {
                 <div className="flex gap-[2vw] items-center justify-center">
                   <img src={founderIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                    {t('founder_ch')}
+                  {translations['founder_ch'] || 'Loading...'}
                   </h1>
                 </div>
               </div>
@@ -226,13 +209,13 @@ const HomePage = () => {
                 <div className="flex gap-[2vw] items-center py-5">
                 <img src={accountingIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                  {t('t_&_a')}
+                  {translations['t_&_a'] || 'Loading...'}
                   </h1>
                 </div>
                 <div className="flex gap-[2vw] items-center py-5">
                 <img src={partnerIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                  {t('partner')}
+                  {translations['partner'] || 'Loading...'}
                   </h1>
                 </div>
               </div>
@@ -242,7 +225,7 @@ const HomePage = () => {
           <div className="w-full max-w-screen-xl mx-auto my-3 md:my-10">
             <div className="p-5">
               <h1 className="text-center text-[#314bb2] font-['koulen'] text-[24px] md:text-[44px] my-5">
-                {t('brc')}
+              {translations['brc'] || 'Loading...'}
               </h1>
               <div>
                 <div className="bg-gray-200 w-full max-w-screen-xl mx-auto my-2">
@@ -264,9 +247,12 @@ const HomePage = () => {
 
       <section ref={services}>
         <div className="px-5 py-10">
-          <h1 className="text-center text-[#314bb2] font-['koulen'] text-[24px] md:text-[44px] mb-14">
-            {t('ourservice')}
+          <h1 className="text-center text-[#314bb2] font-['koulen'] text-[24px] md:text-[44px]">
+            {translations['ourservice'] || 'Loading...'}
           </h1>
+          <p className="text-center text-[#405194] font-['inter'] text-[16px] mb-14">
+            {translations['ourservice_detail'] || 'Loading...'}
+          </p>
           <div className="w-full max-w-screen-lg mx-auto pt-10 relative">
             <div>
               <div className="p-4 lg:p-6 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] md:left-[25%] lg:left-[15%] lg:top-[5%] xl:top-[6%] rotate-[134deg] z-50">
@@ -315,50 +301,50 @@ const HomePage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-x-[3vw] gap-y-[9vh]">
                 <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                   <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
-                    <li className="py-3 text-[17px] font-['inter']"><b>{t('tss')}</b></li>
-                    <li className="py-3 text-[17px] font-['inter']">{t('tss_content_1')}</li>
-                    <li className="py-3 text-[17px] font-['inter']">{t('tss_content_2')}</li>
+                    <li className="py-3 text-[17px] font-['inter']"><b>{translations['tss'] || 'Loading...'}</b></li>
+                    <li className="py-3 text-[17px] font-['inter']">{translations['tss_content_1'] || 'Loading...'}</li>
+                    <li className="py-3 text-[17px] font-['inter']">{translations['tss_content_2'] || 'Loading...'}</li>
                   </ul>
                 </div>
                 <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
-                <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
-                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap"><b>{t('ass')}</b> </li>
-                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">{t('ass_content_1')}</li>
-                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">{t('ass_content_2')}</li>
+                  <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
+                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap"><b>{translations['ass'] || 'Loading...'}</b> </li>
+                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">{translations['ass_content_1'] || 'Loading...'}</li>
+                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">{translations['ass_content_2'] || 'Loading...'}</li>
                   </ul>
                 </div>
                 <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                   <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16 ">
-                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap"><b>{t('tad')}</b></li>
+                    <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap"><b>{translations['tad'] || 'Loading...'}</b></li>
                     <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">
-                    {t('tad_content_1')}
+                    {translations['tad_content_1'] || 'Loading...'}
                     </li>
-                    <li className="py-3 text-[17px] font-['inter'] px-3">{t('tad_content_2')}</li>
+                    <li className="py-3 text-[17px] font-['inter'] px-3">{translations['tad_content_2'] || 'Loading...'}</li>
                   </ul>
                 </div>
 
                 <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                   <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
-                    <li className="py-3 text-[17px] font-['inter']"><b>{t('bsr')}</b></li>
-                    <li className="py-3 text-[17px] font-['inter']">{t('bsr_content_1')}</li>
-                    <li className="py-3 text-[17px] font-['inter']">{t('bsr_content_2')}</li>
-                    <li className="py-3 text-[17px] font-['inter']">{t('bsr_content_3')}</li>
+                    <li className="py-3 text-[17px] font-['inter']"><b>{translations['bsr'] || 'Loading...'}</b></li>
+                    <li className="py-3 text-[17px] font-['inter']">{translations['bsr_content_1'] || 'Loading...'}</li>
+                    <li className="py-3 text-[17px] font-['inter']">{translations['bsr_content_2'] || 'Loading...'}</li>
+                    <li className="py-3 text-[17px] font-['inter']">{translations['bsr_content_3'] || 'Loading...'}</li>
                   </ul>
                 </div>
                 <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                 <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
-                    <li className="py-3 text-[17px] font-['inter']"><b>{t('cu')}</b> </li>
-                    <li className="py-3 text-[17px] font-['inter']">{t('cu_content_1')}</li>
-                    <li className="py-3 text-[17px] font-['inter']">{t('cu_content_2')}</li>
-                    <li className="py-3 text-[17px] font-['inter']">{t('cu_content_3')}</li>
+                    <li className="py-3 text-[17px] font-['inter']"><b>{translations['cu'] || 'Loading...'}</b> </li>
+                    <li className="py-3 text-[17px] font-['inter']">{translations['cu_content_1'] || 'Loading...'}</li>
+                    <li className="py-3 text-[17px] font-['inter']">{translations['cu_content_2'] || 'Loading...'}</li>
+                    <li className="py-3 text-[17px] font-['inter']">{translations['cu_content_3'] || 'Loading...'}</li>
                   </ul>
                 </div>
                 <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                   <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16 ">
-                    <li className="py-3 text-[17px] font-['inter'] px-2"><b>{t('cc')}</b></li>
-                    <li className="py-3 text-[17px] font-['inter'] px-2"> {t('cc_content_1')}</li>
-                    <li className="py-3 text-[17px] font-['inter'] px-2">{t('cc_content_2')}</li>
-                    <li className="py-3 text-[17px] font-['inter'] px-2 text-wrap">{t('cc_content_3')}</li>
+                    <li className="py-3 text-[17px] font-['inter'] px-2"><b>{translations['cc'] || 'Loading...'}</b></li>
+                    <li className="py-3 text-[17px] font-['inter'] px-2"> {translations['cc_content_1'] || 'Loading...'}</li>
+                    <li className="py-3 text-[17px] font-['inter'] px-2">{translations['cc_content_2'] || 'Loading...'}</li>
+                    <li className="py-3 text-[17px] font-['inter'] px-2 text-wrap">{translations['cc_content_3'] || 'Loading...'}</li>
                   </ul>
                 </div>
               </div>
@@ -367,7 +353,7 @@ const HomePage = () => {
 
         <div className="w-full">
           <h1 className="text-center text-[#314bb2] font-['koulen'] text-[24px] md:text-[44px] py-10 md:pt-12 xl:pt-9">
-            {t('why_us')}
+          {translations['why_us'] || 'Loading...'}
           </h1>
 
           <div className="bg-[#314bb2] clip-path-4">
@@ -376,59 +362,59 @@ const HomePage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50 hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h2 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                      {t('num_1')}
+                      1
                     </h2>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                      {t('why_us_1')}
+                    {translations['why_us_1'] || 'Loading...'}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h2 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                    {t('num_2')}
+                    2
                     </h2>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                    {t('why_us_2')}
+                    {translations['why_us_2'] || 'Loading...'}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h2 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                    {t('num_3')}
+                    3
                     </h2>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                    {t('why_us_3')}
+                    {translations['why_us_3'] || 'Loading...'}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                    {t('num_4')}
+                    4
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                    {t('why_us_4')}
+                    {translations['why_us_4'] || 'Loading...'}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                    {t('num_5')}
+                    5
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                    {t('why_us_5')}
+                    {translations['why_us_5'] || 'Loading...'}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                    {t('num_6')}
+                    6
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                    {t('why_us_6')} 
+                    {translations['why_us_6'] || 'Loading...'}
                     </p>
                   </div>
                   <div className="hidden lg:block"></div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
                     <h1 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
-                    {t('num_7')}
+                    7
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
-                    {t('why_us_7')}
+                    {translations['why_us_7'] || 'Loading...'}
                     </p>
                   </div>
                 </div>
@@ -444,10 +430,10 @@ const HomePage = () => {
             <div className="h-full md:pb-[36vh] xl:pb-[56vh] bg-[#ffffff]">
               <div>
                 <h1 className="text-[45px] text-[#182760] text-center font-['koulen'] font-medium pt-12">
-                  {t('ourClient')}
+                  {translations['ourClient'] || 'Loading...'}
                 </h1>
                 <p className="text-center text-[#182760] pb-0 md:pb-5">
-                {t('client_details')}
+                {translations['client_details'] || 'Loading...'}
                 </p>
               </div>
               <div className="flex justify-center gap-[4vw] my-10">
@@ -469,12 +455,10 @@ const HomePage = () => {
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760] order-first md:order-none">
                   <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
-                  tax solution
-                  services
+                  {translations['items_1'] || 'Loading...'}
                   </h1>
                   <p className="text-[#eee] pb-5">
-                    Your Perfect Business Consultant
-                    Thank you for your visit on our website. Please explore...
+                  {translations['items_detail_1'] || 'Loading...'}
                   </p>
                 </div>
               </div>
@@ -485,12 +469,10 @@ const HomePage = () => {
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
                   <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
-                  tax planning
-                  strategies
+                  {translations['items_2'] || 'Loading...'}
                   </h1>
                   <p className=" text-[#182760] pb-5">
-                  Your Perfect Business Consultant
-                  Thank you for your visit on our website. Please explore...
+                  {translations['items_detail_2'] || 'Loading...'}
                   </p>
                 </div>
               </div>
@@ -500,11 +482,10 @@ const HomePage = () => {
               <div className="flex justify-center">
                 <div className=" w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
                   <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
-                  tax <br className="hidden md:block"/>  report
+                  {translations['items_3'] || 'Loading...'}
                   </h1>
                   <p className=" text-[#182760] pb-5">
-                  Your Perfect  Business Consultant
-                  Thank you for your visit on our website. Please explore...
+                  {translations['items_detail_3'] || 'Loading...'}
                   </p>
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
@@ -515,12 +496,10 @@ const HomePage = () => {
               <div className="flex justify-center">
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760]">
                   <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
-                  accounting <br className="hidden md:block"/>
-                  system
+                  {translations['items_4'] || 'Loading...'}
                   </h1>
                   <p className="text-[#eee] pb-5">
-                    Your Perfect  Business Consultant
-                    Thank you for your visit on our website. Please explore...
+                  {translations['items_detail_4'] || 'Loading...'}
                   </p>
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">

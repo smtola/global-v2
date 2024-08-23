@@ -9,10 +9,11 @@ import icon_4 from "../assets/images/icon/icon-1-04.png";
 import Scroll from "../Scroll";
 import {supabase} from '../config/db';
 import { useState,useEffect } from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../hooks/useTranslation';
 const Career = () => {
-  const { t } = useTranslation();
   const [data, setData] = useState([]);
+  const defaultLangCode = localStorage.getItem('language') || 'en';
+  const translations = useTranslation(defaultLangCode);
   useEffect(()=>{
     fectData();
   },[]);
@@ -46,7 +47,7 @@ const Career = () => {
   return (
     <>
       <Scroll/>
-       <Navbar_2 />
+       <Navbar_2  translations={translations}/>
         <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
           <div className="w-full !max-w-lg lg:!max-w-[56rem] text-[#233C96]">
             <h1 className="!text-[30px] font-['lexend'] font-bold md:!text-[54px]">Work With Us</h1>

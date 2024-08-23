@@ -10,7 +10,8 @@ import {
   Profile,
   ResetPasswordRequest,
   ResetPassword,
-  TokenManager
+  TokenManager,
+  HomeAdmin
 } from "./RootLayout";
 import { BrowserRouter as Router,Route,Routes} from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
@@ -37,6 +38,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/career" element={<Career />} />
         <Route path="/login" element={<Login  />} />
+          <Route path="/home-admin" element={<HomeAdmin />} />
         <Route path="/dashboard" element={<Dashboard />} >
           <Route index={true} element={<BlogAdmin />} />
           <Route path="career" element={<CareerAdmin />} />

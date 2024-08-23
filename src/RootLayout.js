@@ -9,6 +9,7 @@ import Profile from "./pages/Admin/partials/dashboard/User";
 import ResetPasswordRequest from "./pages/Admin/ PasswordResetRequest";
 import ResetPassword from "./pages/Admin/ResetPassword";
 import TokenManager from "./pages/Admin/components/TokenManager";
+import HomeAdmin from "./pages/Admin/HomeAdmin";
 export {
     HomePage,
     Blog,
@@ -20,5 +21,6 @@ export {
     Profile,
     ResetPasswordRequest,
     ResetPassword,
-    TokenManager
+    TokenManager,
+    HomeAdmin
 }

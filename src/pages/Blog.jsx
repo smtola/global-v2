@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import Scroll from "../Scroll";
 import {supabase} from '../config/db';
 import { useState,useEffect } from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../hooks/useTranslation';
 function ContentCard({ img, title, desc }) {
   
   return (
@@ -35,7 +35,9 @@ function ContentCard({ img, title, desc }) {
 }
 
 const Blog = () => {
-  const {t} = useTranslation();
+  
+  const defaultLangCode = localStorage.getItem('language') || 'en';
+  const translations = useTranslation(defaultLangCode);
   const [data, setData] = useState([]);
   useEffect(()=>{
     fectData();
@@ -71,7 +73,7 @@ const Blog = () => {
   return (
     <>
       <Scroll/>
-      <Navbar_2 />
+      <Navbar_2 translations={translations}/>
       <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
       <Typography
         className="!text-2xl !font-['lexend'] text-[#233C96] !font-bold !leading-snug lg:!text-3xl"

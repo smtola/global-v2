@@ -2,25 +2,17 @@ import React, { useState, useRef, useEffect } from 'react';
 import Transition from './Transition';
 import langKh from '../../../assets/images/flag/kh-flag.png';
 import langEn from '../../../assets/images/flag/en-flag.png';
-import { useTranslation } from 'react-i18next';
 import '../../../lang/i18n';
 function DropdownLang({
   align
 }) {
-  const { i18n } = useTranslation();
+  const handleLanguageChange = (addCode) => {
+    setBtnChange(addCode);
+    localStorage.setItem('language', addCode);
+    window.location.reload();
+  };
   const [btnChange, setBtnChange] = useState(localStorage.getItem('language') || 'en');
 
-  useEffect(() => {
-    // Set the initial language when the component mounts
-    i18n.changeLanguage(btnChange);
-  }, [btnChange, i18n]);
-
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    setBtnChange(lng);
-    localStorage.setItem('language', lng); // Persist the language choice
-  };
-  
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef(null);
@@ -83,7 +75,7 @@ function DropdownLang({
             <li>
               <button
                 className="flex gap-4 font-medium text-sm text-[#233C96] hover:text-[#30448b]flex items-center py-1 px-3"
-                onClick={() => changeLanguage('en')}
+                onClick={()=>handleLanguageChange('en')}
               >
                <img className="w-6 h-6 rounded-full" src={langEn} width="32" height="32" alt="lang" />
                 <span>English</span>
@@ -92,7 +84,7 @@ function DropdownLang({
             <li className='my-2'>
               <button
                 className="flex gap-4 font-medium text-sm text-[#233C96] hover:text-[#30448b]flex items-center py-1 px-3"
-                onClick={() => changeLanguage('kh')}
+                onClick={()=>handleLanguageChange('kh')}
               >
                 <img className="w-6 h-6 rounded-full" src={langKh} width="32" height="32" alt="lang" />
                 <span>ភាសាខ្មែរ</span>
