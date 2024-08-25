@@ -1,5 +1,4 @@
-import React from 'react'
-import Navbar from "../../pages/components/Navbar";
+import React,{useState} from 'react'
 import Footer from "../../pages/components/Footer";
 import {useRef,useEffect} from "react";
 import "./HomeAdmin.css";
@@ -18,27 +17,184 @@ import certificateImage from '../../assets/images/certificate.jpg';
 import vatImage from '../../assets/images/VAT-2023.jpg';
 import ahNhabanImage from '../../assets/images/អាជ្ញាប័ណ្ណភ្នាក់ងារ_Fianl_update.jpg';
 import { useTranslation } from '../../hooks/useTranslation';
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
+import { supabase } from '../../config/db';
 const HomeAdmin = () => {
   const navigate = useNavigate();
-    const home = useRef(null);
-    const about_us = useRef(null);
-    const services = useRef(null);
-    const client = useRef(null);
     const iconsTick = <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -7 24 24" width="28" fill="currentColor"><path d="M5.486 9.73a.997.997 0 0 1-.707-.292L.537 5.195A1 1 0 1 1 1.95 3.78l3.535 3.535L11.85.952a1 1 0 0 1 1.415 1.414L6.193 9.438a.997.997 0 0 1-.707.292z"></path></svg>;
-    const defaultLangCode = localStorage.getItem('language') || 'en';
-    const translations = useTranslation(defaultLangCode);
+    const translations = useTranslation('en');
+    const translationsKh = useTranslation('kh');
     const token = localStorage.getItem("jwt");
+
+    const [showEditWelcome, setShowEditWelcome]= useState(false);
+    const [showEditPWelcome, setShowPWelcome]= useState(true);
+
+    const [valueEn,setWelcomeEn] = useState("");
+    const [valueKh,setWelcomeKh] = useState("");
+
+    const [valueAboutCmEn,setAboutCompanyEn] = useState("");
+    const [valueAboutCmKh,setAboutCompanyKh] = useState("");
+
+    const [valueVisionDetailEn,setVisionDetailEn] = useState("");
+    const [valueVisionDetailKh,setVisionDetailKh] = useState("");
+
+    const [valueMissionEn,setMissionEn] = useState("");
+    const [valueMissionKh,setMissionKh] = useState("");
+
     useEffect(() => {
       if (!token) {
         navigate("/login");
       }
     }, [token, navigate]);
+
+    const handleShowWelcomeEdit = ()=>{
+      setShowPWelcome(false);
+      setShowEditWelcome(true);
+    }
+
+    // handle submit edit
+    const handleEditWelcomeSubmit = async (e) => {
+      e.preventDefault();
+        const updateDataEn ={
+          lang_code : "en",
+          key: "welcome",
+          value:valueEn
+        }
+
+        const { erroren } = await supabase
+        .from('translations')
+        .update( updateDataEn )
+        .eq('id', 3)
+
+        const updateDataKh ={
+          lang_code : "kh",
+          key: "welcome",
+          value:valueKh
+        }
+
+        const { errorkh } = await supabase
+        .from('translations')
+        .update( updateDataKh )
+        .eq('id', 4)
+
+      if (erroren) {
+        console.error('Error updating welcome text:', erroren.message);
+      }
+      setShowEditWelcome(false);
+      setShowPWelcome(true);
+    };
+
+    const handleEditAboutCmSubmit = async (e) => {
+      e.preventDefault();
+        const updateDataEn ={
+          lang_code : "en",
+          key: "about_p",
+          value:valueAboutCmEn
+        }
+
+        const { erroren } = await supabase
+        .from('translations')
+        .update( updateDataEn )
+        .eq('id', 14)
+
+        const updateDataKh ={
+          lang_code : "kh",
+          key: "about_p",
+          value:valueAboutCmKh
+        }
+
+        const { errorkh } = await supabase
+        .from('translations')
+        .update( updateDataKh )
+        .eq('id', 89)
+
+      if (erroren) {
+        console.error('Error updating welcome text:', erroren.message);
+      }
+      setShowEditWelcome(false);
+      setShowPWelcome(true);
+    };
+
+    const handleEditVisionDetailSubmit = async (e) => {
+      e.preventDefault();
+        const updateDataEn ={
+          lang_code : "en",
+          key: "vision_detail",
+          value:valueVisionDetailEn
+        }
+
+        const { erroren } = await supabase
+        .from('translations')
+        .update( updateDataEn )
+        .eq('id', 16)
+
+        const updateDataKh ={
+          lang_code : "kh",
+          key: "vision_detail",
+          value:valueVisionDetailKh
+        }
+
+        const { errorkh } = await supabase
+        .from('translations')
+        .update( updateDataKh )
+        .eq('id', 91)
+
+      if (erroren) {
+        console.error('Error updating welcome text:', erroren.message);
+      }
+      setShowEditWelcome(false);
+      setShowPWelcome(true);
+    };
+
+    const handleEditMissionSubmit = async (e) => {
+      e.preventDefault();
+        const updateDataEn ={
+          lang_code : "en",
+          key: "mission_detail",
+          value:valueMissionEn
+        }
+
+        const { erroren } = await supabase
+        .from('translations')
+        .update( updateDataEn )
+        .eq('id', 18)
+
+        const updateDataKh ={
+          lang_code : "kh",
+          key: "mission_detail",
+          value:valueMissionKh
+        }
+
+        const { errorkh } = await supabase
+        .from('translations')
+        .update( updateDataKh )
+        .eq('id', 93)
+
+      if (erroren) {
+        console.error('Error updating welcome text:', erroren.message);
+      }
+      setShowEditWelcome(false);
+      setShowPWelcome(true);
+    };
+
     return (
       <>
         <Scroll />
-        <Navbar translations={translations} home={home} about={about_us} services={services} client={client}/>
-        <section ref={home}>
+        <div className="fixed w-full top-0 mx-auto bg-[#ffffff] z-[999] group p-5">
+          <Link to={"/dashboard"}
+              className='flex items-center group-hover:bg-black/20 group-hover:underline w-[6rem] p-3 backdrop-blur-[5px] bg-opacity-100 rounded-xl transition-all duration-500'>
+              <span >
+                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-narrow-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M5 12l14 0" />
+                  <path d="M5 12l4 4" />
+                  <path d="M5 12l4 -4" />
+                </svg> 
+              </span>
+              <p>Back</p>
+            </Link>
+        </div>
+        <section>
           <div className="relative">
             <img src={imgBanner} className="w-full h-[50vh] xl:h-screen clip-path" />
             <div className="w-full absolute left-[5%] md:left-[26%] xl:left-[50%] top-[80%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
@@ -49,51 +205,140 @@ const HomeAdmin = () => {
                   <h1 className="text-[26px] md:text-[53px] lg:text-[65px] xl:text-[77px] 2xl:text-[87px] font-['koulen'] text-[#233C96] font-normal h-[35px] md:h-[60px] lg:h-[70px] xl:h-[100px]">
                     Consultancy
                   </h1>
-                  <p className="text-[11px] md:text-[16px] font-['inter'] text-[#233C96] font-normal w-64">
-                  {translations['welcome'] || 'Loading...'}
-                </p>
+                  {showEditPWelcome?
+                  <p onClick={handleShowWelcomeEdit}
+                    className="cursor-pointer text-[11px] md:text-[16px] font-['inter'] text-[#233C96] font-normal w-64">
+                    {translations['welcome'] || 'Loading...'}
+                  </p>
+                  :null}
+                  {showEditWelcome ?
+                  <form onSubmit={handleEditWelcomeSubmit}
+                    className='w-full max-w-lg'
+                  >
+                      <label for="message" class="block mb-2 text-sm font-medium text-gray-900">English</label>
+                      <textarea 
+                       rows="4" 
+                       defaultValue={translations['welcome'] || 'Loading...'}
+                      onChange={(e) => setWelcomeEn(e.target.value)}
+                       class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="English" required></textarea>
+                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900">ភាសាខ្មែរ</label>
+                      <textarea 
+                       rows="4" 
+                       defaultValue={translationsKh['welcome'] || 'Loading...'}
+                       onChange={(e) => setWelcomeKh(e.target.value)}
+                       class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="English" required></textarea>
+                    <button className='bg-[#314cb2] text-[#ffffff] px-3 py-2 rounded-full my-2' type="submit">Update</button>
+                  </form>
+                  :null}
               </div>
             </div>
           </div>
         </section>
   
-        <section ref={about_us}>
+        <section>
           <div className="w-ful bg-[#ffffff]">
             <div className="w-full max-w-screen-xl mx-auto text-start font-['inter'] text-[#050076] p-5 md:p-12"
             >
               <h1 className="text-[24px] md:text-[44px] font-['koulen'] font-medium">
                 Global Consultancy
               </h1>
-              <p className="text-[16px] md:text-[24px]">
+              {showEditPWelcome?
+              <p onClick={handleShowWelcomeEdit}
+                className="text-[16px] md:text-[24px]">
                 {translations['about_p'] || 'Loading...'}
               </p>
+              :null}
+
+              {showEditWelcome ?
+                  <form onSubmit={handleEditAboutCmSubmit}
+                    className='w-full max-w-lg'
+                  >
+                  <label for="message" class="block mb-2 text-sm font-medium text-gray-900">English</label>
+                  <textarea 
+                    rows="4" 
+                    defaultValue={translations['about_p'] || 'Loading...'}
+                  onChange={(e) => setAboutCompanyEn(e.target.value)}
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="English" required></textarea>
+                  <label for="message" class="block mb-2 text-sm font-medium text-gray-900">ភាសាខ្មែរ</label>
+                  <textarea 
+                    rows="4" 
+                    defaultValue={translationsKh['about_p'] || 'Loading...'}
+                    onChange={(e) => setAboutCompanyKh(e.target.value)}
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="English" required></textarea>
+                <button className='bg-[#314cb2] text-[#ffffff] px-3 py-2 rounded-full my-2' type="submit">Update</button>
+              </form>
+              :null}
             </div>
+
             <div className="bg-[#314bb2] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
               <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl w-full mx-auto text-[#eee]">
-                <div className="flex gap-5 pb-4">
+                <div className=" gap-5 pb-4">
                   <div>
-                    <img src={iconVission} className="w-20 md:w-20 xl:w-14 mt-4" />
-                  </div>
-                  <div>
-                    <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium">
-                    {translations['vision_title'] || 'Loading...'}
+                    
+                    <h1
+                    className="text-[30px] md:text-[54px] font-['koulen'] font-medium">
+                      {translations['vision_title'] || 'Loading...'}
                     </h1>
-                    <p className="font-['inter'] md:text-[20px]">
-                    {translations['vision_detail'] || 'Loading...'}
-                    </p>
+
+                    {showEditPWelcome?
+                      <p onClick={handleShowWelcomeEdit}
+                      className="font-['inter'] md:text-[20px]">
+                      {translations['vision_detail'] || 'Loading...'}
+                      </p>
+                    :null}
+                    {showEditWelcome ?
+                      <form onSubmit={handleEditVisionDetailSubmit}
+                        className='w-full'
+                      >
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-200">English</label>
+                        <textarea 
+                          rows="3" 
+                          defaultValue={translations['vision_detail'] || 'Loading...'}
+                        onChange={(e) => setVisionDetailEn(e.target.value)}
+                          class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="English" required></textarea>
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-200">ភាសាខ្មែរ</label>
+                        <textarea 
+                          rows="3" 
+                          defaultValue={translationsKh['vision_detail'] || 'Loading...'}
+                          onChange={(e) => setVisionDetailKh(e.target.value)}
+                          class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Khmer" required></textarea>
+                      <button className='bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2' type="submit">Update</button>
+                      </form>
+                    :null}
                   </div>
                 </div>
-                <div className="flex gap-5 pt-4">
+                <div className=" gap-5 pt-4">
                   <div>
-                    <img src={iconMission} className="w-44 md:w-48 xl:w-32 mt-4" />
-                  </div>
-                  <div>
-                    <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium mt-2">
+                    <h1 
+                    className="text-[30px] md:text-[54px] font-['koulen'] font-medium mt-2">
                        {translations['mission_title'] || 'Loading...'}
                     </h1>
-                    <p className="font-['inter'] md:text-[20px]">
+                    
+                    {showEditPWelcome?
+                    <p onClick={handleShowWelcomeEdit}
+                      className="font-['inter'] md:text-[20px]">
                         {translations['mission_detail'] || 'Loading...'}
                     </p>
+                     :null}
+                    {showEditWelcome ?
+                      <form onSubmit={handleEditMissionSubmit}
+                        className='w-full max-w-xl'
+                      >
+                        <label for="message" class="block mb-2 text-[16px] font-medium text-gray-200">English</label>
+                        <textarea 
+                          rows="3" 
+                          defaultValue={translations['mission_detail'] || 'Loading...'}
+                        onChange={(e) => setMissionEn(e.target.value)}
+                          class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="English" required></textarea>
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-200">ភាសាខ្មែរ</label>
+                        <textarea 
+                          rows="3" 
+                          defaultValue={translationsKh['mission_detail'] || 'Loading...'}
+                          onChange={(e) => setMissionKh(e.target.value)}
+                          class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="English" required></textarea>
+                      <button className='bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2' type="submit">Update</button>
+                      </form>
+                    :null}
                   </div>
                 </div>
   
@@ -252,7 +497,7 @@ const HomeAdmin = () => {
           </div>
         </section>
   
-        <section ref={services}>
+        <section>
           <div className="px-5 py-10">
             <h1 className="text-center text-[#314bb2] font-['koulen'] text-[24px] md:text-[44px]">
               {translations['ourservice'] || 'Loading...'}
@@ -431,7 +676,7 @@ const HomeAdmin = () => {
           </div>
         </section>
   
-        <section ref={client}>
+        <section>
           <div className="relative pt-0 md:pt-24">
             <div className="w-full max-w-sm md:max-w-screen-xl mx-auto">
               <div className="h-full md:pb-[36vh] xl:pb-[56vh] bg-[#ffffff]">

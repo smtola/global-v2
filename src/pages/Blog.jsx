@@ -8,7 +8,7 @@ import { useTranslation } from '../hooks/useTranslation';
 function ContentCard({ img, title, desc }) {
   
   return (
-    <Card
+    <Card 
       className="relative grid min-h-[30rem] items-end overflow-hidden rounded-xl"
       color="transparent"
     >
