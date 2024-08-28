@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
-import { useRef, useEffect } from "react";
-import "./HomeAdmin.css";
+import { useEffect } from "react";
 import Scroll from "../../Scroll";
 import imgBanner from "../../assets/images/banner/cover.jpg";
 import imgFounder from "../../assets/images/founder.png";
-import iconVission from "../../assets/images/icon/vision.png";
-import iconMission from "../../assets/images/icon/mission.png";
-import iconTrande from "../../assets/images/icon/trande.png";
-import iconAccount from "../../assets/images/icon/account.png";
-import iconTax from "../../assets/images/icon/tax.png";
 import founderIcon from "../../assets/images/icon-founder.png";
 import accountingIcon from "../../assets/images/accounting.png";
 import partnerIcon from "../../assets/images/partner.png";
@@ -55,8 +49,8 @@ const HomeAdmin = () => {
   const [valueIntegrityDetailEn, setIntegrityDetailEn] = useState("");
   const [valueIntegrityDetailKh, setIntegrityDetailKh] = useState("");
 
-  const [valueExTitleEn, setExTitleEn] = useState("");
-  const [valueExTitleKh, setExTitleKh] = useState("");
+  const [valueExTitleEn, setExTitleEn] = useState('');
+  const [valueExTitleKh, setExTitleKh] = useState('');
 
   const [valueExDetailEn, setExDetailEn] = useState("");
   const [valueExDetailKh, setExDetailKh] = useState("");
@@ -234,11 +228,204 @@ const HomeAdmin = () => {
     if (!token) {
       navigate("/login");
     }
+    fetchData();
   }, [token, navigate]);
 
   const handleShowWelcomeEdit = () => {
     setShowPWelcome(false);
     setShowEditWelcome(true);
+
+    setWelcomeEn(translations["welcome"]);
+    setWelcomeKh(translationsKh["welcome"]);
+
+    setAboutCompanyEn(translations["about_p"]);
+    setAboutCompanyKh(translationsKh["about_p"]);
+
+    setVisionDetailEn(translations["vision_detail"]);
+    setVisionDetailKh(translationsKh["vision_detail"]);
+
+    setMissionEn(translations["mission_detail"]);
+    setMissionKh(translationsKh["mission_detail"]);
+
+    setIntegrityTitleEn(translations["integrity_title"]);
+    setIntegrityTitleKh(translationsKh["integrity_title"]);
+
+    setIntegrityDetailEn(translations["integrity_detail"]);
+    setIntegrityDetailKh(translationsKh["integrity_detail"]);
+
+    setExTitleEn(translations["excellence_title"]);
+    setExTitleKh(translationsKh["excellence_title"]);
+
+    setExDetailEn(translations["excellence_detail"]);
+    setExDetailKh(translationsKh["excellence_detail"]);
+
+    setCsTitleEn(translations["cs"]);
+    setCsTitleKh(translationsKh["cs"]);
+
+    setCsDetailEn(translations["cs_detail"]);
+    setCsDetailKh(translationsKh["cs_detail"]);
+
+    setInnovationTitleEn(translations["innovation"]);
+    setInnovationTitleKh(translationsKh["innovation"]);
+
+    setInnovationDetailEn(translations["innovation_detail"]);
+    setInnovationDetailKh(translationsKh["innovation_detail"]);
+
+    setCollaborationTitleEn(translations["collaboration"]);
+    setCollaborationTitleKh(translationsKh["collaboration"]);
+
+    setCollaborationDetailEn(translations["collaboration_detail"]);
+    setCollaborationDetailKh(translationsKh["collaboration_detail"]);
+
+    setFounderNameEn(translations["founder_name"]);
+    setFounderNameKh(translationsKh["founder_name"]);
+
+    setFounderTitleEn(translations["founder_title"]);
+    setFounderTitleKh(translationsKh["founder_title"]);
+
+    setEducationEn(translations["education"]);
+    setEducationKh(translationsKh["education"]);
+
+    setHeaderEn(translations["header"]);
+    setHeaderKh(translationsKh["header"]);
+
+    setBodyEn(translations["body"]);
+    setBodyKh(translationsKh["body"]);
+
+    setFooterEn(translations["footer"]);
+    setFooterKh(translationsKh["footer"]);
+
+    setFounderChEn(translations["founder_ch"]);
+    setFounderChKh(translationsKh["founder_ch"]);
+
+    setTandAEn(translations["t_&_a"]);
+    setTandAKh(translationsKh["t_&_a"]);
+
+    setPartnerEn(translations["partner"]);
+    setPartnerKh(translationsKh["partner"]);
+
+    setServiceEn(translations["ourservice"]);
+    setServiceKh(translationsKh["ourservice"]);
+
+    setOurServiceDetailEn(translations["ourservice_detail"]);
+    setOurServiceDetailKh(translationsKh["ourservice_detail"]);
+
+    setTssEn(translations["tss"]);
+    setTssKh(translationsKh["tss"]);
+
+    setTssContentOneEn(translations["tss_content_1"]);
+    setTssContentOneKh(translationsKh["tss_content_1"]);
+
+    setTssContentTwoEn(translations["tss_content_2"]);
+    setTssContentTwoKh(translationsKh["tss_content_2"]);
+
+    setAssEn(translations["ass"]);
+    setAssKh(translationsKh["ass"]);
+
+    setAssContentOneEn(translations["ass_content_1"]);
+    setAssContentOneKh(translationsKh["ass_content_1"]);
+
+    setAssContentTwoEn(translations["ass_content_2"]);
+    setAssContentTwoKh(translationsKh["ass_content_2"]);
+
+    setTadEn(translations["tad"]);
+    setTadKh(translationsKh["tad"]);
+
+    setTadContentOneEn(translations["tad_content_1"]);
+    setTadContentOneKh(translationsKh["tad_content_1"]);
+
+    setTadContentTwoEn(translations["tad_content_2"]);
+    setTadContentTwoKh(translationsKh["tad_content_2"]);
+
+    setBsrEn(translations["bsr"]);
+    setBsrKh(translationsKh["bsr"]);
+
+    setBsrContentOneEn(translations["bsr_content_1"]);
+    setBsrContentOneKh(translationsKh["bsr_content_1"]);
+
+    setBsrContentTwoEn(translations["bsr_content_2"]);
+    setBsrContentTwoKh(translationsKh["bsr_content_2"]);
+
+    setBsrContentThreeEn(translations["bsr_content_3"]);
+    setBsrContentThreeKh(translationsKh["bsr_content_3"]);
+
+    setCuEn(translations["cu"]);
+    setCuKh(translationsKh["cu"]);
+
+    setCuContentOneEn(translations["cu_content_1"]);
+    setCuContentOneKh(translationsKh["cu_content_1"]);
+
+    setCuContentTwoEn(translations["cu_content_2"]);
+    setCuContentTwoKh(translationsKh["cu_content_2"]);
+
+    setCuContentThreeEn(translations["cu_content_3"]);
+    setCuContentThreeKh(translationsKh["cu_content_3"]);
+
+    setCcEn(translations["cc"]);
+    setCcKh(translationsKh["cc"]);
+
+    setCcContentOneEn(translations["cc_content_1"]);
+    setCcContentOneKh(translationsKh["cc_content_1"]);
+
+    setCcContentTwoEn(translations["cc_content_2"]);
+    setCcContentTwoKh(translationsKh["cc_content_2"]);
+
+    setCcContentThreeEn(translations["cc_content_3"]);
+    setCcContentThreeKh(translationsKh["cc_content_3"]);
+
+    setWhyUsEn(translations["why_us"]);
+    setWhyUsKh(translationsKh["why_us"]);
+
+    setWhyUsOneEn(translations["why_us_1"]);
+    setWhyUsOneKh(translationsKh["why_us_1"]);
+
+    setWhyUsTwoEn(translations["why_us_2"]);
+    setWhyUsTwoKh(translationsKh["why_us_2"]);
+
+    setWhyUsThreeEn(translations["why_us_3"]);
+    setWhyUsThreeKh(translationsKh["why_us_3"]);
+
+    setWhyUsFourEn(translations["why_us_4"]);
+    setWhyUsFourKh(translationsKh["why_us_4"]);
+
+    setWhyUsFiveEn(translations["why_us_5"]);
+    setWhyUsFiveKh(translationsKh["why_us_5"]);
+
+    setWhyUsSixEn(translations["why_us_6"]);
+    setWhyUsSixKh(translationsKh["why_us_6"]);
+
+    setWhyUsSevenEn(translations["why_us_7"]);
+    setWhyUsSevenKh(translationsKh["why_us_7"]);
+
+    setOurClientEn(translations["ourClient"]);
+    setOurClientKh(translationsKh["ourClient"]);
+
+    setOurClientDetailEn(translations["client_details"]);
+    setOurClientDetailKh(translationsKh["client_details"]);
+
+    setItemOneEn(translations["items_1"]);
+    setItemOneKh(translationsKh["items_1"]);
+
+    setItemDetailOneEn(translations["items_detail_1"]);
+    setItemDetailOneKh(translationsKh["items_detail_1"]);
+
+    setItemTwoEn(translations["items_2"]);
+    setItemTwoKh(translationsKh["items_2"]);
+
+    setItemDetailTwoEn(translations["items_detail_2"]);
+    setItemDetailTwoKh(translationsKh["items_detail_2"]);
+
+    setItemThreeEn(translations["items_3"]);
+    setItemThreeKh(translationsKh["items_3"]);
+
+    setItemDetailThreeEn(translations["items_detail_3"]);
+    setItemDetailThreeKh(translationsKh["items_detail_3"]);
+
+    setItemFourEn(translations["items_4"]);
+    setItemFourKh(translationsKh["items_4"]);
+
+    setItemDetailFourEn(translations["items_detail_4"]);
+    setItemDetailFourKh(translationsKh["items_detail_4"]);
   };
 
   // handle submit edit
@@ -435,23 +622,23 @@ const HomeAdmin = () => {
       key: "excellence_title",
       value: valueExTitleEn,
     };
-
+  
     const { erroren } = await supabase
       .from("translations")
       .update(updateDataEn)
       .eq("id", 22);
-
+  
     const updateDataKh = {
       lang_code: "kh",
       key: "excellence_title",
       value: valueExTitleKh,
     };
-
+  
     const { errorkh } = await supabase
       .from("translations")
       .update(updateDataKh)
       .eq("id", 97);
-
+  
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2227,7 +2414,48 @@ const HomeAdmin = () => {
     setShowPWelcome(true);
   };
 
+  const handleCancel = () => {
+    window.location.href = "/home-admin";
+  }
 
+  const handleReload = () => {
+    window.location.href = "/home-admin";
+  }
+
+  const [fileDefault, setFileDefault] = useState([]);
+  const fetchData = async () => {
+    try {
+      // Fetch data from Supabase table
+      const { data: tableData, error: tableError } = await supabase
+          .from("images")
+          .select("*");
+
+      const dataWithUrls = await Promise.all(
+          tableData.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+
+      if (tableError) {
+        throw tableError;
+      }
+      setFileDefault(dataWithUrls);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
   return (
     <>
       <Scroll />
@@ -2264,6 +2492,18 @@ const HomeAdmin = () => {
           >
             Edit
           </button>
+          <button
+              onClick={handleCancel}
+              className="bg-[#ff0026] px-3 py-2 text-[#ffffff]"
+          >
+            Cancel
+          </button>
+          <button
+              onClick={handleReload}
+              className="bg-[#007fff] px-3 py-2 text-[#ffffff]"
+          >
+            Refresh
+          </button>
         </div>
       </div>
       <section>
@@ -2298,7 +2538,7 @@ const HomeAdmin = () => {
                   </label>
                   <textarea
                     rows="4"
-                    defaultValue={translations["welcome"] || "Loading..."}
+                    value={valueEn}
                     onChange={(e) => setWelcomeEn(e.target.value)}
                     className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                     placeholder="English"
@@ -2312,7 +2552,7 @@ const HomeAdmin = () => {
                   </label>
                   <textarea
                     rows="4"
-                    defaultValue={translationsKh["welcome"] || "Loading..."}
+                    value={valueKh}
                     onChange={(e) => setWelcomeKh(e.target.value)}
                     className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                     placeholder="English"
@@ -2355,7 +2595,7 @@ const HomeAdmin = () => {
                 </label>
                 <textarea
                   rows="4"
-                  defaultValue={translations["about_p"] || "Loading..."}
+                  value={valueAboutCmEn}
                   onChange={(e) => setAboutCompanyEn(e.target.value)}
                   className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                   placeholder="English"
@@ -2369,7 +2609,7 @@ const HomeAdmin = () => {
                 </label>
                 <textarea
                   rows="4"
-                  defaultValue={translationsKh["about_p"] || "Loading..."}
+                  value={valueAboutCmKh}
                   onChange={(e) => setAboutCompanyKh(e.target.value)}
                   className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                   placeholder="English"
@@ -2411,8 +2651,8 @@ const HomeAdmin = () => {
                       </label>
                       <textarea
                         rows="3"
-                        defaultValue={
-                          translations["vision_detail"] || "Loading..."
+                        value={
+                          valueVisionDetailEn
                         }
                         onChange={(e) => setVisionDetailEn(e.target.value)}
                         className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2427,8 +2667,8 @@ const HomeAdmin = () => {
                       </label>
                       <textarea
                         rows="3"
-                        defaultValue={
-                          translationsKh["vision_detail"] || "Loading..."
+                        value={
+                          valueVisionDetailKh
                         }
                         onChange={(e) => setVisionDetailKh(e.target.value)}
                         className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2469,8 +2709,8 @@ const HomeAdmin = () => {
                       </label>
                       <textarea
                         rows="3"
-                        defaultValue={
-                          translations["mission_detail"] || "Loading..."
+                        value={
+                          valueMissionEn
                         }
                         onChange={(e) => setMissionEn(e.target.value)}
                         className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2485,8 +2725,8 @@ const HomeAdmin = () => {
                       </label>
                       <textarea
                         rows="3"
-                        defaultValue={
-                          translationsKh["mission_detail"] || "Loading..."
+                        value={
+                          valueMissionKh
                         }
                         onChange={(e) => setMissionKh(e.target.value)}
                         class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2531,8 +2771,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="1"
-                            defaultValue={
-                              translations["integrity_title"] || "Loading..."
+                            value={
+                              valueIntegrityTitleEn
                             }
                             onChange={(e) =>
                               setIntegrityTitleEn(e.target.value)
@@ -2549,8 +2789,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="1"
-                            defaultValue={
-                              translationsKh["integrity_title"] || "Loading..."
+                            value={
+                              valueIntegrityTitleKh
                             }
                             onChange={(e) =>
                               setIntegrityTitleKh(e.target.value)
@@ -2585,8 +2825,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="1"
-                            defaultValue={
-                              translations["integrity_detail"] || "Loading..."
+                            value={
+                              valueIntegrityDetailEn
                             }
                             onChange={(e) =>
                               setIntegrityDetailEn(e.target.value)
@@ -2603,8 +2843,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="1"
-                            defaultValue={
-                              translationsKh["integrity_detail"] || "Loading..."
+                            value={
+                              valueIntegrityDetailKh
                             }
                             onChange={(e) =>
                               setIntegrityDetailKh(e.target.value)
@@ -2632,40 +2872,35 @@ const HomeAdmin = () => {
                         {translations["excellence_title"] || "Loading..."}
                       </h1>
                       {showEditWelcome ? (
-                        <form
-                          onSubmit={handleExTitleSubmit}
-                          className="w-full max-w-xl"
-                        >
+                        <form onSubmit={handleExTitleSubmit} className="w-full max-w-xl">
                           <label
-                            for="message"
-                            class="block mb-2 text-[16px] font-medium text-gray-200"
+                            htmlFor="message-en"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
                           >
                             English
                           </label>
                           <textarea
+                            id="message-en"
                             rows="1"
-                            defaultValue={
-                              translations["excellence_title"] || "Loading..."
-                            }
+                            value={valueExTitleEn} // Ensure value is bound correctly
                             onChange={(e) => setExTitleEn(e.target.value)}
-                            class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                             placeholder="English"
                             required
                           ></textarea>
                           <label
-                            for="message"
-                            class="block mb-2 text-sm font-medium text-gray-200"
+                            htmlFor="message-kh"
+                            className="block mb-2 text-sm font-medium text-gray-200"
                           >
                             ភាសាខ្មែរ
                           </label>
                           <textarea
+                            id="message-kh"
                             rows="1"
-                            defaultValue={
-                              translationsKh["excellence_title"] || "Loading..."
-                            }
+                            value={valueExTitleKh}// Ensure value is bound correctly
                             onChange={(e) => setExTitleKh(e.target.value)}
-                            class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                            placeholder="English"
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Khmer"
                             required
                           ></textarea>
                           <button
@@ -2699,8 +2934,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translations["excellence_detail"] || "Loading..."
+                            value={
+                              valueExDetailEn
                             }
                             onChange={(e) => setExDetailEn(e.target.value)}
                             class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2715,9 +2950,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translationsKh["excellence_detail"] ||
-                              "Loading..."
+                            value={
+                              valueExDetailKh
                             }
                             onChange={(e) => setExDetailKh(e.target.value)}
                             class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2738,7 +2972,7 @@ const HomeAdmin = () => {
                     </div>
                     <div>
                       <h1 className="font-bold text-[20px]">
-                        {translations["cs"] || "Loading..."}
+                        updateDataEn
                       </h1>
                       {showEditWelcome ? (
                         <form
@@ -2753,8 +2987,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="1"
-                            defaultValue={
-                              translations["cs"] || "Loading..."
+                            value={
+                              valueCsTitleEn
                             }
                             onChange={(e) => setCsTitleEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2769,8 +3003,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="1"
-                            defaultValue={
-                              translationsKh["cs"] || "Loading..."
+                            value={
+                              valueCsTitleKh
                             }
                             onChange={(e) => setCsTitleKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2808,8 +3042,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translations["cs_detail"] || "Loading..."
+                            value={
+                              valueCsDetailEn
                             }
                             onChange={(e) => setCsDetailEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2824,9 +3058,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translationsKh["cs_detail"] ||
-                              "Loading..."
+                            value={
+                              valueCsDetailKh
                             }
                             onChange={(e) => setCsDetailKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2859,8 +3092,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="1"
-                            defaultValue={
-                              translations["innovation"] || "Loading..."
+                            value={
+                              valueInnovationTitleEn
                             }
                             onChange={(e) => setInnovationTitleEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2875,8 +3108,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="1"
-                            defaultValue={
-                              translationsKh["innovation"] || "Loading..."
+                            value={
+                              valueInnovationTitleKh
                             }
                             onChange={(e) => setInnovationTitleKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2915,8 +3148,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translations["innovation_detail"] || "Loading..."
+                            value={
+                              valueInnovationDetailEn
                             }
                             onChange={(e) => setInnovationDetailEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2931,9 +3164,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translationsKh["innovation_detail"] ||
-                              "Loading..."
+                            value={
+                              valueInnovationDetailKh
                             }
                             onChange={(e) => setInnovationDetailKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2966,8 +3198,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="1"
-                            defaultValue={
-                              translations["collaboration"] || "Loading..."
+                            value={
+                              valueCollaborationTitleEn
                             }
                             onChange={(e) => setCollaborationTitleEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -2982,8 +3214,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="1"
-                            defaultValue={
-                              translationsKh["collaboration"] || "Loading..."
+                            value={
+                              valueCollaborationTitleKh
                             }
                             onChange={(e) => setCollaborationTitleKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3021,8 +3253,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translations["collaboration_detail"] || "Loading..."
+                            value={
+                              valueCollaborationDetailEn
                             }
                             onChange={(e) => setCollaborationDetailEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3037,9 +3269,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translationsKh["collaboration_detail"] ||
-                              "Loading..."
+                            value={
+                              valueCollaborationDetailKh
                             }
                             onChange={(e) => setCollaborationDetailKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3081,8 +3312,8 @@ const HomeAdmin = () => {
                     </label>
                     <textarea
                       rows="1"
-                      defaultValue={
-                        translations["founder_name"] || "Loading..."
+                      value={
+                        valueFounderNameEn
                       }
                       onChange={(e) => setFounderNameEn(e.target.value)}
                       className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3097,8 +3328,8 @@ const HomeAdmin = () => {
                     </label>
                     <textarea
                       rows="1"
-                      defaultValue={
-                        translationsKh["founder_name"] || "Loading..."
+                      value={
+                        valueFounderNameKh
                       }
                       onChange={(e) => setFounderNameKh(e.target.value)}
                       className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3130,8 +3361,8 @@ const HomeAdmin = () => {
                     </label>
                     <textarea
                       rows="1"
-                      defaultValue={
-                        translations["founder_title"] || "Loading..."
+                      value={
+                        valueFounderTitleEn
                       }
                       onChange={(e) => setFounderTitleEn(e.target.value)}
                       className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3146,8 +3377,8 @@ const HomeAdmin = () => {
                     </label>
                     <textarea
                       rows="1"
-                      defaultValue={
-                        translationsKh["founder_title"] || "Loading..."
+                      value={
+                        valueFounderTitleKh
                       }
                       onChange={(e) => setFounderTitleKh(e.target.value)}
                       className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3181,8 +3412,8 @@ const HomeAdmin = () => {
                       </label>
                       <textarea
                         rows="2"
-                        defaultValue={
-                          translations["education"] || "Loading..."
+                        value={
+                          valueEducationEn
                         }
                         onChange={(e) => setEducationEn(e.target.value)}
                         className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3197,8 +3428,8 @@ const HomeAdmin = () => {
                       </label>
                       <textarea
                         rows="2"
-                        defaultValue={
-                          translationsKh["education"] || "Loading..."
+                        value={
+                          valueEducationKh
                         }
                         onChange={(e) => setEducationKh(e.target.value)}
                         className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3234,8 +3465,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["header"] || "Loading..."
+                          value={
+                            valueHeaderEn
                           }
                           onChange={(e) => setHeaderEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3250,8 +3481,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["header"] || "Loading..."
+                          value={
+                            valueHeaderKh
                           }
                           onChange={(e) => setHeaderKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3282,8 +3513,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="4"
-                          defaultValue={
-                            translations["body"] || "Loading..."
+                          value={
+                            valueBodyEn
                           }
                           onChange={(e) => setBodyEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3298,8 +3529,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="4"
-                          defaultValue={
-                            translationsKh["body"] || "Loading..."
+                          value={
+                            valueBodyKh
                           }
                           onChange={(e) => setBodyKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3330,8 +3561,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="2"
-                          defaultValue={
-                            translations["footer"] || "Loading..."
+                          value={
+                            valueFooterEn
                           }
                           onChange={(e) => setFooterEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3346,8 +3577,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="2"
-                          defaultValue={
-                            translationsKh["footer"] || "Loading..."
+                          value={
+                            valueFooterKh
                           }
                           onChange={(e) => setFooterKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3388,8 +3619,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["founder_ch"] || "Loading..."
+                          value={
+                            valueFounderChEn
                           }
                           onChange={(e) => setFounderChEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3404,8 +3635,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["founder_ch"] || "Loading..."
+                          value={
+                            valueFounderChEn
                           }
                           onChange={(e) => setFounderChKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3441,8 +3672,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["t_&_a"] || "Loading..."
+                          value={
+                            valueTandAEn
                           }
                           onChange={(e) => setTandAEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3457,8 +3688,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["t_&_a"] || "Loading..."
+                          value={
+                            valueTandAKh
                           }
                           onChange={(e) => setTandAKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3492,8 +3723,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["partner"] || "Loading..."
+                          value={
+                            valuePartnerEn
                           }
                           onChange={(e) => setPartnerEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3508,8 +3739,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["partner"] || "Loading..."
+                          value={
+                            valuePartnerKh
                           }
                           onChange={(e) => setPartnerKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3570,8 +3801,8 @@ const HomeAdmin = () => {
                 </label>
                 <textarea
                   rows="1"
-                  defaultValue={
-                    translations["ourservice"] || "Loading..."
+                  value={
+                    valueServiceEn
                   }
                   onChange={(e) => setServiceEn(e.target.value)}
                   className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3586,8 +3817,8 @@ const HomeAdmin = () => {
                 </label>
                 <textarea
                   rows="1"
-                  defaultValue={
-                    translationsKh["ourservice"] || "Loading..."
+                  value={
+                    valueServiceKh
                   }
                   onChange={(e) => setServiceKh(e.target.value)}
                   className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3618,8 +3849,8 @@ const HomeAdmin = () => {
                 </label>
                 <textarea
                   rows="2"
-                  defaultValue={
-                    translations["ourservice_detail"] || "Loading..."
+                  value={
+                    valueOurServiceDetailEn
                   }
                   onChange={(e) => setOurServiceDetailEn(e.target.value)}
                   className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3634,8 +3865,8 @@ const HomeAdmin = () => {
                 </label>
                 <textarea
                   rows="1"
-                  defaultValue={
-                    translationsKh["ourservice_detail"] || "Loading..."
+                  value={
+                    valueOurServiceDetailKh
                   }
                   onChange={(e) => setOurServiceDetailKh(e.target.value)}
                   className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3652,49 +3883,6 @@ const HomeAdmin = () => {
             ) : null}
           </p>
           <div className="w-full max-w-screen-lg mx-auto pt-10 relative">
-            <div>
-              <div className="p-4 lg:p-6 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] md:left-[25%] lg:left-[15%] lg:top-[5%] xl:top-[6%] rotate-[134deg] z-50">
-                <img src={iconTax} className="rotate-[-134deg]" />
-              </div>
-              <div className="p-4 lg:p-5 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[17.4%] md:left-[75%] md:top-[3%] lg:left-[49%] lg:top-[5%] xl:top-[6%] rotate-[134deg] z-50">
-                <img src={iconAccount} className="rotate-[-134deg]" />
-              </div>
-              <div className="p-4 lg:p-5 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[33.2%] md:left-[25%] md:top-[36%] lg:left-[84%] lg:top-[5%] xl:top-[6%] rotate-[134deg] z-50">
-                <img src={iconTrande} className="rotate-[-134deg]" width="64" />
-              </div>
-
-              <div className="p-4 lg:p-6 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%] md:left-[75%] md:top-[36%] lg:left-[15%] lg:top-[55%] xl:top-[54.7%] rotate-[134deg] z-50">
-                <img src={iconTax} className="rotate-[-134deg]" />
-              </div>
-              <div className="p-4 lg:p-5 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[67.8%] md:left-[75%] md:top-[72%] lg:left-[49%] lg:top-[55%] xl:top-[54.7%] rotate-[134deg] z-50">
-                <img src={iconAccount} className="rotate-[-134deg]" />
-              </div>
-              <div className="p-4 lg:p-5 bg-[#182760] w-[8vh] h-[8vh] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[85.6%] md:left-[25%] md:top-[72%] lg:left-[84%] lg:top-[55%] xl:top-[54.7%] rotate-[134deg] z-50">
-                <img src={iconTrande} className="rotate-[-134deg]" width="64" />
-              </div>
-            </div>
-            {/* background */}
-            <div>
-              <div className="p-4 lg:p-6 bg-gradient-to-r from-[#7c29f1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[2%] md:left-[25%] md:top-[4%] lg:left-[15%] lg:top-[6%] xl:top-[7%] rotate-[134deg]">
-                <img src={iconTax} className="rotate-[-134deg]" />
-              </div>
-              <div className="p-4 lg:p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[17.7%] md:left-[75%] md:top-[4%] lg:left-[49%] lg:top-[6%] xl:top-[7%] rotate-[134deg]">
-                <img src={iconAccount} className="rotate-[-134deg]" />
-              </div>
-              <div className="p-4 lg:p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[33.5%] md:left-[25%] md:top-[36.9%] lg:left-[84%] lg:top-[6%] xl:top-[7%] rotate-[134deg]">
-                <img src={iconTrande} className="rotate-[-134deg]" width="64" />
-              </div>
-
-              <div className="p-4 lg:p-6 bg-gradient-to-r from-[#7c29f1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[50.3%] md:left-[75%] md:top-[36.9%] lg:left-[15%] lg:top-[56%] xl:top-[56%] rotate-[134deg]">
-                <img src={iconTax} className="rotate-[-134deg]" />
-              </div>
-              <div className="p-4 lg:p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[68.1%] md:left-[75%] md:top-[73%] lg:left-[49%] lg:top-[56%] xl:top-[56%] rotate-[134deg]">
-                <img src={iconAccount} className="rotate-[-134deg]" />
-              </div>
-              <div className="p-4 lg:p-5 bg-gradient-to-r from-[#7C29F1] to-[#06CFFD]  w-[8vh] h-[8vh] absolute translate-x-[-50%] z-20 translate-y-[-50%] left-[50%] top-[85.9%] md:left-[25%] md:top-[73%] lg:left-[84%] lg:top-[56%] xl:top-[56%] rotate-[134deg]">
-                <img src={iconTrande} className="rotate-[-134deg]" width="64" />
-              </div>
-            </div>
             {/* content */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-x-[3vw] gap-y-[9vh]">
               <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
@@ -3714,8 +3902,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["tss"] || "Loading..."
+                          value={
+                            valueTssEn
                           }
                           onChange={(e) => setTssEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3730,8 +3918,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["tss"] || "Loading..."
+                          value={
+                            valueTssKh
                           }
                           onChange={(e) => setTssKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3762,8 +3950,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["tss_content_1"] || "Loading..."
+                          value={
+                            valueTssContentOneEn
                           }
                           onChange={(e) => setTssContentOneEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3778,8 +3966,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["tss_content_1"] || "Loading..."
+                          value={
+                            valueTssContentOneKh
                           }
                           onChange={(e) => setTssContentOneKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3810,8 +3998,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["tss_content_2"] || "Loading..."
+                          value={
+                            valueTssContentTwoEn
                           }
                           onChange={(e) => setTssContentTwoEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3826,8 +4014,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["tss_content_2"] || "Loading..."
+                          value={
+                            valueTssContentTwoKh
                           }
                           onChange={(e) => setTssContentTwoKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3862,8 +4050,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["ass"] || "Loading..."
+                          value={
+                            valueAssEn
                           }
                           onChange={(e) => setAssEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3878,8 +4066,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["ass"] || "Loading..."
+                          value={
+                            valueAssKh
                           }
                           onChange={(e) => setAssKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3910,8 +4098,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["ass_content_1"] || "Loading..."
+                          value={
+                            valueAssContentOneEn
                           }
                           onChange={(e) => setAssContentOneEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3926,8 +4114,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["ass_content_1"] || "Loading..."
+                          value={
+                            valueAssContentOneKh
                           }
                           onChange={(e) => setAssContentOneKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3958,8 +4146,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["ass_content_2"] || "Loading..."
+                          value={
+                            valueAssContentTwoEn
                           }
                           onChange={(e) => setAssContentTwoEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -3974,8 +4162,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["ass_content_2"] || "Loading..."
+                          value={
+                            valueAssContentTwoKh
                           }
                           onChange={(e) => setAssContentTwoKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4010,8 +4198,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["tad"] || "Loading..."
+                          value={
+                            valueTadEn
                           }
                           onChange={(e) => setTadEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4026,8 +4214,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["tad"] || "Loading..."
+                          value={
+                            valueTadKh
                           }
                           onChange={(e) => setTadKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4058,8 +4246,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["tad_content_1"] || "Loading..."
+                          value={
+                            valueTadContentOneEn
                           }
                           onChange={(e) => setTadContentOneEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4074,8 +4262,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["tad_content_1"] || "Loading..."
+                          value={
+                            valueTadContentOneKh
                           }
                           onChange={(e) => setTadContentOneKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4106,8 +4294,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["tad_content_2"] || "Loading..."
+                          value={
+                            valueTadContentTwoEn
                           }
                           onChange={(e) => setTadContentTwoEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4122,8 +4310,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["tad_content_2"] || "Loading..."
+                          value={
+                            valueTadContentTwoKh
                           }
                           onChange={(e) => setTadContentTwoKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4158,8 +4346,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["bsr"] || "Loading..."
+                          value={
+                            valueBsrEn
                           }
                           onChange={(e) => setBsrEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4174,8 +4362,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["bsr"] || "Loading..."
+                          value={
+                            valueBsrKh
                           }
                           onChange={(e) => setBsrKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4206,8 +4394,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["bsr_content_1"] || "Loading..."
+                          value={
+                            valueBsrContentOneEn
                           }
                           onChange={(e) => setBsrContentOneEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4222,8 +4410,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["bsr_content_1"] || "Loading..."
+                          value={
+                            valueBsrContentOneKh
                           }
                           onChange={(e) => setBsrContentOneKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4254,8 +4442,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["bsr_content_2"] || "Loading..."
+                          value={
+                            valueBsrContentTwoEn
                           }
                           onChange={(e) => setBsrContentTwoEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4270,8 +4458,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["bsr_content_2"] || "Loading..."
+                          value={
+                            valueBsrContentTwoKh
                           }
                           onChange={(e) => setBsrContentTwoKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4302,8 +4490,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["bsr_content_3"] || "Loading..."
+                          value={
+                            valueBsrContentThreeEn
                           }
                           onChange={(e) => setBsrContentThreeEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4318,8 +4506,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["bsr_content_3"] || "Loading..."
+                          value={
+                            valueBsrContentThreeKh
                           }
                           onChange={(e) => setBsrContentThreeKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4354,8 +4542,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["cu"] || "Loading..."
+                          value={
+                            valueCuEn
                           }
                           onChange={(e) => setCuEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4370,8 +4558,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["cu"] || "Loading..."
+                          value={
+                            valueCuKh
                           }
                           onChange={(e) => setCuKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4402,8 +4590,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["cu_content_1"] || "Loading..."
+                          value={
+                            valueCuContentOneEn
                           }
                           onChange={(e) => setCuContentOneEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4418,8 +4606,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["cu_content_1"] || "Loading..."
+                          value={
+                            valueCuContentOneKh
                           }
                           onChange={(e) => setCuContentOneKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4450,8 +4638,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["cu_content_2"] || "Loading..."
+                          value={
+                            valueCuContentTwoEn
                           }
                           onChange={(e) => setCuContentTwoEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4466,8 +4654,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["cu_content_2"] || "Loading..."
+                          value={
+                            valueCuContentTwoKh
                           }
                           onChange={(e) => setCuContentTwoKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4498,8 +4686,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["cu_content_3"] || "Loading..."
+                          value={
+                            valueCuContentThreeEn
                           }
                           onChange={(e) => setCuContentThreeEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4514,8 +4702,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["cu_content_3"] || "Loading..."
+                          value={
+                            valueCuContentThreeKh
                           }
                           onChange={(e) => setCuContentThreeKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4550,8 +4738,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["cc"] || "Loading..."
+                          value={
+                            valueCcEn
                           }
                           onChange={(e) => setCcEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4566,8 +4754,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["cc"] || "Loading..."
+                          value={
+                            valueCcKh
                           }
                           onChange={(e) => setCcKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4599,8 +4787,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["cc_content_1"] || "Loading..."
+                          value={
+                            valueCcContentOneEn
                           }
                           onChange={(e) => setCcContentOneEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4615,8 +4803,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["cc_content_1"] || "Loading..."
+                          value={
+                            valueCcContentOneKh
                           }
                           onChange={(e) => setCcContentOneKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4647,8 +4835,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["cc_content_2"] || "Loading..."
+                          value={
+                            valueCcContentTwoEn
                           }
                           onChange={(e) => setCcContentTwoEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4663,8 +4851,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["cc_content_2"] || "Loading..."
+                          value={
+                            valueCcContentTwoKh
                           }
                           onChange={(e) => setCcContentTwoKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4695,8 +4883,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="2"
-                          defaultValue={
-                            translations["cc_content_3"] || "Loading..."
+                          value={
+                            valueCcContentThreeEn
                           }
                           onChange={(e) => setCcContentThreeEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4711,8 +4899,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["cc_content_3"] || "Loading..."
+                          value={
+                            valueCcContentThreeKh
                           }
                           onChange={(e) => setCcContentThreeKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4750,8 +4938,8 @@ const HomeAdmin = () => {
                 </label>
                 <textarea
                   rows="1"
-                  defaultValue={
-                    translations["why_us"] || "Loading..."
+                  value={
+                    valueWhyUsEn
                   }
                   onChange={(e) => setWhyUsEn(e.target.value)}
                   className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4766,8 +4954,8 @@ const HomeAdmin = () => {
                 </label>
                 <textarea
                   rows="1"
-                  defaultValue={
-                    translationsKh["why_us"] || "Loading..."
+                  value={
+                    valueWhyUsKh
                   }
                   onChange={(e) => setWhyUsKh(e.target.value)}
                   className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4807,8 +4995,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translations["why_us_1"] || "Loading..."
+                            value={
+                              valueWhyUsOneEn
                             }
                             onChange={(e) => setWhyUsOneEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4823,8 +5011,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translationsKh["why_us_1"] || "Loading..."
+                            value={
+                              valueWhyUsOneKh
                             }
                             onChange={(e) => setWhyUsOneKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4860,8 +5048,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translations["why_us_2"] || "Loading..."
+                            value={
+                              valueWhyUsTwoEn
                             }
                             onChange={(e) => setWhyUsTwoEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4876,8 +5064,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translationsKh["why_us_2"] || "Loading..."
+                            value={
+                              valueWhyUsTwoKh
                             }
                             onChange={(e) => setWhyUsTwoKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4913,8 +5101,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translations["why_us_3"] || "Loading..."
+                            value={
+                              valueWhyUsThreeEn
                             }
                             onChange={(e) => setWhyUsThreeEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4929,8 +5117,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translationsKh["why_us_3"] || "Loading..."
+                            value={
+                              valueWhyUsThreeKh
                             }
                             onChange={(e) => setWhyUsThreeKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4966,8 +5154,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translations["why_us_4"] || "Loading..."
+                            value={
+                              valueWhyUsFourEn
                             }
                             onChange={(e) => setWhyUsFourEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -4982,8 +5170,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translationsKh["why_us_4"] || "Loading..."
+                            value={
+                              valueWhyUsFourKh
                             }
                             onChange={(e) => setWhyUsFourKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5019,8 +5207,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translations["why_us_5"] || "Loading..."
+                            value={
+                              valueWhyUsFiveEn
                             }
                             onChange={(e) => setWhyUsFiveEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5035,8 +5223,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translationsKh["why_us_5"] || "Loading..."
+                            value={
+                              valueWhyUsFiveKh
                             }
                             onChange={(e) => setWhyUsFiveKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5072,8 +5260,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translations["why_us_6"] || "Loading..."
+                            value={
+                              valueWhyUsSixEn
                             }
                             onChange={(e) => setWhyUsSixEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5088,8 +5276,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translationsKh["why_us_6"] || "Loading..."
+                            value={
+                              valueWhyUsSixKh
                             }
                             onChange={(e) => setWhyUsSixKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5126,8 +5314,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translations["why_us_7"] || "Loading..."
+                            value={
+                              valueWhyUsSevenEn
                             }
                             onChange={(e) => setWhyUsSevenEn(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5142,8 +5330,8 @@ const HomeAdmin = () => {
                           </label>
                           <textarea
                             rows="3"
-                            defaultValue={
-                              translationsKh["why_us_7"] || "Loading..."
+                            value={
+                              valueWhyUsSevenKh
                             }
                             onChange={(e) => setWhyUsSevenKh(e.target.value)}
                             className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5187,8 +5375,8 @@ const HomeAdmin = () => {
                       </label>
                       <textarea
                         rows="1"
-                        defaultValue={
-                          translations["ourClient"] || "Loading..."
+                        value={
+                          valueOurClientEn
                         }
                         onChange={(e) => setOurClientEn(e.target.value)}
                         className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5203,8 +5391,8 @@ const HomeAdmin = () => {
                       </label>
                       <textarea
                         rows="1"
-                        defaultValue={
-                          translationsKh["ourClient"] || "Loading..."
+                        value={
+                          valueOurClientKh
                         }
                         onChange={(e) => setOurClientKh(e.target.value)}
                         className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5235,8 +5423,8 @@ const HomeAdmin = () => {
                       </label>
                       <textarea
                         rows="1"
-                        defaultValue={
-                          translations["client_details"] || "Loading..."
+                        value={
+                          valueOurClientDetailEn
                         }
                         onChange={(e) => setOurClientDetailEn(e.target.value)}
                         className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5251,8 +5439,8 @@ const HomeAdmin = () => {
                       </label>
                       <textarea
                         rows="1"
-                        defaultValue={
-                          translationsKh["client_details"] || "Loading..."
+                        value={
+                          valueOurClientDetailKh
                         }
                         onChange={(e) => setOurClientDetailKh(e.target.value)}
                         className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5302,8 +5490,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["items_1"] || "Loading..."
+                          value={
+                            valueItemOneEn
                           }
                           onChange={(e) => setItemOneEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5318,8 +5506,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["items_1"] || "Loading..."
+                          value={
+                            valueItemOneKh
                           }
                           onChange={(e) => setItemOneKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5350,8 +5538,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="2"
-                          defaultValue={
-                            translations["items_detail_1"] || "Loading..."
+                          value={
+                            valueItemDetailOneEn
                           }
                           onChange={(e) => setItemDetailOneEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5366,8 +5554,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="2"
-                          defaultValue={
-                            translationsKh["items_detail_1"] || "Loading..."
+                          value={
+                            valueItemDetailOneKh
                           }
                           onChange={(e) => setItemDetailOneKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5406,8 +5594,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["items_2"] || "Loading..."
+                          value={
+                            valueItemTwoEn
                           }
                           onChange={(e) => setItemTwoEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5422,8 +5610,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["items_2"] || "Loading..."
+                          value={
+                            valueItemTwoKh
                           }
                           onChange={(e) => setItemTwoKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5454,8 +5642,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="2"
-                          defaultValue={
-                            translations["items_detail_2"] || "Loading..."
+                          value={
+                            valueItemDetailTwoEn
                           }
                           onChange={(e) => setItemDetailTwoEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5470,8 +5658,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="2"
-                          defaultValue={
-                            translationsKh["items_detail_2"] || "Loading..."
+                          value={
+                            valueItemDetailTwoKh
                           }
                           onChange={(e) => setItemDetailTwoKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5509,8 +5697,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="2"
-                          defaultValue={
-                            translations["items_3"] || "Loading..."
+                          value={
+                            valueItemThreeEn
                           }
                           onChange={(e) => setItemThreeEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5525,8 +5713,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="2"
-                          defaultValue={
-                            translationsKh["items_3"] || "Loading..."
+                          value={
+                            valueItemThreeKh
                           }
                           onChange={(e) => setItemThreeKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5557,8 +5745,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="2"
-                          defaultValue={
-                            translations["items_detail_3"] || "Loading..."
+                          value={
+                            valueItemDetailThreeEn
                           }
                           onChange={(e) => setItemDetailThreeEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5573,8 +5761,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="2"
-                          defaultValue={
-                            translationsKh["items_detail_3"] || "Loading..."
+                          value={
+                            valueItemDetailThreeKh
                           }
                           onChange={(e) => setItemDetailThreeKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5613,8 +5801,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["items_4"] || "Loading..."
+                          value={
+                            valueItemFourEn
                           }
                           onChange={(e) => setItemFourEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5629,8 +5817,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["items_4"] || "Loading..."
+                          value={
+                            valueItemFourKh
                           }
                           onChange={(e) => setItemFourKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5661,8 +5849,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translations["items_detail_4"] || "Loading..."
+                          value={
+                            valueItemDetailFourEn
                           }
                           onChange={(e) => setItemDetailFourEn(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -5677,8 +5865,8 @@ const HomeAdmin = () => {
                         </label>
                         <textarea
                           rows="1"
-                          defaultValue={
-                            translationsKh["items_detail_4"] || "Loading..."
+                          value={
+                            valueItemDetailFourKh
                           }
                           onChange={(e) => setItemDetailFourKh(e.target.value)}
                           className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "

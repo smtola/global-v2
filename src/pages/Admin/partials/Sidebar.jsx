@@ -92,7 +92,7 @@ const Sidebar = ({
           </h3>
           <ul className="mt-3">
            {/* blog */}
-            <li className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] ${pathname.includes("home-admin") && "from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]"}`}>
+            <li className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] ${pathname.includes("/home-admin") && "from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]"}`}>
               <NavLink
                 end
                 to="/home-admin"
@@ -101,7 +101,7 @@ const Sidebar = ({
                 }`}
               >
                 <div className="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className={`icon icon-tabler icon-tabler-app-window  ${pathname.includes('home-admin') ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'}`} width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6b7280" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" className={`icon icon-tabler icon-tabler-app-window  ${pathname.includes('/home-admin') ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'}`} width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6b7280" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
                     <path d="M6 8h.01" />
@@ -111,16 +111,16 @@ const Sidebar = ({
                 </div>
               </NavLink>
             </li>
-            <li className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] ${pathname.includes("dashboard") && "from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]"}`}>
+            <li className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] ${pathname.includes("/dashboard") && "from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]"}`}>
               <NavLink
                 end
                 to="/dashboard"
                 className={`block text-[#000099] truncate transition duration-150 ${
-                  pathname.includes("dashboard") ? "" : "hover:text-[#000099]"
+                  pathname.includes("/dashboard") ? "" : "hover:text-[#000099]"
                 }`}
               >
                 <div className="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className={`icon icon-tabler icon-tabler-app-window  ${pathname.includes('dashboard') ? 'text-violet-500' : 'text-gray-400'}`} width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6b7280" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" className={`icon icon-tabler icon-tabler-app-window  ${pathname.includes('/dashboard') ? 'text-violet-500' : 'text-gray-400'}`} width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6b7280" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" />
                     <path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" />

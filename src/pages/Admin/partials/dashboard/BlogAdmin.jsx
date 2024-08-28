@@ -652,7 +652,7 @@ const BlogAdmin = () => {
                     Edit {title}
                   </h3>
                   <button
-                    className=" float-right"
+                    className="float-right"
                     onClick={() => setShowModalEdit(false)}
                   >
                     <span className="relative text-gray-500 cursor-pointer opacity-7 h-6 w-6 text-xl block hover:text-[#314bb2]">
