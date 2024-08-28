@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Footer from "../../pages/components/Footer";
+import Footer from "../components/Footer";
 import { useRef, useEffect } from "react";
 import "./HomeAdmin.css";
 import Scroll from "../../Scroll";
@@ -60,6 +60,175 @@ const HomeAdmin = () => {
 
   const [valueExDetailEn, setExDetailEn] = useState("");
   const [valueExDetailKh, setExDetailKh] = useState("");
+
+  const [valueCsTitleEn, setCsTitleEn] = useState("");
+  const [valueCsTitleKh, setCsTitleKh] = useState("");
+
+  const [valueCsDetailEn, setCsDetailEn] = useState("");
+  const [valueCsDetailKh, setCsDetailKh] = useState("");
+
+  const [valueInnovationTitleEn, setInnovationTitleEn] = useState("");
+  const [valueInnovationTitleKh, setInnovationTitleKh] = useState("");
+
+  const [valueInnovationDetailEn, setInnovationDetailEn] = useState("");
+  const [valueInnovationDetailKh, setInnovationDetailKh] = useState("");
+
+  const [valueCollaborationTitleEn, setCollaborationTitleEn] = useState("");
+  const [valueCollaborationTitleKh, setCollaborationTitleKh] = useState("");
+
+  const [valueCollaborationDetailEn, setCollaborationDetailEn] = useState("");
+  const [valueCollaborationDetailKh, setCollaborationDetailKh] = useState("");
+
+  const [valueFounderNameEn, setFounderNameEn] = useState("");
+  const [valueFounderNameKh, setFounderNameKh] = useState("");
+
+  const [valueFounderTitleEn, setFounderTitleEn] = useState("");
+  const [valueFounderTitleKh, setFounderTitleKh] = useState("");
+
+  const [valueEducationEn, setEducationEn] = useState("");
+  const [valueEducationKh, setEducationKh] = useState("");
+
+  const [valueHeaderEn, setHeaderEn] = useState("");
+  const [valueHeaderKh, setHeaderKh] = useState("");
+
+  const [valueBodyEn, setBodyEn] = useState("");
+  const [valueBodyKh, setBodyKh] = useState("");
+
+  const [valueFooterEn, setFooterEn] = useState("");
+  const [valueFooterKh, setFooterKh] = useState("");
+
+  const [valueFounderChEn, setFounderChEn] = useState("");
+  const [valueFounderChKh, setFounderChKh] = useState("");
+
+  const [valueTandAEn, setTandAEn] = useState("");
+  const [valueTandAKh, setTandAKh] = useState("");
+
+  const [valuePartnerEn, setPartnerEn] = useState("");
+  const [valuePartnerKh, setPartnerKh] = useState("");
+
+  const [valueServiceEn, setServiceEn] = useState("");
+  const [valueServiceKh, setServiceKh] = useState("");
+
+  const [valueOurServiceDetailEn, setOurServiceDetailEn] = useState("");
+  const [valueOurServiceDetailKh, setOurServiceDetailKh] = useState("");
+
+  const [valueTssEn, setTssEn] = useState("");
+  const [valueTssKh, setTssKh] = useState("");
+
+  const [valueTssContentOneEn, setTssContentOneEn] = useState("");
+  const [valueTssContentOneKh, setTssContentOneKh] = useState("");
+
+  const [valueTssContentTwoEn, setTssContentTwoEn] = useState("");
+  const [valueTssContentTwoKh, setTssContentTwoKh] = useState("");
+
+  const [valueAssEn, setAssEn] = useState("");
+  const [valueAssKh, setAssKh] = useState("");
+
+  const [valueAssContentOneEn, setAssContentOneEn] = useState("");
+  const [valueAssContentOneKh, setAssContentOneKh] = useState("");
+
+  const [valueAssContentTwoEn, setAssContentTwoEn] = useState("");
+  const [valueAssContentTwoKh, setAssContentTwoKh] = useState("");
+
+  const [valueTadEn, setTadEn] = useState("");
+  const [valueTadKh, setTadKh] = useState("");
+
+  const [valueTadContentOneEn, setTadContentOneEn] = useState("");
+  const [valueTadContentOneKh, setTadContentOneKh] = useState("");
+
+  const [valueTadContentTwoEn, setTadContentTwoEn] = useState("");
+  const [valueTadContentTwoKh, setTadContentTwoKh] = useState("");
+
+  const [valueBsrEn, setBsrEn] = useState("");
+  const [valueBsrKh, setBsrKh] = useState("");
+
+  const [valueBsrContentOneEn, setBsrContentOneEn] = useState("");
+  const [valueBsrContentOneKh, setBsrContentOneKh] = useState("");
+
+  const [valueBsrContentTwoEn, setBsrContentTwoEn] = useState("");
+  const [valueBsrContentTwoKh, setBsrContentTwoKh] = useState("");
+
+  const [valueBsrContentThreeEn, setBsrContentThreeEn] = useState("");
+  const [valueBsrContentThreeKh, setBsrContentThreeKh] = useState("");
+
+  const [valueCuEn, setCuEn] = useState("");
+  const [valueCuKh, setCuKh] = useState("");
+
+  const [valueCuContentOneEn, setCuContentOneEn] = useState("");
+  const [valueCuContentOneKh, setCuContentOneKh] = useState("");
+
+  const [valueCuContentTwoEn, setCuContentTwoEn] = useState("");
+  const [valueCuContentTwoKh, setCuContentTwoKh] = useState("");
+
+  const [valueCuContentThreeEn, setCuContentThreeEn] = useState("");
+  const [valueCuContentThreeKh, setCuContentThreeKh] = useState("");
+
+  const [valueCcEn, setCcEn] = useState("");
+  const [valueCcKh, setCcKh] = useState("");
+
+  const [valueCcContentOneEn, setCcContentOneEn] = useState("");
+  const [valueCcContentOneKh, setCcContentOneKh] = useState("");
+
+  const [valueCcContentTwoEn, setCcContentTwoEn] = useState("");
+  const [valueCcContentTwoKh, setCcContentTwoKh] = useState("");
+
+  const [valueCcContentThreeEn, setCcContentThreeEn] = useState("");
+  const [valueCcContentThreeKh, setCcContentThreeKh] = useState("");
+
+  const [valueWhyUsEn, setWhyUsEn] = useState("");
+  const [valueWhyUsKh, setWhyUsKh] = useState("");
+
+  const [valueWhyUsOneEn, setWhyUsOneEn] = useState("");
+  const [valueWhyUsOneKh, setWhyUsOneKh] = useState("");
+
+  const [valueWhyUsTwoEn, setWhyUsTwoEn] = useState("");
+  const [valueWhyUsTwoKh, setWhyUsTwoKh] = useState("");
+
+  const [valueWhyUsThreeEn, setWhyUsThreeEn] = useState("");
+  const [valueWhyUsThreeKh, setWhyUsThreeKh] = useState("");
+
+  const [valueWhyUsFourEn, setWhyUsFourEn] = useState("");
+  const [valueWhyUsFourKh, setWhyUsFourKh] = useState("");
+
+  const [valueWhyUsFiveEn, setWhyUsFiveEn] = useState("");
+  const [valueWhyUsFiveKh, setWhyUsFiveKh] = useState("");
+
+  const [valueWhyUsSixEn, setWhyUsSixEn] = useState("");
+  const [valueWhyUsSixKh, setWhyUsSixKh] = useState("");
+
+  const [valueWhyUsSevenEn, setWhyUsSevenEn] = useState("");
+  const [valueWhyUsSevenKh, setWhyUsSevenKh] = useState("");
+
+  const [valueOurClientEn, setOurClientEn] = useState("");
+  const [valueOurClientKh, setOurClientKh] = useState("");
+
+  const [valueOurClientDetailEn, setOurClientDetailEn] = useState("");
+  const [valueOurClientDetailKh, setOurClientDetailKh] = useState("");
+
+  const [valueItemOneEn, setItemOneEn] = useState("");
+  const [valueItemOneKh, setItemOneKh] = useState("");
+
+  const [valueItemDetailOneEn, setItemDetailOneEn] = useState("");
+  const [valueItemDetailOneKh, setItemDetailOneKh] = useState("");
+
+  const [valueItemTwoEn, setItemTwoEn] = useState("");
+  const [valueItemTwoKh, setItemTwoKh] = useState("");
+
+  const [valueItemDetailTwoEn, setItemDetailTwoEn] = useState("");
+  const [valueItemDetailTwoKh, setItemDetailTwoKh] = useState("");
+
+  const [valueItemThreeEn, setItemThreeEn] = useState("");
+  const [valueItemThreeKh, setItemThreeKh] = useState("");
+
+  const [valueItemDetailThreeEn, setItemDetailThreeEn] = useState("");
+  const [valueItemDetailThreeKh, setItemDetailThreeKh] = useState("");
+
+  const [valueItemFourEn, setItemFourEn] = useState("");
+  const [valueItemFourKh, setItemFourKh] = useState("");
+
+  const [valueItemDetailFourEn, setItemDetailFourEn] = useState("");
+  const [valueItemDetailFourKh, setItemDetailFourKh] = useState("");
+
 
   useEffect(() => {
     if (!token) {
@@ -321,6 +490,1744 @@ const HomeAdmin = () => {
     setShowPWelcome(true);
   };
 
+  const handleCsTitleSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "cs",
+      value: valueCsTitleEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 24);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "cs",
+      value: valueCsTitleKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 99);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleCsDetailSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "cs_detail",
+      value: valueCsDetailEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 25);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "cs_detail",
+      value: valueCsDetailKh,
+    };
+
+    const { error } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 100);
+
+    if (error) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleInnovationTitleSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "Innovation",
+      value: valueInnovationTitleEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 26);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "Innovation",
+      value: valueInnovationTitleKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 101);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleInnovationDetailSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "inovation_detail",
+      value: valueInnovationDetailEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 27);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "inovation_detail",
+      value: valueInnovationDetailKh,
+    };
+
+    const { error } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 102);
+
+    if (error) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleCollaborationTitleSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "collaboration",
+      value: valueCollaborationTitleEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 28);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "collaboration",
+      value: valueCollaborationTitleKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 103);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleCollaborationDetailSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "collaboration_detail",
+      value: valueCollaborationDetailEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 29);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "collaboration_detail",
+      value: valueCollaborationDetailKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 104);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleFounderNameSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "founder_name",
+      value: valueFounderNameEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 31);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "founder_name",
+      value: valueFounderNameKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 106);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleFounderTitleSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "founder_title",
+      value: valueFounderTitleEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 30);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "founder_title",
+      value: valueFounderTitleKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 105);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleEducationSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "education",
+      value: valueEducationEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 33);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "education",
+      value: valueEducationKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 108);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleHeaderSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "header",
+      value: valueHeaderEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 35);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "header",
+      value: valueHeaderKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 110);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleBodySubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "body",
+      value: valueBodyEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 35);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "body",
+      value: valueBodyKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 110);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleFooterSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "footer",
+      value: valueFooterEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 36);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "footer",
+      value: valueFooterKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 111);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleFounderChSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "founder_ch",
+      value: valueFounderChEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 37);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "founder_ch",
+      value: valueFounderChKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 112);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleTandASubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "t_&_a",
+      value: valueTandAEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 38);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "t_&_a",
+      value: valueTandAKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 113);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handlePartnerSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "partner",
+      value: valuePartnerEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 39);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "partner",
+      value: valuePartnerKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 114);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleOurServiceSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "ourservice",
+      value: valueServiceEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 42);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "ourservice",
+      value: valueServiceKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 117);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleOurServiceDetailSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "ourservice_detail",
+      value: valueOurServiceDetailEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 43);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "ourservice_detail",
+      value: valueOurServiceDetailKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 118);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleTssSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "tss",
+      value: valueTssEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 44);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "tss",
+      value: valueTssKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 119);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleTssContentOneSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "tss_content_1",
+      value: valueTssContentOneEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 45);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "tss_content_1",
+      value: valueTssContentOneKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 120);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleTssContentTwoSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "tss_content_2",
+      value: valueTssContentTwoEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 45);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "tss_content_2",
+      value: valueTssContentTwoKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 120);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleAssSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "ass",
+      value: valueAssEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 47);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "ass",
+      value: valueAssKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 122);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleAssContentOneSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "ass",
+      value: valueAssContentOneEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 48);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "ass",
+      value: valueAssContentOneKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 123);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleAssContentTwoSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "ass_content_2",
+      value: valueAssContentTwoEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 49);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "ass_content_2",
+      value: valueAssContentTwoKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 124);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleTadSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "tad",
+      value: valueTadEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 50);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "tad",
+      value: valueTadKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 125);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleTadContentOneSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "tad",
+      value: valueTadContentOneEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 51);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "tad",
+      value: valueTadContentOneKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 126);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleTadContentTwoSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "tad_content_2",
+      value: valueTadContentTwoEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 52);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "tad_content_2",
+      value: valueTadContentTwoKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 127);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleBsrSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "bsr",
+      value: valueBsrEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 53);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "bsr",
+      value: valueBsrKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 128);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleBsrContentOneSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "bsr_content_1",
+      value: valueBsrContentOneEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 54);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "bsr_content_1",
+      value: valueBsrContentOneKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 129);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleBsrContentTwoSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "bsr_content_2",
+      value: valueBsrContentTwoEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 55);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "bsr_content_2",
+      value: valueBsrContentTwoKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 130);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleBsrContentThreeSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "bsr_content_3",
+      value: valueBsrContentThreeEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 56);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "bsr_content_3",
+      value: valueBsrContentThreeKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 131);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleCuSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "cu",
+      value: valueCuEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 57);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "cu",
+      value: valueCuKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 132);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleCuContentOneSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "cu_content_1",
+      value: valueCuContentOneEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 57);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "cu_content_1",
+      value: valueCuContentOneKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 132);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleCuContentTwoSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "cu_content_2",
+      value: valueCuContentTwoEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 59);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "cu_content_2",
+      value: valueCuContentTwoKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 134);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleCuContentThreeSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "cu_content_3",
+      value: valueCuContentThreeEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 60);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "cu_content_3",
+      value: valueCuContentThreeKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 135);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleCcSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "cc",
+      value: valueCcEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 61);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "cc",
+      value: valueCcKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 136);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleCcContentOneSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "cc_content_1",
+      value: valueCcContentOneEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 62);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "cc_content_1",
+      value: valueCcContentOneKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 137);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleCcContentTwoSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "cc_content_2",
+      value: valueCcContentTwoEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 63);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "cc_content_2",
+      value: valueCcContentTwoKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 138);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleCcContentThreeSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "cc_content_3",
+      value: valueCcContentThreeEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 64);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "cc_content_3",
+      value: valueCcContentThreeKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 139);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleWhyUsSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "why_us",
+      value: valueWhyUsEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 65);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "why_us",
+      value: valueWhyUsKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 140);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleWhyUsOneSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "why_us_1",
+      value: valueWhyUsOneEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 66);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "why_us_1",
+      value: valueWhyUsOneKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 141);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleWhyUsTwoSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "why_us_2",
+      value: valueWhyUsTwoEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 67);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "why_us_2",
+      value: valueWhyUsTwoKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 142);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleWhyUsThreeSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "why_us_3",
+      value: valueWhyUsThreeEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 68);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "why_us_3",
+      value: valueWhyUsThreeKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 143);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleWhyUsFourSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "why_us_4",
+      value: valueWhyUsFourEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 69);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "why_us_4",
+      value: valueWhyUsFourKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 144);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleWhyUsFiveSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "why_us_5",
+      value: valueWhyUsFiveEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 70);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "why_us_5",
+      value: valueWhyUsFiveKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 145);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleWhyUsSixSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "why_us_6",
+      value: valueWhyUsSixEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 71);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "why_us_6",
+      value: valueWhyUsSixKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 146);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+
+  const handleWhyUsSevenSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "why_us_7",
+      value: valueWhyUsSevenEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 72);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "why_us_7",
+      value: valueWhyUsSevenKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 147);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleOurClientSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "ourClient",
+      value: valueOurClientEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 73);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "ourClient",
+      value: valueOurClientKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 148);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleOurClientDetailSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "client_details",
+      value: valueOurClientDetailEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 74);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "client_details",
+      value: valueOurClientDetailKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 149);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleItemOneSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "items_1",
+      value: valueItemOneEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 76);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "items_1",
+      value: valueItemOneKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 150);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleItemDetailOneSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "items_detail_1",
+      value: valueItemDetailOneEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 77);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "items_detail_1",
+      value: valueItemDetailOneKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 151);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleItemTwoSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "items_2",
+      value: valueItemTwoEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 78);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "items_2",
+      value: valueItemTwoKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 152);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleItemDetailTwoSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "items_2",
+      value: valueItemDetailTwoEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 81);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "items_2",
+      value: valueItemDetailTwoKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 155);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleItemThreeSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "items_3",
+      value: valueItemThreeEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 79);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "items_3",
+      value: valueItemThreeKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 153);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleItemDetailThreeSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "items_detail_3",
+      value: valueItemDetailThreeEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 82);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "items_detail_3",
+      value: valueItemDetailThreeKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 156);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleItemFourSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "items_4",
+      value: valueItemFourEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 80);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "items_4",
+      value: valueItemFourKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 154);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+  const handleItemDetailFourSubmit = async (e) => {
+    e.preventDefault();
+    const updateDataEn = {
+      lang_code: "en",
+      key: "items_detail_4",
+      value: valueItemDetailFourEn,
+    };
+
+    const { erroren } = await supabase
+      .from("translations")
+      .update(updateDataEn)
+      .eq("id", 83);
+
+    const updateDataKh = {
+      lang_code: "kh",
+      key: "items_detail_4",
+      value: valueItemDetailFourKh,
+    };
+
+    const { errorkh } = await supabase
+      .from("translations")
+      .update(updateDataKh)
+      .eq("id", 157);
+
+    if (erroren) {
+      console.error("Error updating welcome text:", erroren.message);
+    }
+    setShowEditWelcome(false);
+    setShowPWelcome(true);
+  };
+
+
   return (
     <>
       <Scroll />
@@ -337,11 +2244,11 @@ const HomeAdmin = () => {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="#000"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M5 12l14 0" />
@@ -384,8 +2291,8 @@ const HomeAdmin = () => {
                   className="w-full max-w-lg"
                 >
                   <label
-                    for="message"
-                    class="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="message"
+                    className="block mb-2 text-sm font-medium text-gray-900"
                   >
                     English
                   </label>
@@ -393,13 +2300,13 @@ const HomeAdmin = () => {
                     rows="4"
                     defaultValue={translations["welcome"] || "Loading..."}
                     onChange={(e) => setWelcomeEn(e.target.value)}
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                    className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                     placeholder="English"
                     required
                   ></textarea>
                   <label
-                    for="message"
-                    class="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="message"
+                    className="block mb-2 text-sm font-medium text-gray-900"
                   >
                     ភាសាខ្មែរ
                   </label>
@@ -407,7 +2314,7 @@ const HomeAdmin = () => {
                     rows="4"
                     defaultValue={translationsKh["welcome"] || "Loading..."}
                     onChange={(e) => setWelcomeKh(e.target.value)}
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                    className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                     placeholder="English"
                     required
                   ></textarea>
@@ -435,15 +2342,14 @@ const HomeAdmin = () => {
                 {translations["about_p"] || "Loading..."}
               </p>
             ) : null}
-
             {showEditWelcome ? (
               <form
                 onSubmit={handleEditAboutCmSubmit}
                 className="w-full max-w-lg"
               >
                 <label
-                  for="message"
-                  class="block mb-2 text-sm font-medium text-gray-900"
+                  htmlFor="message"
+                  className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   English
                 </label>
@@ -451,13 +2357,13 @@ const HomeAdmin = () => {
                   rows="4"
                   defaultValue={translations["about_p"] || "Loading..."}
                   onChange={(e) => setAboutCompanyEn(e.target.value)}
-                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                  className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                   placeholder="English"
                   required
                 ></textarea>
                 <label
-                  for="message"
-                  class="block mb-2 text-sm font-medium text-gray-900"
+                  htmlFor="message"
+                  className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   ភាសាខ្មែរ
                 </label>
@@ -465,7 +2371,7 @@ const HomeAdmin = () => {
                   rows="4"
                   defaultValue={translationsKh["about_p"] || "Loading..."}
                   onChange={(e) => setAboutCompanyKh(e.target.value)}
-                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                  className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                   placeholder="English"
                   required
                 ></textarea>
@@ -481,7 +2387,7 @@ const HomeAdmin = () => {
 
           <div className="bg-[#314bb2] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
             <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl w-full mx-auto text-[#eee]">
-              <div className=" gap-5 pb-4">
+              <div className="gap-5 pb-4 z-1000">
                 <div>
                   <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium">
                     {translations["vision_title"] || "Loading..."}
@@ -495,11 +2401,11 @@ const HomeAdmin = () => {
                   {showEditWelcome ? (
                     <form
                       onSubmit={handleEditVisionDetailSubmit}
-                      className="w-full"
+                      className="w-full max-w-xl ml-[60%]"
                     >
                       <label
-                        for="message"
-                        class="block mb-2 text-sm font-medium text-gray-200"
+                        htmlFor="message"
+                        className="block mb-2 text-sm font-medium text-gray-200"
                       >
                         English
                       </label>
@@ -509,13 +2415,13 @@ const HomeAdmin = () => {
                           translations["vision_detail"] || "Loading..."
                         }
                         onChange={(e) => setVisionDetailEn(e.target.value)}
-                        class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                         placeholder="English"
                         required
                       ></textarea>
                       <label
-                        for="message"
-                        class="block mb-2 text-sm font-medium text-gray-200"
+                        htmlFor="message"
+                        className="block mb-2 text-sm font-medium text-gray-200"
                       >
                         ភាសាខ្មែរ
                       </label>
@@ -525,7 +2431,7 @@ const HomeAdmin = () => {
                           translationsKh["vision_detail"] || "Loading..."
                         }
                         onChange={(e) => setVisionDetailKh(e.target.value)}
-                        class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                         placeholder="Khmer"
                         required
                       ></textarea>
@@ -556,8 +2462,8 @@ const HomeAdmin = () => {
                       className="w-full max-w-xl"
                     >
                       <label
-                        for="message"
-                        class="block mb-2 text-[16px] font-medium text-gray-200"
+                        htmlFor="message"
+                        className="block mb-2 text-[16px] font-medium text-gray-200"
                       >
                         English
                       </label>
@@ -567,7 +2473,7 @@ const HomeAdmin = () => {
                           translations["mission_detail"] || "Loading..."
                         }
                         onChange={(e) => setMissionEn(e.target.value)}
-                        class="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                         placeholder="English"
                         required
                       ></textarea>
@@ -818,7 +2724,7 @@ const HomeAdmin = () => {
                             placeholder="English"
                             required
                           ></textarea>
-                          
+
                         </form>
                       ) : null}
                     </div>
@@ -834,9 +2740,102 @@ const HomeAdmin = () => {
                       <h1 className="font-bold text-[20px]">
                         {translations["cs"] || "Loading..."}
                       </h1>
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleCsTitleSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="1"
+                            defaultValue={
+                              translations["cs"] || "Loading..."
+                            }
+                            onChange={(e) => setCsTitleEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="1"
+                            defaultValue={
+                              translationsKh["cs"] || "Loading..."
+                            }
+                            onChange={(e) => setCsTitleKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                        </form>
+                      ) : null}
+
                       <p className="md:text-[20px]">
                         {translations["cs_detail"] || "Loading..."}
                       </p>
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleCsDetailSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 float-end"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translations["cs_detail"] || "Loading..."
+                            }
+                            onChange={(e) => setCsDetailEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translationsKh["cs_detail"] ||
+                              "Loading..."
+                            }
+                            onChange={(e) => setCsDetailKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+
+                        </form>
+                      ) : null}
                     </div>
                   </div>
                   <div className="flex justify-center gap-2 font-['inter'] py-3">
@@ -847,9 +2846,103 @@ const HomeAdmin = () => {
                       <h1 className="font-bold text-[20px]">
                         {translations["innovation"] || "Loading..."}
                       </h1>
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleInnovationTitleSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="1"
+                            defaultValue={
+                              translations["innovation"] || "Loading..."
+                            }
+                            onChange={(e) => setInnovationTitleEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="1"
+                            defaultValue={
+                              translationsKh["innovation"] || "Loading..."
+                            }
+                            onChange={(e) => setInnovationTitleKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                        </form>
+                      ) : null}
+
+
                       <p className="md:text-[20px]">
                         {translations["innovation_detail"] || "Loading..."}
                       </p>
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleInnovationDetailSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 float-end"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translations["innovation_detail"] || "Loading..."
+                            }
+                            onChange={(e) => setInnovationDetailEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translationsKh["innovation_detail"] ||
+                              "Loading..."
+                            }
+                            onChange={(e) => setInnovationDetailKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+
+                        </form>
+                      ) : null}
                     </div>
                   </div>
                   <div className="flex justify-center gap-2 font-['inter'] py-3">
@@ -860,9 +2953,102 @@ const HomeAdmin = () => {
                       <h1 className="font-bold text-[20px]">
                         {translations["collaboration"] || "Loading..."}
                       </h1>
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleCollaborationTitleSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="1"
+                            defaultValue={
+                              translations["collaboration"] || "Loading..."
+                            }
+                            onChange={(e) => setCollaborationTitleEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="1"
+                            defaultValue={
+                              translationsKh["collaboration"] || "Loading..."
+                            }
+                            onChange={(e) => setCollaborationTitleKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                        </form>
+                      ) : null}
+
                       <p className="md:text-[20px]">
                         {translations["collaboration_detail"] || "Loading..."}
                       </p>
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleCollaborationDetailSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 float-end"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translations["collaboration_detail"] || "Loading..."
+                            }
+                            onChange={(e) => setCollaborationDetailEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translationsKh["collaboration_detail"] ||
+                              "Loading..."
+                            }
+                            onChange={(e) => setCollaborationDetailKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+
+                        </form>
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -882,12 +3068,151 @@ const HomeAdmin = () => {
                 <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal">
                   {translations["founder_name"] || "Loading..."}
                 </h1>
+                {showEditWelcome ? (
+                  <form
+                    onSubmit={handleFounderNameSubmit}
+                    className="w-full max-w-xl "
+                  >
+                    <label
+                      htmlFor="message"
+                      className="block mb-2 text-[16px] font-medium text-black"
+                    >
+                      English
+                    </label>
+                    <textarea
+                      rows="1"
+                      defaultValue={
+                        translations["founder_name"] || "Loading..."
+                      }
+                      onChange={(e) => setFounderNameEn(e.target.value)}
+                      className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                      placeholder="English"
+                      required
+                    ></textarea>
+                    <label
+                      htmlFor="message"
+                      className="block mb-2 text-sm font-medium text-black"
+                    >
+                      ភាសាខ្មែរ
+                    </label>
+                    <textarea
+                      rows="1"
+                      defaultValue={
+                        translationsKh["founder_name"] || "Loading..."
+                      }
+                      onChange={(e) => setFounderNameKh(e.target.value)}
+                      className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                      placeholder="English"
+                      required
+                    ></textarea>
+                    <button
+                      className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                      type="submit"
+                    >
+                      Update
+                    </button>
+                  </form>
+                ) : null}
+
                 <p className="text-[16px] md:text-[24px] lg:text-[38px] text-[#233C96] font-normal">
                   {translations["founder_title"] || "Loading..."}
                 </p>
+                {showEditWelcome ? (
+                  <form
+                    onSubmit={handleFounderTitleSubmit}
+                    className="w-full max-w-xl"
+                  >
+                    <label
+                      htmlFor="message"
+                      className="block mb-2 text-[16px] font-medium text-black"
+                    >
+                      English
+                    </label>
+                    <textarea
+                      rows="1"
+                      defaultValue={
+                        translations["founder_title"] || "Loading..."
+                      }
+                      onChange={(e) => setFounderTitleEn(e.target.value)}
+                      className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                      placeholder="English"
+                      required
+                    ></textarea>
+                    <label
+                      htmlFor="message"
+                      className="block mb-2 text-sm font-medium text-black"
+                    >
+                      ភាសាខ្មែរ
+                    </label>
+                    <textarea
+                      rows="1"
+                      defaultValue={
+                        translationsKh["founder_title"] || "Loading..."
+                      }
+                      onChange={(e) => setFounderTitleKh(e.target.value)}
+                      className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                      placeholder="English"
+                      required
+                    ></textarea>
+                    <button
+                      className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                      type="submit"
+                    >
+                      Update
+                    </button>
+                  </form>
+                ) : null}
+
+
                 <br />
                 <p className="text-[9px] md:text-[20px]">
                   {translations["education"] || "Loading..."}
+
+                  {showEditWelcome ? (
+                    <form
+                      onSubmit={handleEducationSubmit}
+                      className="w-full max-w-xl"
+                    >
+                      <label
+                        htmlFor="message"
+                        className="block mb-2 text-[16px] font-medium text-black"
+                      >
+                        English
+                      </label>
+                      <textarea
+                        rows="2"
+                        defaultValue={
+                          translations["education"] || "Loading..."
+                        }
+                        onChange={(e) => setEducationEn(e.target.value)}
+                        className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        placeholder="English"
+                        required
+                      ></textarea>
+                      <label
+                        htmlFor="message"
+                        className="block mb-2 text-sm font-medium text-black"
+                      >
+                        ភាសាខ្មែរ
+                      </label>
+                      <textarea
+                        rows="2"
+                        defaultValue={
+                          translationsKh["education"] || "Loading..."
+                        }
+                        onChange={(e) => setEducationKh(e.target.value)}
+                        className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        placeholder="English"
+                        required
+                      ></textarea>
+                      <button
+                        className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                        type="submit"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  ) : null}
                 </p>
 
                 <details className="w-30 text-center md:w-44 my-2 cursor-pointer">
@@ -896,12 +3221,147 @@ const HomeAdmin = () => {
                   </summary>
                   <p className="text-start w-full left-[54%] md:left-[53%] lg:left-[68%] xl:left-[66%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-[#7978789a] backdrop-blur-[100px] bg-opacity-100 my-3 absolute rounded-2xl text-[#eee] transition delay-1000 duration-2000 z-50">
                     {translations["header"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleHeaderSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-gray-200"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["header"] || "Loading..."
+                          }
+                          onChange={(e) => setHeaderEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-gray-200"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["header"] || "Loading..."
+                          }
+                          onChange={(e) => setHeaderKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                     <br />
                     <br />
                     {translations["body"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleBodySubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-gray-200"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="4"
+                          defaultValue={
+                            translations["body"] || "Loading..."
+                          }
+                          onChange={(e) => setBodyEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-gray-200"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="4"
+                          defaultValue={
+                            translationsKh["body"] || "Loading..."
+                          }
+                          onChange={(e) => setBodyKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                     <br />
                     <br />
                     {translations["footer"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleFooterSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-gray-200"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="2"
+                          defaultValue={
+                            translations["footer"] || "Loading..."
+                          }
+                          onChange={(e) => setFooterEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-gray-200"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="2"
+                          defaultValue={
+                            translationsKh["footer"] || "Loading..."
+                          }
+                          onChange={(e) => setFooterKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </p>
                 </details>
               </div>
@@ -915,6 +3375,51 @@ const HomeAdmin = () => {
                   <img src={founderIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
                     {translations["founder_ch"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleFounderChSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-gray-200"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["founder_ch"] || "Loading..."
+                          }
+                          onChange={(e) => setFounderChEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-gray-200"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["founder_ch"] || "Loading..."
+                          }
+                          onChange={(e) => setFounderChKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </h1>
                 </div>
               </div>
@@ -923,12 +3428,102 @@ const HomeAdmin = () => {
                   <img src={accountingIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
                     {translations["t_&_a"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleTandASubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-gray-200"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["t_&_a"] || "Loading..."
+                          }
+                          onChange={(e) => setTandAEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-gray-200"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["t_&_a"] || "Loading..."
+                          }
+                          onChange={(e) => setTandAKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </h1>
                 </div>
                 <div className="flex gap-[2vw] items-center py-5">
                   <img src={partnerIcon} className="w-14 md:w-32" />
                   <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
                     {translations["partner"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handlePartnerSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-gray-200"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["partner"] || "Loading..."
+                          }
+                          onChange={(e) => setPartnerEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-gray-200"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["partner"] || "Loading..."
+                          }
+                          onChange={(e) => setPartnerKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2  text-[16px]"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </h1>
                 </div>
               </div>
@@ -962,9 +3557,99 @@ const HomeAdmin = () => {
         <div className="px-5 py-10">
           <h1 className="text-center text-[#314bb2] font-['koulen'] text-[24px] md:text-[44px]">
             {translations["ourservice"] || "Loading..."}
+            {showEditWelcome ? (
+              <form
+                onSubmit={handleOurServiceSubmit}
+                className="w-full max-w-xl mx-auto"
+              >
+                <label
+                  htmlFor="message"
+                  className="block mb-2 text-[16px] font-medium text-black"
+                >
+                  English
+                </label>
+                <textarea
+                  rows="1"
+                  defaultValue={
+                    translations["ourservice"] || "Loading..."
+                  }
+                  onChange={(e) => setServiceEn(e.target.value)}
+                  className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                  placeholder="English"
+                  required
+                ></textarea>
+                <label
+                  htmlFor="message"
+                  className="block mb-2 text-sm font-medium text-black"
+                >
+                  ភាសាខ្មែរ
+                </label>
+                <textarea
+                  rows="1"
+                  defaultValue={
+                    translationsKh["ourservice"] || "Loading..."
+                  }
+                  onChange={(e) => setServiceKh(e.target.value)}
+                  className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                  placeholder="English"
+                  required
+                ></textarea>
+                <button
+                  className="bg-[#314cb2] text-[#ffffff] px-3 py-2 rounded-full my-2 text-[16px]"
+                  type="submit"
+                >
+                  Update
+                </button>
+              </form>
+            ) : null}
           </h1>
           <p className="text-center text-[#405194] font-['inter'] text-[16px] mb-14">
             {translations["ourservice_detail"] || "Loading..."}
+            {showEditWelcome ? (
+              <form
+                onSubmit={handleOurServiceDetailSubmit}
+                className="w-full max-w-xl mx-auto"
+              >
+                <label
+                  htmlFor="message"
+                  className="block mb-2 text-[16px] font-medium text-black"
+                >
+                  English
+                </label>
+                <textarea
+                  rows="2"
+                  defaultValue={
+                    translations["ourservice_detail"] || "Loading..."
+                  }
+                  onChange={(e) => setOurServiceDetailEn(e.target.value)}
+                  className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                  placeholder="English"
+                  required
+                ></textarea>
+                <label
+                  htmlFor="message"
+                  className="block mb-2 text-sm font-medium text-black"
+                >
+                  ភាសាខ្មែរ
+                </label>
+                <textarea
+                  rows="1"
+                  defaultValue={
+                    translationsKh["ourservice_detail"] || "Loading..."
+                  }
+                  onChange={(e) => setOurServiceDetailKh(e.target.value)}
+                  className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                  placeholder="English"
+                  required
+                ></textarea>
+                <button
+                  className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                  type="submit"
+                >
+                  Update
+                </button>
+              </form>
+            ) : null}
           </p>
           <div className="w-full max-w-screen-lg mx-auto pt-10 relative">
             <div>
@@ -1016,25 +3701,295 @@ const HomeAdmin = () => {
                 <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
                   <li className="py-3 text-[17px] font-['inter']">
                     <b>{translations["tss"] || "Loading..."}</b>
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleTssSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["tss"] || "Loading..."
+                          }
+                          onChange={(e) => setTssEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["tss"] || "Loading..."
+                          }
+                          onChange={(e) => setTssKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter']">
                     {translations["tss_content_1"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleTssContentOneSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["tss_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setTssContentOneEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["tss_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setTssContentOneKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter']">
                     {translations["tss_content_2"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleTssContentTwoSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["tss_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setTssContentTwoEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["tss_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setTssContentTwoKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                 </ul>
               </div>
               <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                 <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
                   <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">
-                    <b>{translations["ass"] || "Loading..."}</b> 
+                    <b>{translations["ass"] || "Loading..."}</b>
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleAssSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["ass"] || "Loading..."
+                          }
+                          onChange={(e) => setAssEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["ass"] || "Loading..."
+                          }
+                          onChange={(e) => setAssKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">
                     {translations["ass_content_1"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleAssContentOneSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["ass_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setAssContentOneEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["ass_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setAssContentOneKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">
                     {translations["ass_content_2"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleAssContentTwoSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["ass_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setAssContentTwoEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["ass_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setAssContentTwoKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                 </ul>
               </div>
@@ -1042,45 +3997,539 @@ const HomeAdmin = () => {
                 <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16 ">
                   <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">
                     <b>{translations["tad"] || "Loading..."}</b>
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleTadSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["tad"] || "Loading..."
+                          }
+                          onChange={(e) => setTadEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["tad"] || "Loading..."
+                          }
+                          onChange={(e) => setTadKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter'] px-3 text-wrap">
                     {translations["tad_content_1"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleTadContentOneSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["tad_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setTadContentOneEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["tad_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setTadContentOneKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter'] px-3">
                     {translations["tad_content_2"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleTadContentTwoSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["tad_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setTadContentTwoEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["tad_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setTadContentTwoKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                 </ul>
               </div>
-
               <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                 <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
                   <li className="py-3 text-[17px] font-['inter']">
                     <b>{translations["bsr"] || "Loading..."}</b>
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleBsrSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["bsr"] || "Loading..."
+                          }
+                          onChange={(e) => setBsrEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["bsr"] || "Loading..."
+                          }
+                          onChange={(e) => setBsrKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter']">
                     {translations["bsr_content_1"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleBsrContentOneSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["bsr_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setBsrContentOneEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["bsr_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setBsrContentOneKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter']">
                     {translations["bsr_content_2"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleBsrContentTwoSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["bsr_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setBsrContentTwoEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["bsr_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setBsrContentTwoKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter']">
                     {translations["bsr_content_3"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleBsrContentThreeSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["bsr_content_3"] || "Loading..."
+                          }
+                          onChange={(e) => setBsrContentThreeEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["bsr_content_3"] || "Loading..."
+                          }
+                          onChange={(e) => setBsrContentThreeKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                 </ul>
               </div>
               <div className="w-full mx-auto md:max-w-xl bg-[#eee] shadow-xl">
                 <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16">
                   <li className="py-3 text-[17px] font-['inter']">
-                    <b>{translations["cu"] || "Loading..."}</b> 
+                    <b>{translations["cu"] || "Loading..."}</b>
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleCuSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["cu"] || "Loading..."
+                          }
+                          onChange={(e) => setCuEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["cu"] || "Loading..."
+                          }
+                          onChange={(e) => setCuKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter']">
                     {translations["cu_content_1"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleCuContentOneSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["cu_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setCuContentOneEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["cu_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setCuContentOneKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter']">
                     {translations["cu_content_2"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleCuContentTwoSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["cu_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setCuContentTwoEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["cu_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setCuContentTwoKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter']">
                     {translations["cu_content_3"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleCuContentThreeSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["cu_content_3"] || "Loading..."
+                          }
+                          onChange={(e) => setCuContentThreeEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["cu_content_3"] || "Loading..."
+                          }
+                          onChange={(e) => setCuContentThreeKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                 </ul>
               </div>
@@ -1088,16 +4537,196 @@ const HomeAdmin = () => {
                 <ul className="text-center text-[#233c96] py-20 md:pt-20 xl:py-16 ">
                   <li className="py-3 text-[17px] font-['inter'] px-2">
                     <b>{translations["cc"] || "Loading..."}</b>
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleCcSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["cc"] || "Loading..."
+                          }
+                          onChange={(e) => setCcEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["cc"] || "Loading..."
+                          }
+                          onChange={(e) => setCcKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter'] px-2">
                     {" "}
                     {translations["cc_content_1"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleCcContentOneSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["cc_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setCcContentOneEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["cc_content_1"] || "Loading..."
+                          }
+                          onChange={(e) => setCcContentOneKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter'] px-2">
                     {translations["cc_content_2"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleCcContentTwoSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["cc_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setCcContentTwoEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["cc_content_2"] || "Loading..."
+                          }
+                          onChange={(e) => setCcContentTwoKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                   <li className="py-3 text-[17px] font-['inter'] px-2 text-wrap">
                     {translations["cc_content_3"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleCcContentThreeSubmit}
+                        className="w-full max-w-xl"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="2"
+                          defaultValue={
+                            translations["cc_content_3"] || "Loading..."
+                          }
+                          onChange={(e) => setCcContentThreeEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["cc_content_3"] || "Loading..."
+                          }
+                          onChange={(e) => setCcContentThreeKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </li>
                 </ul>
               </div>
@@ -1108,6 +4737,51 @@ const HomeAdmin = () => {
         <div className="w-full">
           <h1 className="text-center text-[#314bb2] font-['koulen'] text-[24px] md:text-[44px] py-10 md:pt-12 xl:pt-9">
             {translations["why_us"] || "Loading..."}
+            {showEditWelcome ? (
+              <form
+                onSubmit={handleWhyUsSubmit}
+                className="w-full max-w-xl mx-auto"
+              >
+                <label
+                  htmlFor="message"
+                  className="block mb-2 text-[16px] font-medium text-gray-200"
+                >
+                  English
+                </label>
+                <textarea
+                  rows="1"
+                  defaultValue={
+                    translations["why_us"] || "Loading..."
+                  }
+                  onChange={(e) => setWhyUsEn(e.target.value)}
+                  className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                  placeholder="English"
+                  required
+                ></textarea>
+                <label
+                  htmlFor="message"
+                  className="block mb-2 text-sm font-medium text-gray-200"
+                >
+                  ភាសាខ្មែរ
+                </label>
+                <textarea
+                  rows="1"
+                  defaultValue={
+                    translationsKh["why_us"] || "Loading..."
+                  }
+                  onChange={(e) => setWhyUsKh(e.target.value)}
+                  className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                  placeholder="English"
+                  required
+                ></textarea>
+                <button
+                  className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                  type="submit"
+                >
+                  Update
+                </button>
+              </form>
+            ) : null}
           </h1>
 
           <div className="bg-[#314bb2] clip-path-4">
@@ -1120,6 +4794,51 @@ const HomeAdmin = () => {
                     </h2>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       {translations["why_us_1"] || "Loading..."}
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleWhyUsOneSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translations["why_us_1"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsOneEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translationsKh["why_us_1"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsOneKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                        </form>
+                      ) : null}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
@@ -1128,6 +4847,51 @@ const HomeAdmin = () => {
                     </h2>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       {translations["why_us_2"] || "Loading..."}
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleWhyUsTwoSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translations["why_us_2"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsTwoEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translationsKh["why_us_2"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsTwoKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                        </form>
+                      ) : null}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
@@ -1136,6 +4900,51 @@ const HomeAdmin = () => {
                     </h2>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       {translations["why_us_3"] || "Loading..."}
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleWhyUsThreeSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translations["why_us_3"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsThreeEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translationsKh["why_us_3"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsThreeKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                        </form>
+                      ) : null}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
@@ -1144,6 +4953,51 @@ const HomeAdmin = () => {
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       {translations["why_us_4"] || "Loading..."}
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleWhyUsFourSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translations["why_us_4"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsFourEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translationsKh["why_us_4"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsFourKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                        </form>
+                      ) : null}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
@@ -1152,6 +5006,51 @@ const HomeAdmin = () => {
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       {translations["why_us_5"] || "Loading..."}
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleWhyUsFiveSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translations["why_us_5"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsFiveEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translationsKh["why_us_5"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsFiveKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                        </form>
+                      ) : null}
                     </p>
                   </div>
                   <div className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50  hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
@@ -1160,6 +5059,51 @@ const HomeAdmin = () => {
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       {translations["why_us_6"] || "Loading..."}
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleWhyUsSixSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translations["why_us_6"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsSixEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translationsKh["why_us_6"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsSixKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                        </form>
+                      ) : null}
                     </p>
                   </div>
                   <div className="hidden lg:block"></div>
@@ -1169,6 +5113,51 @@ const HomeAdmin = () => {
                     </h1>
                     <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
                       {translations["why_us_7"] || "Loading..."}
+                      {showEditWelcome ? (
+                        <form
+                          onSubmit={handleWhyUsSevenSubmit}
+                          className="w-full max-w-xl"
+                        >
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-[16px] font-medium text-gray-200"
+                          >
+                            English
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translations["why_us_7"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsSevenEn(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <label
+                            htmlFor="message"
+                            className="block mb-2 text-sm font-medium text-gray-200"
+                          >
+                            ភាសាខ្មែរ
+                          </label>
+                          <textarea
+                            rows="3"
+                            defaultValue={
+                              translationsKh["why_us_7"] || "Loading..."
+                            }
+                            onChange={(e) => setWhyUsSevenKh(e.target.value)}
+                            className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            placeholder="English"
+                            required
+                          ></textarea>
+                          <button
+                            className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2"
+                            type="submit"
+                          >
+                            Update
+                          </button>
+                        </form>
+                      ) : null}
                     </p>
                   </div>
                 </div>
@@ -1185,9 +5174,99 @@ const HomeAdmin = () => {
               <div>
                 <h1 className="text-[45px] text-[#182760] text-center font-['koulen'] font-medium pt-12">
                   {translations["ourClient"] || "Loading..."}
+                  {showEditWelcome ? (
+                    <form
+                      onSubmit={handleOurClientSubmit}
+                      className="w-full max-w-xl mx-auto"
+                    >
+                      <label
+                        htmlFor="message"
+                        className="block mb-2 text-[16px] font-medium text-gray-200"
+                      >
+                        English
+                      </label>
+                      <textarea
+                        rows="1"
+                        defaultValue={
+                          translations["ourClient"] || "Loading..."
+                        }
+                        onChange={(e) => setOurClientEn(e.target.value)}
+                        className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        placeholder="English"
+                        required
+                      ></textarea>
+                      <label
+                        htmlFor="message"
+                        className="block mb-2 text-sm font-medium text-gray-200"
+                      >
+                        ភាសាខ្មែរ
+                      </label>
+                      <textarea
+                        rows="1"
+                        defaultValue={
+                          translationsKh["ourClient"] || "Loading..."
+                        }
+                        onChange={(e) => setOurClientKh(e.target.value)}
+                        className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        placeholder="English"
+                        required
+                      ></textarea>
+                      <button
+                        className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                        type="submit"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  ) : null}
                 </h1>
                 <p className="text-center text-[#182760] pb-0 md:pb-5">
                   {translations["client_details"] || "Loading..."}
+                  {showEditWelcome ? (
+                    <form
+                      onSubmit={handleOurClientDetailSubmit}
+                      className="w-full max-w-xl mx-auto"
+                    >
+                      <label
+                        htmlFor="message"
+                        className="block mb-2 text-[16px] font-medium text-gray-200"
+                      >
+                        English
+                      </label>
+                      <textarea
+                        rows="1"
+                        defaultValue={
+                          translations["client_details"] || "Loading..."
+                        }
+                        onChange={(e) => setOurClientDetailEn(e.target.value)}
+                        className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        placeholder="English"
+                        required
+                      ></textarea>
+                      <label
+                        htmlFor="message"
+                        className="block mb-2 text-sm font-medium text-gray-200"
+                      >
+                        ភាសាខ្មែរ
+                      </label>
+                      <textarea
+                        rows="1"
+                        defaultValue={
+                          translationsKh["client_details"] || "Loading..."
+                        }
+                        onChange={(e) => setOurClientDetailKh(e.target.value)}
+                        className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        placeholder="English"
+                        required
+                      ></textarea>
+                      <button
+                        className="text-[#ffffff] bg-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                        type="submit"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  ) : null}
                 </p>
               </div>
               <div className="flex justify-center gap-[4vw] my-10">
@@ -1210,9 +5289,99 @@ const HomeAdmin = () => {
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760] order-first md:order-none">
                   <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
                     {translations["items_1"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleItemOneSubmit}
+                        className="w-full max-w-xl mx-auto"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-gray-200"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["items_1"] || "Loading..."
+                          }
+                          onChange={(e) => setItemOneEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-gray-200"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["items_1"] || "Loading..."
+                          }
+                          onChange={(e) => setItemOneKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </h1>
                   <p className="text-[#eee] pb-5">
                     {translations["items_detail_1"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleItemDetailOneSubmit}
+                        className="w-full max-w-xl mx-auto"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-gray-200"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="2"
+                          defaultValue={
+                            translations["items_detail_1"] || "Loading..."
+                          }
+                          onChange={(e) => setItemDetailOneEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-gray-200"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="2"
+                          defaultValue={
+                            translationsKh["items_detail_1"] || "Loading..."
+                          }
+                          onChange={(e) => setItemDetailOneKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </p>
                 </div>
               </div>
@@ -1224,9 +5393,99 @@ const HomeAdmin = () => {
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
                   <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
                     {translations["items_2"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleItemTwoSubmit}
+                        className="w-full max-w-xl mx-auto"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["items_2"] || "Loading..."
+                          }
+                          onChange={(e) => setItemTwoEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["items_2"] || "Loading..."
+                          }
+                          onChange={(e) => setItemTwoKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </h1>
                   <p className=" text-[#182760] pb-5">
                     {translations["items_detail_2"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleItemDetailTwoSubmit}
+                        className="w-full max-w-xl mx-auto"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="2"
+                          defaultValue={
+                            translations["items_detail_2"] || "Loading..."
+                          }
+                          onChange={(e) => setItemDetailTwoEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="2"
+                          defaultValue={
+                            translationsKh["items_detail_2"] || "Loading..."
+                          }
+                          onChange={(e) => setItemDetailTwoKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </p>
                 </div>
               </div>
@@ -1237,9 +5496,99 @@ const HomeAdmin = () => {
                 <div className=" w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
                   <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
                     {translations["items_3"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleItemThreeSubmit}
+                        className="w-full max-w-xl mx-auto"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="2"
+                          defaultValue={
+                            translations["items_3"] || "Loading..."
+                          }
+                          onChange={(e) => setItemThreeEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="2"
+                          defaultValue={
+                            translationsKh["items_3"] || "Loading..."
+                          }
+                          onChange={(e) => setItemThreeKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </h1>
                   <p className=" text-[#182760] pb-5">
                     {translations["items_detail_3"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleItemDetailThreeSubmit}
+                        className="w-full max-w-xl mx-auto"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-black"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="2"
+                          defaultValue={
+                            translations["items_detail_3"] || "Loading..."
+                          }
+                          onChange={(e) => setItemDetailThreeEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-black"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="2"
+                          defaultValue={
+                            translationsKh["items_detail_3"] || "Loading..."
+                          }
+                          onChange={(e) => setItemDetailThreeKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </p>
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
@@ -1251,9 +5600,99 @@ const HomeAdmin = () => {
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760]">
                   <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
                     {translations["items_4"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleItemFourSubmit}
+                        className="w-full max-w-xl mx-auto"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-gray-200"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["items_4"] || "Loading..."
+                          }
+                          onChange={(e) => setItemFourEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-gray-200"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["items_4"] || "Loading..."
+                          }
+                          onChange={(e) => setItemFourKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </h1>
                   <p className="text-[#eee] pb-5">
                     {translations["items_detail_4"] || "Loading..."}
+                    {showEditWelcome ? (
+                      <form
+                        onSubmit={handleItemDetailFourSubmit}
+                        className="w-full max-w-xl mx-auto"
+                      >
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-[16px] font-medium text-gray-200"
+                        >
+                          English
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translations["items_detail_4"] || "Loading..."
+                          }
+                          onChange={(e) => setItemDetailFourEn(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <label
+                          htmlFor="message"
+                          className="block mb-2 text-sm font-medium text-gray-200"
+                        >
+                          ភាសាខ្មែរ
+                        </label>
+                        <textarea
+                          rows="1"
+                          defaultValue={
+                            translationsKh["items_detail_4"] || "Loading..."
+                          }
+                          onChange={(e) => setItemDetailFourKh(e.target.value)}
+                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          placeholder="English"
+                          required
+                        ></textarea>
+                        <button
+                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                    ) : null}
                   </p>
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
