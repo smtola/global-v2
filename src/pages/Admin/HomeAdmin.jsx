@@ -7,9 +7,6 @@ import imgFounder from "../../assets/images/founder.png";
 import founderIcon from "../../assets/images/icon-founder.png";
 import accountingIcon from "../../assets/images/accounting.png";
 import partnerIcon from "../../assets/images/partner.png";
-import certificateImage from "../../assets/images/certificate.jpg";
-import vatImage from "../../assets/images/VAT-2023.jpg";
-import ahNhabanImage from "../../assets/images/អាជ្ញាប័ណ្ណភ្នាក់ងារ_Fianl_update.jpg";
 import { useTranslation } from "../../hooks/useTranslation";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "../../config/db";
@@ -229,6 +226,7 @@ const HomeAdmin = () => {
       navigate("/login");
     }
     fetchData();
+    isArray();
   }, [token, navigate]);
 
   const handleShowWelcomeEdit = () => {
@@ -452,7 +450,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 4);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -483,7 +482,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 89);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -514,7 +514,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 91);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -545,7 +546,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 93);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -576,7 +578,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 95);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -607,7 +610,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 96);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -638,7 +642,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 97);
-  
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -669,7 +674,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 98);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -700,7 +706,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 99);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -731,7 +738,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 100);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (error) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -762,7 +770,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 101);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -793,7 +802,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 102);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (error) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -824,7 +834,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 103);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -855,7 +866,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 104);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -886,7 +898,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 106);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -917,7 +930,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 105);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -948,7 +962,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 108);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -979,7 +994,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 110);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1010,7 +1026,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 110);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1041,7 +1058,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 111);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1072,7 +1090,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 112);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1103,7 +1122,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 113);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1134,7 +1154,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 114);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1165,7 +1186,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 117);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1196,7 +1218,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 118);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1227,7 +1250,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 119);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1258,7 +1282,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 120);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1289,7 +1314,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 120);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1320,7 +1346,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 122);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1351,7 +1378,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 123);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1382,7 +1410,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 124);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1413,7 +1442,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 125);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1444,7 +1474,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 126);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1475,7 +1506,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 127);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1506,7 +1538,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 128);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1537,7 +1570,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 129);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1568,7 +1602,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 130);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1599,7 +1634,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 131);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1630,7 +1666,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 132);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1661,7 +1698,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 132);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1692,7 +1730,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 134);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1723,7 +1762,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 135);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1754,7 +1794,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 136);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1785,7 +1826,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 137);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1816,7 +1858,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 138);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1847,7 +1890,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 139);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1878,7 +1922,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 140);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1909,7 +1954,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 141);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1940,7 +1986,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 142);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -1971,7 +2018,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 143);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2002,7 +2050,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 144);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2033,7 +2082,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 145);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2064,7 +2114,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 146);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2096,7 +2147,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 147);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2127,7 +2179,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 148);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2158,7 +2211,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 149);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2189,7 +2243,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 150);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2220,7 +2275,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 151);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2251,7 +2307,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 152);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2282,7 +2339,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 155);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2313,7 +2371,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 153);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2344,7 +2403,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 156);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2375,7 +2435,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 154);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2406,7 +2467,8 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 157);
-
+    alert('Update Success.');
+    window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
     }
@@ -2423,6 +2485,23 @@ const HomeAdmin = () => {
   }
 
   const [fileDefault, setFileDefault] = useState([]);
+  const [fileBsr, setFileBsr] = useState([]);
+  const [fileClient, setFileClient] = useState([]);
+  const [fileFounder, setFileFounder] = useState([]);
+  const [bsrId, setBsrId] = useState([]);
+  const [clientId, setClientId] = useState([]);
+  const [bsrImage, setBsrImage] = useState([]);
+  const [isShow, setShow] = useState(false);
+  const [imageFile, setImageFile] = useState(null);
+  const [banner_1, setBaner_1] = useState([]);
+  const [banner_2, setBaner_2] = useState([]);
+  const [banner_3, setBaner_3] = useState([]);
+  const [banner_4, setBaner_4] = useState([]);
+
+  const [imgBn_1, setBn_1] = useState([]);
+  const [imgBn_2, setBn_2] = useState([]);
+  const [imgBn_3, setBn_3] = useState([]);
+  const [imgBn_4, setBn_4] = useState([]);
   const fetchData = async () => {
     try {
       // Fetch data from Supabase table
@@ -2432,6 +2511,160 @@ const HomeAdmin = () => {
 
       const dataWithUrls = await Promise.all(
           tableData.map(async (item) => {
+            if (item.path_image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.path_image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, path_image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+      // Fetch data from Supabase table
+      const { data: bsrData } = await supabase
+          .from("business_register")
+          .select("*");
+
+      const dataWithBsrUrls = await Promise.all(
+          bsrData.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+      // Fetch data from Supabase table
+      const { data: clientData } = await supabase
+          .from("client_img")
+          .select("*");
+
+
+      const dataWithClientUrls = await Promise.all(
+          clientData.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+      const { data: founderData } = await supabase
+          .from("founder")
+          .select("*");
+
+      const dataWithFounderUrls = await Promise.all(
+          founderData.map(async (item) => {
+            if (item.images) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.images}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, images: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+
+      const { data: data_1 } = await supabase
+          .from("bottom_banner")
+          .select("*");
+
+      const banner_1 = await Promise.all(
+          data_1.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+
+      const { data: data_2 } = await supabase
+          .from("bottom_banner_1")
+          .select("*");
+
+      const banner_2 = await Promise.all(
+          data_2.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+
+      const { data: data_3 } = await supabase
+          .from("bottom_banner_2")
+          .select("*");
+
+      const banner_3 = await Promise.all(
+          data_3.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+
+      const { data: data_4 } = await supabase
+          .from("bottom_banner_3")
+          .select("*");
+
+      const banner_4 = await Promise.all(
+          data_4.map(async (item) => {
             if (item.image) {
               // Generate public URL for the image
               const { data: img_url, error: urlError } = supabase.storage
@@ -2452,9 +2685,667 @@ const HomeAdmin = () => {
         throw tableError;
       }
       setFileDefault(dataWithUrls);
+      setFileBsr(dataWithBsrUrls);
+      setFileClient(dataWithClientUrls);
+      setFileFounder(dataWithFounderUrls);
+      setBaner_1(banner_1);
+      setBaner_2(banner_2);
+      setBaner_3(banner_3);
+      setBaner_4(banner_4);
     } catch (err) {
       console.log(err.message);
     }
+  };
+
+  const isArray = async () =>{
+    banner_1.map((item)=>{
+     return setBn_1(item.image);
+    })
+    banner_2.map((item)=>{
+      return setBn_2(item.image);
+    })
+    banner_3.map((item)=>{
+      return  setBn_3(item.image);
+    })
+    banner_4.map((item)=>{
+      return setBn_4(item.image);
+    })
+  }
+  const handleFileChange = (e) => {
+    setImageFile(e.target.files[0]);
+  };
+  const uploadImage = async (file) => {
+    if(file.name == undefined){
+      return;
+    }else{
+      const fileName = `${Date.now()}_${file.name}`;
+      const { error: uploadError } = await supabase.storage
+          .from("images")
+          .upload(`contents/${fileName}`, file);
+      if (uploadError) {
+        throw uploadError;
+      }
+      // Update career details
+      const { data: items, error: fetchError } = await supabase
+          .from("images")
+          .select("path_image")
+          .eq("id", 1)
+          .single();
+
+      if (fetchError) {
+        return;
+      }
+      console.log(items)
+      if (!items) {
+        return;
+      }
+
+      const imageUrls = items.path_image;
+      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
+      // Delete the image file from Supabase Storage
+      await supabase.storage
+          .from("images") // Your bucket name
+          .remove([`contents/${imageFileName}`]);
+
+      return fileName;
+    }
+  };
+  // Main handler for update
+  const updateBlog = async (imageUrl =null) => {
+    try {
+      const updatedData = {
+        id:1
+      };
+
+      if (imageUrl) {
+        updatedData.path_image = imageUrl;
+      }
+      console.log(updatedData)
+      const { error: updateError } = await supabase
+          .from("images")
+          .update(updatedData)
+          .match({ id: 1 });
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      fetchData();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      let imgUrl = null;
+      if(imageFile){
+        imgUrl = await uploadImage(imageFile);
+      }
+
+      await updateBlog(imgUrl);
+      alert('Update Success.');
+      window.href = "/home-admin";
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+    }
+    fetchData();
+  };
+  const editId = async (id) => {
+    setShow(true);
+    fileBsr.map((items) => {
+      if (items.id === id) {
+        setBsrId(items.id);
+        setBsrImage(items.image);
+      }
+    });
+  };
+  const editClientId = async (id) => {
+    setShow(true);
+   fileClient.map((items) => {
+      if (items.id === id) {
+        setClientId(items.id);
+      }
+    });
+  };
+  const uploadImageFd = async (file) => {
+    if(file.name == undefined){
+      return;
+    }else{
+      const fileName = `${Date.now()}_${file.name}`;
+      const { error: uploadError } = await supabase.storage
+          .from("images")
+          .upload(`contents/${fileName}`, file);
+      if (uploadError) {
+        throw uploadError;
+      }
+      // Update career details
+      const { data: items, error: fetchError } = await supabase
+          .from("founder")
+          .select("images")
+          .eq("id", 1)
+          .single();
+
+      if (fetchError) {
+        return;
+      }
+      console.log(items)
+      if (!items) {
+        return;
+      }
+
+      const imageUrls = items.images;
+      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
+      // Delete the image file from Supabase Storage
+      await supabase.storage
+          .from("images") // Your bucket name
+          .remove([`contents/${imageFileName}`]);
+
+      return fileName;
+    }
+  };
+  const updateBlogFd = async (imageUrl =null) => {
+    try {
+      const updatedData = {
+      };
+
+      if (imageUrl) {
+        updatedData.images = imageUrl;
+      }
+      console.log(updatedData)
+      const { error: updateError } = await supabase
+          .from("founder")
+          .update(updatedData)
+          .match({ id: 1 });
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      fetchData();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  const handleUpdateFd = async (e) => {
+    e.preventDefault();
+    try {
+      let imgUrl = null;
+      if(imageFile){
+        imgUrl = await uploadImageFd(imageFile);
+      }
+
+      await updateBlogFd(imgUrl);
+      alert('Update Success.');
+      window.href = "/home-admin";
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+    }
+    fetchData();
+  };
+  // Main handler for update
+  const uploadImageBsr = async (file) => {
+    if(file.name == undefined){
+      return;
+    }else{
+      const fileName = `${Date.now()}_${file.name}`;
+      const { error: uploadError } = await supabase.storage
+          .from("images")
+          .upload(`contents/${fileName}`, file);
+      if (uploadError) {
+        throw uploadError;
+      }
+      // Update career details
+      const { data: items, error: fetchError } = await supabase
+          .from("business_register")
+          .select("image")
+          .eq("id", bsrId)
+          .single();
+
+      if (fetchError) {
+        return;
+      }
+      console.log(items)
+      if (!items) {
+        return;
+      }
+
+      const imageUrls = items.image;
+      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
+      // Delete the image file from Supabase Storage
+      await supabase.storage
+          .from("images") // Your bucket name
+          .remove([`contents/${imageFileName}`]);
+
+      return fileName;
+    }
+  };
+  // Main handler for update
+  const updateBlogBsr = async (imageUrl =null) => {
+    try {
+      const updatedData = {
+      };
+
+      if (imageUrl) {
+        updatedData.image = imageUrl;
+      }
+      console.log(updatedData)
+      const { error: updateError } = await supabase
+          .from("business_register")
+          .update(updatedData)
+          .match({ id: bsrId });
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      fetchData();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  const handleUpdateBsr = async (e) => {
+    e.preventDefault();
+    setShow(false);
+    try {
+      let imgUrl = null;
+      if(imageFile){
+        imgUrl = await uploadImageBsr(imageFile);
+      }
+
+      await updateBlogBsr(imgUrl);
+      alert('Update Success.');
+      window.href = "/home-admin";
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+    }
+    fetchData();
+  };
+ const uploadImageClient = async (file) => {
+    if(file.name == undefined){
+      return;
+    }else{
+      const fileName = `${Date.now()}_${file.name}`;
+      const { error: uploadError } = await supabase.storage
+          .from("images")
+          .upload(`contents/${fileName}`, file);
+      if (uploadError) {
+        throw uploadError;
+      }
+      // Update career details
+      const { data: items, error: fetchError } = await supabase
+          .from("client_img")
+          .select("image")
+          .eq("id", clientId)
+          .single();
+
+      if (fetchError) {
+        return;
+      }
+      console.log(items)
+      if (!items) {
+        return;
+      }
+
+      const imageUrls = items.image;
+      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
+      // Delete the image file from Supabase Storage
+      await supabase.storage
+          .from("images") // Your bucket name
+          .remove([`contents/${imageFileName}`]);
+
+      return fileName;
+    }
+  };
+  // Main handler for update
+  const updateBlogClient = async (imageUrl =null) => {
+    try {
+      const updatedData = {
+      };
+
+      if (imageUrl) {
+        updatedData.image = imageUrl;
+      }
+      console.log(updatedData)
+      const { error: updateError } = await supabase
+          .from("client_img")
+          .update(updatedData)
+          .match({ id: clientId });
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      fetchData();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  const handleUpdateClient = async (e) => {
+    e.preventDefault();
+    setShow(false);
+    try {
+      let imgUrl = null;
+      if(imageFile){
+        imgUrl = await uploadImageClient(imageFile);
+      }
+
+      await updateBlogClient(imgUrl);
+      alert('Update Success.');
+      window.href = "/home-admin";
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+    }
+    fetchData();
+  };
+
+  const uploadImage_1 = async (file) => {
+    if(file.name == undefined){
+      return;
+    }else{
+      const fileName = `${Date.now()}_${file.name}`;
+      const { error: uploadError } = await supabase.storage
+          .from("images")
+          .upload(`contents/${fileName}`, file);
+      if (uploadError) {
+        throw uploadError;
+      }
+      // Update career details
+      const { data: items, error: fetchError } = await supabase
+          .from("bottom_banner")
+          .select("image")
+          .eq("id", 1)
+          .single();
+
+      if (fetchError) {
+        return;
+      }
+      console.log(items)
+      if (!items) {
+        return;
+      }
+
+      const imageUrls = items.image;
+      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
+      // Delete the image file from Supabase Storage
+      await supabase.storage
+          .from("images") // Your bucket name
+          .remove([`contents/${imageFileName}`]);
+
+      return fileName;
+    }
+  };
+  const updateBlog_1 = async (imageUrl =null) => {
+    try {
+      const updatedData = {
+      };
+
+      if (imageUrl) {
+        updatedData.image = imageUrl;
+      }
+      console.log(updatedData)
+      const { error: updateError } = await supabase
+          .from("bottom_banner")
+          .update(updatedData)
+          .match({ id: 1 });
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      fetchData();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  const handleUpdate_1 = async (e) => {
+    e.preventDefault();
+    try {
+      let imgUrl = null;
+      if(imageFile){
+        imgUrl = await uploadImage_1(imageFile);
+      }
+
+      await updateBlog_1(imgUrl);
+      alert('Update Success.');
+      window.href = "/home-admin";
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+    }
+    isArray();
+    fetchData();
+  };
+
+  const uploadImage_2 = async (file) => {
+    if(file.name == undefined){
+      return;
+    }else{
+      const fileName = `${Date.now()}_${file.name}`;
+      const { error: uploadError } = await supabase.storage
+          .from("images")
+          .upload(`contents/${fileName}`, file);
+      if (uploadError) {
+        throw uploadError;
+      }
+      // Update career details
+      const { data: items, error: fetchError } = await supabase
+          .from("bottom_banner_1")
+          .select("image")
+          .eq("id", 1)
+          .single();
+
+      if (fetchError) {
+        return;
+      }
+      console.log(items)
+      if (!items) {
+        return;
+      }
+
+      const imageUrls = items.image;
+      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
+      // Delete the image file from Supabase Storage
+      await supabase.storage
+          .from("images") // Your bucket name
+          .remove([`contents/${imageFileName}`]);
+
+      return fileName;
+    }
+  };
+  const updateBlog_2 = async (imageUrl =null) => {
+    try {
+      const updatedData = {
+      };
+
+      if (imageUrl) {
+        updatedData.image = imageUrl;
+      }
+      console.log(updatedData)
+      const { error: updateError } = await supabase
+          .from("bottom_banner_1")
+          .update(updatedData)
+          .match({ id: 1 });
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      fetchData();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  const handleUpdate_2 = async (e) => {
+    e.preventDefault();
+    try {
+      let imgUrl = null;
+      if(imageFile){
+        imgUrl = await uploadImage_2(imageFile);
+      }
+
+      await updateBlog_2(imgUrl);
+      alert('Update Success.');
+      window.href = "/home-admin";
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+    }
+    isArray();
+    fetchData();
+  };
+
+  const uploadImage_3 = async (file) => {
+    if(file.name == undefined){
+      return;
+    }else{
+      const fileName = `${Date.now()}_${file.name}`;
+      const { error: uploadError } = await supabase.storage
+          .from("images")
+          .upload(`contents/${fileName}`, file);
+      if (uploadError) {
+        throw uploadError;
+      }
+      // Update career details
+      const { data: items, error: fetchError } = await supabase
+          .from("bottom_banner_2")
+          .select("image")
+          .eq("id", 1)
+          .single();
+
+      if (fetchError) {
+        return;
+      }
+      console.log(items)
+      if (!items) {
+        return;
+      }
+
+      const imageUrls = items.image;
+      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
+      // Delete the image file from Supabase Storage
+      await supabase.storage
+          .from("images") // Your bucket name
+          .remove([`contents/${imageFileName}`]);
+
+      return fileName;
+    }
+  };
+  const updateBlog_3 = async (imageUrl =null) => {
+    try {
+      const updatedData = {
+      };
+
+      if (imageUrl) {
+        updatedData.image = imageUrl;
+      }
+      console.log(updatedData)
+      const { error: updateError } = await supabase
+          .from("bottom_banner_2")
+          .update(updatedData)
+          .match({ id: 1 });
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      fetchData();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  const handleUpdate_3 = async (e) => {
+    e.preventDefault();
+    try {
+      let imgUrl = null;
+      if(imageFile){
+        imgUrl = await uploadImage_3(imageFile);
+      }
+
+      await updateBlog_3(imgUrl);
+      alert('Update Success.');
+      window.href = "/home-admin";
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+    }
+    isArray();
+    fetchData();
+  };
+
+  const uploadImage_4 = async (file) => {
+    if(file.name == undefined){
+      return;
+    }else{
+      const fileName = `${Date.now()}_${file.name}`;
+      const { error: uploadError } = await supabase.storage
+          .from("images")
+          .upload(`contents/${fileName}`, file);
+      if (uploadError) {
+        throw uploadError;
+      }
+      // Update career details
+      const { data: items, error: fetchError } = await supabase
+          .from("bottom_banner_3")
+          .select("image")
+          .eq("id", 1)
+          .single();
+
+      if (fetchError) {
+        return;
+      }
+      console.log(items)
+      if (!items) {
+        return;
+      }
+
+      const imageUrls = items.image;
+      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
+      // Delete the image file from Supabase Storage
+      await supabase.storage
+          .from("images") // Your bucket name
+          .remove([`contents/${imageFileName}`]);
+
+      return fileName;
+    }
+  };
+  const updateBlog_4 = async (imageUrl =null) => {
+    try {
+      const updatedData = {
+      };
+
+      if (imageUrl) {
+        updatedData.image = imageUrl;
+      }
+      console.log(updatedData)
+      const { error: updateError } = await supabase
+          .from("bottom_banner_3")
+          .update(updatedData)
+          .match({ id: 1 });
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      fetchData();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  const handleUpdate_4 = async (e) => {
+    e.preventDefault();
+    try {
+      let imgUrl = null;
+      if(imageFile){
+        imgUrl = await uploadImage_4(imageFile);
+      }
+
+      await updateBlog_4(imgUrl);
+      alert('Update Success.');
+      window.href = "/home-admin";
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+    }
+    fetchData();
+
+    isArray();
   };
   return (
     <>
@@ -2507,11 +3398,15 @@ const HomeAdmin = () => {
         </div>
       </div>
       <section>
+
         <div className="relative">
-          <img
-            src={imgBanner}
-            className="w-full h-[50vh] xl:h-screen clip-path"
-          />
+
+          {fileDefault.map((x) => (
+              <img key={x.id}
+                  src={x.path_image}
+                  className="w-full h-[50vh] xl:h-screen clip-path"
+              />
+          ))}
           <div className="w-full absolute left-[5%] md:left-[26%] xl:left-[50%] top-[80%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
             <div className="w-full h-[56vh] ps-[24vh]">
               <h1 className="text-[48px] md:text-[100px] lg:text-[120px] xl:text-[144px] 2xl:text-[164px] font-['koulen'] text-[#39B6FF] font-normal h-[48px] md:h-[100px] lg:h-[120px] xl:h-[144px] 2xl:h-[164px]">
@@ -2568,6 +3463,50 @@ const HomeAdmin = () => {
               ) : null}
             </div>
           </div>
+
+          <form onSubmit={handleUpdate} className="absolute inset-0 left-[50%] z-50 top-[50%]">
+            <div className="my-2 ">
+              <div className="flex items-center justify-center w-[30%]">
+                <label
+                    htmlFor="dropzone-file"
+                    className="flex flex-col items-center justify-center w-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer hover:bg-[#06060676] bg-[#06060676]"
+                >
+                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                    <svg
+                        className="w-8 h-8 mb-4 text-[#ffffff]"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 20 16"
+                    >
+                      <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                      />
+                    </svg>
+                    <p className="mb-2 text-sm text-[#ffffff]">
+                       <span className="font-semibold">
+                                Click to upload
+                       </span>{" "}
+                      or drag and drop
+                    </p>
+                  </div>
+                  <input
+                      id="dropzone-file"
+                      type="file"
+                      className="hidden"
+                      accept="image/*"
+                      onChange={handleFileChange}
+                      required
+                  />
+                </label>
+              </div>
+            </div>
+            <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
+          </form>
         </div>
       </section>
 
@@ -3289,11 +4228,28 @@ const HomeAdmin = () => {
 
           <div className="relative pb-[28vh] md:pb-[25vh] xl:pb-[64vh] z-20">
             <div className="absolute bottom-0 flex w-full justify-center items-center translate-x-[-50%] left-[47%] md:left-[47%] ">
-              <div>
-                <img
-                  src={imgFounder}
+              <div className="relative">
+                {fileFounder.map((e)=>(
+                <img key={e.id}
+                  src={e.images}
                   className="w-[190vh] md:w-[172vh] lg:w-[100vh] xl:w-[172vh]"
                 />
+                ))}
+                <form onSubmit={handleUpdateFd} className="absolute inset-0 left-[10%] top-[30%]">
+                  <div className="my-2 ">
+                    <div className="flex items-center justify-start w-[30%]">
+                      <input
+                          id="dropzone-file"
+                          type="file"
+                          className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                          accept="image/*"
+                          onChange={handleFileChange}
+                          required
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
+                </form>
               </div>
               <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20">
                 <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal">
@@ -3767,17 +4723,30 @@ const HomeAdmin = () => {
                 {translations["brc"] || "Loading..."}
               </h1>
               <div>
-                <div className="bg-gray-200 w-full max-w-screen-xl mx-auto my-2">
-                  <img src={certificateImage} />
-                </div>
-                <div className="flex flex-wrap md:flex-nowrap justify-center gap-[.5rem] my-2">
-                  <div className="bg-gray-200 w-full max-w-screen-md mx-auto">
-                    <img src={vatImage} />
+                <h1>{bsrId}</h1>
+                {isShow?
+                <form onSubmit={handleUpdateBsr} >
+                  <div className="my-2 ">
+                    <div className="flex items-center justify-center w-[30%]">
+                        <input
+                            id="dropzone-file"
+                            type="file"
+                            accept="image/*"
+                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            onChange={handleFileChange}
+                            required
+                        />
+                    </div>
                   </div>
-                  <div className="bg-gray-200 w-full max-w-screen-md mx-auto">
-                    <img src={ahNhabanImage} />
+                  <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
+                </form>: null}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-[.5rem] my-2">
+                      {fileBsr.map((e)=> (
+                        <div key={e.id} className="w-full my-2">
+                          <img src={e.image} onClick={()=> editId(e.id)} />
+                        </div>
+                      ))}
                   </div>
-                </div>
               </div>
             </div>
           </div>
@@ -5458,21 +6427,51 @@ const HomeAdmin = () => {
                 </p>
               </div>
               <div className="flex justify-center gap-[4vw] my-10">
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200"></div>
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-110"></div>
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-125"></div>
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-125"></div>
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-110"></div>
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200"></div>
+                {fileClient.map((e)=>(
+                <div key={e.id} className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full overflow-hidden shadow-xl">
+                  <img onClick={()=>editClientId(e.id)}  src={e.image} className="w-full"/>
+                </div>
+                ))}
               </div>
+                {isShow?
+                    <form onSubmit={handleUpdateClient} >
+                      <div className="my-2 ">
+                        <div className="flex items-center justify-center w-[30%]">
+                          <input
+                              id="dropzone-file"
+                              type="file"
+                              accept="image/*"
+                              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                              onChange={handleFileChange}
+                              required
+                          />
+                        </div>
+                      </div>
+                      <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
+                    </form>: null}
             </div>
           </div>
 
           <div className="md:absolute z-10 md:translate-x-[-50%] md:left-[50%] md:top-[43%] lg:top-[37%] 2xl:top-[40%] flex flex-wrap gap-[1vh] lg:gap-[2vh]">
             <div className="flex justify-center flex-wrap md:flex-nowrap gap-[1vh] lg:gap-[2vh]">
               <div className="flex justify-center">
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBanner} className="object w-full h-full" />
+                <div className="relative w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
+                  <img src={imgBn_1} className="object w-full h-full" />
+                  <form onSubmit={handleUpdate_1} className="absolute inset-0 left-[10%] top-[30%]">
+                    <div className="my-2 ">
+                      <div className="flex items-center justify-start w-full">
+                        <input
+                            id="dropzone-file"
+                            type="file"
+                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            required
+                        />
+                      </div>
+                    </div>
+                    <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
+                  </form>
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760] order-first md:order-none">
                   <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
@@ -5575,8 +6574,23 @@ const HomeAdmin = () => {
               </div>
 
               <div className="flex justify-center order-first md:order-none">
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBanner} className="object w-full h-full" />
+                <div className="relative w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
+                  <img src={imgBn_2} className="object w-full h-full" />
+                  <form onSubmit={handleUpdate_2} className="absolute inset-0 left-[10%] top-[30%]">
+                    <div className="my-2 ">
+                      <div className="flex items-center justify-start w-full">
+                        <input
+                            id="dropzone-file"
+                            type="file"
+                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            required
+                        />
+                      </div>
+                    </div>
+                    <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
+                  </form>
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
                   <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
@@ -5779,8 +6793,23 @@ const HomeAdmin = () => {
                     ) : null}
                   </p>
                 </div>
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBanner} className="object w-full h-full" />
+                <div className="relative w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
+                  <img src={imgBn_3} className="object w-full h-full" />
+                  <form onSubmit={handleUpdate_3} className="absolute inset-0 left-[10%] top-[30%]">
+                    <div className="my-2 ">
+                      <div className="flex items-center justify-start w-full">
+                        <input
+                            id="dropzone-file"
+                            type="file"
+                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            required
+                        />
+                      </div>
+                    </div>
+                    <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
+                  </form>
                 </div>
               </div>
 
@@ -5883,8 +6912,23 @@ const HomeAdmin = () => {
                     ) : null}
                   </p>
                 </div>
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBanner} className="object w-full h-full" />
+                <div className="relative w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
+                  <img src={imgBn_4} className="object w-full h-full" />
+                  <form onSubmit={handleUpdate_4} className="absolute inset-0 left-[10%] top-[30%]">
+                    <div className="my-2 ">
+                      <div className="flex items-center justify-start w-full">
+                        <input
+                            id="dropzone-file"
+                            type="file"
+                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            required
+                        />
+                      </div>
+                    </div>
+                    <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
+                  </form>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import {useRef,useState,useEffect} from "react";
+import React, {useRef,useState,useEffect} from "react";
 import "./HomePage.css";
 import Scroll from "../Scroll";
 import imgBanner from "../assets/images/banner/cover.jpg";
@@ -15,8 +15,9 @@ import accountingIcon from "../assets/images/accounting.png";
 import partnerIcon from "../assets/images/partner.png";
 import certificateImage from '../assets/images/certificate.jpg';
 import vatImage from '../assets/images/VAT-2023.jpg';
-import ahNhabanImage from '../assets/images/អាជ្ញាប័ណ្ណភ្នាក់ងារ_Fianl_update.jpg';
+import ahNhabanImage from '../assets/images/Fianl_update.jpg';
 import { useTranslation } from '../hooks/useTranslation';
+import {supabase} from "../config/db.js";
 
 const HomePage = () => {
   const home = useRef(null);
@@ -27,6 +28,234 @@ const HomePage = () => {
   const defaultLangCode = localStorage.getItem('language') || 'en';
   const translations = useTranslation(defaultLangCode);
 
+  const [fileDefault, setFileDefault] = useState([]);
+  const [fileBsr, setFileBsr] = useState([]);
+  const [fileClient, setFileClient] = useState([]);
+  const [fileFounder, setFileFounder] = useState([]);
+  const [isShow, setShow] = useState(false);
+  const [banner_1, setBaner_1] = useState([]);
+  const [banner_2, setBaner_2] = useState([]);
+  const [banner_3, setBaner_3] = useState([]);
+  const [banner_4, setBaner_4] = useState([]);
+
+  const [imgBn_1, setBn_1] = useState([]);
+  const [imgBn_2, setBn_2] = useState([]);
+  const [imgBn_3, setBn_3] = useState([]);
+  const [imgBn_4, setBn_4] = useState([]);
+
+  useEffect(()=>{
+    fetchData();
+    isArray();
+  })
+  const fetchData = async () => {
+    try {
+      // Fetch data from Supabase table
+      const { data: tableData, error: tableError } = await supabase
+          .from("images")
+          .select("*");
+
+      const dataWithUrls = await Promise.all(
+          tableData.map(async (item) => {
+            if (item.path_image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.path_image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, path_image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+      // Fetch data from Supabase table
+      const { data: bsrData } = await supabase
+          .from("business_register")
+          .select("*");
+
+      const dataWithBsrUrls = await Promise.all(
+          bsrData.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+      // Fetch data from Supabase table
+      const { data: clientData } = await supabase
+          .from("client_img")
+          .select("*");
+
+
+      const dataWithClientUrls = await Promise.all(
+          clientData.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+      const { data: founderData } = await supabase
+          .from("founder")
+          .select("*");
+
+      const dataWithFounderUrls = await Promise.all(
+          founderData.map(async (item) => {
+            if (item.images) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.images}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, images: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+
+      const { data: data_1 } = await supabase
+          .from("bottom_banner")
+          .select("*");
+
+      const banner_1 = await Promise.all(
+          data_1.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+
+      const { data: data_2 } = await supabase
+          .from("bottom_banner_1")
+          .select("*");
+
+      const banner_2 = await Promise.all(
+          data_2.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+
+      const { data: data_3 } = await supabase
+          .from("bottom_banner_2")
+          .select("*");
+
+      const banner_3 = await Promise.all(
+          data_3.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+
+      const { data: data_4 } = await supabase
+          .from("bottom_banner_3")
+          .select("*");
+
+      const banner_4 = await Promise.all(
+          data_4.map(async (item) => {
+            if (item.image) {
+              // Generate public URL for the image
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...item, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return item;
+          })
+      );
+
+      if (tableError) {
+        throw tableError;
+      }
+      setFileDefault(dataWithUrls);
+      setFileBsr(dataWithBsrUrls);
+      setFileClient(dataWithClientUrls);
+      setFileFounder(dataWithFounderUrls);
+      setBaner_1(banner_1);
+      setBaner_2(banner_2);
+      setBaner_3(banner_3);
+      setBaner_4(banner_4);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  const isArray = async () =>{
+    banner_1.map((item)=>{
+      return setBn_1(item.image);
+    })
+    banner_2.map((item)=>{
+      return setBn_2(item.image);
+    })
+    banner_3.map((item)=>{
+      return  setBn_3(item.image);
+    })
+    banner_4.map((item)=>{
+      return setBn_4(item.image);
+    })
+  }
+
   return (
     <>
       <Scroll />
@@ -34,7 +263,9 @@ const HomePage = () => {
       <Navbar translations={translations} home={home} about={about_us} services={services} client={client}/>
       <section ref={home}>
         <div className="relative">
-          <img src={imgBanner} className="w-full h-[50vh] xl:h-screen clip-path" />
+          {fileDefault.map((e)=>(
+            <img key={e.id} src={e.path_image} className="w-full h-[50vh] xl:h-screen clip-path" />
+          ))}
           <div className="w-full absolute left-[5%] md:left-[26%] xl:left-[50%] top-[80%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
             <div className="w-full h-[56vh] ps-[24vh]" >
                 <h1 className="text-[48px] md:text-[100px] lg:text-[120px] xl:text-[144px] 2xl:text-[164px] font-['koulen'] text-[#39B6FF] font-normal h-[48px] md:h-[100px] lg:h-[120px] xl:h-[144px] 2xl:h-[164px]">
@@ -164,7 +395,12 @@ const HomePage = () => {
           <div className="relative pb-[28vh] md:pb-[25vh] xl:pb-[64vh] z-20">
             <div className="absolute bottom-0 flex w-full justify-center items-center translate-x-[-50%] left-[47%] md:left-[47%] ">
               <div>
-                <img src={imgFounder} className="w-[190vh] md:w-[172vh] lg:w-[100vh] xl:w-[172vh]" />
+                {fileFounder.map((e)=>(
+                    <img key={e.id}
+                         src={e.images}
+                         className="w-[190vh] md:w-[172vh] lg:w-[100vh] xl:w-[172vh]"
+                    />
+                ))}
               </div>
               <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20">
                 <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal">
@@ -229,16 +465,12 @@ const HomePage = () => {
               {translations['brc'] || 'Loading...'}
               </h1>
               <div>
-                <div className="bg-gray-200 w-full max-w-screen-xl mx-auto my-2">
-                 <img src={certificateImage}/>
-                </div>
-                <div className="flex flex-wrap md:flex-nowrap justify-center gap-[.5rem] my-2">
-                  <div className="bg-gray-200 w-full max-w-screen-md mx-auto">
-                  <img src={vatImage}/>
-                  </div>
-                  <div className="bg-gray-200 w-full max-w-screen-md mx-auto">
-                  <img src={ahNhabanImage}/>
-                  </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-[.5rem] my-2">
+                  {fileBsr.map((e)=> (
+                      <div key={e.id} className="w-full my-2">
+                        <img src={e.image} onClick={()=> editId(e.id)} />
+                      </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -438,12 +670,11 @@ const HomePage = () => {
                 </p>
               </div>
               <div className="flex justify-center gap-[4vw] my-10">
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200"></div>
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-110"></div>
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-125"></div>
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-125"></div>
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200 md:scale-110"></div>
-                <div className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full bg-gray-200"></div>
+                {fileClient.map((e)=>(
+                    <div key={e.id} className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full overflow-hidden shadow-xl">
+                      <img onClick={()=>editClientId(e.id)}  src={e.image} className="w-full"/>
+                    </div>
+                ))}
               </div>
             </div>
           </div>
@@ -452,7 +683,7 @@ const HomePage = () => {
             <div className="flex justify-center flex-wrap md:flex-nowrap gap-[1vh] lg:gap-[2vh]">
               <div className="flex justify-center">
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBanner} className="object w-full h-full"/>
+                  <img src={imgBn_1} className="object w-full h-full"/>
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760] order-first md:order-none">
                   <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
@@ -466,7 +697,7 @@ const HomePage = () => {
 
               <div className="flex justify-center order-first md:order-none">
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBanner} className="object w-full h-full"/>
+                  <img src={imgBn_2} className="object w-full h-full"/>
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
                   <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
@@ -490,7 +721,7 @@ const HomePage = () => {
                   </p>
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBanner} className="object w-full h-full"/>
+                  <img src={imgBn_3} className="object w-full h-full"/>
                 </div>
               </div>
 
@@ -504,7 +735,7 @@ const HomePage = () => {
                   </p>
                 </div>
                 <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBanner} className="object w-full h-full"/>
+                  <img src={imgBn_4} className="object w-full h-full"/>
                 </div>
               </div>
             </div>
