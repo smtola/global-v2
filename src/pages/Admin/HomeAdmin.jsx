@@ -220,13 +220,14 @@ const HomeAdmin = () => {
   const [valueItemDetailFourEn, setItemDetailFourEn] = useState("");
   const [valueItemDetailFourKh, setItemDetailFourKh] = useState("");
 
-
+  useEffect(()=>{
+    isArray();
+    fetchData();
+  })
   useEffect(() => {
     if (!token) {
       navigate("/login");
     }
-    fetchData();
-    isArray();
   }, [token, navigate]);
 
   const handleShowWelcomeEdit = () => {
