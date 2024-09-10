@@ -262,25 +262,28 @@ const HomePage = () => {
 
       <Navbar translations={translations} home={home} about={about_us} services={services} client={client}/>
       <section ref={home}>
-        <div className="relative">
+        <div className="relative flex flex-col justify-center overflow-hidden clip-path min-h-[70rem] p-[1.25rem] md:p-[5rem] xl:p-[10rem] 2xl:p-[20rem]">
           {fileDefault.map((e)=>(
-            <img key={e.id} src={e.path_image} className="w-full h-[50vh] xl:h-screen clip-path" />
+            <img key={e.id} src={e.path_image} className="absolute inset-0 w-full h-full object-cover object-center" />
           ))}
-          <div className="w-full absolute left-[5%] md:left-[26%] xl:left-[50%] top-[80%] md:top-[80%] xl:top-[50%] translate-x-[-50%] translate-y-[-50%]">
-            <div className="w-full h-[56vh] ps-[24vh]" >
-                <h1 className="text-[48px] md:text-[100px] lg:text-[120px] xl:text-[144px] 2xl:text-[164px] font-['koulen'] text-[#39B6FF] font-normal h-[48px] md:h-[100px] lg:h-[120px] xl:h-[144px] 2xl:h-[164px]">
+          <div className="absolute inset-0 w-full bg-black/20">
+
+          </div>
+          <div className="relative flex flex-col justify-center mb-24 text-center lg:text-start">
+                <h1 className="text-[120px] md:text-[164px] font-['koulen'] text-[#39B6FF] font-normal h-[120px] md:h-[164px]">
                   Global
                 </h1>
-                <h1 className="text-[26px] md:text-[53px] lg:text-[65px] xl:text-[77px] 2xl:text-[87px] font-['koulen'] text-[#233C96] font-normal h-[35px] md:h-[60px] lg:h-[70px] xl:h-[100px]">
+                <h1 className="text-[65px] md:text-[87px] font-['koulen'] text-[#233C96] font-normal">
                   Consultancy
                 </h1>
-                <p className="text-[11px] md:text-[16px] font-['inter'] text-[#233C96] font-normal w-64">
+                <p className="text-[16px] font-['inter'] text-[#ffffff] font-normal lg:w-64">
                 {translations['welcome'] || 'Loading...'}
               </p>
-            </div>
+
           </div>
         </div>
       </section>
+
 
       <section ref={about_us}>
         <div className="w-ful bg-[#ffffff]">
