@@ -395,30 +395,30 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="relative pb-[28vh] md:pb-[25vh] xl:pb-[64vh] z-20">
-            <div className="absolute bottom-0 flex w-full justify-center items-center translate-x-[-50%] left-[47%] md:left-[47%] ">
+          <div className="relative pb-[30vh] md:pb-[30vh] xl:pb-[45vh] z-20">
+            <div className="absolute bottom-0 flex w-full justify-center items-center gap-[2vw] translate-x-[-50%] left-[50%] ">
               <div>
                 {fileFounder.map((e)=>(
                     <img key={e.id}
                          src={e.images}
-                         className="w-[190vh] md:w-[172vh] lg:w-[100vh] xl:w-[172vh]"
+                         className="w-[110vh] md:w-[24vh] lg:w-[32vh] lg:w-[32vh] xl:w-[40vh]"
                     />
                 ))}
               </div>
-              <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20">
-                <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal">
+              <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20 max-w-sm md:max-w-md xl:max-w-2xl p-2">
+                <h1 className="text-[16px] lg:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal">
                 {translations['founder_name'] || 'Loading...'}
                 </h1>
-                <p className="text-[16px] md:text-[24px] lg:text-[38px] text-[#233C96] font-normal">
+                <p className="text-[16px] lg:text-[24px] lg:text-[38px] text-[#233C96] font-normal">
                 {translations['founder_title'] || 'Loading...'}
                 </p>
                 <br />
-                <p className="text-[9px] md:text-[20px]">
+                <p className="text-[9px] md:text-[12px] lg:text-[20px]">
                 {translations['education'] || 'Loading...'}
                 </p>
 
-                <details className="w-30 text-center md:w-44 my-2 cursor-pointer">
-                  <summary className="bg-gradient-to-r from-[#C2F6FF] to-[#05A4FE] px-3 py-2 text-[12px] md:text-[17px] text-[#182760] rounded-xl select-none">
+                <details className="w-24 text-center md:w-32 lg:w-44 my-2 cursor-pointer">
+                  <summary className="bg-gradient-to-r from-[#C2F6FF] to-[#05A4FE] px-3 py-2 text-[12px] lg:text-[17px] text-[#182760] rounded-xl select-none">
                   {translations['btn_ms'] || 'Loading...'}
                   </summary>
                   <p className="text-start w-full left-[54%] md:left-[53%] lg:left-[68%] xl:left-[66%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-[#7978789a] backdrop-blur-[100px] bg-opacity-100 my-3 absolute rounded-2xl text-[#eee] transition delay-1000 duration-2000 z-50">
@@ -672,10 +672,10 @@ const HomePage = () => {
                 {translations['client_details'] || 'Loading...'}
                 </p>
               </div>
-              <div className="flex justify-center gap-[4vw] my-10">
+              <div className="flex justify-center items-center gap-[4vw] my-10">
                 {fileClient.map((e)=>(
-                    <div key={e.id} className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full overflow-hidden shadow-xl">
-                      <img onClick={()=>editClientId(e.id)}  src={e.image} className="w-full"/>
+                    <div key={e.id} className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 overflow-hidden">
+                      <img src={e.image} className="w-full imgClient"/>
                     </div>
                 ))}
               </div>

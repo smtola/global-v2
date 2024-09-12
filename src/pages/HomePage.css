@@ -18,6 +18,12 @@
     object-fit: cover;
 }
 
+.imgClient{
+    object-fit: contain;
+    aspect-ratio:4/3;
+    mix-blend-mod:color-burn;
+}
+
 @media screen and (max-width: 920px) {
     .clip-path-2{
         clip-path: polygon(0 5%, 100% 0, 100% 88%, 0 100%);

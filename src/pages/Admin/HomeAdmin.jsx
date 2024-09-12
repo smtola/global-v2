@@ -2268,7 +2268,7 @@ const HomeAdmin = () => {
 
     const updateDataKh = {
       lang_code: "kh",
-      key: "items_detail_1",
+      key: "items_details_1",
       value: valueItemDetailOneKh,
     };
 
@@ -2321,7 +2321,7 @@ const HomeAdmin = () => {
     e.preventDefault();
     const updateDataEn = {
       lang_code: "en",
-      key: "items_2",
+      key: "items_detail_2",
       value: valueItemDetailTwoEn,
     };
 
@@ -2332,7 +2332,7 @@ const HomeAdmin = () => {
 
     const updateDataKh = {
       lang_code: "kh",
-      key: "items_2",
+      key: "items_detail_2",
       value: valueItemDetailTwoKh,
     };
 
@@ -3909,7 +3909,7 @@ const HomeAdmin = () => {
                     </div>
                     <div>
                       <h1 className="font-bold text-[20px]">
-                        updateDataEn
+                        {translations["cs"] || "Loading..."}
                       </h1>
                       {showEditWelcome ? (
                         <form
@@ -4224,13 +4224,13 @@ const HomeAdmin = () => {
             </div>
           </div>
 
-          <div className="relative pb-[28vh] md:pb-[25vh] xl:pb-[64vh] z-20">
-            <div className="absolute bottom-0 flex w-full justify-center items-center translate-x-[-50%] left-[47%] md:left-[47%] ">
+          <div className="relative pb-[28vh] md:pb-[25vh] xl:pb-[44vh] z-20">
+            <div className="absolute bottom-0 flex w-full justify-center items-center gap-[2vw] translate-x-[-50%] left-[47%] md:left-[47%] ">
               <div className="relative">
                 {fileFounder.map((e)=>(
                 <img key={e.id}
                   src={e.images}
-                  className="w-[190vh] md:w-[172vh] lg:w-[100vh] xl:w-[172vh]"
+                  className="w-[190vh] md:w-[172vh] lg:w-[100vh] xl:w-[40vh]"
                 />
                 ))}
                 <form onSubmit={handleUpdateFd} className="absolute inset-0 left-[10%] top-[30%]">
@@ -4249,7 +4249,7 @@ const HomeAdmin = () => {
                   <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
                 </form>
               </div>
-              <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20">
+              <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20 max-w-2xl">
                 <h1 className="text-[16px] md:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal">
                   {translations["founder_name"] || "Loading..."}
                 </h1>
