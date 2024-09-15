@@ -58,7 +58,7 @@ const Career = () => {
             </p>
             <br/>
             <p className="!text-[14px] font-['lexend'] font-medium md:!text-[23px]">
-              Welcome to KOUPREY Creative Solutions. We are Cambodia’s renowned brandand identity design agency with a wide range of creative services. Our team consists of young and creative talents with different areas of expertise, who are committed to deliver the desirable outcomes that truly reflect our clients’ ideas.`
+              Welcome to Global Consultancy. We are Cambodia’s renowned brandand identity design agency with a wide range of creative services. Our team consists of young and creative talents with different areas of expertise, who are committed to deliver the desirable outcomes that truly reflect our clients’ ideas.`
             </p>
           </div>
         </section>
@@ -66,52 +66,52 @@ const Career = () => {
             <img src={banner} alt="" />
           </div>
         <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
-          <div className="w-full !max-w-lg lg:!max-w-screen-xl mx-auto text-[#233C96]">
-            <h1 className="!text-[30px] text-center font-['lexend'] font-bold md:!text-[54px]">Life at Global Consultancy</h1>
-           
-           <div className="grid grid-cols-1 lg:grid-cols-2 py-7 gap-10">
-              <div className="flex items-center justify-start">
-                <div>
-                    <img src={icon_3} alt="" width={364}/>
-                </div>
-                <div>
-                  <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Striving for Excellence</h1>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nihil tenetur sunt aliquam tempore, ut iusto officia quasi eaque dicta, minus repudiandae quam non ducimus.</p>
-                </div>
-              </div>
-              <div className="flex items-center justify-start">
-                <div>
-                    <img src={icon_1} alt="" width={364}/>
-                </div>
-                <div>
-                  <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Culture of Learning</h1>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus hic delectus laborum vero ea? Amet cum quidem fugiat eveniet eligendi earum at soluta assumenda? Ut?</p>
-                </div>
-              </div>
-              <div className="flex items-center justify-start">
-                <div>
-                    <img src={icon_4} alt="" width={364}/>
-                </div>
-                <div>
-                  <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Happiness at Work</h1>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus qui asperiores illo ipsum corrupti dicta, ex aspernatur iusto distinctio est dolorum adipisci rerum fugiat nostrum.</p>
-                </div>
-              </div>
-              <div className="flex items-center justify-start">
-                <div>
-                    <img src={icon_2} alt="" width={364}/>
-                </div>
-                <div>
-                  <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Enjoy Freebies</h1>
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro repudiandae accusamus omnis. Vero nihil quas obcaecati harum, fugiat, corporis ea provident ipsa optio quibusdam totam.</p>
-                </div>
-              </div>
-           </div>
-          </div>
+          {/*<div className="w-full !max-w-lg lg:!max-w-screen-xl mx-auto text-[#233C96]">*/}
+          {/*  <h1 className="!text-[30px] text-center font-['lexend'] font-bold md:!text-[54px]">Life at Global Consultancy</h1>*/}
+          {/* */}
+          {/* <div className="grid grid-cols-1 lg:grid-cols-2 py-7 gap-10">*/}
+          {/*    <div className="flex items-center justify-start">*/}
+          {/*      <div>*/}
+          {/*          <img src={icon_3} alt="" width={364}/>*/}
+          {/*      </div>*/}
+          {/*      <div>*/}
+          {/*        <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Striving for Excellence</h1>*/}
+          {/*        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nihil tenetur sunt aliquam tempore, ut iusto officia quasi eaque dicta, minus repudiandae quam non ducimus.</p>*/}
+          {/*      </div>*/}
+          {/*    </div>*/}
+          {/*    <div className="flex items-center justify-start">*/}
+          {/*      <div>*/}
+          {/*          <img src={icon_1} alt="" width={364}/>*/}
+          {/*      </div>*/}
+          {/*      <div>*/}
+          {/*        <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Culture of Learning</h1>*/}
+          {/*        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus hic delectus laborum vero ea? Amet cum quidem fugiat eveniet eligendi earum at soluta assumenda? Ut?</p>*/}
+          {/*      </div>*/}
+          {/*    </div>*/}
+          {/*    <div className="flex items-center justify-start">*/}
+          {/*      <div>*/}
+          {/*          <img src={icon_4} alt="" width={364}/>*/}
+          {/*      </div>*/}
+          {/*      <div>*/}
+          {/*        <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Happiness at Work</h1>*/}
+          {/*        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus qui asperiores illo ipsum corrupti dicta, ex aspernatur iusto distinctio est dolorum adipisci rerum fugiat nostrum.</p>*/}
+          {/*      </div>*/}
+          {/*    </div>*/}
+          {/*    <div className="flex items-center justify-start">*/}
+          {/*      <div>*/}
+          {/*          <img src={icon_2} alt="" width={364}/>*/}
+          {/*      </div>*/}
+          {/*      <div>*/}
+          {/*        <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Enjoy Freebies</h1>*/}
+          {/*        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro repudiandae accusamus omnis. Vero nihil quas obcaecati harum, fugiat, corporis ea provident ipsa optio quibusdam totam.</p>*/}
+          {/*      </div>*/}
+          {/*    </div>*/}
+          {/* </div>*/}
+          {/*</div>*/}
 
           <div className="py-5 w-full max-w-screen-xl mx-auto">
-            <h1 className="!text-[30px] text-[#233C96] text-center font-['lexend'] font-bold md:!text-[54px]">Open Position</h1>
-            <div className="flex justify-center items-center flex-col lg:flex-row gap-[2vw] py-7">
+            <h1 className="!text-[30px] text-[#233C96] text-center font-['lexend'] font-bold md:!text-[54px]">Open Positions</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center  gap-[3vw] py-7">
               {data.map((item,index)=>
                 ( 
                   <CareerCardd key={index} img={item.images} title={item.title} dics={item.description}/>

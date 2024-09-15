@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const CareerAdmin = () => {
   const [title, setTittle] = useState("");
-  const [description, setDescription] = useState("");
   const [file, setFile] = useState();
   const [fileDefault, setFileDefault] = useState([]);
   const [image, setImage] = useState(null);
@@ -69,7 +68,7 @@ const CareerAdmin = () => {
   // create
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!title || !description || !imageFile) {
+    if (!title || !imageFile) {
       toast.success("Please fill in all fields and upload an image.", {
         position: "top-right",
         autoClose: 5000,
@@ -101,7 +100,7 @@ const CareerAdmin = () => {
     // Insert product details into Supabase database
     const { error: insertError } = await supabase
       .from("careers")
-      .insert([{ title, description, images: fileName }]);
+      .insert([{ title, images: fileName }]);
 
     if (insertError) {
       toast.error("Error inserting product:", insertError.message, {
@@ -116,6 +115,7 @@ const CareerAdmin = () => {
         transition: Bounce
         });
     } else {
+      setShowModalAdd(false);
       toast.success("Career added successfully!.", {
         position: "top-right",
         autoClose: 5000,
@@ -128,7 +128,6 @@ const CareerAdmin = () => {
         transition: Bounce
         });
       setTittle("");
-      setDescription("");
       setImageFile(null);
       setShowModalAdd(false);
     }
@@ -233,7 +232,6 @@ const CareerAdmin = () => {
         transition: Bounce
         });
       setTittle("");
-      setDescription("");
       setImageFile(null);
       setCareerId("");
     }
@@ -248,7 +246,6 @@ const CareerAdmin = () => {
     if (career) {
       setCareerId(career.id);
       setTittle(career.title);
-      setDescription(career.description);
       setImageFile(career.images);
     }
 
@@ -324,8 +321,7 @@ const CareerAdmin = () => {
     setUploading(true);
     try {
       const updatedData = {
-        title,
-        description,
+        title
       };
 
       if (imageUrl) {
@@ -363,7 +359,7 @@ const CareerAdmin = () => {
 
   // Main handler for update
   const handleUpdate = async () => {
-    if (!title || !description || !CareerId) {
+    if (!title || !CareerId) {
       toast.warn("Please fill in all required fields.", {
         position: "top-right",
         autoClose: 5000,
@@ -450,9 +446,6 @@ const CareerAdmin = () => {
                   <th scope="col" className="px-6 py-3">
                     Title
                   </th>
-                  <th scope="col" className="px-6 py-3 ">
-                    Discriptions
-                  </th>
                   <th scope="col" className="px-6 py-3">
                     Images
                   </th>
@@ -473,9 +466,6 @@ const CareerAdmin = () => {
                     >
                       {index + 1} : {blog.title}
                     </th>
-                    <td className="px-6 py-4 truncate...">
-                      {blog.description}
-                    </td>
                     <td className="px-6 py-4">
                       {blog.images ? (
                         <img
@@ -552,26 +542,6 @@ const CareerAdmin = () => {
                         />
                       </div>
                     </div>
-
-                    <div className="my-2">
-                      <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Description
-                      </label>
-                      <div className="flex">
-                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="28" fill="#4d4d4d"><path d="M5 2v2h4V2H5zm6 0h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2zm0 2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2v14h10V4h-1zM4 8h6a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 5h6a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path></svg>
-                        </span>
-                        <textarea
-                          type="text"
-                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                          placeholder="Description"
-                          rows="1"
-                          onChange={(e) => setDescription(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
-
                     <div className="my-2">
                       <label className="block mb-2 text-sm font-medium text-gray-400">
                         Image
@@ -680,26 +650,6 @@ const CareerAdmin = () => {
                           placeholder="Title"
                           defaultValue={title}
                           onChange={(e) => setTittle(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="my-2">
-                      <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Description
-                      </label>
-                      <div className="flex">
-                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="28" fill="#4d4d4d"><path d="M5 2v2h4V2H5zm6 0h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2zm0 2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2v14h10V4h-1zM4 8h6a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 5h6a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path></svg>
-                        </span>
-                        <textarea
-                          type="text"
-                          className="border-b border-[#314cb2] focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                          placeholder="Description"
-                          rows="1"
-                          defaultValue={description}
-                          onChange={(e) => setDescription(e.target.value)}
                           required
                         />
                       </div>

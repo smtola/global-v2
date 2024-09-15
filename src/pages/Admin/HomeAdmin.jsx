@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
 import Scroll from "../../Scroll";
-import imgBanner from "../../assets/images/banner/cover.jpg";
-import imgFounder from "../../assets/images/founder.png";
-import founderIcon from "../../assets/images/icon-founder.png";
-import accountingIcon from "../../assets/images/accounting.png";
-import partnerIcon from "../../assets/images/partner.png";
+import "../HomePage.css";
 import { useTranslation } from "../../hooks/useTranslation";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "../../config/db";
+import Sopanha from "../../assets/images/sopanha.jpg";
+import Sokha from "../../assets/images/sokha.jpg";
+import Soklim from "../../assets/images/soklim.jpg";
+import Vary from "../../assets/images/vary.jpg";
+import Vandalin from "../../assets/images/vandalin.jpg";
+import Voleak from "../../assets/images/voleak.jpg";
+import Dary from "../../assets/images/dary.jpg";
+import Nita from "../../assets/images/nita.jpg";
+import {toast} from "react-toastify";
 const HomeAdmin = () => {
   const navigate = useNavigate();
   const iconsTick = (
@@ -87,15 +92,6 @@ const HomeAdmin = () => {
 
   const [valueFooterEn, setFooterEn] = useState("");
   const [valueFooterKh, setFooterKh] = useState("");
-
-  const [valueFounderChEn, setFounderChEn] = useState("");
-  const [valueFounderChKh, setFounderChKh] = useState("");
-
-  const [valueTandAEn, setTandAEn] = useState("");
-  const [valueTandAKh, setTandAKh] = useState("");
-
-  const [valuePartnerEn, setPartnerEn] = useState("");
-  const [valuePartnerKh, setPartnerKh] = useState("");
 
   const [valueServiceEn, setServiceEn] = useState("");
   const [valueServiceKh, setServiceKh] = useState("");
@@ -196,32 +192,7 @@ const HomeAdmin = () => {
   const [valueOurClientDetailEn, setOurClientDetailEn] = useState("");
   const [valueOurClientDetailKh, setOurClientDetailKh] = useState("");
 
-  const [valueItemOneEn, setItemOneEn] = useState("");
-  const [valueItemOneKh, setItemOneKh] = useState("");
-
-  const [valueItemDetailOneEn, setItemDetailOneEn] = useState("");
-  const [valueItemDetailOneKh, setItemDetailOneKh] = useState("");
-
-  const [valueItemTwoEn, setItemTwoEn] = useState("");
-  const [valueItemTwoKh, setItemTwoKh] = useState("");
-
-  const [valueItemDetailTwoEn, setItemDetailTwoEn] = useState("");
-  const [valueItemDetailTwoKh, setItemDetailTwoKh] = useState("");
-
-  const [valueItemThreeEn, setItemThreeEn] = useState("");
-  const [valueItemThreeKh, setItemThreeKh] = useState("");
-
-  const [valueItemDetailThreeEn, setItemDetailThreeEn] = useState("");
-  const [valueItemDetailThreeKh, setItemDetailThreeKh] = useState("");
-
-  const [valueItemFourEn, setItemFourEn] = useState("");
-  const [valueItemFourKh, setItemFourKh] = useState("");
-
-  const [valueItemDetailFourEn, setItemDetailFourEn] = useState("");
-  const [valueItemDetailFourKh, setItemDetailFourKh] = useState("");
-
   useEffect(()=>{
-    isArray();
     fetchData();
   })
   useEffect(() => {
@@ -451,7 +422,31 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 4);
-    alert('Update Success.');
+
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -483,7 +478,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 89);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -515,7 +533,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 91);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -547,7 +588,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 93);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -579,7 +643,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 95);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -611,7 +698,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 96);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -643,7 +753,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 97);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -675,7 +808,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 98);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -707,7 +863,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 99);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -739,7 +918,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 100);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (error) {
       console.error("Error updating welcome text:", erroren.message);
@@ -771,7 +973,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 101);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -803,7 +1028,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 102);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (error) {
       console.error("Error updating welcome text:", erroren.message);
@@ -835,7 +1083,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 103);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -867,7 +1138,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 104);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -899,7 +1193,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 106);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -931,7 +1248,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 105);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -963,7 +1303,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 108);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -995,7 +1358,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 110);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1027,7 +1413,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 110);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1059,103 +1468,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 111);
-    alert('Update Success.');
-    window.href = "/home-admin";
-    if (erroren) {
-      console.error("Error updating welcome text:", erroren.message);
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
-    setShowEditWelcome(false);
-    setShowPWelcome(true);
-  };
-
-  const handleFounderChSubmit = async (e) => {
-    e.preventDefault();
-    const updateDataEn = {
-      lang_code: "en",
-      key: "founder_ch",
-      value: valueFounderChEn,
-    };
-
-    const { erroren } = await supabase
-      .from("translations")
-      .update(updateDataEn)
-      .eq("id", 37);
-
-    const updateDataKh = {
-      lang_code: "kh",
-      key: "founder_ch",
-      value: valueFounderChKh,
-    };
-
-    const { errorkh } = await supabase
-      .from("translations")
-      .update(updateDataKh)
-      .eq("id", 112);
-    alert('Update Success.');
-    window.href = "/home-admin";
-    if (erroren) {
-      console.error("Error updating welcome text:", erroren.message);
-    }
-    setShowEditWelcome(false);
-    setShowPWelcome(true);
-  };
-
-  const handleTandASubmit = async (e) => {
-    e.preventDefault();
-    const updateDataEn = {
-      lang_code: "en",
-      key: "t_&_a",
-      value: valueTandAEn,
-    };
-
-    const { erroren } = await supabase
-      .from("translations")
-      .update(updateDataEn)
-      .eq("id", 38);
-
-    const updateDataKh = {
-      lang_code: "kh",
-      key: "t_&_a",
-      value: valueTandAKh,
-    };
-
-    const { errorkh } = await supabase
-      .from("translations")
-      .update(updateDataKh)
-      .eq("id", 113);
-    alert('Update Success.');
-    window.href = "/home-admin";
-    if (erroren) {
-      console.error("Error updating welcome text:", erroren.message);
-    }
-    setShowEditWelcome(false);
-    setShowPWelcome(true);
-  };
-
-  const handlePartnerSubmit = async (e) => {
-    e.preventDefault();
-    const updateDataEn = {
-      lang_code: "en",
-      key: "partner",
-      value: valuePartnerEn,
-    };
-
-    const { erroren } = await supabase
-      .from("translations")
-      .update(updateDataEn)
-      .eq("id", 39);
-
-    const updateDataKh = {
-      lang_code: "kh",
-      key: "partner",
-      value: valuePartnerKh,
-    };
-
-    const { errorkh } = await supabase
-      .from("translations")
-      .update(updateDataKh)
-      .eq("id", 114);
-    alert('Update Success.');
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1187,7 +1523,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 117);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1219,7 +1578,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 118);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1251,7 +1633,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 119);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1283,7 +1688,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 120);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1315,7 +1743,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 120);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1347,7 +1798,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 122);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1379,7 +1853,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 123);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1411,7 +1908,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 124);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1443,7 +1963,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 125);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1475,7 +2018,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 126);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1507,7 +2073,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 127);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1539,7 +2128,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 128);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1571,7 +2183,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 129);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1603,7 +2238,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 130);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1635,7 +2293,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 131);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1667,7 +2348,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 132);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1699,7 +2403,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 132);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1731,7 +2458,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 134);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1763,7 +2513,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 135);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1795,7 +2568,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 136);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1827,7 +2623,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 137);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1859,7 +2678,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 138);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1891,7 +2733,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 139);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1923,7 +2788,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 140);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1955,7 +2843,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 141);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -1987,7 +2898,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 142);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -2019,7 +2953,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 143);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -2051,7 +3008,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 144);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -2083,7 +3063,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 145);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -2115,7 +3118,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 146);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -2123,7 +3149,6 @@ const HomeAdmin = () => {
     setShowEditWelcome(false);
     setShowPWelcome(true);
   };
-
 
   const handleWhyUsSevenSubmit = async (e) => {
     e.preventDefault();
@@ -2148,7 +3173,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 147);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -2180,7 +3228,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 148);
-    alert('Update Success.');
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -2212,263 +3283,30 @@ const HomeAdmin = () => {
       .from("translations")
       .update(updateDataKh)
       .eq("id", 149);
-    alert('Update Success.');
-    window.href = "/home-admin";
-    if (erroren) {
-      console.error("Error updating welcome text:", erroren.message);
+    if (errorkh) {
+      toast.error(errorkh.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success('Update successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
-    setShowEditWelcome(false);
-    setShowPWelcome(true);
-  };
-
-  const handleItemOneSubmit = async (e) => {
-    e.preventDefault();
-    const updateDataEn = {
-      lang_code: "en",
-      key: "items_1",
-      value: valueItemOneEn,
-    };
-
-    const { erroren } = await supabase
-      .from("translations")
-      .update(updateDataEn)
-      .eq("id", 76);
-
-    const updateDataKh = {
-      lang_code: "kh",
-      key: "items_1",
-      value: valueItemOneKh,
-    };
-
-    const { errorkh } = await supabase
-      .from("translations")
-      .update(updateDataKh)
-      .eq("id", 150);
-    alert('Update Success.');
-    window.href = "/home-admin";
-    if (erroren) {
-      console.error("Error updating welcome text:", erroren.message);
-    }
-    setShowEditWelcome(false);
-    setShowPWelcome(true);
-  };
-
-  const handleItemDetailOneSubmit = async (e) => {
-    e.preventDefault();
-    const updateDataEn = {
-      lang_code: "en",
-      key: "items_detail_1",
-      value: valueItemDetailOneEn,
-    };
-
-    const { erroren } = await supabase
-      .from("translations")
-      .update(updateDataEn)
-      .eq("id", 77);
-
-    const updateDataKh = {
-      lang_code: "kh",
-      key: "items_details_1",
-      value: valueItemDetailOneKh,
-    };
-
-    const { errorkh } = await supabase
-      .from("translations")
-      .update(updateDataKh)
-      .eq("id", 151);
-    alert('Update Success.');
-    window.href = "/home-admin";
-    if (erroren) {
-      console.error("Error updating welcome text:", erroren.message);
-    }
-    setShowEditWelcome(false);
-    setShowPWelcome(true);
-  };
-
-  const handleItemTwoSubmit = async (e) => {
-    e.preventDefault();
-    const updateDataEn = {
-      lang_code: "en",
-      key: "items_2",
-      value: valueItemTwoEn,
-    };
-
-    const { erroren } = await supabase
-      .from("translations")
-      .update(updateDataEn)
-      .eq("id", 78);
-
-    const updateDataKh = {
-      lang_code: "kh",
-      key: "items_2",
-      value: valueItemTwoKh,
-    };
-
-    const { errorkh } = await supabase
-      .from("translations")
-      .update(updateDataKh)
-      .eq("id", 152);
-    alert('Update Success.');
-    window.href = "/home-admin";
-    if (erroren) {
-      console.error("Error updating welcome text:", erroren.message);
-    }
-    setShowEditWelcome(false);
-    setShowPWelcome(true);
-  };
-
-  const handleItemDetailTwoSubmit = async (e) => {
-    e.preventDefault();
-    const updateDataEn = {
-      lang_code: "en",
-      key: "items_detail_2",
-      value: valueItemDetailTwoEn,
-    };
-
-    const { erroren } = await supabase
-      .from("translations")
-      .update(updateDataEn)
-      .eq("id", 81);
-
-    const updateDataKh = {
-      lang_code: "kh",
-      key: "items_detail_2",
-      value: valueItemDetailTwoKh,
-    };
-
-    const { errorkh } = await supabase
-      .from("translations")
-      .update(updateDataKh)
-      .eq("id", 155);
-    alert('Update Success.');
-    window.href = "/home-admin";
-    if (erroren) {
-      console.error("Error updating welcome text:", erroren.message);
-    }
-    setShowEditWelcome(false);
-    setShowPWelcome(true);
-  };
-
-  const handleItemThreeSubmit = async (e) => {
-    e.preventDefault();
-    const updateDataEn = {
-      lang_code: "en",
-      key: "items_3",
-      value: valueItemThreeEn,
-    };
-
-    const { erroren } = await supabase
-      .from("translations")
-      .update(updateDataEn)
-      .eq("id", 79);
-
-    const updateDataKh = {
-      lang_code: "kh",
-      key: "items_3",
-      value: valueItemThreeKh,
-    };
-
-    const { errorkh } = await supabase
-      .from("translations")
-      .update(updateDataKh)
-      .eq("id", 153);
-    alert('Update Success.');
-    window.href = "/home-admin";
-    if (erroren) {
-      console.error("Error updating welcome text:", erroren.message);
-    }
-    setShowEditWelcome(false);
-    setShowPWelcome(true);
-  };
-
-  const handleItemDetailThreeSubmit = async (e) => {
-    e.preventDefault();
-    const updateDataEn = {
-      lang_code: "en",
-      key: "items_detail_3",
-      value: valueItemDetailThreeEn,
-    };
-
-    const { erroren } = await supabase
-      .from("translations")
-      .update(updateDataEn)
-      .eq("id", 82);
-
-    const updateDataKh = {
-      lang_code: "kh",
-      key: "items_detail_3",
-      value: valueItemDetailThreeKh,
-    };
-
-    const { errorkh } = await supabase
-      .from("translations")
-      .update(updateDataKh)
-      .eq("id", 156);
-    alert('Update Success.');
-    window.href = "/home-admin";
-    if (erroren) {
-      console.error("Error updating welcome text:", erroren.message);
-    }
-    setShowEditWelcome(false);
-    setShowPWelcome(true);
-  };
-
-  const handleItemFourSubmit = async (e) => {
-    e.preventDefault();
-    const updateDataEn = {
-      lang_code: "en",
-      key: "items_4",
-      value: valueItemFourEn,
-    };
-
-    const { erroren } = await supabase
-      .from("translations")
-      .update(updateDataEn)
-      .eq("id", 80);
-
-    const updateDataKh = {
-      lang_code: "kh",
-      key: "items_4",
-      value: valueItemFourKh,
-    };
-
-    const { errorkh } = await supabase
-      .from("translations")
-      .update(updateDataKh)
-      .eq("id", 154);
-    alert('Update Success.');
-    window.href = "/home-admin";
-    if (erroren) {
-      console.error("Error updating welcome text:", erroren.message);
-    }
-    setShowEditWelcome(false);
-    setShowPWelcome(true);
-  };
-
-  const handleItemDetailFourSubmit = async (e) => {
-    e.preventDefault();
-    const updateDataEn = {
-      lang_code: "en",
-      key: "items_detail_4",
-      value: valueItemDetailFourEn,
-    };
-
-    const { erroren } = await supabase
-      .from("translations")
-      .update(updateDataEn)
-      .eq("id", 83);
-
-    const updateDataKh = {
-      lang_code: "kh",
-      key: "items_detail_4",
-      value: valueItemDetailFourKh,
-    };
-
-    const { errorkh } = await supabase
-      .from("translations")
-      .update(updateDataKh)
-      .eq("id", 157);
-    alert('Update Success.');
     window.href = "/home-admin";
     if (erroren) {
       console.error("Error updating welcome text:", erroren.message);
@@ -2494,15 +3332,7 @@ const HomeAdmin = () => {
   const [bsrImage, setBsrImage] = useState([]);
   const [isShow, setShow] = useState(false);
   const [imageFile, setImageFile] = useState(null);
-  const [banner_1, setBaner_1] = useState([]);
-  const [banner_2, setBaner_2] = useState([]);
-  const [banner_3, setBaner_3] = useState([]);
-  const [banner_4, setBaner_4] = useState([]);
 
-  const [imgBn_1, setBn_1] = useState([]);
-  const [imgBn_2, setBn_2] = useState([]);
-  const [imgBn_3, setBn_3] = useState([]);
-  const [imgBn_4, setBn_4] = useState([]);
   const fetchData = async () => {
     try {
       // Fetch data from Supabase table
@@ -2698,20 +3528,6 @@ const HomeAdmin = () => {
     }
   };
 
-  const isArray = async () =>{
-    banner_1.map((item)=>{
-     return setBn_1(item.image);
-    })
-    banner_2.map((item)=>{
-      return setBn_2(item.image);
-    })
-    banner_3.map((item)=>{
-      return  setBn_3(item.image);
-    })
-    banner_4.map((item)=>{
-      return setBn_4(item.image);
-    })
-  }
   const handleFileChange = (e) => {
     setImageFile(e.target.files[0]);
   };
@@ -3040,314 +3856,6 @@ const HomeAdmin = () => {
     fetchData();
   };
 
-  const uploadImage_1 = async (file) => {
-    if(file.name == undefined){
-      return;
-    }else{
-      const fileName = `${Date.now()}_${file.name}`;
-      const { error: uploadError } = await supabase.storage
-          .from("images")
-          .upload(`contents/${fileName}`, file);
-      if (uploadError) {
-        throw uploadError;
-      }
-      // Update career details
-      const { data: items, error: fetchError } = await supabase
-          .from("bottom_banner")
-          .select("image")
-          .eq("id", 1)
-          .single();
-
-      if (fetchError) {
-        return;
-      }
-      console.log(items)
-      if (!items) {
-        return;
-      }
-
-      const imageUrls = items.image;
-      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
-      // Delete the image file from Supabase Storage
-      await supabase.storage
-          .from("images") // Your bucket name
-          .remove([`contents/${imageFileName}`]);
-
-      return fileName;
-    }
-  };
-  const updateBlog_1 = async (imageUrl =null) => {
-    try {
-      const updatedData = {
-      };
-
-      if (imageUrl) {
-        updatedData.image = imageUrl;
-      }
-      console.log(updatedData)
-      const { error: updateError } = await supabase
-          .from("bottom_banner")
-          .update(updatedData)
-          .match({ id: 1 });
-
-      if (updateError) {
-        throw updateError;
-      }
-
-      fetchData();
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-  const handleUpdate_1 = async (e) => {
-    e.preventDefault();
-    try {
-      let imgUrl = null;
-      if(imageFile){
-        imgUrl = await uploadImage_1(imageFile);
-      }
-
-      await updateBlog_1(imgUrl);
-      alert('Update Success.');
-      window.href = "/home-admin";
-    } catch (error) {
-      console.error("Error updating blog:", error.message);
-    }
-    isArray();
-    fetchData();
-  };
-
-  const uploadImage_2 = async (file) => {
-    if(file.name == undefined){
-      return;
-    }else{
-      const fileName = `${Date.now()}_${file.name}`;
-      const { error: uploadError } = await supabase.storage
-          .from("images")
-          .upload(`contents/${fileName}`, file);
-      if (uploadError) {
-        throw uploadError;
-      }
-      // Update career details
-      const { data: items, error: fetchError } = await supabase
-          .from("bottom_banner_1")
-          .select("image")
-          .eq("id", 1)
-          .single();
-
-      if (fetchError) {
-        return;
-      }
-      console.log(items)
-      if (!items) {
-        return;
-      }
-
-      const imageUrls = items.image;
-      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
-      // Delete the image file from Supabase Storage
-      await supabase.storage
-          .from("images") // Your bucket name
-          .remove([`contents/${imageFileName}`]);
-
-      return fileName;
-    }
-  };
-  const updateBlog_2 = async (imageUrl =null) => {
-    try {
-      const updatedData = {
-      };
-
-      if (imageUrl) {
-        updatedData.image = imageUrl;
-      }
-      console.log(updatedData)
-      const { error: updateError } = await supabase
-          .from("bottom_banner_1")
-          .update(updatedData)
-          .match({ id: 1 });
-
-      if (updateError) {
-        throw updateError;
-      }
-
-      fetchData();
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-  const handleUpdate_2 = async (e) => {
-    e.preventDefault();
-    try {
-      let imgUrl = null;
-      if(imageFile){
-        imgUrl = await uploadImage_2(imageFile);
-      }
-
-      await updateBlog_2(imgUrl);
-      alert('Update Success.');
-      window.href = "/home-admin";
-    } catch (error) {
-      console.error("Error updating blog:", error.message);
-    }
-    isArray();
-    fetchData();
-  };
-
-  const uploadImage_3 = async (file) => {
-    if(file.name == undefined){
-      return;
-    }else{
-      const fileName = `${Date.now()}_${file.name}`;
-      const { error: uploadError } = await supabase.storage
-          .from("images")
-          .upload(`contents/${fileName}`, file);
-      if (uploadError) {
-        throw uploadError;
-      }
-      // Update career details
-      const { data: items, error: fetchError } = await supabase
-          .from("bottom_banner_2")
-          .select("image")
-          .eq("id", 1)
-          .single();
-
-      if (fetchError) {
-        return;
-      }
-      console.log(items)
-      if (!items) {
-        return;
-      }
-
-      const imageUrls = items.image;
-      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
-      // Delete the image file from Supabase Storage
-      await supabase.storage
-          .from("images") // Your bucket name
-          .remove([`contents/${imageFileName}`]);
-
-      return fileName;
-    }
-  };
-  const updateBlog_3 = async (imageUrl =null) => {
-    try {
-      const updatedData = {
-      };
-
-      if (imageUrl) {
-        updatedData.image = imageUrl;
-      }
-      console.log(updatedData)
-      const { error: updateError } = await supabase
-          .from("bottom_banner_2")
-          .update(updatedData)
-          .match({ id: 1 });
-
-      if (updateError) {
-        throw updateError;
-      }
-
-      fetchData();
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-  const handleUpdate_3 = async (e) => {
-    e.preventDefault();
-    try {
-      let imgUrl = null;
-      if(imageFile){
-        imgUrl = await uploadImage_3(imageFile);
-      }
-
-      await updateBlog_3(imgUrl);
-      alert('Update Success.');
-      window.href = "/home-admin";
-    } catch (error) {
-      console.error("Error updating blog:", error.message);
-    }
-    isArray();
-    fetchData();
-  };
-
-  const uploadImage_4 = async (file) => {
-    if(file.name == undefined){
-      return;
-    }else{
-      const fileName = `${Date.now()}_${file.name}`;
-      const { error: uploadError } = await supabase.storage
-          .from("images")
-          .upload(`contents/${fileName}`, file);
-      if (uploadError) {
-        throw uploadError;
-      }
-      // Update career details
-      const { data: items, error: fetchError } = await supabase
-          .from("bottom_banner_3")
-          .select("image")
-          .eq("id", 1)
-          .single();
-
-      if (fetchError) {
-        return;
-      }
-      console.log(items)
-      if (!items) {
-        return;
-      }
-
-      const imageUrls = items.image;
-      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
-      // Delete the image file from Supabase Storage
-      await supabase.storage
-          .from("images") // Your bucket name
-          .remove([`contents/${imageFileName}`]);
-
-      return fileName;
-    }
-  };
-  const updateBlog_4 = async (imageUrl =null) => {
-    try {
-      const updatedData = {
-      };
-
-      if (imageUrl) {
-        updatedData.image = imageUrl;
-      }
-      console.log(updatedData)
-      const { error: updateError } = await supabase
-          .from("bottom_banner_3")
-          .update(updatedData)
-          .match({ id: 1 });
-
-      if (updateError) {
-        throw updateError;
-      }
-
-      fetchData();
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-  const handleUpdate_4 = async (e) => {
-    e.preventDefault();
-    try {
-      let imgUrl = null;
-      if(imageFile){
-        imgUrl = await uploadImage_4(imageFile);
-      }
-
-      await updateBlog_4(imgUrl);
-      alert('Update Success.');
-      window.href = "/home-admin";
-    } catch (error) {
-      console.error("Error updating blog:", error.message);
-    }
-    fetchData();
-
-    isArray();
-  };
   return (
     <>
       <Scroll />
@@ -3399,7 +3907,7 @@ const HomeAdmin = () => {
         </div>
       </div>
       <section>
-        <div className="relative flex flex-col justify-center overflow-hidden clip-path min-h-[70rem] p-[1.25rem] md:p-[5rem] xl:p-[10rem] 2xl:p-[20rem]">
+        <div className="relative flex flex-col justify-center overflow-hidden min-h-[70rem] p-[1.25rem] md:p-[5rem] xl:p-[10rem] 2xl:p-[20rem]">
           {fileDefault.map((x) => (
               <img key={x.id}
                   src={x.path_image}
@@ -3509,7 +4017,7 @@ const HomeAdmin = () => {
       </section>
 
       <section>
-        <div className="w-ful bg-[#ffffff]">
+        <div className="w-full bg-[#ffffff]">
           <div className="w-full max-w-screen-xl mx-auto text-start font-['inter'] text-[#050076] p-5 md:p-12">
             <h1 className="text-[24px] md:text-[44px] font-['koulen'] font-medium">
               Global Consultancy
@@ -3562,7 +4070,7 @@ const HomeAdmin = () => {
             ) : null}
           </div>
 
-          <div className="bg-[#314bb2] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
+          <div className="bg-[#314bb2] w-full px-10 py-[8vh] md:py-[32vh]">
             <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl w-full mx-auto text-[#eee]">
               <div className="gap-5 pb-4 z-1000">
                 <div>
@@ -4224,7 +4732,7 @@ const HomeAdmin = () => {
             </div>
           </div>
 
-          <div className="relative pb-[28vh] md:pb-[25vh] xl:pb-[44vh] z-20">
+          <div className="relative min-h-screen z-20">
             <div className="absolute bottom-0 flex w-full justify-center items-center gap-[2vw] translate-x-[-50%] left-[47%] md:left-[47%] ">
               <div className="relative">
                 {fileFounder.map((e)=>(
@@ -4553,163 +5061,77 @@ const HomeAdmin = () => {
             </div>
           </div>
 
-          <div className="bg-[#314bb2] px-5 pt-3 pb-12 md:pt-24 md:pb-32 clip-path-3 z-10">
-            <div className="flex justify-center items-center gap-[10vw]">
-              <div>
-                <div className="flex gap-[2vw] items-center justify-center">
-                  <img src={founderIcon} className="w-14 md:w-32" />
-                  <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                    {translations["founder_ch"] || "Loading..."}
-                    {showEditWelcome ? (
-                      <form
-                        onSubmit={handleFounderChSubmit}
-                        className="w-full max-w-xl"
-                      >
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-[16px] font-medium text-gray-200"
-                        >
-                          English
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueFounderChEn
-                          }
-                          onChange={(e) => setFounderChEn(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-sm font-medium text-gray-200"
-                        >
-                          ភាសាខ្មែរ
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueFounderChKh
-                          }
-                          onChange={(e) => setFounderChKh(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <button
-                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
-                          type="submit"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    ) : null}
-                  </h1>
+          <div className="bg-[#314bb2] px-5 pt-3 pb-[12rem] md:pt-24 md:pb-[20rem]  z-10">
+            <div className="grid grid-cols-12 justify-center items-center gap-[2vw] my-10">
+              <div className="col-span-12 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Sopanha} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Khoum Sopanha</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Managing Director</p>
                 </div>
               </div>
-              <div>
-                <div className="flex gap-[2vw] items-center py-5">
-                  <img src={accountingIcon} className="w-14 md:w-32" />
-                  <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                    {translations["t_&_a"] || "Loading..."}
-                    {showEditWelcome ? (
-                      <form
-                        onSubmit={handleTandASubmit}
-                        className="w-full max-w-xl"
-                      >
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-[16px] font-medium text-gray-200"
-                        >
-                          English
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueTandAEn
-                          }
-                          onChange={(e) => setTandAEn(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-sm font-medium text-gray-200"
-                        >
-                          ភាសាខ្មែរ
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueTandAKh
-                          }
-                          onChange={(e) => setTandAKh(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <button
-                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
-                          type="submit"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    ) : null}
-                  </h1>
+              <div className="col-span-6 hidden lg:block"></div>
+              <div className="col-span-12 xl:col-span-6 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Sokha} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Ngin Sokha</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Business Manager</p>
                 </div>
-                <div className="flex gap-[2vw] items-center py-5">
-                  <img src={partnerIcon} className="w-14 md:w-32" />
-                  <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                    {translations["partner"] || "Loading..."}
-                    {showEditWelcome ? (
-                      <form
-                        onSubmit={handlePartnerSubmit}
-                        className="w-full max-w-xl"
-                      >
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-[16px] font-medium text-gray-200"
-                        >
-                          English
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valuePartnerEn
-                          }
-                          onChange={(e) => setPartnerEn(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-sm font-medium text-gray-200"
-                        >
-                          ភាសាខ្មែរ
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valuePartnerKh
-                          }
-                          onChange={(e) => setPartnerKh(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <button
-                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2  text-[16px]"
-                          type="submit"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    ) : null}
-                  </h1>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-12 justify-center items-center gap-[2vw] my-10">
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Soklim} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Lot Soklim</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Senior Tax Accountant</p>
+                </div>
+              </div>
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Vary} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Chhan Vary</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Senior Tax Accountant</p>
+                </div>
+              </div>
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Vandalin} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Leang Vandalin</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Consultan</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-12 justify-center items-center gap-[2vw] my-10">
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Voleak} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Cheav voleak</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Tax Accountant</p>
+                </div>
+              </div>
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Dary} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Oeurn Dary</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Tax Accountant</p>
+                </div>
+              </div>
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Nita} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Seng Sokunnita</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Assistant</p>
+                </div>
+              </div>
+
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <div className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] bg-gray-500 rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Hat Boramey</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Assistant</p>
                 </div>
               </div>
             </div>
@@ -4721,16 +5143,17 @@ const HomeAdmin = () => {
                 {translations["brc"] || "Loading..."}
               </h1>
               <div>
-                <h1>{bsrId}</h1>
+
                 {isShow?
                 <form onSubmit={handleUpdateBsr} >
-                  <div className="my-2 ">
-                    <div className="flex items-center justify-center w-[30%]">
+                  <div className="my-2 border-2 border-blue-800 p-5 flex flex-col justify-center items-center">
+                    <h1 className="text-2xl text-red-500 text-center">{bsrId}</h1>
+                    <div className="flex items-center justify-center">
                         <input
                             id="dropzone-file"
                             type="file"
                             accept="image/*"
-                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                            className="block p-2.5 w-full text-center text-sm text-gray-900 bg-gray-50  border-dashed border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                             onChange={handleFileChange}
                             required
                         />
@@ -4738,10 +5161,11 @@ const HomeAdmin = () => {
                   </div>
                   <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
                 </form>: null}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-[.5rem] my-2">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-[.5rem] my-2 ">
                       {fileBsr.map((e)=> (
                         <div key={e.id} className="w-full my-2">
-                          <img src={e.image} onClick={()=> editId(e.id)} />
+                          <span className="text-2xl text-red-500 text-center">{e.id}</span>
+                          <img src={e.image} onClick={()=> editId(e.id)} className="cursor-pointer hover:scale-[.85] transition-all duration-[500ms]"/>
                         </div>
                       ))}
                   </div>
@@ -5939,7 +6363,7 @@ const HomeAdmin = () => {
             ) : null}
           </h1>
 
-          <div className="bg-[#314bb2] clip-path-4">
+          <div className="bg-[#314bb2]">
             <div className="flex items-center justify-center py-[10vh] md:pt-[20vh] md:pb-12 xl:pt-[26vh] xl:pb-16">
               <div className="w-full max-w-screen md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
@@ -6325,7 +6749,7 @@ const HomeAdmin = () => {
       <section>
         <div className="relative pt-0 md:pt-24">
           <div className="w-full max-w-sm md:max-w-screen-xl mx-auto">
-            <div className="h-full md:pb-[36vh] xl:pb-[56vh] bg-[#ffffff]">
+            <div className="h-full bg-[#ffffff]">
               <div>
                 <h1 className="text-[45px] text-[#182760] text-center font-['koulen'] font-medium pt-12">
                   {translations["ourClient"] || "Loading..."}
@@ -6424,514 +6848,36 @@ const HomeAdmin = () => {
                   ) : null}
                 </p>
               </div>
+
+               <form onSubmit={handleUpdateClient} className="border-2 border-blue-800 p-5 flex flex-col justify-center items-center">
+                <h1 className="text-2xl text-red-500">{clientId}</h1>
+                <div className="my-2 ">
+                  <div className="flex items-center justify-center ">
+                    <input
+                        id="dropzone-file"
+                        type="file"
+                        accept="image/*"
+                        className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 border-dashed border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        onChange={handleFileChange}
+                        required
+                    />
+                  </div>
+                </div>
+                <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
+              </form>
+
               <div className="flex justify-center gap-[4vw] my-10">
                 {fileClient.map((e)=>(
-                <div key={e.id} className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24 rounded-full overflow-hidden shadow-xl">
-                  <img onClick={()=>editClientId(e.id)}  src={e.image} className="w-full"/>
+                <div key={e.id} className="w-12 md:w-16 h-12 md:h-16 lg:w-24 lg:h-24  overflow-hidden">
+                  <span className="text-2xl text-red-500">{e.id}</span>
+                  <img onClick={()=>editClientId(e.id)}  src={e.image} className="w-full imgClient cursor-pointer hover:scale-[.85] transition-all duration-[500ms]"/>
                 </div>
                 ))}
               </div>
-                {isShow?
-                    <form onSubmit={handleUpdateClient} >
-                      <div className="my-2 ">
-                        <div className="flex items-center justify-center w-[30%]">
-                          <input
-                              id="dropzone-file"
-                              type="file"
-                              accept="image/*"
-                              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                              onChange={handleFileChange}
-                              required
-                          />
-                        </div>
-                      </div>
-                      <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
-                    </form>: null}
+
             </div>
           </div>
-
-          <div className="md:absolute z-10 md:translate-x-[-50%] md:left-[50%] md:top-[43%] lg:top-[37%] 2xl:top-[40%] flex flex-wrap gap-[1vh] lg:gap-[2vh]">
-            <div className="flex justify-center flex-wrap md:flex-nowrap gap-[1vh] lg:gap-[2vh]">
-              <div className="flex justify-center">
-                <div className="relative w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBn_1} className="object w-full h-full" />
-                  <form onSubmit={handleUpdate_1} className="absolute inset-0 left-[10%] top-[30%]">
-                    <div className="my-2 ">
-                      <div className="flex items-center justify-start w-full">
-                        <input
-                            id="dropzone-file"
-                            type="file"
-                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                            accept="image/*"
-                            onChange={handleFileChange}
-                            required
-                        />
-                      </div>
-                    </div>
-                    <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
-                  </form>
-                </div>
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760] order-first md:order-none">
-                  <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
-                    {translations["items_1"] || "Loading..."}
-                    {showEditWelcome ? (
-                      <form
-                        onSubmit={handleItemOneSubmit}
-                        className="w-full max-w-xl mx-auto"
-                      >
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-[16px] font-medium text-gray-200"
-                        >
-                          English
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueItemOneEn
-                          }
-                          onChange={(e) => setItemOneEn(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-sm font-medium text-gray-200"
-                        >
-                          ភាសាខ្មែរ
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueItemOneKh
-                          }
-                          onChange={(e) => setItemOneKh(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <button
-                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
-                          type="submit"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    ) : null}
-                  </h1>
-                  <p className="text-[#eee] pb-5">
-                    {translations["items_detail_1"] || "Loading..."}
-                    {showEditWelcome ? (
-                      <form
-                        onSubmit={handleItemDetailOneSubmit}
-                        className="w-full max-w-xl mx-auto"
-                      >
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-[16px] font-medium text-gray-200"
-                        >
-                          English
-                        </label>
-                        <textarea
-                          rows="2"
-                          value={
-                            valueItemDetailOneEn
-                          }
-                          onChange={(e) => setItemDetailOneEn(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-sm font-medium text-gray-200"
-                        >
-                          ភាសាខ្មែរ
-                        </label>
-                        <textarea
-                          rows="2"
-                          value={
-                            valueItemDetailOneKh
-                          }
-                          onChange={(e) => setItemDetailOneKh(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <button
-                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
-                          type="submit"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    ) : null}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex justify-center order-first md:order-none">
-                <div className="relative w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBn_2} className="object w-full h-full" />
-                  <form onSubmit={handleUpdate_2} className="absolute inset-0 left-[10%] top-[30%]">
-                    <div className="my-2 ">
-                      <div className="flex items-center justify-start w-full">
-                        <input
-                            id="dropzone-file"
-                            type="file"
-                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                            accept="image/*"
-                            onChange={handleFileChange}
-                            required
-                        />
-                      </div>
-                    </div>
-                    <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
-                  </form>
-                </div>
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
-                  <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
-                    {translations["items_2"] || "Loading..."}
-                    {showEditWelcome ? (
-                      <form
-                        onSubmit={handleItemTwoSubmit}
-                        className="w-full max-w-xl mx-auto"
-                      >
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-[16px] font-medium text-black"
-                        >
-                          English
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueItemTwoEn
-                          }
-                          onChange={(e) => setItemTwoEn(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-sm font-medium text-black"
-                        >
-                          ភាសាខ្មែរ
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueItemTwoKh
-                          }
-                          onChange={(e) => setItemTwoKh(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <button
-                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
-                          type="submit"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    ) : null}
-                  </h1>
-                  <p className=" text-[#182760] pb-5">
-                    {translations["items_detail_2"] || "Loading..."}
-                    {showEditWelcome ? (
-                      <form
-                        onSubmit={handleItemDetailTwoSubmit}
-                        className="w-full max-w-xl mx-auto"
-                      >
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-[16px] font-medium text-black"
-                        >
-                          English
-                        </label>
-                        <textarea
-                          rows="2"
-                          value={
-                            valueItemDetailTwoEn
-                          }
-                          onChange={(e) => setItemDetailTwoEn(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-sm font-medium text-black"
-                        >
-                          ភាសាខ្មែរ
-                        </label>
-                        <textarea
-                          rows="2"
-                          value={
-                            valueItemDetailTwoKh
-                          }
-                          onChange={(e) => setItemDetailTwoKh(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <button
-                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
-                          type="submit"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    ) : null}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-center gap-[1vh] flex-wrap md:flex-nowrap lg:gap-[2vh]">
-              <div className="flex justify-center">
-                <div className=" w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
-                  <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
-                    {translations["items_3"] || "Loading..."}
-                    {showEditWelcome ? (
-                      <form
-                        onSubmit={handleItemThreeSubmit}
-                        className="w-full max-w-xl mx-auto"
-                      >
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-[16px] font-medium text-black"
-                        >
-                          English
-                        </label>
-                        <textarea
-                          rows="2"
-                          value={
-                            valueItemThreeEn
-                          }
-                          onChange={(e) => setItemThreeEn(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-sm font-medium text-black"
-                        >
-                          ភាសាខ្មែរ
-                        </label>
-                        <textarea
-                          rows="2"
-                          value={
-                            valueItemThreeKh
-                          }
-                          onChange={(e) => setItemThreeKh(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <button
-                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
-                          type="submit"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    ) : null}
-                  </h1>
-                  <p className=" text-[#182760] pb-5">
-                    {translations["items_detail_3"] || "Loading..."}
-                    {showEditWelcome ? (
-                      <form
-                        onSubmit={handleItemDetailThreeSubmit}
-                        className="w-full max-w-xl mx-auto"
-                      >
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-[16px] font-medium text-black"
-                        >
-                          English
-                        </label>
-                        <textarea
-                          rows="2"
-                          value={
-                            valueItemDetailThreeEn
-                          }
-                          onChange={(e) => setItemDetailThreeEn(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-sm font-medium text-black"
-                        >
-                          ភាសាខ្មែរ
-                        </label>
-                        <textarea
-                          rows="2"
-                          value={
-                            valueItemDetailThreeKh
-                          }
-                          onChange={(e) => setItemDetailThreeKh(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <button
-                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
-                          type="submit"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    ) : null}
-                  </p>
-                </div>
-                <div className="relative w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBn_3} className="object w-full h-full" />
-                  <form onSubmit={handleUpdate_3} className="absolute inset-0 left-[10%] top-[30%]">
-                    <div className="my-2 ">
-                      <div className="flex items-center justify-start w-full">
-                        <input
-                            id="dropzone-file"
-                            type="file"
-                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                            accept="image/*"
-                            onChange={handleFileChange}
-                            required
-                        />
-                      </div>
-                    </div>
-                    <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
-                  </form>
-                </div>
-              </div>
-
-              <div className="flex justify-center">
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760]">
-                  <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
-                    {translations["items_4"] || "Loading..."}
-                    {showEditWelcome ? (
-                      <form
-                        onSubmit={handleItemFourSubmit}
-                        className="w-full max-w-xl mx-auto"
-                      >
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-[16px] font-medium text-gray-200"
-                        >
-                          English
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueItemFourEn
-                          }
-                          onChange={(e) => setItemFourEn(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-sm font-medium text-gray-200"
-                        >
-                          ភាសាខ្មែរ
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueItemFourKh
-                          }
-                          onChange={(e) => setItemFourKh(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <button
-                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
-                          type="submit"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    ) : null}
-                  </h1>
-                  <p className="text-[#eee] pb-5">
-                    {translations["items_detail_4"] || "Loading..."}
-                    {showEditWelcome ? (
-                      <form
-                        onSubmit={handleItemDetailFourSubmit}
-                        className="w-full max-w-xl mx-auto"
-                      >
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-[16px] font-medium text-gray-200"
-                        >
-                          English
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueItemDetailFourEn
-                          }
-                          onChange={(e) => setItemDetailFourEn(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <label
-                          htmlFor="message"
-                          className="block mb-2 text-sm font-medium text-gray-200"
-                        >
-                          ភាសាខ្មែរ
-                        </label>
-                        <textarea
-                          rows="1"
-                          value={
-                            valueItemDetailFourKh
-                          }
-                          onChange={(e) => setItemDetailFourKh(e.target.value)}
-                          className="block p-2.5 w-full text-[16px] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                          placeholder="English"
-                          required
-                        ></textarea>
-                        <button
-                          className="bg-[#ffffff] text-[#314cb2] px-3 py-2 rounded-full my-2 text-[16px]"
-                          type="submit"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    ) : null}
-                  </p>
-                </div>
-                <div className="relative w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBn_4} className="object w-full h-full" />
-                  <form onSubmit={handleUpdate_4} className="absolute inset-0 left-[10%] top-[30%]">
-                    <div className="my-2 ">
-                      <div className="flex items-center justify-start w-full">
-                        <input
-                            id="dropzone-file"
-                            type="file"
-                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-                            accept="image/*"
-                            onChange={handleFileChange}
-                            required
-                        />
-                      </div>
-                    </div>
-                    <button type="submit" className="bg-[#233c96] px-3 py-2 text-[#ffffff]">Submit</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="w-full bg-[#314bb2] md:pb-[30vh] xl:pb-[50vh] clip-path-5"></div>
+          <div className="w-full bg-[#314bb2] md:pb-[20vh]"></div>
         </div>
       </section>
 

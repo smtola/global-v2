@@ -2,14 +2,15 @@ import React from 'react'
 
 const CareerCardd = ({img,title,dics}) => {
   return (
-    <div className="max-w-xl md:max-w-2xl xl:max-w-sm rounded-lg shadow bg-[#314bb2]">
-        <img className="rounded-t-lg" src={img} alt="" />
-        <div className="p-5">
+    <div className="relative flex flex-col justify-end max-w-xl md:max-w-2xl xl:max-w-sm min-h-[20rem] rounded-lg overflow-hidden">
+        <img className="rounded-t-lg absolute inset-0 w-full h-full object-center object-cover" src={img} alt="" />
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="p-5 relative flex flex-col justify-end">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#ffffff]">{title}</h5>
             <p className="mb-3 font-normal text-[#eee] ">{dics}</p>
-            <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <a href="tel:+8556969666499" className="inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                 Apply Now
-            </button>
+            </a>
         </div>
     </div>
   )

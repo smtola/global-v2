@@ -3,22 +3,22 @@ import Footer from "./components/Footer";
 import React, {useRef,useState,useEffect} from "react";
 import "./HomePage.css";
 import Scroll from "../Scroll";
-import imgBanner from "../assets/images/banner/cover.jpg";
-import imgFounder from "../assets/images/founder.png";
 import iconVission from "../assets/images/icon/vision.png";
 import iconMission from "../assets/images/icon/mission.png";
 import iconTrande from "../assets/images/icon/trande.png";
 import iconAccount from "../assets/images/icon/account.png";
 import iconTax from "../assets/images/icon/tax.png";
-import founderIcon from "../assets/images/icon-founder.png";
-import accountingIcon from "../assets/images/accounting.png";
-import partnerIcon from "../assets/images/partner.png";
-import certificateImage from '../assets/images/certificate.jpg';
-import vatImage from '../assets/images/VAT-2023.jpg';
-import ahNhabanImage from '../assets/images/Fianl_update.jpg';
 import { useTranslation } from '../hooks/useTranslation';
 import {supabase} from "../config/db.js";
-
+// chart
+import Sopanha from '../assets/images/sopanha.jpg';
+import Sokha from '../assets/images/sokha.jpg';
+import Soklim from '../assets/images/soklim.jpg';
+import Dary from '../assets/images/dary.jpg';
+import Nita from '../assets/images/nita.jpg';
+import Vandalin from '../assets/images/vandalin.jpg';
+import Vary from '../assets/images/vary.jpg';
+import Voleak from '../assets/images/voleak.jpg';
 const HomePage = () => {
   const home = useRef(null);
   const about_us = useRef(null);
@@ -32,7 +32,6 @@ const HomePage = () => {
   const [fileBsr, setFileBsr] = useState([]);
   const [fileClient, setFileClient] = useState([]);
   const [fileFounder, setFileFounder] = useState([]);
-  const [isShow, setShow] = useState(false);
   const [banner_1, setBaner_1] = useState([]);
   const [banner_2, setBaner_2] = useState([]);
   const [banner_3, setBaner_3] = useState([]);
@@ -266,9 +265,7 @@ const HomePage = () => {
           {fileDefault.map((e)=>(
             <img key={e.id} src={e.path_image} className="absolute inset-0 w-full h-full object-cover object-center" />
           ))}
-          <div className="absolute inset-0 w-full bg-black/20">
-
-          </div>
+          <div className="absolute inset-0 w-full bg-black/20"></div>
           <div className="relative flex flex-col justify-center mb-24 text-center lg:text-start">
                 <h1 className="text-[120px] md:text-[164px] font-['koulen'] text-[#39B6FF] font-normal h-[120px] md:h-[164px]">
                   Global
@@ -283,7 +280,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
 
       <section ref={about_us}>
         <div className="w-ful bg-[#ffffff]">
@@ -435,28 +431,77 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="bg-[#314bb2] px-5 pt-3 pb-12 md:pt-24 md:pb-32 clip-path-3 z-10">
-            <div className="flex justify-center items-center gap-[10vw]">
-              <div>
-                <div className="flex gap-[2vw] items-center justify-center">
-                  <img src={founderIcon} className="w-14 md:w-32" />
-                  <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                  {translations['founder_ch'] || 'Loading...'}
-                  </h1>
+          <div className="bg-[#314bb2] px-5 pt-3 pb-[12rem] md:pt-24 md:pb-[20rem] clip-path-3 z-10">
+            <div className="grid grid-cols-12 justify-center items-center gap-[2vw] my-10">
+              <div className="col-span-12 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Sopanha} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Khoum Sopanha</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Managing Director</p>
                 </div>
               </div>
-              <div>
-                <div className="flex gap-[2vw] items-center py-5">
-                <img src={accountingIcon} className="w-14 md:w-32" />
-                  <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                  {translations['t_&_a'] || 'Loading...'}
-                  </h1>
+              <div className="col-span-6 hidden lg:block"></div>
+              <div className="col-span-12 xl:col-span-6 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Sokha} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Ngin Sokha</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Business Manager</p>
                 </div>
-                <div className="flex gap-[2vw] items-center py-5">
-                <img src={partnerIcon} className="w-14 md:w-32" />
-                  <h1 className="text-center text-[#fff] font-['koulen'] text-[16px] md:text-[33px] lg:text-[44px]">
-                  {translations['partner'] || 'Loading...'}
-                  </h1>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-12 justify-center items-center gap-[2vw] my-10">
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Soklim} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Lot Soklim</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Senior Tax Accountant</p>
+                </div>
+              </div>
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Vary} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Chhan Vary</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Senior Tax Accountant</p>
+                </div>
+              </div>
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Vandalin} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Leang Vandalin</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Consultan</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-12 justify-center items-center gap-[2vw] my-10">
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Voleak} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Cheav voleak</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Tax Accountant</p>
+                </div>
+              </div>
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Dary} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Oeurn Dary</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Tax Accountant</p>
+                </div>
+              </div>
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={Nita} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Seng Sokunnita</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Assistant</p>
+                </div>
+              </div>
+
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <div className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] bg-gray-500 rounded-full"/>
+                <div>
+                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Hat Boramey</h1>
+                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Assistant</p>
                 </div>
               </div>
             </div>
@@ -661,9 +706,9 @@ const HomePage = () => {
       </section>
 
       <section ref={client}>
-        <div className="relative pt-0 md:pt-24">
+        <div className="relative">
           <div className="w-full max-w-sm md:max-w-screen-xl mx-auto">
-            <div className="h-full md:pb-[36vh] xl:pb-[56vh] bg-[#ffffff]">
+            <div className="h-full bg-[#ffffff]">
               <div>
                 <h1 className="text-[45px] text-[#182760] text-center font-['koulen'] font-medium pt-12">
                   {translations['ourClient'] || 'Loading...'}
@@ -682,68 +727,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="md:absolute z-10 md:translate-x-[-50%] md:left-[50%] md:top-[43%] lg:top-[37%] 2xl:top-[40%] flex flex-wrap gap-[1vh] lg:gap-[2vh]">
-            <div className="flex justify-center flex-wrap md:flex-nowrap gap-[1vh] lg:gap-[2vh]">
-              <div className="flex justify-center">
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBn_1} className="object w-full h-full"/>
-                </div>
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760] order-first md:order-none">
-                  <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
-                  {translations['items_1'] || 'Loading...'}
-                  </h1>
-                  <p className="text-[#eee] pb-5">
-                  {translations['items_detail_1'] || 'Loading...'}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex justify-center order-first md:order-none">
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBn_2} className="object w-full h-full"/>
-                </div>
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
-                  <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
-                  {translations['items_2'] || 'Loading...'}
-                  </h1>
-                  <p className=" text-[#182760] pb-5">
-                  {translations['items_detail_2'] || 'Loading...'}
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="flex justify-center gap-[1vh] flex-wrap md:flex-nowrap lg:gap-[2vh]">
-              <div className="flex justify-center">
-                <div className=" w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#CCD8E8]">
-                  <h1 className="lg:text-[35px] text-[#182760]  font-['koulen'] font-medium">
-                  {translations['items_3'] || 'Loading...'}
-                  </h1>
-                  <p className=" text-[#182760] pb-5">
-                  {translations['items_detail_3'] || 'Loading...'}
-                  </p>
-                </div>
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBn_3} className="object w-full h-full"/>
-                </div>
-              </div>
-
-              <div className="flex justify-center">
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh] p-5 bg-[#182760]">
-                  <h1 className="lg:text-[35px] text-[#eee]  font-['koulen'] font-medium">
-                  {translations['items_4'] || 'Loading...'}
-                  </h1>
-                  <p className="text-[#eee] pb-5">
-                  {translations['items_detail_4'] || 'Loading...'}
-                  </p>
-                </div>
-                <div className="w-[22vh] md:w-[16vh] lg:w-[17vh] xl:w-[34vh]">
-                  <img src={imgBn_4} className="object w-full h-full"/>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="w-full bg-[#314bb2] md:pb-[30vh] xl:pb-[50vh] clip-path-5"></div>
+          <div className="w-full bg-[#314bb2] md:pb-[20vh] clip-path-5"></div>
         </div>
       </section>
 

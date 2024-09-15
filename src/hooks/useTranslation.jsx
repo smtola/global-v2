@@ -28,3 +28,5 @@ export const useTranslation = (langCode) => {
 
   return translations;
 };
+
+

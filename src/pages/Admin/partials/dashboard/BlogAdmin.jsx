@@ -563,7 +563,6 @@ const BlogAdmin = () => {
                           placeholder="Description"
                           rows="1"
                           onChange={(e) => setDescription(e.target.value)}
-                          required
                         />
                       </div>
                     </div>
