@@ -24,6 +24,22 @@
     mix-blend-mod:color-burn;
 }
 
+.service-icon{
+    position:relative;
+    background-image: linear-gradient(#7644f3, #1fc9fc);
+}
+
+.service-icon::before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:4px;
+    left:0;
+    right:4px;
+    background:#182761;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
 @media screen and (max-width: 920px) {
     .clip-path-2{
         clip-path: polygon(0 5%, 100% 0, 100% 88%, 0 100%);

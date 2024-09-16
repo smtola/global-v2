@@ -2,9 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import Transition from './Transition';
 import langKh from '../../../assets/images/flag/kh-flag.png';
 import langEn from '../../../assets/images/flag/en-flag.png';
-import '../../../lang/i18n';
 function DropdownLang({
-  align
+  align,
 }) {
   const handleLanguageChange = (addCode) => {
     setBtnChange(addCode);

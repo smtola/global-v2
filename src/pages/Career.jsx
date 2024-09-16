@@ -2,10 +2,6 @@ import  Navbar_2  from "./components/Navbar_2";
 import Footer from "./components/Footer";
 import banner from "../assets/images/banner/cover.jpg";
 import CareerCardd from "./components/CareerCardd";
-import icon_1 from "../assets/images/icon/icon-1-01.png";
-import icon_2 from "../assets/images/icon/icon-1-05.png";
-import icon_3 from "../assets/images/icon/icon-1-03.png";
-import icon_4 from "../assets/images/icon/icon-1-04.png";
 import Scroll from "../Scroll";
 import {supabase} from '../config/db';
 import { useState,useEffect } from "react";
@@ -66,55 +62,12 @@ const Career = () => {
             <img src={banner} alt="" />
           </div>
         <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
-          {/*<div className="w-full !max-w-lg lg:!max-w-screen-xl mx-auto text-[#233C96]">*/}
-          {/*  <h1 className="!text-[30px] text-center font-['lexend'] font-bold md:!text-[54px]">Life at Global Consultancy</h1>*/}
-          {/* */}
-          {/* <div className="grid grid-cols-1 lg:grid-cols-2 py-7 gap-10">*/}
-          {/*    <div className="flex items-center justify-start">*/}
-          {/*      <div>*/}
-          {/*          <img src={icon_3} alt="" width={364}/>*/}
-          {/*      </div>*/}
-          {/*      <div>*/}
-          {/*        <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Striving for Excellence</h1>*/}
-          {/*        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nihil tenetur sunt aliquam tempore, ut iusto officia quasi eaque dicta, minus repudiandae quam non ducimus.</p>*/}
-          {/*      </div>*/}
-          {/*    </div>*/}
-          {/*    <div className="flex items-center justify-start">*/}
-          {/*      <div>*/}
-          {/*          <img src={icon_1} alt="" width={364}/>*/}
-          {/*      </div>*/}
-          {/*      <div>*/}
-          {/*        <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Culture of Learning</h1>*/}
-          {/*        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus hic delectus laborum vero ea? Amet cum quidem fugiat eveniet eligendi earum at soluta assumenda? Ut?</p>*/}
-          {/*      </div>*/}
-          {/*    </div>*/}
-          {/*    <div className="flex items-center justify-start">*/}
-          {/*      <div>*/}
-          {/*          <img src={icon_4} alt="" width={364}/>*/}
-          {/*      </div>*/}
-          {/*      <div>*/}
-          {/*        <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Happiness at Work</h1>*/}
-          {/*        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus qui asperiores illo ipsum corrupti dicta, ex aspernatur iusto distinctio est dolorum adipisci rerum fugiat nostrum.</p>*/}
-          {/*      </div>*/}
-          {/*    </div>*/}
-          {/*    <div className="flex items-center justify-start">*/}
-          {/*      <div>*/}
-          {/*          <img src={icon_2} alt="" width={364}/>*/}
-          {/*      </div>*/}
-          {/*      <div>*/}
-          {/*        <h1 className="!text-[18px] font-['lexend'] font-bold md:!text-[24px]">Enjoy Freebies</h1>*/}
-          {/*        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro repudiandae accusamus omnis. Vero nihil quas obcaecati harum, fugiat, corporis ea provident ipsa optio quibusdam totam.</p>*/}
-          {/*      </div>*/}
-          {/*    </div>*/}
-          {/* </div>*/}
-          {/*</div>*/}
-
           <div className="py-5 w-full max-w-screen-xl mx-auto">
-            <h1 className="!text-[30px] text-[#233C96] text-center font-['lexend'] font-bold md:!text-[54px]">Open Positions</h1>
+            <h1 className="!text-[30px] text-[#233C96] text-center font-['lexend'] font-bold md:!text-[54px]">{ translations['op'] }</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center  gap-[3vw] py-7">
               {data.map((item,index)=>
                 ( 
-                  <CareerCardd key={index} img={item.images} title={item.title} dics={item.description}/>
+                  <CareerCardd key={index} img={item.images} title={item.title} dics={item.description} titleKh={item.titleKh} descKh={item.descriptonKh} defaultLangCode={defaultLangCode}/>
                 ))}
             </div>
           </div>

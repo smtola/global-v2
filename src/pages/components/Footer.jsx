@@ -1,12 +1,10 @@
-import { useTranslation } from 'react-i18next';
 const Footer = () => {
-  const {t} = useTranslation();
   return (
     <footer>
     <div className="w-full md:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto px-4 py-5">
       <div>
         <h1 className="text-[30px] text-[#182760] font-['koulen'] my-2">
-         {t('contact_us')}
+         Contact Us
         </h1>
         <div>
           <ul className="text-[#182760]">

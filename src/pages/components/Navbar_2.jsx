@@ -61,7 +61,7 @@ const Navbar = ({translations}) => {
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
               <NavLink to={"/#services"}>{translations['services'] || 'Services'}</NavLink></li>
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
-              <NavLink to={"/#client"}>{translations['client'] || "Client's Testimonial"}</NavLink></li>
+              <NavLink to={"/client-testimonial"}>{translations['client'] || "Client's Testimonial"}</NavLink></li>
             <li onClick={handleRemove}>
               <NavLink className="text-[22px]" to={"/blog"}>{translations['blog'] || "Blog"}</NavLink>
               </li>
@@ -81,7 +81,7 @@ const Navbar = ({translations}) => {
                 <li className="cursor-pointer font-normal hover:font-bold active:font-bold">
                   <NavLink to="/#services">{translations['services'] || 'Services'}</NavLink></li>
                 <li className="cursor-pointer font-normal hover:font-bold active:font-bold">
-                  <NavLink to="/#client">{translations['client'] || "Client's Testimonial"}</NavLink></li>
+                  <NavLink to={"/client-testimonial"}>{translations['client'] || "Client's Testimonial"}</NavLink></li>
                 <li>
                   <NavLink className="font-normal hover:font-bold active:font-bold" to="/blog">{translations['blog'] || "Blog"}</NavLink>
                   </li>

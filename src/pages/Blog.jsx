@@ -5,32 +5,22 @@ import Scroll from "../Scroll";
 import {supabase} from '../config/db';
 import { useState,useEffect } from "react";
 import { useTranslation } from '../hooks/useTranslation';
-function ContentCard({ img, title, desc }) {
+import {Link} from "react-router-dom";
+const defaultLangCode = localStorage.getItem('language') || 'en';
+function ContentCard({ id, img, titleEn,titleKh, descEn,descKh }) {
   
   return (
-    <Card 
-      className="relative grid min-h-[30rem] items-end overflow-hidden rounded-xl"
-      color="transparent"
-    >
-      <img
-        src={img}
-        alt="bg"
-        className="absolute inset-0 h-full w-full object-cover object-center"
-      />
-      <div className="absolute inset-0 bg-black/50" />
-      <CardBody className="relative flex flex-col justify-end p-5">
-        <Typography className="text-[#ffffff] font-['lexend'] font-bold text-[24px]">
-          {title}
-        </Typography>
-        <Typography
-          variant="paragraph"
-          color="white"
-          className="my-2 font-['lexend'] font-normal text-[#ffffff]"
-        >
-          {desc}
-        </Typography>
-      </CardBody>
-    </Card>
+      <>
+          <div className="w-full max-w-screen-xl mx-auto">
+              <Link to={`/blog/${id}`}>
+                  <img src={img} alt=""/>
+                  <h1 className="text-[#182761] font-['lexend'] font-bold text-[24px]">{defaultLangCode === 'en' ? titleEn : titleKh}</h1>
+                  <p className="text-[#182761] my-2 font-['lexend'] font-normal">
+                      {defaultLangCode === 'en' ? descEn : descKh}
+                  </p>
+              </Link>
+          </div>
+      </>
   );
 }
 
@@ -78,19 +68,20 @@ const Blog = () => {
       <Typography
         className="!text-2xl !font-['lexend'] text-[#233C96] !font-bold !leading-snug lg:!text-3xl"
       >
-        Build something great
-      </Typography>
-      <Typography
-        className="mt-2 max-w-lg font-['lexend'] !text-[#233C96]  !font-normal "
-      >
-        We&apos;re constantly trying to express ourselves and actualize our
-        dreams. If you have the opportunity to play this game of life you need
-        to appreciate every moment.
+          Build Something Great -> Find Out More
       </Typography>
 
       <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-3">
         {data.map((item,index) => (
-          <ContentCard key={index} img={item.images} title={item.title} desc={item.description} />
+          <ContentCard
+              key={index}
+              id={item.id}
+              img={item.images}
+              titleEn={item.title}
+              titleKh={item.titleKh}
+              descEn={item.description}
+              descKh={item.descriptionKh}
+          />
         ))}
       </div>
       </section>

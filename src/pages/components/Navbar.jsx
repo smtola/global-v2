@@ -2,9 +2,8 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import imgLogo from "../../assets/images/Global consultancy  Logo Final.png";
 import DropdownLang from "./dropdown/DropdownLang";
-import { useTranslation } from 'react-i18next';
-import { useEffect } from "react";
-const Navbar = ({home,about,services,client,translations}) => {
+
+const Navbar = ({home,about,services,client,translations,language}) => {
   const iconMenu = <svg  xmlns="http://www.w3.org/2000/svg" className="isCLickMenu" viewBox="-5 -7 24 24" width="32" fill="#314bb2"><path d="M1 0h5a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2zm7 8h5a1 1 0 0 1 0 2H8a1 1 0 1 1 0-2zM1 4h12a1 1 0 0 1 0 2H1a1 1 0 1 1 0-2z"></path></svg>;
   const iconClose = <svg xmlns="http://www.w3.org/2000/svg" className="isClickClose" viewBox="-6 -6 24 24" width="32" fill="#314bb2"><path d="M7.314 5.9l3.535-3.536A1 1 0 1 0 9.435.95L5.899 4.485 2.364.95A1 1 0 1 0 .95 2.364l3.535 3.535L.95 9.435a1 1 0 1 0 1.414 1.414l3.535-3.535 3.536 3.535a1 1 0 1 0 1.414-1.414L7.314 5.899z"></path></svg>;
   
@@ -35,7 +34,7 @@ const Navbar = ({home,about,services,client,translations}) => {
               <img src={imgLogo} alt="logo" width="64" />
             </div>
             <div className="z-20 md:hidden flex flex-nowrap gap-2">
-              <DropdownLang className="pt-4"/>
+              <DropdownLang className="pt-4" />
               <span className="float-end cursor-pointer" onClick={handleClick}>
                  {iconMenu}
                  {iconClose}
@@ -62,7 +61,7 @@ const Navbar = ({home,about,services,client,translations}) => {
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
               <NavLink to={"/"} onClick={()=> scrollToSection(services)}>{translations['services'] || 'Services'}</NavLink></li>
             <li className="cursor-pointer text-[22px] " onClick={handleRemove}>
-              <NavLink to={"/"} onClick={()=> scrollToSection(client)}>{translations['client'] || "Client's Testimonial"}</NavLink></li>
+              <NavLink to={"/client-testimonial"}>{translations['client'] || "Client's Testimonial"}</NavLink></li>
             <li onClick={handleRemove}>
               <NavLink className="text-[22px]" to={"/blog"}>{translations['blog'] || "Blog"}</NavLink>
               </li>
@@ -82,7 +81,7 @@ const Navbar = ({home,about,services,client,translations}) => {
                 <li className="cursor-pointer font-normal hover:font-bold active:font-bold">
                   <NavLink to="/#service" onClick={()=> scrollToSection(services)}>{translations['services'] || 'Services'}</NavLink></li>
                 <li className="cursor-pointer font-normal hover:font-bold active:font-bold">
-                  <NavLink to="/#client" onClick={()=> scrollToSection(client)}>{translations['client'] || "Client's Testimonial"}</NavLink></li>
+                  <NavLink to={"/client-testimonial"}>{translations['client'] || "Client's Testimonial"}</NavLink></li>
                 <li>
                   <NavLink className="font-normal hover:font-bold active:font-bold" to="/blog">{translations['blog'] || "Blog"}</NavLink>
                   </li>
