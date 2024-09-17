@@ -374,7 +374,7 @@ const HomePage = () => {
                <div key={items.id} className="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 first:col-span-12 inline-flex justify-start lg:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
                 <img src={items.image} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
                 <div className="font-['lexend']">
-                  <h1 className="text-[20px]  lg:text-[30px] text-[#ffffff]">{defaultLangCode === 'en' ? items.nameEn: items.nameKh}</h1>
+                  <h1 className="text-[16px]  lg:text-[24px] text-[#ffffff]">{defaultLangCode === 'en' ? items.nameEn: items.nameKh}</h1>
                   <p className="text-[16px]  lg:text-[20px] text-[#ffffff]">{defaultLangCode === 'en' ? items.positionEn: items.positionKh}</p>
                 </div>
               </div>

@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import banner from "../assets/images/test_banner.jpeg";
 import CareerCardd from "./components/CareerCardd";
 import Scroll from "../Scroll";
+import "./HomePage.css";
 import {supabase} from '../config/db';
 import { useState,useEffect } from "react";
 import { useTranslation } from '../hooks/useTranslation';
@@ -44,22 +45,17 @@ const Career = () => {
     <>
       <Scroll/>
        <Navbar_2  translations={translations}/>
-        <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
+        <section className="container mx-auto px-10 py-24 md:py-[16rem] transition-all duration-500">
           <div className="w-full !max-w-lg lg:!max-w-[56rem] text-[#233C96]">
-            <h1 className="!text-[30px] font-['lexend'] font-bold md:!text-[54px]">Work With Us</h1>
+            <h1 className="!text-[30px] font-['lexend'] font-bold md:!text-[54px]">{translations['wwu']}</h1>
             <p className="!text-[14px] font-['lexend'] font-medium md:!text-[23px]">
-              Are you a creative mind looking for new challenges?
-              Are you ready to take your skills to the next level?
-              Interested to be part of our growing dynamic team?
+                {translations['wwu_detail']}
             </p>
             <br/>
-            <p className="!text-[14px] font-['lexend'] font-medium md:!text-[23px]">
-              Welcome to Global Consultancy. We are Cambodia’s renowned brandand identity design agency with a wide range of creative services. Our team consists of young and creative talents with different areas of expertise, who are committed to deliver the desirable outcomes that truly reflect our clients’ ideas.`
-            </p>
           </div>
         </section>
           <div>
-            <img src={banner} alt="" className="w-full h-full"/>
+            <img src={banner} alt="" className="w-full h-[50rem] object-cover object-center clip-path-5"/>
           </div>
         <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
           <div className="py-5 w-full max-w-screen-xl mx-auto">
