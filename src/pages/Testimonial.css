@@ -1,0 +1,7 @@
+.bg-banner{
+    background: url("../assets/images/test_banner.jpeg") no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-blend-mode: overlay;
+}

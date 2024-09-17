@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../../../config/db";
-import { toast } from 'react-toastify';
+import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Services = () => {
   const [loading, setLoading] = useState(true);
@@ -8,40 +8,361 @@ const Services = () => {
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [data, setData] = useState([]);
+  const [file,setFile] = useState("");
+  const [imageFile, setImageFile] = useState(null);
+  const [fileDefault, setFileDefault] = useState([]);
+  const [image, setImage] = useState("");
+
+  const [title, setTitle] = useState('');
+  const [titleKh, setTitleKh] = useState('');
+  const [Id, setId] = useState('');
   useEffect(()=>{
     fetchData();
   })
+  const handleFileChange = (e) => {
+    setImageFile(e.target.files[0]);
+    setFile(URL.createObjectURL(e.target.files[0]));
+  };
+  const handleSubmit = async () => {
+    setUploading(true);
+    // Upload image to Supabase Storage
+    const fileName = `${Date.now()}_${imageFile.name}`;
+    const { error: uploadError } = await supabase.storage
+        .from("images") // Your Supabase Storage bucket name
+        .upload(`contents/${fileName}`, imageFile);
+
+    if (uploadError) {
+      console.error("Error uploading image:", uploadError.message);
+      return;
+    }
+
+    // Insert product details into Supabase database
+    const { error: insertError } = await supabase
+        .from("services")
+        .insert([{ title,titleKh, image: fileName }]);
+    setShowModalAdd(false);
+    setUploading(false);
+    fetchData();
+    if (insertError) {
+      toast.error("Error inserting...", insertError.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success("Added successfully!.", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+      setTitle('');
+      setTitleKh('');
+      setImageFile(null);
+      setFile(null);
+    }
+
+  };
+  // delete
+  const handleDelete = async (id) => {
+    setUploading(true);
+
+    // Fetch product details to get the image URL
+    const { data: blog, error: fetchError } = await supabase
+        .from("services")
+        .select("image")
+        .eq("id", id)
+        .single();
+
+    if (fetchError) {
+      toast.error(`Error fetching blog: ${fetchError.message}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+      setUploading(false);
+      return;
+    }
+
+    if (!blog) {
+      toast.error("Services not found", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+      setUploading(false);
+      return;
+    }
+
+    const imageUrl = blog.image;
+    const imageFileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+
+    // Delete the image file from Supabase Storage
+    const { error: deleteFileError } = await supabase.storage
+        .from("images") // Your bucket name
+        .remove([`contents/${imageFileName}`]);
+
+    if (deleteFileError) {
+      toast.error(`Error deleting file: ${deleteFileError.message}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+      setUploading(false);
+      return;
+    }
+
+    // Delete the product record from the database
+    const { error: deleteProductError } = await supabase
+        .from("services")
+        .delete()
+        .eq("id", id);
+
+    if (deleteProductError) {
+      toast.error(`Error deleting...: ${deleteProductError.message}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success("Deleted successfully!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    }
+    fetchData();
+    setUploading(false);
+  };
+
   const fetchData = async () => {
     try {
-    const {data:getData, error} = await supabase
-        .from('services')
-        .select('*');
-    const getImage = await Promise.all(
-        getData.map((items)=>{
-          if(items.image){
-            const { data: img_url, error: urlError } = supabase.storage
-                .from("images") // Replace with your storage bucket name
-                .getPublicUrl(`contents/${items.image}`); // item.image is the file path
-            if (urlError) {
-              throw urlError;
+      const {data:getData, error} = await supabase
+          .from('services')
+          .select('*');
+      const getImage = await Promise.all(
+          getData.map((items)=>{
+            if(items.image){
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${items.image}`); // item.image is the file path
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...items, image: img_url.publicUrl }; // Append public URL to item
             }
+            return items;
+          })
+      )
 
-            return { ...items, image: img_url.publicUrl }; // Append public URL to item
-          }
-          return items;
-        })
-    )
-
-    if(error) {
-      throw error;
-    }
-    setData(getImage);
+      if(error) {
+        throw error;
+      }
+      setFileDefault(getData);
+      setData(getImage);
     } catch (err) {
       console.log(err.message);
     } finally {
       setLoading(false);
     }
   }
+
+  const editId = async (id) =>{
+    setShowModalEdit(true);
+    data.map((items) => {
+      if (items.id === id) {
+        setId(items.id);
+        setTitle(items.title);
+        setTitleKh(items.titleKh);
+        setImageFile(items.image);
+      }
+    });
+    fileDefault.map((file) => {
+      if (file.id === id) {
+        setImage(file.image);
+      }
+    });
+  }
+  const uploadImage = async (file) => {
+    if(file.name == undefined){
+      return;
+    }else{
+      const fileName = `${Date.now()}_${file.name}`;
+      const { error: uploadError } = await supabase.storage
+          .from("images")
+          .upload(`contents/${fileName}`, file);
+      if (uploadError) {
+        throw uploadError;
+      }
+      // Update career details
+      const { data: banner, error: fetchError } = await supabase
+          .from("services")
+          .select("image")
+          .eq("id", Id)
+          .single();
+
+      if (fetchError) {
+        toast.error(`Error fetching blog: ${fetchError.message}`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setUploading(false);
+        return;
+      }
+
+      if (!banner) {
+        toast.error(`Founder not bad!`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setUploading(false);
+        return;
+      }
+
+      const imageUrls = banner.image;
+      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
+
+      // Delete the image file from Supabase Storage
+      await supabase.storage
+          .from("images") // Your bucket name
+          .remove([`contents/${imageFileName}`]);
+
+      return fileName;
+    }
+  };
+  // Function to update blog data
+  const updateBlog = async (imageUrl = null ) => {
+    setUploading(true);
+    try {
+      const updatedData = {
+        title,
+        titleKh
+      };
+
+      if (imageUrl) {
+        updatedData.image = imageUrl;
+      }else if(image){
+        updatedData.image = image;
+      }
+
+      const { error: updateError } = await supabase
+          .from("services")
+          .update(updatedData)
+          .match({ id: Id });
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      fetchData();
+    } catch (err) {
+      toast.error(err.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  // Main handler for update
+  const handleUpdate = async () => {
+    try {
+      setUploading(true);
+      let imageUrl = null;
+      if (imageFile) {
+        imageUrl = await uploadImage(imageFile);
+      }
+
+      await updateBlog(imageUrl);
+      toast.success('Edited successfully!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      fetchData();
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+      toast.error('Failed to update the blog.', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } finally {
+      setUploading(false);
+      setShowModalEdit(false);
+    }
+  };
 
   if (loading) return (
     <div className="text-center min-h-[100vh] z-[99999]">
@@ -63,7 +384,7 @@ const Services = () => {
                 {/* Left: Title */}
           <div className="mb-4 sm:mb-0">
             <h1 className="text-2xl md:text-3xl text-gray-800 font-bold">
-              Careers
+              Service Name
             </h1>
           </div>
         </div>
@@ -118,7 +439,7 @@ const Services = () => {
                     <td className="px-6 py-4">
                       {blog.image ? (
                         <img
-                          src={blog.icon}
+                          src={blog.image}
                           alt=""
                           className="w-14 h-14 object-cover md:w-24 md:h-24 rounded-lg"
                         />
@@ -155,228 +476,264 @@ const Services = () => {
 
       {/* modalAdd */}
       {showModalAdd ? (
-        <>
-          <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-full my-6 mx-auto max-w-sm md:max-w-md">
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
-                  <h3 className="text-xl text-gray-500 font-semibold">
-                    Add Careers
-                  </h3>
-                  <button
-                    className=" float-right"
-                    onClick={() => setShowModalAdd(false)}
-                  >
-                    <span className="relative text-gray-500 cursor-pointer opacity-7 h-6 w-6 text-xl block hover:text-[#314bb2]">
-                      <h1>x</h1>
-                    </span>
-                  </button>
-                </div>
-                <div className="p-2 flex-auto">
-                  <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
-                    <div className="my-2">
-                      <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Title
-                      </label>
-                      <div className="flex">
-                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
-                        </span>
-                        <input
-                          type="text"
-                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                          placeholder="Title"
-                          onChange={(e) => setTittle(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="my-2">
-                      <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Image
-                      </label>
-                      <div className="flex items-center justify-center w-full">
-                        <label
-                          htmlFor="dropzone-file"
-                          className="flex flex-col items-center justify-center w-full h-56 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100"
-                          style={{
-                            backgroundImage: `url(${file} )`,
-                            backgroundPositionX: "center",
-                            backgroundSize: "cover",
-                            backgroundRepeat: "no-repeat",
-                          }}
-                        >
-                          <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                            <svg
-                              className="w-8 h-8 mb-4 text-[#314bb2]"
-                              aria-hidden="true"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 20 16"
-                            >
-                              <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                              />
-                            </svg>
-                            <p className="mb-2 text-sm text-[#314bb2]">
-                              <span className="font-semibold">
-                                Click to upload
-                              </span>{" "}
-                              or drag and drop
-                            </p>
-                          </div>
-                          <input
-                            id="dropzone-file"
-                            type="file"
-                            className="hidden"
-                            accept="image/*"
-                            onChange={handleFileChange}
-                            required
-                          />
-                        </label>
-                      </div>
-                    </div>
-
-                    <div className="flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
-                      <button
-                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
+          <>
+            <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+              <div className="relative w-full my-6 mx-auto max-w-lg md:max-w-lg">
+                <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                  <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
+                    <h3 className="text-xl text-gray-500 font-semibold">
+                      Add New
+                    </h3>
+                    <button
+                        className="float-right"
                         onClick={() => setShowModalAdd(false)}
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        className="text-white bg-[#314bb2] active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                        type="submit"
-                        disabled={uploading}
-                      >
-                        {uploading ? "Uploading..." : "Save"}
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-      ) : null}
-      {/* modalEdit */}
-      {showModalEdit ? (
-        <>
-          <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-full my-6 mx-auto max-w-sm md:max-w-md">
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
-                  <h3 className="text-xl text-gray-500 font-semibold">
-                    Edit {title || 'loading...'}
-                  </h3>
-                  <button
-                    className=" float-right"
-                    onClick={() => setShowModalEdit(false)}
-                  >
+                    >
                     <span className="relative text-gray-500 cursor-pointer opacity-7 h-6 w-6 text-xl block hover:text-[#314bb2]">
                       <h1>x</h1>
                     </span>
-                  </button>
-                </div>
-                <div className="p-2 flex-auto">
-                  <form className="max-w-lg mx-auto">
-                    <div className="my-2">
-                      <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Title
-                      </label>
-                      <div className="flex">
-                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                    </button>
+                  </div>
+                  <div className="p-2 ">
+                    <form className="w-full mx-auto grid grid-cols-12 gap-5 justify-center items-center">
+                      <div className="my-2 col-span-12">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
                         </span>
-                        <input
-                          type="text"
-                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                          placeholder="Title"
-                          defaultValue={title}
-                          onChange={(e) => setTittle(e.target.value)}
-                          required
-                        />
+                          <input
+                              type="text"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in English"
+                              onChange={(e) => setTitle(e.target.value)}
+                              required
+                          />
+                        </div>
                       </div>
-                    </div>
+                      <div className="my-2 col-span-12">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title in khmer
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <input
+                              type="text"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in English"
+                              onChange={(e) => setTitleKh(e.target.value)}
+                              required
+                          />
+                        </div>
+                      </div>
 
-                    <div className="my-2">
-                      <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Image
-                      </label>
-                      <div className="flex items-center justify-center w-full">
-                        <label
-                          htmlFor="dropzone-file"
-                          className="flex flex-col items-center justify-center w-full h-56 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100"
-                          style={{
-                            backgroundImage: `url(${file || imageFile} )`,
-                            backgroundPositionX: "center",
-                            backgroundSize: "cover",
-                            backgroundRepeat: "no-repeat",
-                          }}
-                        >
-                          <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                            <svg
-                              className="w-8 h-8 mb-4 text-[#ffffff]"
-                              aria-hidden="true"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 20 16"
-                            >
-                              <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                              />
-                            </svg>
-                            <p className="mb-2 text-sm text-[#ffffff]">
+                      <div className="my-2 col-span-12">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Image
+                        </label>
+                        <div className="flex items-center justify-center w-full">
+                          <label
+                              htmlFor="dropzone-file"
+                              className="flex flex-col items-center justify-center w-full min-h-[10rem] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer hover:bg-[#06060676] bg-[#06060676]"
+                              style={{
+                                backgroundImage: `url(${file || imageFile} )`,
+                                backgroundPositionX: "center",
+                                backgroundSize: "cover",
+                                backgroundRepeat: "no-repeat",
+                              }}
+                          >
+                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                              <svg
+                                  className="w-8 h-8 mb-4 text-[#ffffff]"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 20 16"
+                              >
+                                <path
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                                />
+                              </svg>
+                              <p className="mb-2 text-sm text-[#ffffff]">
                               <span className="font-semibold">
                                 Click to upload
                               </span>{" "}
-                              or drag and drop
-                            </p>
-                          </div>
-                          <input
-                            id="dropzone-file"
-                            type="file"
-                            className="hidden"
-                            accept="image/*"
-                            onChange={handleFileChangeEdit}
-                            required
-                          />
-                        </label>
+                                or drag and drop
+                              </p>
+                            </div>
+                            <input
+                                id="dropzone-file"
+                                type="file"
+                                className="hidden"
+                                accept="image/*"
+                                onChange={handleFileChange}
+                                required
+                            />
+                          </label>
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
-                      <button
-                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                        onClick={() => setShowModalEdit(false)}
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        className="text-white bg-[#314bb2] active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                        onClick={handleUpdate}
-                        disabled={uploading}
-                      >
-                        {uploading ? "Uploading..." : "Save"}
-                      </button>
-                    </div>
-                  </form>
+                      <div className="col-span-12 flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
+                        <button
+                            className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
+                            type="button"
+                            onClick={() => setShowModalAdd(false)}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                            className="text-white bg-[#314bb2] active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                            type="button"
+                            onClick={handleSubmit}
+                            disabled={uploading}
+                        >
+                          {uploading ? "Uploading..." : "Save"}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </>
+          </>
+      ) : null}
+      {showModalEdit ? (
+          <>
+            <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+              <div className="relative w-full my-6 mx-auto max-w-lg md:max-w-lg">
+                <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                  <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
+                    <h3 className="text-xl text-gray-500 font-semibold">
+                      Edit
+                    </h3>
+                    <button
+                        className="float-right"
+                        onClick={() => setShowModalEdit(false)}
+                    >
+                    <span className="relative text-gray-500 cursor-pointer opacity-7 h-6 w-6 text-xl block hover:text-[#314bb2]">
+                      <h1>x</h1>
+                    </span>
+                    </button>
+                  </div>
+                  <div className="p-2 ">
+                    <form className="w-full mx-auto grid grid-cols-12 gap-5 justify-center items-center">
+                      <div className="my-2 col-span-12">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <input
+                              type="text"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in English"
+                              defaultValue={title}
+                              onChange={(e) => setTitle(e.target.value)}
+                              required
+                          />
+                        </div>
+                      </div>
+                      <div className="my-2 col-span-12">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title in khmer
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <input
+                              type="text"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in English"
+                              defaultValue={titleKh}
+                              onChange={(e) => setTitleKh(e.target.value)}
+                              required
+                          />
+                        </div>
+                      </div>
+
+                      <div className="my-2 col-span-12">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Image
+                        </label>
+                        <div className="flex items-center justify-center w-full">
+                          <label
+                              htmlFor="dropzone-file"
+                              className="flex flex-col items-center justify-center w-full min-h-[10rem] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer hover:bg-[#06060676] bg-[#06060676]"
+                              style={{
+                                backgroundImage: `url(${file || imageFile} )`,
+                                backgroundPositionX: "center",
+                                backgroundSize: "cover",
+                                backgroundRepeat: "no-repeat",
+                              }}
+                          >
+                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                              <svg
+                                  className="w-8 h-8 mb-4 text-[#ffffff]"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 20 16"
+                              >
+                                <path
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                                />
+                              </svg>
+                              <p className="mb-2 text-sm text-[#ffffff]">
+                              <span className="font-semibold">
+                                Click to upload
+                              </span>{" "}
+                                or drag and drop
+                              </p>
+                            </div>
+                            <input
+                                id="dropzone-file"
+                                type="file"
+                                className="hidden"
+                                accept="image/*"
+                                onChange={handleFileChange}
+                                required
+                            />
+                          </label>
+                        </div>
+                      </div>
+
+                      <div className="col-span-12 flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
+                        <button
+                            className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
+                            type="button"
+                            onClick={() => setShowModalEdit(false)}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                            className="text-white bg-[#314bb2] active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                            type="button"
+                            onClick={handleUpdate}
+                            disabled={uploading}
+                        >
+                          {uploading ? "Uploading..." : "Save"}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
       ) : null}
     </>
   );

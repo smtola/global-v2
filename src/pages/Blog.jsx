@@ -64,7 +64,7 @@ const Blog = () => {
     <>
       <Scroll/>
       <Navbar_2 translations={translations}/>
-      <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
+      <section className="container mx-auto px-10 py-24 md:py-[18rem] transition-all duration-500">
       <Typography
         className="!text-2xl !font-['lexend'] text-[#233C96] !font-bold !leading-snug lg:!text-3xl"
       >

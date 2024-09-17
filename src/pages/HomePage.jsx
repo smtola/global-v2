@@ -3,21 +3,9 @@ import Footer from "./components/Footer";
 import React, {useRef,useState,useEffect} from "react";
 import "./HomePage.css";
 import Scroll from "../Scroll";
-import iconTrande from "../assets/images/icon/trande.png";
-import iconAccount from "../assets/images/icon/account.png";
-import iconTax from "../assets/images/icon/tax.png";
 import { useTranslation } from '../hooks/useTranslation';
 import {supabase} from "../config/db.js";
 // chart
-import Sopanha from '../assets/images/sopanha.jpg';
-import Sokha from '../assets/images/sokha.jpg';
-import Soklim from '../assets/images/soklim.jpg';
-import Dary from '../assets/images/dary.jpg';
-import Nita from '../assets/images/nita.jpg';
-import Vandalin from '../assets/images/vandalin.jpg';
-import Vary from '../assets/images/vary.jpg';
-import Voleak from '../assets/images/voleak.jpg';
-import Boramey from '../assets/images/boramey.jpg';
 const HomePage = () => {
   const home = useRef(null);
   const about_us = useRef(null);
@@ -36,6 +24,7 @@ const HomePage = () => {
   const [founder, setFounder] = useState([]);
   const [brc, setBrc] = useState([]);
   const [whyUs, setWhyUs] = useState([]);
+  const [orgChart, setOrgChart] = useState([]);
   useEffect(() => {
     fetchServices();
     fetchBanner();
@@ -45,6 +34,7 @@ const HomePage = () => {
     fetchFounder();
     fetchBrc();
     fetchsetWhyUs();
+    fetchOrgChart();
   }, []);
 
   const fetchAbourtUs1 = async () => {
@@ -67,6 +57,33 @@ const HomePage = () => {
       console.error('Error fetching data:', error);
     } else {
       setCoreValueItems_1(data);
+    }
+  };
+  const fetchOrgChart = async () => {
+    const { data, error } = await supabase
+        .from('organization_chart')
+        .select("*");
+    const dataWithUrls = await Promise.all(
+        data.map(async (item) => {
+          if (item.image) {
+            // Generate public URL for the image
+            const { data: img_url, error: urlError } = supabase.storage
+                .from("images") // Replace with your storage bucket name
+                .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+            if (urlError) {
+              throw urlError;
+            }
+
+            return { ...item, image: img_url.publicUrl }; // Append public URL to item
+          }
+          return item;
+        })
+    );
+    if (error) {
+      console.error('Error fetching data:', error);
+    } else {
+      setOrgChart(dataWithUrls);
     }
   };
   const fetchBanner = async () =>{
@@ -180,14 +197,30 @@ const HomePage = () => {
           id,
           title,
           titleKh,
-          icon,
+          image,
           sv_items!inner(sv_id, items, itemsKh) 
         `);
+    const dataWithUrls = await Promise.all(
+        data.map(async (item) => {
+          if (item.image) {
+            // Generate public URL for the image
+            const { data: img_url, error: urlError } = supabase.storage
+                .from("images") // Replace with your storage bucket name
+                .getPublicUrl(`contents/${item.image}`); // item.image is the file path
 
+            if (urlError) {
+              throw urlError;
+            }
+
+            return { ...item, image: img_url.publicUrl }; // Append public URL to item
+          }
+          return item;
+        })
+    );
     if (error) {
       console.error('Error fetching data:', error);
     } else {
-      setServices(data);
+      setServices(dataWithUrls);
     }
   };
   useEffect(()=>{
@@ -236,15 +269,17 @@ const HomePage = () => {
           <img src={e.image} className="absolute inset-0 w-full h-full object-cover object-center" />
           <div className="absolute inset-0 w-full bg-black/20"></div>
           <div className="relative flex flex-col justify-center mb-24 text-center lg:text-start">
-                <h1 className="text-[120px] md:text-[164px] font-['koulen'] text-[#39B6FF] font-normal h-[120px] md:h-[164px]">
-                  Global
+                <h1 className="text-center text-[30px] md:text-[50px] lg:text-[80px] 2xl:text-[114px] font-['koulen'] text-[#ffffff] font-normal md:h-[50px] lg:h-[80px] 2xl:h-[114px]">
+                  Maximize Your Tax Savings
                 </h1>
-                <h1 className="text-[65px] md:text-[87px] font-['koulen'] text-[#233C96] font-normal">
-                  Consultancy
+                <h1 className="text-center text-[20px] md:text-[45px] lg:text-[50px] 2xl:text-[87px] font-['koulen'] text-[#ffffff] font-normal">
+                  with Expert Solutions
                 </h1>
-                <p className="text-[16px] font-['inter'] text-[#ffffff] font-normal lg:w-64">
+                <p className="text-center text-[16px] md:text-[24px] font-['inter'] text-[#ffffff] font-normal ">
                 {defaultLangCode === 'en' ? e.descriptionEn : e.descriptionKh }
-              </p>
+               </p>
+
+            <a href="tel:+855 17 966 659 " className="text-center bg-gradient-to-r to-[#05A4FE] from-[#C2F6FF] px-2 py-3 shadow-md text-[#314cb2] w-[12rem] rounded-full mx-auto my-5 hover:font-bold hover:scale-[1.1] transition-all duration-[500ms]">Get Started Today</a>
           </div>
         </div>
             ))}
@@ -334,79 +369,17 @@ const HomePage = () => {
             ))}
             </div>
           <div className="bg-[#314bb2] px-5 pt-3 pb-[12rem] md:pt-24 md:pb-[20rem] clip-path-3 z-10">
-            <div className="grid grid-cols-12 justify-center items-center gap-[2vw] my-10">
-              <div className="col-span-12 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
-                <img src={Sopanha} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
-                <div>
-                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Khoum Sopanha</h1>
-                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Managing Director</p>
+            <div className="grid grid-cols-12 justify-start lg:justify-center items-center gap-[2vw] my-10 font-['koulen']">
+              {orgChart.map((items)=>(
+               <div key={items.id} className="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 first:col-span-12 inline-flex justify-start lg:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={items.image} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+                <div className="font-['lexend']">
+                  <h1 className="text-[20px]  lg:text-[30px] text-[#ffffff]">{defaultLangCode === 'en' ? items.nameEn: items.nameKh}</h1>
+                  <p className="text-[16px]  lg:text-[20px] text-[#ffffff]">{defaultLangCode === 'en' ? items.positionEn: items.positionKh}</p>
                 </div>
               </div>
-              <div className="col-span-6 hidden lg:block"></div>
-              <div className="col-span-12 xl:col-span-6 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
-                <img src={Sokha} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
-                <div>
-                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Ngin Sokha</h1>
-                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Business Manager</p>
-                </div>
+              ))}
               </div>
-            </div>
-
-            <div className="grid grid-cols-12 justify-center items-center gap-[2vw] my-10">
-              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
-                <img src={Soklim} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
-                <div>
-                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Lot Soklim</h1>
-                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Senior Tax Accountant</p>
-                </div>
-              </div>
-              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
-                <img src={Vary} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
-                <div>
-                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Chhan Vary</h1>
-                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Senior Tax Accountant</p>
-                </div>
-              </div>
-              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
-                <img src={Vandalin} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
-                <div>
-                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Leang Vandalin</h1>
-                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Consultan</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-12 justify-center items-center gap-[2vw] my-10">
-              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
-                <img src={Voleak} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
-                <div>
-                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Cheav voleak</h1>
-                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Tax Accountant</p>
-                </div>
-              </div>
-              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
-                <img src={Dary} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
-                <div>
-                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Oeurn Dary</h1>
-                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Tax Accountant</p>
-                </div>
-              </div>
-              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
-                <img src={Nita} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
-                <div>
-                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Seng Sokunnita</h1>
-                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Assistant</p>
-                </div>
-              </div>
-
-              <div className="col-span-12 md:col-span-6 xl:col-span-4 inline-flex justify-start md:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
-                <img src={Boramey} className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
-                <div>
-                  <h1 className="text-[20px] font-bold font-['inter'] lg:text-[30px] text-[#ffffff]">Hat Boramey</h1>
-                  <p className="text-[16px] font-['inter'] lg:text-[20px] text-[#ffffff]">Assistant</p>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="w-full max-w-screen-xl mx-auto my-3 md:my-10">
@@ -441,7 +414,7 @@ const HomePage = () => {
           {servicesValue.map((cards)=>(
               <div  key={cards.id} className="relative flex flex-col gap-[2vw] bg-[#eee] w-[28rem] mx-auto">
                 <div className="relative flex flex-col justify-center service-icon w-[5rem] h-[5rem] mx-auto rotate-[46deg] z-[10] translate-y-[-50%]">
-                  <img src={cards.icon} alt=""/>
+                  <img src={cards.image} alt="" className="w-[2.5rem] h-[2.5rem] mx-auto rotate-[-46deg] z-[30]"/>
                 </div>
                 <div className="bg-[#eee] relative relative flex flex-col justify-center px-10 pb-10 font-['inter']">
                   <h1 className="text-center font-bold text-[20px]">{defaultLangCode === 'en' ? cards.title : cards.titleKh}</h1>

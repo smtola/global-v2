@@ -1,6 +1,7 @@
 import Scroll from "../Scroll.jsx";
 import React, {useEffect, useState} from "react";
 import Navbar from "./components/Navbar";
+import "./Testimonial.css";
 import Footer from "./components/Footer";
 import { useTranslation } from '../hooks/useTranslation';
 import {supabase} from "../config/db.js";
@@ -28,7 +29,7 @@ const Testimonial = () => {
             <Scroll />
 
             <Navbar translations={translations}/>
-            <section className="bg-gray-100 pt-[16rem] min-h-screen">
+            <section className="bg-gray-100 pt-[16rem] min-h-screen bg-banner">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold text-[#182761]">Client Testimonials</h2>

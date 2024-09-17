@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../../../config/db";
-import { toast } from 'react-toastify';
+import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const WhyUs = () => {
   const [loading, setLoading] = useState(true);
@@ -8,26 +8,235 @@ const WhyUs = () => {
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [data, setData] = useState([]);
-  useEffect(()=>{
+
+  const [titleEn, setTitleEn] = useState('');
+  const [titleKh, setTitleKh] = useState('');
+  const [detailEn, setDetailEn] = useState('');
+  const [detailKh, setDetailKh] = useState('');
+  const [Id, setId] = useState('');
+  useEffect(() => {
     fetchData();
   })
   const fetchData = async () => {
     try {
-    const {data:getData, error} = await supabase
-        .from('whyus')
-        .select('*')
-        .order('id', { ascending: true })
+      const {data: getData, error} = await supabase
+          .from('whyus')
+          .select('*')
+          .order('id', {ascending:true});
 
-    if(error) {
-      throw error;
-    }
-    setData(getData);
+      if (error) {
+        throw error;
+      }
+      setData(getData);
     } catch (err) {
       console.log(err.message);
     } finally {
       setLoading(false);
     }
   }
+
+  const insertData = async () => {
+    setUploading(true);
+    try {
+      const data = {
+        titleEn,
+        titleKh,
+        detailEn,
+        detailKh
+      };
+      const {error} = await supabase
+          .from('whyus')
+          .insert(data);
+
+      if(error){
+        toast.error(error.message, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+
+      fetchData();
+    }catch (err) {
+      toast.error(err.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } finally {
+      setUploading(false);
+    }
+  }
+  const handleSubmit = async () => {
+    try {
+      await insertData();
+      toast.success('Add successfully!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+      toast.error('Failed to update the blog.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } finally {
+      setUploading(false);
+    }
+    fetchData();
+    setItems('');
+    setItemsKh('');
+    setShowModalAdd(false);
+  }
+  const handleDelete = async (id) => {
+    try {
+      const {error} = await supabase
+          .from('whyus')
+          .delete()
+          .eq('id', id)
+      if(error){
+        toast.error(error.message, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+      fetchData();
+      toast.success('Deleted successfully!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }catch (err) {
+      toast.error(err.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } finally {
+      setUploading(false);
+    }
+  }
+  const editId = async (id) => {
+    setShowModalEdit(true);
+    data.map((items) => {
+      if (items.id === id) {
+        setId(items.id);
+        setTitleEn(items.titleEn);
+        setTitleKh(items.titleKh);
+        setDetailEn(items.detailEn);
+        setDetailKh(items.detailKh);
+      }
+    });
+  }
+  const updateBlog = async () => {
+    setUploading(true);
+    try {
+      const updatedData = {
+        titleEn,
+        titleKh,
+        detailEn,
+        detailKh
+      };
+
+      const {error: updateError} = await supabase
+          .from("whyus")
+          .update(updatedData)
+          .match({id: Id});
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      fetchData();
+    } catch (err) {
+      toast.error(err.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleUpdate = async () => {
+    setUploading(true);
+
+    try {
+      await updateBlog();
+      toast.success('Edited successfully!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+      toast.error('Failed to update the blog.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } finally {
+      setUploading(false);
+    }
+    fetchData();
+    setShowModalEdit(false);
+  };
 
   if (loading) return (
     <div className="text-center min-h-[100vh] z-[99999]">
@@ -49,7 +258,7 @@ const WhyUs = () => {
                 {/* Left: Title */}
           <div className="mb-4 sm:mb-0">
             <h1 className="text-2xl md:text-3xl text-gray-800 font-bold">
-              Careers
+              Why Us Lists
             </h1>
           </div>
         </div>
@@ -139,228 +348,258 @@ const WhyUs = () => {
 
       {/* modalAdd */}
       {showModalAdd ? (
-        <>
-          <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-full my-6 mx-auto max-w-sm md:max-w-md">
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
-                  <h3 className="text-xl text-gray-500 font-semibold">
-                    Add Careers
-                  </h3>
-                  <button
-                    className=" float-right"
-                    onClick={() => setShowModalAdd(false)}
-                  >
-                    <span className="relative text-gray-500 cursor-pointer opacity-7 h-6 w-6 text-xl block hover:text-[#314bb2]">
-                      <h1>x</h1>
-                    </span>
-                  </button>
-                </div>
-                <div className="p-2 flex-auto">
-                  <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
-                    <div className="my-2">
-                      <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Title
-                      </label>
-                      <div className="flex">
-                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
-                        </span>
-                        <input
-                          type="text"
-                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                          placeholder="Title"
-                          onChange={(e) => setTittle(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="my-2">
-                      <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Image
-                      </label>
-                      <div className="flex items-center justify-center w-full">
-                        <label
-                          htmlFor="dropzone-file"
-                          className="flex flex-col items-center justify-center w-full h-56 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100"
-                          style={{
-                            backgroundImage: `url(${file} )`,
-                            backgroundPositionX: "center",
-                            backgroundSize: "cover",
-                            backgroundRepeat: "no-repeat",
-                          }}
-                        >
-                          <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                            <svg
-                              className="w-8 h-8 mb-4 text-[#314bb2]"
-                              aria-hidden="true"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 20 16"
-                            >
-                              <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                              />
-                            </svg>
-                            <p className="mb-2 text-sm text-[#314bb2]">
-                              <span className="font-semibold">
-                                Click to upload
-                              </span>{" "}
-                              or drag and drop
-                            </p>
-                          </div>
-                          <input
-                            id="dropzone-file"
-                            type="file"
-                            className="hidden"
-                            accept="image/*"
-                            onChange={handleFileChange}
-                            required
-                          />
-                        </label>
-                      </div>
-                    </div>
-
-                    <div className="flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
-                      <button
-                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
+          <>
+            <div
+                className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+              <div className="relative w-full my-6 mx-auto max-w-sm md:max-w-md">
+                <div
+                    className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                  <div
+                      className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
+                    <h3 className="text-xl text-gray-500 font-semibold">
+                      Add
+                    </h3>
+                    <button
+                        className="float-right"
                         onClick={() => setShowModalAdd(false)}
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        className="text-white bg-[#314bb2] active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                        type="submit"
-                        disabled={uploading}
-                      >
-                        {uploading ? "Uploading..." : "Save"}
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-      ) : null}
-      {/* modalEdit */}
-      {showModalEdit ? (
-        <>
-          <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-full my-6 mx-auto max-w-sm md:max-w-md">
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
-                  <h3 className="text-xl text-gray-500 font-semibold">
-                    Edit {title || 'loading...'}
-                  </h3>
-                  <button
-                    className=" float-right"
-                    onClick={() => setShowModalEdit(false)}
-                  >
-                    <span className="relative text-gray-500 cursor-pointer opacity-7 h-6 w-6 text-xl block hover:text-[#314bb2]">
+                    >
+                    <span
+                        className="relative text-gray-500 cursor-pointer opacity-7 h-6 w-6 text-xl block hover:text-[#314bb2]">
                       <h1>x</h1>
                     </span>
-                  </button>
-                </div>
-                <div className="p-2 flex-auto">
-                  <form className="max-w-lg mx-auto">
-                    <div className="my-2">
-                      <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Title
-                      </label>
-                      <div className="flex">
-                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
-                        </span>
-                        <input
-                          type="text"
-                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                          placeholder="Title"
-                          defaultValue={title}
-                          onChange={(e) => setTittle(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="my-2">
-                      <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Image
-                      </label>
-                      <div className="flex items-center justify-center w-full">
-                        <label
-                          htmlFor="dropzone-file"
-                          className="flex flex-col items-center justify-center w-full h-56 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100"
-                          style={{
-                            backgroundImage: `url(${file || imageFile} )`,
-                            backgroundPositionX: "center",
-                            backgroundSize: "cover",
-                            backgroundRepeat: "no-repeat",
-                          }}
-                        >
-                          <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                            <svg
-                              className="w-8 h-8 mb-4 text-[#ffffff]"
-                              aria-hidden="true"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 20 16"
-                            >
-                              <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                              />
-                            </svg>
-                            <p className="mb-2 text-sm text-[#ffffff]">
-                              <span className="font-semibold">
-                                Click to upload
-                              </span>{" "}
-                              or drag and drop
-                            </p>
-                          </div>
-                          <input
-                            id="dropzone-file"
-                            type="file"
-                            className="hidden"
-                            accept="image/*"
-                            onChange={handleFileChangeEdit}
-                            required
-                          />
+                    </button>
+                  </div>
+                  <div className="p-2 flex-auto">
+                    <form className="max-w-lg mx-auto">
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title English
                         </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <textarea
+                              rows="2"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in English"
+                              onChange={(e) => setTitleEn(e.target.value)}
+                              required
+                          >
+                          </textarea>
+                        </div>
                       </div>
-                    </div>
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title in khmer
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <textarea
+                              rows="2"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in Khmer"
+                              onChange={(e) => setTitleKh(e.target.value)}
+                              required
+                          >
+                          </textarea>
+                        </div>
+                      </div>
 
-                    <div className="flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
-                      <button
-                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                        onClick={() => setShowModalEdit(false)}
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        className="text-white bg-[#314bb2] active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                        onClick={handleUpdate}
-                        disabled={uploading}
-                      >
-                        {uploading ? "Uploading..." : "Save"}
-                      </button>
-                    </div>
-                  </form>
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title English
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <textarea
+                              rows="2"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in English"
+                              onChange={(e) => setDetailEn(e.target.value)}
+                              required
+                          >
+                          </textarea>
+                        </div>
+                      </div>
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title in khmer
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <textarea
+                              rows="2"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in Khmer"
+                              onChange={(e) => setDetailKh(e.target.value)}
+                              required
+                          >
+                          </textarea>
+                        </div>
+                      </div>
+                      <div className="flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
+                        <button
+                            className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
+                            type="button"
+                            onClick={() => setShowModalAdd(false)}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                            className="text-white bg-[#314bb2] active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                            type="button"
+                            onClick={handleSubmit}
+                            disabled={uploading}
+                        >
+                          {uploading ? "Uploading..." : "Save"}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </>
+          </>
+      ) : null}      {/* modalAdd */}
+      {showModalEdit ? (
+          <>
+            <div
+                className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+              <div className="relative w-full my-6 mx-auto max-w-sm md:max-w-md">
+                <div
+                    className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                  <div
+                      className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
+                    <h3 className="text-xl text-gray-500 font-semibold">
+                      Edit
+                    </h3>
+                    <button
+                        className="float-right"
+                        onClick={() => setShowModalEdit(false)}
+                    >
+                    <span
+                        className="relative text-gray-500 cursor-pointer opacity-7 h-6 w-6 text-xl block hover:text-[#314bb2]">
+                      <h1>x</h1>
+                    </span>
+                    </button>
+                  </div>
+                  <div className="p-2 flex-auto">
+                    <form className="max-w-lg mx-auto">
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title English
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <textarea
+                              rows="2"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in English"
+                              defaultValue={titleEn}
+                              onChange={(e) => setTitleEn(e.target.value)}
+                              required
+                          >
+                          </textarea>
+                        </div>
+                      </div>
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title in khmer
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <textarea
+                              rows="2"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in Khmer"
+                              defaultValue={titleKh}
+                              onChange={(e) => setTitleKh(e.target.value)}
+                              required
+                          >
+                          </textarea>
+                        </div>
+                      </div>
+
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title English
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <textarea
+                              rows="2"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in English"
+                              defaultValue={detailEn}
+                              onChange={(e) => setDetailEn(e.target.value)}
+                              required
+                          >
+                          </textarea>
+                        </div>
+                      </div>
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Title in khmer
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <textarea
+                              rows="2"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in Khmer"
+                              defaultValue={detailKh}
+                              onChange={(e) => setDetailKh(e.target.value)}
+                              required
+                          >
+                          </textarea>
+                        </div>
+                      </div>
+                      <div className="flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
+                        <button
+                            className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
+                            type="button"
+                            onClick={() => setShowModalEdit(false)}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                            className="text-white bg-[#314bb2] active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                            type="button"
+                            onClick={handleUpdate}
+                            disabled={uploading}
+                        >
+                          {uploading ? "Uploading..." : "Save"}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
       ) : null}
     </>
   );

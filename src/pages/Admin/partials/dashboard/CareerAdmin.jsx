@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../../../config/db";
-import { toast } from 'react-toastify';
+import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const CareerAdmin = () => {
   const [title, setTittle] = useState("");
+  const [titleKh, setTittleKh] = useState("");
   const [file, setFile] = useState();
   const [fileDefault, setFileDefault] = useState([]);
   const [image, setImage] = useState(null);
@@ -68,21 +69,6 @@ const CareerAdmin = () => {
   // create
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!title || !imageFile) {
-      toast.success("Please fill in all fields and upload an image.", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce
-        });
-      return;
-    }
-
     setUploading(true);
 
     // Upload image to Supabase Storage
@@ -100,7 +86,7 @@ const CareerAdmin = () => {
     // Insert product details into Supabase database
     const { error: insertError } = await supabase
       .from("careers")
-      .insert([{ title, images: fileName }]);
+      .insert([{ title,titleKh, images: fileName }]);
 
     if (insertError) {
       toast.error("Error inserting product:", insertError.message, {
@@ -128,6 +114,7 @@ const CareerAdmin = () => {
         transition: Bounce
         });
       setTittle("");
+      setTittleKh("");
       setImageFile(null);
       setShowModalAdd(false);
     }
@@ -246,6 +233,7 @@ const CareerAdmin = () => {
     if (career) {
       setCareerId(career.id);
       setTittle(career.title);
+      setTittleKh(career.titleKh);
       setImageFile(career.images);
     }
 
@@ -321,7 +309,8 @@ const CareerAdmin = () => {
     setUploading(true);
     try {
       const updatedData = {
-        title
+        title,
+        titleKh
       };
 
       if (imageUrl) {
@@ -359,20 +348,6 @@ const CareerAdmin = () => {
 
   // Main handler for update
   const handleUpdate = async () => {
-    if (!title || !CareerId) {
-      toast.warn("Please fill in all required fields.", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce
-        });
-      return;
-    }
     setUploading(true);
 
     try {
@@ -383,7 +358,17 @@ const CareerAdmin = () => {
         }
           // Insert updated product details into Supabase database
           await updateCareer(imageUrl);
-          alert("Careers updated successfully!")
+        toast.success("Career updated successfully!.", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce
+        });
       } catch (err) {
         toast.error(err.message, {
           position: "top-right",
@@ -524,10 +509,10 @@ const CareerAdmin = () => {
                   </button>
                 </div>
                 <div className="p-2 flex-auto">
-                  <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
+                  <form className="max-w-lg mx-auto" >
                     <div className="my-2">
                       <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Title
+                        Title in english
                       </label>
                       <div className="flex">
                         <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
@@ -538,6 +523,23 @@ const CareerAdmin = () => {
                           className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
                           placeholder="Title"
                           onChange={(e) => setTittle(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="my-2">
+                      <label className="block mb-2 text-sm font-medium text-gray-400">
+                        Title in khmer
+                      </label>
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                        <input
+                          type="text"
+                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                          placeholder="Title"
+                          onChange={(e) => setTittleKh(e.target.value)}
                           required
                         />
                       </div>
@@ -586,7 +588,6 @@ const CareerAdmin = () => {
                             className="hidden"
                             accept="image/*"
                             onChange={handleFileChange}
-                            required
                           />
                         </label>
                       </div>
@@ -602,7 +603,7 @@ const CareerAdmin = () => {
                       </button>
                       <button
                         className="text-white bg-[#314bb2] active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                        type="submit"
+                        onClick={handleSubmit}
                         disabled={uploading}
                       >
                         {uploading ? "Uploading..." : "Save"}
@@ -638,19 +639,37 @@ const CareerAdmin = () => {
                   <form className="max-w-lg mx-auto">
                     <div className="my-2">
                       <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Title
+                        Title in english
                       </label>
                       <div className="flex">
                         <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
                         </span>
                         <input
-                          type="text"
-                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                          placeholder="Title"
-                          defaultValue={title}
-                          onChange={(e) => setTittle(e.target.value)}
-                          required
+                            type="text"
+                            className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                            placeholder="Title"
+                            defaultValue={title}
+                            onChange={(e) => setTittle(e.target.value)}
+                            required
+                        />
+                      </div>
+                    </div>
+                    <div className="my-2">
+                      <label className="block mb-2 text-sm font-medium text-gray-400">
+                        Title in khmer
+                      </label>
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                        <input
+                            type="text"
+                            className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                            placeholder="Title"
+                            defaultValue={titleKh}
+                            onChange={(e) => setTittleKh(e.target.value)}
+                            required
                         />
                       </div>
                     </div>
@@ -699,7 +718,6 @@ const CareerAdmin = () => {
                             className="hidden"
                             accept="image/*"
                             onChange={handleFileChangeEdit}
-                            required
                           />
                         </label>
                       </div>

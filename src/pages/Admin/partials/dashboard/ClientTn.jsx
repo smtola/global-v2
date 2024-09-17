@@ -2,38 +2,35 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "../../../../config/db";
 import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const ServiceItems = () => {
+const ClientTn = () => {
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [data, setData] = useState([]);
-  const [services, setServices] = useState([]);
 
-  const [items, setItems] = useState('');
-  const [itemsKh, setItemsKh] = useState('');
-  const [sv_id, setSvId] = useState('');
+  const [descEn, setDescEn] = useState('');
+  const [descKh, setDescKh] = useState('');
+  const [nameEn, setNameEn] = useState('');
+  const [nameKh, setNameKh] = useState('');
+  const [companyEn, setCompanyEn] = useState('');
+  const [companyKh, setCompanyKh] = useState('');
   const [Id, setId] = useState('');
-  useEffect(() => {
+
+  useEffect(()=>{
     fetchData();
   })
   const fetchData = async () => {
     try {
-      const {data: getData, error} = await supabase
-          .from('sv_items')
+      const {data:getData, error} = await supabase
+          .from('client_tn')
           .select('*')
-          .order('id', {ascending:true});
+          .order('id',{ascending:true});
 
-      const {data: getDataService, errors} = await supabase
-          .from('services')
-          .select('*')
-          .order('id', {ascending:true});
-
-      if (error) {
+      if(error) {
         throw error;
       }
       setData(getData);
-      setServices(getDataService);
     } catch (err) {
       console.log(err.message);
     } finally {
@@ -45,12 +42,15 @@ const ServiceItems = () => {
     setUploading(true);
     try {
       const data = {
-        items,
-        itemsKh,
-        sv_id
+        descEn,
+        descKh,
+        nameEn,
+        nameKh,
+        companyKh,
+        companyEn
       };
       const {error} = await supabase
-          .from('sv_items')
+          .from('client_tn')
           .insert(data);
 
       if(error){
@@ -112,14 +112,107 @@ const ServiceItems = () => {
       setUploading(false);
     }
     fetchData();
-    setItems('');
-    setItemsKh('');
+    setNameKh('');
+    setNameEn('');
+    setCompanyKh('');
+    setCompanyEn('');
+    setDescEn('');
+    setDescKh('');
     setShowModalAdd(false);
   }
+
+  const editId = async (id) => {
+    setShowModalEdit(true);
+    data.map((items) => {
+      if (items.id === id) {
+        setId(items.id);
+        setNameEn(items.nameEn);
+        setNameKh(items.nameKh);
+        setDescEn(items.descEn);
+        setDescKh(items.descKh);
+        setCompanyEn(items.companyEn);
+        setCompanyKh(items.companyKh);
+      }
+    });
+  }
+  const updateBlog = async () => {
+    setUploading(true);
+    try {
+      const updatedData = {
+        descEn,
+        descKh,
+        nameEn,
+        nameKh,
+        companyKh,
+        companyEn
+      };
+
+      const {error: updateError} = await supabase
+          .from("client_tn")
+          .update(updatedData)
+          .match({id: Id});
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      fetchData();
+    } catch (err) {
+      toast.error(err.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleUpdate = async () => {
+
+    setUploading(true);
+
+    try {
+      await updateBlog();
+      toast.success('About Us edited successfully!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+      toast.error('Failed to update the blog.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } finally {
+      setUploading(false);
+    }
+    fetchData();
+    setShowModalEdit(false);
+  };
+
   const handleDelete = async (id) => {
     try {
       const {error} = await supabase
-          .from('sv_items')
+          .from('client_tn')
           .delete()
           .eq('id', id)
       if(error){
@@ -160,86 +253,6 @@ const ServiceItems = () => {
       setUploading(false);
     }
   }
-  const editId = async (id) => {
-    setShowModalEdit(true);
-    data.map((items) => {
-      if (items.id === id) {
-        setId(items.id);
-        setItems(items.items);
-        setItemsKh(items.itemsKh);
-        setSvId(items.sv_id);
-      }
-    });
-  }
-  const updateBlog = async () => {
-    setUploading(true);
-    try {
-      const updatedData = {
-        items,
-        itemsKh,
-        sv_id,
-      };
-
-      const {error: updateError} = await supabase
-          .from("sv_items")
-          .update(updatedData)
-          .match({id: Id});
-
-      if (updateError) {
-        throw updateError;
-      }
-
-      fetchData();
-    } catch (err) {
-      toast.error(err.message, {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    } finally {
-      setUploading(false);
-    }
-  };
-
-  const handleUpdate = async () => {
-    setUploading(true);
-
-    try {
-      await updateBlog();
-      toast.success('Edited successfully!', {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-
-    } catch (error) {
-      console.error("Error updating blog:", error.message);
-      toast.error('Failed to update the blog.', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    } finally {
-      setUploading(false);
-    }
-    fetchData();
-    setShowModalEdit(false);
-  };
 
   if (loading) return (
     <div className="text-center min-h-[100vh] z-[99999]">
@@ -261,7 +274,7 @@ const ServiceItems = () => {
                 {/* Left: Title */}
           <div className="mb-4 sm:mb-0">
             <h1 className="text-2xl md:text-3xl text-gray-800 font-bold">
-              Service Details
+              Client's Testimonial
             </h1>
           </div>
         </div>
@@ -280,57 +293,75 @@ const ServiceItems = () => {
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left text-gray-500">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
-                <tr>
-                  <th scope="col" className="px-6 py-3">
-                    Items English
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Items Khmer
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    <span className="sr-only">Action</span>
-                  </th>
-                </tr>
+              <tr>
+                <th scope="col" className="px-6 py-3">
+                  Name English
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Name Khmer
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Comapny English
+                </th>
+                <th scope="col" className="px-6 py-3">
+                Company Khmer
+              </th>
+                <th scope="col" className="px-6 py-3">
+                  <span className="sr-only">Action</span>
+                </th>
+              </tr>
               </thead>
               <tbody>
-                  {data.map((blog, index) => (
-                      <tr
-                          key={blog.id}
-                          className="bg-white border-b hover:bg-gray-50 "
+              {data.map((blog, index) => (
+                  <tr
+                      key={blog.id}
+                      className="bg-white border-b hover:bg-gray-50 "
+                  >
+                    <th
+                        scope="row"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-wrap "
+                    >
+                      {index + 1} : {blog.nameEn}
+                    </th>
+                    <th
+                        scope="row"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-wrap "
+                    >
+                      {blog.nameKh}
+                    </th>
+                    <th
+                        scope="row"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-wrap "
+                    >
+                      {blog.companyEn}
+                    </th>
+                    <th
+                        scope="row"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-wrap "
+                    >
+                      {blog.companyKh}
+                    </th>
+                    <td className="px-6 py-4 text-right">
+                      <button
+                          onClick={() => {
+                            handleDelete(blog.id);
+                          }}
+                          className="font-medium px-2 text-red-600 hover:underline"
+                          disabled={uploading}
                       >
-                        <th
-                            scope="row"
-                            className="px-6 py-4 font-medium text-gray-900 whitespace-wrap "
-                        >
-                          {index + 1} : {blog.items} (<b>Service ID</b>: {blog.sv_id})
-                        </th>
-                        <th
-                            scope="row"
-                            className="px-6 py-4 font-medium text-gray-900 whitespace-wrap "
-                        >
-                          {blog.itemsKh}
-                        </th>
-                        <td className="px-6 py-4 text-right">
-                          <button
-                              onClick={() => {
-                                handleDelete(blog.id);
-                              }}
-                              className="font-medium px-2 text-red-600 hover:underline"
-                              disabled={uploading}
-                          >
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -2 24 24" width="28" fill="red"><path d="M6 2V1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1h4a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-.133l-.68 10.2a3 3 0 0 1-2.993 2.8H5.826a3 3 0 0 1-2.993-2.796L2.137 7H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4zm10 2H2v1h14V4zM4.141 7l.687 10.068a1 1 0 0 0 .998.932h6.368a1 1 0 0 0 .998-.934L13.862 7h-9.72zM7 8a1 1 0 0 1 1 1v7a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v7a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"></path></svg>
-                          </button>
-                          <button
-                              className="font-medium px-2 text-blue-600 hover:underline"
-                              onClick={() => {
-                                editId(blog.id);
-                              }}
-                          >
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="28" fill="currentColor"><path d="M5.72 14.456l1.761-.508 10.603-10.73a.456.456 0 0 0-.003-.64l-.635-.642a.443.443 0 0 0-.632-.003L6.239 12.635l-.52 1.82zM18.703.664l.635.643c.876.887.884 2.318.016 3.196L8.428 15.561l-3.764 1.084a.901.901 0 0 1-1.11-.623.915.915 0 0 1-.002-.506l1.095-3.84L15.544.647a2.215 2.215 0 0 1 3.159.016zM7.184 1.817c.496 0 .898.407.898.909a.903.903 0 0 1-.898.909H3.592c-.992 0-1.796.814-1.796 1.817v10.906c0 1.004.804 1.818 1.796 1.818h10.776c.992 0 1.797-.814 1.797-1.818v-3.635c0-.502.402-.909.898-.909s.898.407.898.91v3.634c0 2.008-1.609 3.636-3.593 3.636H3.592C1.608 19.994 0 18.366 0 16.358V5.452c0-2.007 1.608-3.635 3.592-3.635h3.592z"></path></svg>
-                          </button>
-                        </td>
-                      </tr>
-                  ))}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -2 24 24" width="28" fill="red"><path d="M6 2V1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1h4a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-.133l-.68 10.2a3 3 0 0 1-2.993 2.8H5.826a3 3 0 0 1-2.993-2.796L2.137 7H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4zm10 2H2v1h14V4zM4.141 7l.687 10.068a1 1 0 0 0 .998.932h6.368a1 1 0 0 0 .998-.934L13.862 7h-9.72zM7 8a1 1 0 0 1 1 1v7a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v7a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"></path></svg>
+                      </button>
+                      <button
+                          className="font-medium px-2 text-blue-600 hover:underline"
+                          onClick={() => {
+                            editId(blog.id);
+                          }}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="28" fill="currentColor"><path d="M5.72 14.456l1.761-.508 10.603-10.73a.456.456 0 0 0-.003-.64l-.635-.642a.443.443 0 0 0-.632-.003L6.239 12.635l-.52 1.82zM18.703.664l.635.643c.876.887.884 2.318.016 3.196L8.428 15.561l-3.764 1.084a.901.901 0 0 1-1.11-.623.915.915 0 0 1-.002-.506l1.095-3.84L15.544.647a2.215 2.215 0 0 1 3.159.016zM7.184 1.817c.496 0 .898.407.898.909a.903.903 0 0 1-.898.909H3.592c-.992 0-1.796.814-1.796 1.817v10.906c0 1.004.804 1.818 1.796 1.818h10.776c.992 0 1.797-.814 1.797-1.818v-3.635c0-.502.402-.909.898-.909s.898.407.898.91v3.634c0 2.008-1.609 3.636-3.593 3.636H3.592C1.608 19.994 0 18.366 0 16.358V5.452c0-2.007 1.608-3.635 3.592-3.635h3.592z"></path></svg>
+                      </button>
+                    </td>
+                  </tr>
+              ))}
               </tbody>
             </table>
           </div>
@@ -348,7 +379,7 @@ const ServiceItems = () => {
                   <div
                       className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
                     <h3 className="text-xl text-gray-500 font-semibold">
-                      Add
+                      Add New
                     </h3>
                     <button
                         className="float-right"
@@ -364,7 +395,43 @@ const ServiceItems = () => {
                     <form className="max-w-lg mx-auto">
                       <div className="my-2">
                         <label className="block mb-2 text-sm font-medium text-gray-400">
-                          Title English
+                          Name English
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <input
+                              type="text"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in English"
+                              onChange={(e) => setNameEn(e.target.value)}
+                              required
+                          />
+                        </div>
+                      </div>
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Name Khmer
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <input
+                              type="text"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in Khmer"
+                              onChange={(e) => setNameKh(e.target.value)}
+                              required
+                          />
+                        </div>
+                      </div>
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Description English
                         </label>
                         <div className="flex">
                           <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
@@ -375,7 +442,7 @@ const ServiceItems = () => {
                               rows="2"
                               className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
                               placeholder="Set welcome descriptions in English"
-                              onChange={(e) => setItems(e.target.value)}
+                              onChange={(e) => setDescEn(e.target.value)}
                               required
                           >
                           </textarea>
@@ -383,7 +450,7 @@ const ServiceItems = () => {
                       </div>
                       <div className="my-2">
                         <label className="block mb-2 text-sm font-medium text-gray-400">
-                          Title in khmer
+                          Description Khmer
                         </label>
                         <div className="flex">
                           <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
@@ -394,7 +461,7 @@ const ServiceItems = () => {
                               rows="2"
                               className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
                               placeholder="Set welcome descriptions in Khmer"
-                              onChange={(e) => setItemsKh(e.target.value)}
+                              onChange={(e) => setDescKh(e.target.value)}
                               required
                           >
                           </textarea>
@@ -402,27 +469,43 @@ const ServiceItems = () => {
                       </div>
                       <div className="my-2">
                         <label className="block mb-2 text-sm font-medium text-gray-400">
-                          Service ID
+                          Company English
                         </label>
                         <div className="flex">
                           <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
                               d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
                         </span>
-                          <select
+                          <textarea
                               rows="2"
                               className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                              onChange={(e) => setSvId(e.target.value)}
+                              placeholder="Set welcome descriptions in English"
+                              onChange={(e) => setCompanyEn(e.target.value)}
                               required
                           >
-                            {
-                              services.map((items)=> (
-                                  <option key={items.id} value={items.id}>{items.title}</option>
-                              ))
-                            }
-                          </select>
+                          </textarea>
                         </div>
                       </div>
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Company Khmer
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <textarea
+                              rows="2"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in Khmer"
+                              onChange={(e) => setCompanyKh(e.target.value)}
+                              required
+                          >
+                          </textarea>
+                        </div>
+                      </div>
+
                       <div className="flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
                         <button
                             className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
@@ -446,7 +529,8 @@ const ServiceItems = () => {
               </div>
             </div>
           </>
-      ) : null}      {/* modalAdd */}
+      ) : null}
+
       {showModalEdit ? (
           <>
             <div
@@ -473,7 +557,45 @@ const ServiceItems = () => {
                     <form className="max-w-lg mx-auto">
                       <div className="my-2">
                         <label className="block mb-2 text-sm font-medium text-gray-400">
-                          Title English
+                          Name English
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <input
+                              type="text"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in English"
+                              defaultValue={nameEn}
+                              onChange={(e) => setNameEn(e.target.value)}
+                              required
+                          />
+                        </div>
+                      </div>
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Name Khmer
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <input
+                              type="text"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in Khmer"
+                              defaultValue={nameKh}
+                              onChange={(e) => setNameKh(e.target.value)}
+                              required
+                          />
+                        </div>
+                      </div>
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Description English
                         </label>
                         <div className="flex">
                           <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
@@ -484,8 +606,8 @@ const ServiceItems = () => {
                               rows="2"
                               className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
                               placeholder="Set welcome descriptions in English"
-                              defaultValue={items}
-                              onChange={(e) => setItems(e.target.value)}
+                              defaultValue={descEn}
+                              onChange={(e) => setDescEn(e.target.value)}
                               required
                           >
                           </textarea>
@@ -493,7 +615,7 @@ const ServiceItems = () => {
                       </div>
                       <div className="my-2">
                         <label className="block mb-2 text-sm font-medium text-gray-400">
-                          Title in khmer
+                          Description Khmer
                         </label>
                         <div className="flex">
                           <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
@@ -504,8 +626,8 @@ const ServiceItems = () => {
                               rows="2"
                               className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
                               placeholder="Set welcome descriptions in Khmer"
-                              defaultValue={itemsKh}
-                              onChange={(e) => setItemsKh(e.target.value)}
+                              defaultValue={descKh}
+                              onChange={(e) => setDescKh(e.target.value)}
                               required
                           >
                           </textarea>
@@ -513,28 +635,45 @@ const ServiceItems = () => {
                       </div>
                       <div className="my-2">
                         <label className="block mb-2 text-sm font-medium text-gray-400">
-                          Service ID
+                          Company English
                         </label>
                         <div className="flex">
                           <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
                               d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
                         </span>
-                          <select
+                          <textarea
                               rows="2"
                               className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                              defaultValue={sv_id}
-                              onChange={(e) => setSvId(e.target.value)}
+                              placeholder="Set welcome descriptions in English"
+                              defaultValue={companyEn}
+                              onChange={(e) => setCompanyEn(e.target.value)}
                               required
                           >
-                            {
-                              services.map((items)=> (
-                                  <option key={items.id} value={items.id}>{items.title}</option>
-                              ))
-                            }
-                          </select>
+                          </textarea>
                         </div>
                       </div>
+                      <div className="my-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Company Khmer
+                        </label>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path
+                              d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                          <textarea
+                              rows="2"
+                              className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                              placeholder="Set welcome descriptions in Khmer"
+                              defaultValue={companyKh}
+                              onChange={(e) => setCompanyKh(e.target.value)}
+                              required
+                          >
+                          </textarea>
+                        </div>
+                      </div>
+
                       <div className="flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
                         <button
                             className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
@@ -563,4 +702,4 @@ const ServiceItems = () => {
   );
 };
 
-export default ServiceItems;
+export default ClientTn;

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import imgLogo from "../../assets/images/Global consultancy  Logo Final.png";
+import imgLogo from "../../assets/images/logo.png";
 import DropdownLang from "./dropdown/DropdownLang";
 import { useTranslation } from 'react-i18next';
 const Navbar = ({translations}) => {
@@ -31,7 +31,7 @@ const Navbar = ({translations}) => {
         <div className="w-full px-5 xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto py-5 z-50">
           <div className="flex items-center justify-between z-50">
             <div className="z-20">
-              <img src={imgLogo} alt="logo" width="64" />
+              <img src={imgLogo} alt="logo" className="w-[14rem] lg:w-[16rem]" />
             </div>
             <div className="z-20 md:hidden flex flex-nowrap gap-2">
               <DropdownLang  className="pt-4"/>
@@ -42,7 +42,6 @@ const Navbar = ({translations}) => {
             </div>
             <div className="hidden md:block">
               <ul className="flex flex-wrap lg:flex-nowrap gap-[2vw] text-[#182760]">
-                <li className="text-[11px] lg:text-[18px]">Global Consultancy</li>
                 <li className="text-[11px] lg:text-[18px]">info@global-consultancy.biz</li>
                 <li className="text-[11px] lg:text-[18px]">+855 17 966 659 / +855 69 666 499</li>
                 <li className="text-[11px] lg:text-[18px] hidden md:block">

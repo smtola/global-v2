@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../../../config/db";
-import { toast } from 'react-toastify';
+import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const BlogAdmin = () => {
   const [title, setTittle] = useState("");
+  const [titleKh, setTittleKh] = useState("");
   const [description, setDescription] = useState("");
+  const [descriptionKh, setDescriptionKh] = useState("");
+  const [detail, setDetail] = useState("");
+  const [detailKh, setDetailKh] = useState("");
   const [file, setFile] = useState();
   const [fileDefault, setFileDefault] = useState([]);
   const [image, setImage] = useState("");
@@ -65,12 +69,7 @@ const BlogAdmin = () => {
   };
 
   // create
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!title || !description || !imageFile) {
-      alert("Please fill in all fields and upload an image.");
-      return;
-    }
+  const handleSubmit = async () => {
 
     setUploading(true);
 
@@ -89,7 +88,7 @@ const BlogAdmin = () => {
     // Insert product details into Supabase database
     const { error: insertError } = await supabase
       .from("blogs")
-      .insert([{ title, description, images: fileName }]);
+      .insert([{ title, description,titleKh,descriptionKh,detail,detailKh, images: fileName }]);
 
     if (insertError) {
       toast.error(insertError.message, {
@@ -115,7 +114,11 @@ const BlogAdmin = () => {
         theme: "light",
         });
       setTittle("");
+      setTittleKh('');
+      setDescriptionKh('');
       setDescription("");
+      setDetail('');
+      setDetailKh('');
       setImageFile(null);
       setShowModalAdd(false);
     }
@@ -232,7 +235,11 @@ const BlogAdmin = () => {
       if (blog.id === id) {
         setBlogId(blog.id);
         setTittle(blog.title);
+        setTittleKh(blog.titleKh);
         setDescription(blog.description);
+        setDescriptionKh(blog.descriptionKh);
+        setDetail(blog.detail);
+        setDetailKh(blog.detailKh)
         setImageFile(blog.images);
       }
     });
@@ -309,7 +316,11 @@ const BlogAdmin = () => {
     try {
       const updatedData = {
         title,
+        titleKh,
         description,
+        descriptionKh,
+        detail,
+        detailKh
       };
 
       if (imageUrl) {
@@ -346,19 +357,6 @@ const BlogAdmin = () => {
 
   // Main handler for update
   const handleUpdate = async () => {
-    if (!title || !description || !blogId) {
-      toast.warn('Please fill in all required fields.', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        });
-      return;
-    }
 
     setUploading(true);
 
@@ -528,12 +526,11 @@ const BlogAdmin = () => {
                 </div>
                 <div className="p-2 flex-auto">
                   <form 
-                  className="max-w-lg mx-auto" 
-                  onSubmit={handleSubmit}
+                  className="max-w-lg mx-auto"
                   >
                     <div className="my-2">
                       <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Title
+                        Title in english
                       </label>
                       <div className="flex">
                         <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
@@ -542,8 +539,25 @@ const BlogAdmin = () => {
                         <input
                           type="text"
                           className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                          placeholder="Title"
+                          placeholder="Title in english"
                           onChange={(e) => setTittle(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="my-2">
+                      <label className="block mb-2 text-sm font-medium text-gray-400">
+                        Title in khmer
+                      </label>
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                        <input
+                          type="text"
+                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                          placeholder="Title in khmer"
+                          onChange={(e) => setTittleKh(e.target.value)}
                           required
                         />
                       </div>
@@ -551,7 +565,7 @@ const BlogAdmin = () => {
 
                     <div className="my-2">
                       <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Description
+                        Description in english
                       </label>
                       <div className="flex">
                         <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
@@ -560,9 +574,61 @@ const BlogAdmin = () => {
                         <textarea
                           type="text"
                           className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                          placeholder="Description"
+                          placeholder="Description in english"
                           rows="1"
                           onChange={(e) => setDescription(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    <div className="my-2">
+                      <label className="block mb-2 text-sm font-medium text-gray-400">
+                        Description in khmer
+                      </label>
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="28" fill="#4d4d4d"><path d="M5 2v2h4V2H5zm6 0h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2zm0 2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2v14h10V4h-1zM4 8h6a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 5h6a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path></svg>
+                        </span>
+                        <textarea
+                          type="text"
+                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                          placeholder="Description in khmer"
+                          rows="1"
+                          onChange={(e) => setDescriptionKh(e.target.value)}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="my-2">
+                      <label className="block mb-2 text-sm font-medium text-gray-400">
+                        Detail in english
+                      </label>
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="28" fill="#4d4d4d"><path d="M5 2v2h4V2H5zm6 0h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2zm0 2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2v14h10V4h-1zM4 8h6a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 5h6a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path></svg>
+                        </span>
+                        <textarea
+                          type="text"
+                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                          placeholder="Detail in english"
+                          rows="1"
+                          onChange={(e) => setDetail(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    <div className="my-2">
+                      <label className="block mb-2 text-sm font-medium text-gray-400">
+                        Detail in khmer
+                      </label>
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="28" fill="#4d4d4d"><path d="M5 2v2h4V2H5zm6 0h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2zm0 2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2v14h10V4h-1zM4 8h6a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 5h6a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path></svg>
+                        </span>
+                        <textarea
+                          type="text"
+                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                          placeholder="Detail in khmer"
+                          rows="1"
+                          onChange={(e) => setDetailKh(e.target.value)}
                         />
                       </div>
                     </div>
@@ -611,7 +677,6 @@ const BlogAdmin = () => {
                             className="hidden"
                             accept="image/*"
                             onChange={handleFileChange}
-                            required
                           />
                         </label>
                       </div>
@@ -627,7 +692,7 @@ const BlogAdmin = () => {
                       </button>
                       <button
                         className="text-white bg-[#314bb2] active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                        type="submit"
+                        onClick={handleSubmit}
                         disabled={uploading}
                       >
                         {uploading ? "Uploading..." : "Save"}
@@ -663,39 +728,111 @@ const BlogAdmin = () => {
                   <form className="max-w-lg mx-auto">
                     <div className="my-2">
                       <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Title
+                        Title in english
                       </label>
                       <div className="flex">
                         <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
                         </span>
                         <input
-                          type="text"
-                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                          placeholder="Title"
-                          defaultValue={title}
-                          onChange={(e) => setTittle(e.target.value)}
-                          required
+                            type="text"
+                            className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                            placeholder="Title in english"
+                            defaultValue={title}
+                            onChange={(e) => setTittle(e.target.value)}
+                            required
+                        />
+                      </div>
+                    </div>
+                    <div className="my-2">
+                      <label className="block mb-2 text-sm font-medium text-gray-400">
+                        Title in khmer
+                      </label>
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -7 24 24" width="28" fill="#4d4d4d"><path d="M2 4h4V1a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0V6H2v3a1 1 0 1 1-2 0V1a1 1 0 1 1 2 0v3z"></path></svg>
+                        </span>
+                        <input
+                            type="text"
+                            className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                            placeholder="Title in khmer"
+                            defaultValue={titleKh}
+                            onChange={(e) => setTittleKh(e.target.value)}
+                            required
                         />
                       </div>
                     </div>
 
                     <div className="my-2">
                       <label className="block mb-2 text-sm font-medium text-gray-400">
-                        Description
+                        Description in english
                       </label>
                       <div className="flex">
                         <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="28" fill="#4d4d4d"><path d="M5 2v2h4V2H5zm6 0h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2zm0 2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2v14h10V4h-1zM4 8h6a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 5h6a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path></svg>
                         </span>
                         <textarea
-                          type="text"
-                          className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
-                          placeholder="Description"
-                          rows="1"
-                          defaultValue={description}
-                          onChange={(e) => setDescription(e.target.value)}
-                          required
+                            type="text"
+                            className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                            placeholder="Description in english"
+                            defaultValue={description}
+                            rows="1"
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    <div className="my-2">
+                      <label className="block mb-2 text-sm font-medium text-gray-400">
+                        Description in khmer
+                      </label>
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="28" fill="#4d4d4d"><path d="M5 2v2h4V2H5zm6 0h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2zm0 2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2v14h10V4h-1zM4 8h6a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 5h6a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path></svg>
+                        </span>
+                        <textarea
+                            type="text"
+                            className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                            placeholder="Description in khmer"
+                            defaultValue={descriptionKh}
+                            rows="1"
+                            onChange={(e) => setDescriptionKh(e.target.value)}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="my-2">
+                      <label className="block mb-2 text-sm font-medium text-gray-400">
+                        Detail in english
+                      </label>
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="28" fill="#4d4d4d"><path d="M5 2v2h4V2H5zm6 0h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2zm0 2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2v14h10V4h-1zM4 8h6a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 5h6a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path></svg>
+                        </span>
+                        <textarea
+                            type="text"
+                            className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                            placeholder="Detail in english"
+                            defaultValue={detail}
+                            rows="1"
+                            onChange={(e) => setDetail(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    <div className="my-2">
+                      <label className="block mb-2 text-sm font-medium text-gray-400">
+                        Detail in khmer
+                      </label>
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="28" fill="#4d4d4d"><path d="M5 2v2h4V2H5zm6 0h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2zm0 2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2v14h10V4h-1zM4 8h6a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 5h6a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path></svg>
+                        </span>
+                        <textarea
+                            type="text"
+                            className="border-b border-gray-300 focus:border-[#314bb2] transition-all duration-500 outline-none focus:outline-none block flex-1 min-w-0 w-full text-md px-4 py-2.5 "
+                            placeholder="Detail in khmer"
+                            defaultValue={detailKh}
+                            rows="1"
+                            onChange={(e) => setDetailKh(e.target.value)}
                         />
                       </div>
                     </div>
@@ -744,7 +881,6 @@ const BlogAdmin = () => {
                             className="hidden"
                             accept="image/*"
                             onChange={handleFileChange}
-                            required
                           />
                         </label>
                       </div>

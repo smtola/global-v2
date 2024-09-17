@@ -15,6 +15,7 @@ import ServiceDetail from "./pages/Admin/partials/dashboard/ServiceItems";
 import OrgChart from "./pages/Admin/partials/dashboard/OrgChart";
 import WhyUs from "./pages/Admin/partials/dashboard/WhyUs";
 import Clients from "./pages/Admin/partials/dashboard/Clients";
+import ClientTn from "./pages/Admin/partials/dashboard/ClientTn";
 import Founder from "./pages/Admin/partials/dashboard/Founder";
 import Profile from "./pages/Admin/partials/dashboard/User";
 import ResetPasswordRequest from "./pages/Admin/ PasswordResetRequest";
@@ -46,5 +47,6 @@ export {
     Services,
     ServiceDetail,
     WhyUs,
-    Clients
+    Clients,
+    ClientTn
 }

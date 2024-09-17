@@ -23,7 +23,8 @@ import {
     Services,
     ServiceDetail,
     WhyUs,
-    Clients
+    Clients,
+    ClientTn
 } from "./RootLayout";
 import { BrowserRouter as Router,Route,Routes} from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
@@ -67,6 +68,7 @@ function App() {
           <Route path="service-details" element={<ServiceDetail />} />
           <Route path="why-us" element={<WhyUs />} />
           <Route path="client" element={<Clients />} />
+          <Route path="client-testimonial" element={<ClientTn />} />
           <Route path="profile" element={<Profile />} />
           <Route path="resetpassordrequest" element={<ResetPasswordRequest />} />
           <Route path="tokenmanager" element={<TokenManager />} />

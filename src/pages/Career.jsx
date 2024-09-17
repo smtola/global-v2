@@ -1,6 +1,6 @@
 import  Navbar_2  from "./components/Navbar_2";
 import Footer from "./components/Footer";
-import banner from "../assets/images/banner/cover.jpg";
+import banner from "../assets/images/test_banner.jpeg";
 import CareerCardd from "./components/CareerCardd";
 import Scroll from "../Scroll";
 import {supabase} from '../config/db';
@@ -59,7 +59,7 @@ const Career = () => {
           </div>
         </section>
           <div>
-            <img src={banner} alt="" />
+            <img src={banner} alt="" className="w-full h-full"/>
           </div>
         <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
           <div className="py-5 w-full max-w-screen-xl mx-auto">
