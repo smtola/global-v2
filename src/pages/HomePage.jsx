@@ -40,7 +40,8 @@ const HomePage = () => {
   const fetchAbourtUs1 = async () => {
     const { data, error } = await supabase
         .from('aboutus_1')
-        .select("*");
+        .select("*")
+        .order('id',{ascending:true});
 
     if (error) {
       console.error('Error fetching data:', error);
@@ -51,7 +52,8 @@ const HomePage = () => {
   const fetchCoreItems = async () => {
     const { data, error } = await supabase
         .from('core_values')
-        .select("*");
+        .select("*")
+        .order('id',{ascending:true});
 
     if (error) {
       console.error('Error fetching data:', error);
@@ -62,7 +64,8 @@ const HomePage = () => {
   const fetchOrgChart = async () => {
     const { data, error } = await supabase
         .from('organization_chart')
-        .select("*");
+        .select("*")
+        .order('id',{ascending:true});
     const dataWithUrls = await Promise.all(
         data.map(async (item) => {
           if (item.image) {
@@ -89,7 +92,8 @@ const HomePage = () => {
   const fetchBanner = async () =>{
     const {data, error} = await supabase
         .from('banner')
-        .select('*');
+        .select('*')
+        .order('id',{ascending:true});
     const dataWithUrls = await Promise.all(
         data.map(async (item) => {
           if (item.image) {
@@ -116,7 +120,8 @@ const HomePage = () => {
   const fetchFounder = async () =>{
     const {data, error} = await supabase
         .from('founders_ms')
-        .select('*');
+        .select('*')
+        .order('id',{ascending:true});
 
     const dataWithUrls = await Promise.all(
         data.map(async (item) => {
@@ -144,7 +149,8 @@ const HomePage = () => {
   const fetchAboutUs = async () =>{
     const {data, error} = await supabase
         .from('aboutUs')
-        .select('*');
+        .select('*')
+        .order('id',{ascending:true});
     if (error) {
       console.error('Error fetching data:', error);
     } else {
@@ -165,7 +171,8 @@ const HomePage = () => {
   const fetchBrc = async () =>{
     const { data ,error } = await supabase
         .from("brc")
-        .select("*");
+        .select("*")
+        .order('id',{ascending:true});
 
     const dataWithBsrUrls = await Promise.all(
         data.map(async (item) => {
@@ -199,7 +206,8 @@ const HomePage = () => {
           titleKh,
           image,
           sv_items!inner(sv_id, items, itemsKh) 
-        `);
+        `)
+        .order('id',{ascending:true});
     const dataWithUrls = await Promise.all(
         data.map(async (item) => {
           if (item.image) {
