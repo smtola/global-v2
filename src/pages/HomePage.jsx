@@ -349,7 +349,7 @@ const HomePage = () => {
                          className="w-[90vh] md:w-[24vh] lg:w-[32vh] lg:w-[32vh] xl:w-[40vh]"
                     />
               </div>
-              <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20 max-w-sm md:max-w-md xl:max-w-2xl p-2">
+              <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20 max-w-md xl:max-w-2xl p-2">
                 <h1 className="text-[16px] lg:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal">
                   {defaultLangCode === 'en' ? items.nameEn : items.nameKh}
                 </h1>
