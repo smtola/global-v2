@@ -68,7 +68,7 @@ const Blog = () => {
       <Typography
         className="!text-2xl !font-['lexend'] text-[#233C96] !font-bold !leading-snug lg:!text-3xl"
       >
-          Build Something Great -> Find Out More
+          {translations['fom']}
       </Typography>
 
       <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-3">

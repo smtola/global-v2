@@ -45,9 +45,9 @@ const Career = () => {
     <>
       <Scroll/>
        <Navbar_2  translations={translations}/>
-        <section className="container mx-auto px-10 py-[8rem] md:py-[16rem] transition-all duration-500">
+        <section className="container mx-auto px-10 py-[8rem] md:pt-[16rem] transition-all duration-500">
           <div className="w-full !max-w-lg lg:!max-w-[56rem] text-[#233C96]">
-            <h1 className="!text-[30px]  font-bold md:!text-[54px]">{translations['wwu']}</h1>
+            <h1 className="!text-[30px]  font-normal md:!text-[54px]">{translations['wwu']}</h1>
             <p className="!text-[14px]  font-medium md:!text-[23px]">
                 {translations['wwu_detail']}
             </p>
@@ -59,7 +59,7 @@ const Career = () => {
           </div>
         <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
           <div className="py-5 w-full max-w-screen-xl mx-auto">
-            <h1 className="!text-[30px] text-[#233C96] text-center font-['lexend'] font-bold md:!text-[54px]">{ translations['op'] }</h1>
+            <h1 className="!text-[30px] text-[#233C96] text-center font-normal md:!text-[54px] py-5">{ translations['op'] }</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center  gap-[3vw] py-7">
               {data.map((item,index)=>
                 ( 
