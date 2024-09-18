@@ -447,10 +447,10 @@ const HomePage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
                   {whyUs.map((items,index)=>(
                   <div key={items.index} className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50 hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">
-                    <h2 className="text-[#5AF5FF] font-['koulen'] text-[50px]">
+                    <h2 className="text-[#5AF5FF] text-[50px]">
                       {defaultLangCode === 'en' ? items.titleEn: items.titleKh}
                     </h2>
-                    <p className="text-[12pt] text-[#ffffff] font-['inter'] pt-3 md:pt-0">
+                    <p className="text-[12pt] text-[#ffffff] pt-3 md:pt-0">
                       {defaultLangCode === 'en' ? items.detailEn: items.detailKh}
                     </p>
                   </div>
