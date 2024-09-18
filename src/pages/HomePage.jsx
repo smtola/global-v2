@@ -340,13 +340,13 @@ const HomePage = () => {
 
           </div>
 
-          <div className="relative pb-[37vh] md:pb-[35vh] xl:pb-[45vh] z-20">
+          <div className="relative pb-[30vh] md:pb-[35vh] xl:pb-[45vh] z-20">
             {founder.map((items)=>(
-            <div className="absolute bottom-0 flex w-full justify-center items-center gap-[2vw] translate-x-[-50%] left-[50%] ">
+            <div className="absolute bottom-0 flex w-full justify-center items-center gap-[1vw] translate-x-[-50%] left-[50%] ">
               <div>
                     <img key={items.id}
                          src={items.image}
-                         className="w-[110vh] md:w-[24vh] lg:w-[32vh] lg:w-[32vh] xl:w-[40vh]"
+                         className="w-[90vh] md:w-[24vh] lg:w-[32vh] lg:w-[32vh] xl:w-[40vh]"
                     />
               </div>
               <div className="text-[#182760] font-['lexend'] mt-10 md:mt-20 max-w-sm md:max-w-md xl:max-w-2xl p-2">
