@@ -32,7 +32,7 @@ const Testimonial = () => {
             <section className="bg-gray-100 pt-[16rem] min-h-screen bg-banner">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-[#182761]">translations['ct']</h2>
+                        <h2 className="text-3xl font-bold text-[#182761]">{translations['ct']}</h2>
                     </div>
 
                     {/* Testimonial Card */}
