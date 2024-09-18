@@ -1,6 +1,6 @@
 import  Navbar_2  from "./components/Navbar_2";
 import Footer from "./components/Footer";
-import banner from "../assets/images/test_banner.jpeg";
+import banner from "../assets/images/career.jpg";
 import CareerCardd from "./components/CareerCardd";
 import Scroll from "../Scroll";
 import "./HomePage.css";
