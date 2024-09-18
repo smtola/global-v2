@@ -340,7 +340,7 @@ const HomePage = () => {
 
           </div>
 
-          <div className="relative pb-[30vh] md:pb-[35vh] xl:pb-[45vh] z-20">
+          <div className="relative pb-[35vh] xl:pb-[45vh] z-20">
             {founder.map((items)=>(
             <div className="absolute bottom-0 flex w-full justify-center items-center gap-[1vw] translate-x-[-50%] left-[50%] ">
               <div>
@@ -353,7 +353,7 @@ const HomePage = () => {
                 <h1 className="text-[16px] lg:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal">
                   {defaultLangCode === 'en' ? items.nameEn : items.nameKh}
                 </h1>
-                <p className="text-[9px] md:text-[12px] lg:text-[20px]">
+                <p className="text-[11px] md:text-[12px] lg:text-[20px]">
                   {defaultLangCode === 'en' ? items.educationEn : items.educationKh}
                 </p>
 
