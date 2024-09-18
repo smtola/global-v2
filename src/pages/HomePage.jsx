@@ -309,7 +309,7 @@ const HomePage = () => {
               {about_1.map((abouts)=>(
               <div className="flex gap-5 pb-4">
                 <div>
-                  <h1 className="text-[30px] md:text-[34px] font-['koulen'] font-medium">
+                  <h1 className="text-[18px] md:text-[34px] font-['koulen'] font-medium">
                     {defaultLangCode === 'en' ? abouts.titleEn : abouts.titleKh }
                   </h1>
                   <p className=" md:text-[20px]">
