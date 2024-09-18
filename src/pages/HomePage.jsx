@@ -340,7 +340,7 @@ const HomePage = () => {
 
           </div>
 
-          <div className="relative pb-[30vh] md:pb-[30vh] xl:pb-[45vh] z-20">
+          <div className="relative pb-[37vh] md:pb-[35vh] xl:pb-[45vh] z-20">
             {founder.map((items)=>(
             <div className="absolute bottom-0 flex w-full justify-center items-center gap-[2vw] translate-x-[-50%] left-[50%] ">
               <div>
@@ -353,13 +353,12 @@ const HomePage = () => {
                 <h1 className="text-[16px] lg:text-[24px] lg:text-[38px] xl:text-[48px] text-[#233C96] font-normal">
                   {defaultLangCode === 'en' ? items.nameEn : items.nameKh}
                 </h1>
-                <br />
                 <p className="text-[9px] md:text-[12px] lg:text-[20px]">
                   {defaultLangCode === 'en' ? items.educationEn : items.educationKh}
                 </p>
 
-                <details className="w-24 text-center md:w-32 lg:w-44 my-2 cursor-pointer">
-                  <summary className="bg-gradient-to-r from-[#C2F6FF] to-[#05A4FE] px-3 py-2 text-[12px] lg:text-[17px] text-[#182760] rounded-xl select-none">
+                <details className="w-26  md:w-32 lg:w-44 my-2 cursor-pointer">
+                  <summary className="bg-gradient-to-r from-[#C2F6FF] to-[#05A4FE] px-3 py-2 text-center text-[12px] lg:text-[17px] text-[#182760] rounded-xl select-none">
                     {defaultLangCode === 'en' ? items.btn_nameEn : items.btn_nameKh}
                   </summary>
                   <p className="text-start w-full left-[54%] md:left-[53%] lg:left-[68%] xl:left-[66%] translate-x-[-50%] md:max-w-2xl p-2 shadow-xl bg-[#7978789a] backdrop-blur-[100px] bg-opacity-100 my-3 absolute rounded-2xl text-[#eee] transition delay-1000 duration-2000 z-50">
@@ -379,11 +378,11 @@ const HomePage = () => {
           <div className="bg-[#314bb2] px-5 pt-3 pb-[12rem] md:pt-24 md:pb-[20rem] clip-path-3 z-10">
             <div className="grid grid-cols-12 justify-start lg:justify-center items-center gap-[2vw] my-10 font-['koulen']">
               {orgChart.map((items)=>(
-               <div key={items.id} className="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 first:col-span-12 inline-flex justify-start lg:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
-                <img src={items.image} alt="Founder" className="w-[8rem] h-[8rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
+               <div key={items.id} className="col-span-6 lg:col-span-4 2xl:col-span-3 first:col-span-12 flex flex-col items-center justify-center lg:inline-flex justify-start lg:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
+                <img src={items.image} alt="Founder" className="w-[5rem] h-[5rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
                 <div className="font-['lexend']">
-                  <h1 className="text-[16px]  lg:text-[24px] text-[#ffffff]">{defaultLangCode === 'en' ? items.nameEn: items.nameKh}</h1>
-                  <p className="text-[16px]  lg:text-[20px] text-[#ffffff]">{defaultLangCode === 'en' ? items.positionEn: items.positionKh}</p>
+                  <h1 className="text-center lg:text-start text-[16px]  lg:text-[24px] text-[#ffffff]">{defaultLangCode === 'en' ? items.nameEn: items.nameKh}</h1>
+                  <p className="text-center lg:text-start text-[16px]  lg:text-[20px] text-[#ffffff]">{defaultLangCode === 'en' ? items.positionEn: items.positionKh}</p>
                 </div>
               </div>
               ))}
