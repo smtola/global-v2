@@ -321,7 +321,7 @@ const HomePage = () => {
 
               <div className="grid grid-cols-12  gap-[4vw] max-w-screen-lg 2xl:max-w-screen-xl mx-auto my-5">
                 {coreValue.map((coreItems)=>(
-                    <div key={coreItems.id} className="col-span-6 flex justify-center gap-2 font-['inter'] py-3">
+                    <div key={coreItems.id} className="col-span-12 lg:col-span-6 flex justify-start lg:justify-center gap-2 font-['inter'] py-3">
                       <div>
                       <span>
                         {iconsTick}

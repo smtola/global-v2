@@ -106,7 +106,7 @@ const LoginPage = () => {
     <>
       <div className='container mx-auto flex flex-col justify-center items-center min-h-[48vh] lg:min-h-[90vh] p-5'>
           <div>
-            <img src="/logo.jpg" className='mx-auto w-36 md:w-52'/>
+            <img src="/logo.png" className='mx-auto w-36 md:w-52'/>
           </div>
           <div className='flex flex-wrap md:flex-nowrap justify-center items-center w-full max-w-sm lg:max-w-xl lg:max-h-xl shadow-md rounded-lg bg-[#eee] p-0 m-0'>
             <div className='w-full'>

@@ -45,7 +45,7 @@ const Career = () => {
     <>
       <Scroll/>
        <Navbar_2  translations={translations}/>
-        <section className="container mx-auto px-10 py-24 md:py-[16rem] transition-all duration-500">
+        <section className="container mx-auto px-10 py-[8rem] md:py-[16rem] transition-all duration-500">
           <div className="w-full !max-w-lg lg:!max-w-[56rem] text-[#233C96]">
             <h1 className="!text-[30px] font-['lexend'] font-bold md:!text-[54px]">{translations['wwu']}</h1>
             <p className="!text-[14px] font-['lexend'] font-medium md:!text-[23px]">
