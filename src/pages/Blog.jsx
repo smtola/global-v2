@@ -14,8 +14,8 @@ function ContentCard({ id, img, titleEn,titleKh, descEn,descKh }) {
           <div className="w-full max-w-screen-xl mx-auto">
               <Link to={`/blog/${id}`}>
                   <img src={img} alt=""/>
-                  <h1 className="text-[#182761] font-['lexend'] font-bold text-[24px]">{defaultLangCode === 'en' ? titleEn : titleKh}</h1>
-                  <p className="text-[#182761] my-2 font-['lexend'] font-normal">
+                  <h1 className="text-[#182761]  font-bold text-[24px]">{defaultLangCode === 'en' ? titleEn : titleKh}</h1>
+                  <p className="text-[#182761] my-2  font-normal">
                       {defaultLangCode === 'en' ? descEn : descKh}
                   </p>
               </Link>

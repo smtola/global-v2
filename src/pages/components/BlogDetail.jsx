@@ -47,10 +47,10 @@ const BlogDetail = () => {
             <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
                 <div className="max-w-screen-xl mx-auto">
                     <img src={blog.images} alt={blog.title} className="w-full" />
-                    <Typography className="!text-4xl !font-['lexend'] text-[#233C96] !font-bold mt-8">
+                    <Typography className="!text-4xl text-[#233C96] !font-bold mt-8">
                         {defaultLangCode === 'en' ? blog.title : blog.titleKh}
                     </Typography>
-                    <p className="text-[#182761] my-4 font-['lexend'] font-normal">
+                    <p className="text-[#182761] my-4  font-normal">
                         {defaultLangCode === 'en' ? blog.description : blog.descriptionKh}
                     </p>
                     <p>{blog.content}</p>

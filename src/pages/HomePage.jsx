@@ -298,7 +298,7 @@ const HomePage = () => {
           <div className="w-full max-w-screen-xl mx-auto text-start font-['inter'] text-[#050076] p-5 md:p-12"
           >
             {about.map((abouts)=>(
-            <p key={abouts.id} className="text-[16px] md:text-[24px]">
+            <p key={abouts.id} className="text-[16px] md:text-[24px] ">
               {defaultLangCode === 'en' ? abouts.descEn : abouts.descKh }
             </p>
             ))}
@@ -309,10 +309,10 @@ const HomePage = () => {
               {about_1.map((abouts)=>(
               <div className="flex gap-5 pb-4">
                 <div>
-                  <h1 className="text-[30px] md:text-[54px] font-['koulen'] font-medium">
+                  <h1 className="text-[30px] md:text-[34px] font-['koulen'] font-medium">
                     {defaultLangCode === 'en' ? abouts.titleEn : abouts.titleKh }
                   </h1>
-                  <p className="font-['inter'] md:text-[20px]">
+                  <p className=" md:text-[20px]">
                     {defaultLangCode === 'en' ? abouts.descEn : abouts.descKh }
                   </p>
                 </div>
