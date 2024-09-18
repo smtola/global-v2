@@ -266,7 +266,7 @@ const Founder = () => {
           {/* Change the height attribute to adjust the chart height */}
           <div className="grid grid-cols-12 justify-center items-center gap-5">
             {data.map((blog, index) => (
-              <div className="col-span-12 flex justify-center items-center gap-5">
+              <div className="col-span-12 flex flex-col 2xl:flex-row justify-center items-center gap-5 p-5">
                 <img src={blog.image} alt="" className="w-[20rem] mx-auto border-b-2"/>
                 <div>
                   <h1>
@@ -314,7 +314,7 @@ const Founder = () => {
       {/* modalAdd */}
       {showModalEdit ? (
           <>
-            <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+            <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
               <div className="relative w-full my-6 mx-auto max-w-lg md:max-w-full">
                 <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
@@ -330,8 +330,8 @@ const Founder = () => {
                     </span>
                     </button>
                   </div>
-                  <div className="p-2 ">
-                    <form className="w-full mx-auto grid grid-cols-12 gap-5 justify-center items-center">
+                  <div className="p-2 mt-[10rem]">
+                    <form className="w-full mx-auto grid grid-cols-12 gap-5 justify-center items-center p-10">
                       <div className="my-2 col-span-6">
                         <label className="block mb-2 text-sm font-medium text-gray-400">
                           Name English
