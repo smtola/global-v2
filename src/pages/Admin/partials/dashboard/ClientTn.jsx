@@ -8,6 +8,10 @@ const ClientTn = () => {
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [data, setData] = useState([]);
+  const [file,setFile] = useState("");
+  const [imageFile, setImageFile] = useState(null);
+  const [fileDefault, setFileDefault] = useState([]);
+  const [image, setImage] = useState("");
 
   const [descEn, setDescEn] = useState('');
   const [descKh, setDescKh] = useState('');
@@ -20,85 +24,32 @@ const ClientTn = () => {
   useEffect(()=>{
     fetchData();
   })
-  const fetchData = async () => {
-    try {
-      const {data:getData, error} = await supabase
-          .from('client_tn')
-          .select('*')
-          .order('id',{ascending:true});
-
-      if(error) {
-        throw error;
-      }
-      setData(getData);
-    } catch (err) {
-      console.log(err.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  const insertData = async () => {
-    setUploading(true);
-    try {
-      const data = {
-        descEn,
-        descKh,
-        nameEn,
-        nameKh,
-        companyKh,
-        companyEn
-      };
-      const {error} = await supabase
-          .from('client_tn')
-          .insert(data);
-
-      if(error){
-        toast.error(error.message, {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
-
-      fetchData();
-    }catch (err) {
-      toast.error(err.message, {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    } finally {
-      setUploading(false);
-    }
-  }
+  const handleFileChange = (e) => {
+    setImageFile(e.target.files[0]);
+    setFile(URL.createObjectURL(e.target.files[0]));
+  };
   const handleSubmit = async () => {
-    try {
-      await insertData();
-      toast.success('Add successfully!', {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+    setUploading(true);
+    // Upload image to Supabase Storage
+    const fileName = `${Date.now()}_${imageFile.name}`;
+    const { error: uploadError } = await supabase.storage
+        .from("images") // Your Supabase Storage bucket name
+        .upload(`contents/${fileName}`, imageFile);
 
-    } catch (error) {
-      console.error("Error updating blog:", error.message);
-      toast.error('Failed to update the blog.', {
+    if (uploadError) {
+      console.error("Error uploading image:", uploadError.message);
+      return;
+    }
+
+    // Insert product details into Supabase database
+    const { error: insertError } = await supabase
+        .from("client_tn")
+        .insert([{ nameEn,nameKh,descEn,descKh,companyEn,companyKh, image: fileName }]);
+    setShowModalAdd(false);
+    setUploading(false);
+    fetchData();
+    if (insertError) {
+      toast.error("Error inserting product:", insertError.message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -107,21 +58,167 @@ const ClientTn = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
+        transition: Bounce
       });
-    } finally {
+    } else {
+      toast.success("Added successfully!.", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+      setNameEn('');
+      setNameKh('');
+      setDescEn('');
+      setDescKh('');
+      setCompanyEn('');
+      setCompanyKh('');
+      setImageFile(null);
+      setFile('');
+    }
+
+  };
+  // delete
+  const handleDelete = async (id) => {
+    setUploading(true);
+
+    // Fetch product details to get the image URL
+    const { data: blog, error: fetchError } = await supabase
+        .from("client_tn")
+        .select("image")
+        .eq("id", id)
+        .single();
+
+    if (fetchError) {
+      toast.error(`Error fetching blog: ${fetchError.message}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
       setUploading(false);
+      return;
+    }
+
+    if (!blog) {
+      toast.error("Organization Chart not found", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+      setUploading(false);
+      return;
+    }
+
+    const imageUrl = blog.image;
+    const imageFileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+
+    // Delete the image file from Supabase Storage
+    const { error: deleteFileError } = await supabase.storage
+        .from("images") // Your bucket name
+        .remove([`contents/${imageFileName}`]);
+
+    if (deleteFileError) {
+      toast.error(`Error deleting file: ${deleteFileError.message}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+      setUploading(false);
+      return;
+    }
+
+    // Delete the product record from the database
+    const { error: deleteProductError } = await supabase
+        .from("client_tn")
+        .delete()
+        .eq("id", id);
+
+    if (deleteProductError) {
+      toast.error(`Error deleting product: ${deleteProductError.message}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
+    } else {
+      toast.success("Careers deleted successfully!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      });
     }
     fetchData();
-    setNameKh('');
-    setNameEn('');
-    setCompanyKh('');
-    setCompanyEn('');
-    setDescEn('');
-    setDescKh('');
-    setShowModalAdd(false);
+    setUploading(false);
+  };
+
+  const fetchData = async () => {
+    try {
+      const {data:getData, error} = await supabase
+          .from('client_tn')
+          .select('*');
+      const getImage = await Promise.all(
+          getData.map((items)=>{
+            if(items.image){
+              const { data: img_url, error: urlError } = supabase.storage
+                  .from("images") // Replace with your storage bucket name
+                  .getPublicUrl(`contents/${items.image}`); // item.image is the file path
+              if (urlError) {
+                throw urlError;
+              }
+
+              return { ...items, image: img_url.publicUrl }; // Append public URL to item
+            }
+            return items;
+          })
+      )
+
+      if(error) {
+        throw error;
+      }
+      setFileDefault(getData);
+      setData(getImage);
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      setLoading(false);
+    }
   }
 
-  const editId = async (id) => {
+  const editId = async (id) =>{
     setShowModalEdit(true);
     data.map((items) => {
       if (items.id === id) {
@@ -132,25 +229,97 @@ const ClientTn = () => {
         setDescKh(items.descKh);
         setCompanyEn(items.companyEn);
         setCompanyKh(items.companyKh);
+        setImageFile(items.image);
+      }
+    });
+    fileDefault.map((file) => {
+      if (file.id === id) {
+        setImage(file.image);
       }
     });
   }
-  const updateBlog = async () => {
+  const uploadImage = async (file) => {
+    if(file.name == undefined){
+      return;
+    }else{
+      const fileName = `${Date.now()}_${file.name}`;
+      const { error: uploadError } = await supabase.storage
+          .from("images")
+          .upload(`contents/${fileName}`, file);
+      if (uploadError) {
+        throw uploadError;
+      }
+      // Update career details
+      const { data: banner, error: fetchError } = await supabase
+          .from("client_tn")
+          .select("image")
+          .eq("id", Id)
+          .single();
+
+      if (fetchError) {
+        toast.error(`Error fetching blog: ${fetchError.message}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setUploading(false);
+        return;
+      }
+
+      if (!banner) {
+        toast.error(`Founder not bad!`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setUploading(false);
+        return;
+      }
+
+      const imageUrls = banner.image;
+      const imageFileName = imageUrls.substring(imageUrls.lastIndexOf("/") + 1);
+
+      // Delete the image file from Supabase Storage
+      await supabase.storage
+          .from("images") // Your bucket name
+          .remove([`contents/${imageFileName}`]);
+
+      return fileName;
+    }
+  };
+  // Function to update blog data
+  const updateBlog = async (imageUrl = null ) => {
     setUploading(true);
     try {
       const updatedData = {
-        descEn,
-        descKh,
         nameEn,
         nameKh,
-        companyKh,
-        companyEn
+        descEn,
+        descKh,
+        companyEn,
+        companyKh
       };
 
-      const {error: updateError} = await supabase
+      if (imageUrl) {
+        updatedData.image = imageUrl;
+      }else if(image){
+        updatedData.image = image;
+      }
+
+      const { error: updateError } = await supabase
           .from("client_tn")
           .update(updatedData)
-          .match({id: Id});
+          .match({ id: Id });
 
       if (updateError) {
         throw updateError;
@@ -159,40 +328,6 @@ const ClientTn = () => {
       fetchData();
     } catch (err) {
       toast.error(err.message, {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    } finally {
-      setUploading(false);
-    }
-  };
-
-  const handleUpdate = async () => {
-
-    setUploading(true);
-
-    try {
-      await updateBlog();
-      toast.success('About Us edited successfully!', {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-
-    } catch (error) {
-      console.error("Error updating blog:", error.message);
-      toast.error('Failed to update the blog.', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -205,30 +340,19 @@ const ClientTn = () => {
     } finally {
       setUploading(false);
     }
-    fetchData();
-    setShowModalEdit(false);
   };
 
-  const handleDelete = async (id) => {
+  // Main handler for update
+  const handleUpdate = async () => {
     try {
-      const {error} = await supabase
-          .from('client_tn')
-          .delete()
-          .eq('id', id)
-      if(error){
-        toast.error(error.message, {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+      setUploading(true);
+      let imageUrl = null;
+      if (imageFile) {
+        imageUrl = await uploadImage(imageFile);
       }
-      fetchData();
-      toast.success('Deleted successfully!', {
+
+      await updateBlog(imageUrl);
+      toast.success('Edited successfully!', {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -238,8 +362,10 @@ const ClientTn = () => {
         progress: undefined,
         theme: "light",
       });
-    }catch (err) {
-      toast.error(err.message, {
+      fetchData();
+    } catch (error) {
+      console.error("Error updating blog:", error.message);
+      toast.error('Failed to update the blog.', {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -251,8 +377,9 @@ const ClientTn = () => {
       });
     } finally {
       setUploading(false);
+      setShowModalEdit(false);
     }
-  }
+  };
 
   if (loading) return (
     <div className="text-center min-h-[100vh] z-[99999]">
@@ -307,6 +434,9 @@ const ClientTn = () => {
                 Company Khmer
               </th>
                 <th scope="col" className="px-6 py-3">
+                Profile
+              </th>
+                <th scope="col" className="px-6 py-3">
                   <span className="sr-only">Action</span>
                 </th>
               </tr>
@@ -341,6 +471,12 @@ const ClientTn = () => {
                     >
                       {blog.companyKh}
                     </th>
+                    <td
+                        scope="row"
+                        className="px-6 py-4 font-medium text-gray-900 overflow-hidden"
+                    >
+                      <img src={blog.image ||  'https://via.placeholder.com/150'} alt="" className="w-[50px] h-[50px] mx-auto rounded-full"/>
+                    </td>
                     <td className="px-6 py-4 text-right">
                       <button
                           onClick={() => {
@@ -506,6 +642,55 @@ const ClientTn = () => {
                         </div>
                       </div>
 
+                      <div className="my-2 col-span-12">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Image
+                        </label>
+                        <div className="flex items-center justify-center w-full">
+                          <label
+                              htmlFor="dropzone-file"
+                              className="flex flex-col items-center justify-center w-full min-h-[10rem] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer hover:bg-[#06060676] bg-[#06060676]"
+                              style={{
+                                backgroundImage: `url(${file || imageFile} )`,
+                                backgroundPositionX: "center",
+                                backgroundSize: "cover",
+                                backgroundRepeat: "no-repeat",
+                              }}
+                          >
+                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                              <svg
+                                  className="w-8 h-8 mb-4 text-[#ffffff]"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 20 16"
+                              >
+                                <path
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                                />
+                              </svg>
+                              <p className="mb-2 text-sm text-[#ffffff]">
+                              <span className="font-semibold">
+                                Click to upload
+                              </span>{" "}
+                                or drag and drop
+                              </p>
+                            </div>
+                            <input
+                                id="dropzone-file"
+                                type="file"
+                                className="hidden"
+                                accept="image/*"
+                                onChange={handleFileChange}
+                                required
+                            />
+                          </label>
+                        </div>
+                      </div>
                       <div className="flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
                         <button
                             className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
@@ -674,6 +859,55 @@ const ClientTn = () => {
                         </div>
                       </div>
 
+                      <div className="my-2 col-span-12">
+                        <label className="block mb-2 text-sm font-medium text-gray-400">
+                          Image
+                        </label>
+                        <div className="flex items-center justify-center w-full">
+                          <label
+                              htmlFor="dropzone-file"
+                              className="flex flex-col items-center justify-center w-full min-h-[10rem] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer hover:bg-[#06060676] bg-[#06060676]"
+                              style={{
+                                backgroundImage: `url(${file || imageFile} )`,
+                                backgroundPositionX: "center",
+                                backgroundSize: "cover",
+                                backgroundRepeat: "no-repeat",
+                              }}
+                          >
+                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                              <svg
+                                  className="w-8 h-8 mb-4 text-[#ffffff]"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 20 16"
+                              >
+                                <path
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                                />
+                              </svg>
+                              <p className="mb-2 text-sm text-[#ffffff]">
+                              <span className="font-semibold">
+                                Click to upload
+                              </span>{" "}
+                                or drag and drop
+                              </p>
+                            </div>
+                            <input
+                                id="dropzone-file"
+                                type="file"
+                                className="hidden"
+                                accept="image/*"
+                                onChange={handleFileChange}
+                                required
+                            />
+                          </label>
+                        </div>
+                      </div>
                       <div className="flex justify-end border-t mt-2 pt-3 border-solid border-gray-300">
                         <button
                             className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
