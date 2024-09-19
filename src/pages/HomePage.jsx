@@ -299,7 +299,19 @@ const HomePage = () => {
           >
             {about.map((abouts)=>(
             <p key={abouts.id} className="text-[16px] md:text-[24px] ">
-              {defaultLangCode === 'en' ? abouts.descEn : abouts.descKh }
+              {defaultLangCode === 'en' ? (abouts.descEn.split('\n').map((line, index) => (
+                      <span key={index}>
+                                                    {line}
+                        <br />
+                                                    </span>
+                  )))
+                  : (abouts.descKh.split('\n').map((line, index) => (
+                      <span key={index}>
+                                                    {line}
+                        <br />
+                                                    </span>
+                  )))
+              }
             </p>
             ))}
           </div>
