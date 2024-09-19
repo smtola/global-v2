@@ -56,7 +56,7 @@ const Testimonial = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 p-10">
                         {/* Single Testimonial */}
                         {data.map((items)=>(
-                        <div key={items.id} className="flex flex-col justify-end bg-white p-6 shadow-md rounded-lg">
+                        <div key={items.id} className="flex flex-col justify-between bg-white p-6 shadow-md rounded-lg">
                             <p className="text-gray-600 ">
                                 {defaultLangCode === 'en' ? items.descEn : items.descKh}
                             </p>
