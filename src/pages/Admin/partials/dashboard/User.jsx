@@ -95,7 +95,7 @@ const User = () => {
           full_name: formData.fullName
         },
         app_metadata: {
-          role:'user'
+          role:'admin'
         }
       });
 
@@ -127,17 +127,7 @@ const User = () => {
         return;
       }
     } catch (error) {
-      toast.error('Error signing up', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce
-        });
+     console.log(error.message);
       setLoading(false);
     }
   };

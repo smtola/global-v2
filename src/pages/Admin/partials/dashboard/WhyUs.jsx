@@ -103,13 +103,15 @@ const WhyUs = () => {
         progress: undefined,
         theme: "light",
       });
+      setShowModalAdd(false);
+      fetchData();
+      setItems('');
+      setItemsKh('');
+
     } finally {
       setUploading(false);
     }
-    fetchData();
-    setItems('');
-    setItemsKh('');
-    setShowModalAdd(false);
+
   }
   const handleDelete = async (id) => {
     try {
