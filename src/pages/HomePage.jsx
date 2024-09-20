@@ -525,7 +525,6 @@ const HomePage = () => {
               </div>
               <div>
                 <h1 className="text-[45px] text-[#182760] text-center font-['koulen'] font-medium pt-3">
-                  What People Say About Us
                   {translations['wocsa'] || 'What People Say About Us'}
                 </h1>
               </div>
