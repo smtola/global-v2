@@ -5,6 +5,7 @@ import "./HomePage.css";
 import Scroll from "../Scroll";
 import { useTranslation } from '../hooks/useTranslation';
 import {supabase} from "../config/db.js";
+import {NavLink} from "react-router-dom";
 // chart
 const HomePage = () => {
   const home = useRef(null);
@@ -25,6 +26,7 @@ const HomePage = () => {
   const [brc, setBrc] = useState([]);
   const [whyUs, setWhyUs] = useState([]);
   const [orgChart, setOrgChart] = useState([]);
+  const [ctn, setCtn] = useState([]);
   useEffect(() => {
     fetchServices();
     fetchBanner();
@@ -35,6 +37,7 @@ const HomePage = () => {
     fetchBrc();
     fetchsetWhyUs();
     fetchOrgChart();
+    fetchCtn();
   }, []);
 
   const fetchAbourtUs1 = async () => {
@@ -265,6 +268,34 @@ const HomePage = () => {
       console.log(err.message);
     }
   };
+  const fetchCtn = async () => {
+    const { data, error } = await supabase
+        .from('client_tn')
+        .select("*")
+        .order('id',{ascending:true});
+    const dataWithUrls = await Promise.all(
+        data.map(async (item) => {
+          if (item.image) {
+            // Generate public URL for the image
+            const { data: img_url, error: urlError } = supabase.storage
+                .from("images") // Replace with your storage bucket name
+                .getPublicUrl(`contents/${item.image}`); // item.image is the file path
+
+            if (urlError) {
+              throw urlError;
+            }
+
+            return { ...item, image: img_url.publicUrl }; // Append public URL to item
+          }
+          return item;
+        })
+    );
+    if (error) {
+      console.error('Error fetching data:', error);
+    } else {
+      setCtn(dataWithUrls);
+    }
+  };
 
   return (
     <>
@@ -429,9 +460,9 @@ const HomePage = () => {
             {translations['os_detail'] || 'Loading...'}
           </p>
         </div>
-        <div className="flex flex-wrap xl:flex-nowrap justify-center gap-[10vw] lg:gap-[5vw] xl:gap-[2vw] px-5 py-10 text-[#182761]">
+        <div className="flex flex-wrap 2xl:flex-nowrap justify-center gap-[10vw] lg:gap-[5vw] xl:gap-[2vw] px-5 py-10 text-[#182761]">
           {servicesValue.map((cards)=>(
-              <div  key={cards.id} className="relative flex flex-col gap-[2vw] bg-[#eee] w-[28rem] mx-auto">
+              <div  key={cards.id} className="relative flex flex-col gap-[2vw] bg-[#eee] w-[35rem] mx-auto">
                 <div className="relative flex flex-col justify-center service-icon w-[5rem] h-[5rem] mx-auto rotate-[46deg] z-[10] translate-y-[-50%]">
                   <img src={cards.image} alt="" className="w-[2.5rem] h-[2.5rem] mx-auto rotate-[-46deg] z-[30]"/>
                 </div>
@@ -492,10 +523,50 @@ const HomePage = () => {
                     </div>
                 ))}
               </div>
+              <div>
+                <h1 className="text-[45px] text-[#182760] text-center font-['koulen'] font-medium pt-3">
+                  What People Say About Us
+                </h1>
+              </div>
             </div>
           </div>
 
-          <div className="w-full bg-[#314bb2] md:pb-[20vh] clip-path-5"></div>
+          <div className="relative flex flex-col justify-center items-center w-full min-h-[66rem] md:min-h-[46rem] xl:min-h-[36rem] clip-path-5">
+              <div className="absolute bg-[#314bb2] inset-0 h-full">
+                <div>
+                  <h1 className="text-[45px] text-[#ffffff] text-center font-['koulen'] font-medium pt-12">
+                    {translations['ct'] || 'Loading...'}
+                  </h1>
+                </div>
+                  <div className="flex flex-wrap xl:flex-nowrap justify-center items-center gap-[3vw] my-10">
+                    {ctn.map((e)=>(
+                        <div className="w-[12rem] md:min-[18rem] xl:min-h-[20rem] 2xl:min-h-[30rem] overflow-hidden">
+                          <NavLink to={"/client-testimonial"} key={e.id}>
+                            <img src={e.image} className="w-[6rem] h-[6rem] mx-auto object-cover object-center imgClient rounded-full hover:scale-[1.1] transition-all duration-[500ms]"/>
+                          </NavLink>
+                           <div>
+                             <h1 className="text-center text-[16px] font-bold text-[#ffffff]">{defaultLangCode === 'en' ? e.nameEn: e.nameKh}</h1>
+                             <h1 className="text-center text-[12px] text-[#ffffff]">{defaultLangCode === 'en' ? (e.companyEn.split('\n').map((line, index) => (
+                                     <span key={index}>
+                                                      {line}
+                                       <br />
+                                                      </span>
+                                 )))
+                                 : (e.companyKh.split('\n').map((line, index) => (
+                                     <span key={index}>
+                                                      {line}
+                                       <br />
+                                                      </span>
+                                 )))
+                             }</h1>
+                           </div>
+                        </div>
+                    ))}
+                  </div>
+                <div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

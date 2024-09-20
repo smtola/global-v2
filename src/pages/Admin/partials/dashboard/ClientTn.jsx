@@ -605,7 +605,7 @@ const ClientTn = () => {
                       </div>
                       <div className="my-2">
                         <label className="block mb-2 text-sm font-medium text-gray-400">
-                          Company English
+                          Company and position English
                         </label>
                         <div className="flex">
                           <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
@@ -624,7 +624,7 @@ const ClientTn = () => {
                       </div>
                       <div className="my-2">
                         <label className="block mb-2 text-sm font-medium text-gray-400">
-                          Company Khmer
+                          Company and position Khmer
                         </label>
                         <div className="flex">
                           <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
@@ -820,7 +820,7 @@ const ClientTn = () => {
                       </div>
                       <div className="my-2">
                         <label className="block mb-2 text-sm font-medium text-gray-400">
-                          Company English
+                          Company and position English
                         </label>
                         <div className="flex">
                           <span className="inline-flex items-center px-3 text-sm text-gray-900  ">
@@ -840,7 +840,7 @@ const ClientTn = () => {
                       </div>
                       <div className="my-2">
                         <label className="block mb-2 text-sm font-medium text-gray-400">
-                          Company Khmer
+                          Company and position Khmer
                         </label>
                         <div className="flex">
                           <span className="inline-flex items-center px-3 text-sm text-gray-900  ">

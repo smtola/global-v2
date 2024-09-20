@@ -1,5 +1,6 @@
 import  Navbar_2  from "./components/Navbar_2";
 import Footer from "./components/Footer";
+import banner_mobile from "../assets/images/career_mobile.jpg";
 import banner from "../assets/images/career.jpg";
 import CareerCardd from "./components/CareerCardd";
 import Scroll from "../Scroll";
@@ -55,7 +56,8 @@ const Career = () => {
           </div>
         </section>
           <div>
-            <img src={banner} alt="" className="w-full h-[50rem] object-cover object-center clip-path-5"/>
+            <img src={banner_mobile} alt="" className="w-full h-[70rem] object-cover object-center clip-path-5 block lg:hidden"/>
+            <img src={banner} alt="" className="w-full h-[70rem] object-cover object-center clip-path-5 hidden lg:block"/>
           </div>
         <section className="container mx-auto px-10 py-24 md:py-44 transition-all duration-500">
           <div className="py-5 w-full max-w-screen-xl mx-auto">
