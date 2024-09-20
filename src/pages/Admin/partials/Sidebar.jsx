@@ -76,7 +76,7 @@ const Sidebar = ({
         </button>
         {/* Logo */}
         <NavLink end to="/dashboard" className="block">
-          <img src="/logo.png" width="100" />
+          <img src="/logo.png" className="w-[100px] mx-auto"/>
         </NavLink>
       </div>
 
