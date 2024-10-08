@@ -325,11 +325,11 @@ const HomePage = () => {
       </section>
 
       <section ref={about_us}>
-        <div className="w-ful bg-[#ffffff]">
-          <div className="w-full max-w-screen-xl mx-auto text-start font-['inter'] text-[#050076] p-5 md:p-12"
+        <div className="w-full bg-[#ffffff]">
+          <div className="w-full max-w-screen-xl mx-auto text-start font-['inter'] text-[#050076] p-5 2xl:p-0"
           >
             {about.map((abouts)=>(
-            <p key={abouts.id} className="text-[16px] md:text-[22px] ">
+            <p key={abouts.id} className="text-[16px] md:text-[22px] text-justify">
               {defaultLangCode === 'en' ? (abouts.descEn.split('\n').map((line, index) => (
                       <span key={index}>
                                                     {line}
@@ -346,9 +346,9 @@ const HomePage = () => {
             </p>
             ))}
           </div>
-          <div className="bg-[#314bb2] w-full px-10 py-[8vh] md:py-[32vh] clip-path-2">
+          <div className="bg-[#314bb2] w-full py-[8vh] md:py-[32vh] clip-path-2">
 
-            <div className="lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl w-full mx-auto text-[#eee]">
+            <div className="max-w-screen-xl p-5 2xl:p-0 w-full mx-auto text-[#eee]">
               {about_1.map((abouts)=>(
               <div className="flex gap-5 pb-4">
                 <div>
@@ -362,7 +362,7 @@ const HomePage = () => {
               </div>
               ))}
 
-              <div className="grid grid-cols-12  gap-[4vw] max-w-screen-lg 2xl:max-w-screen-xl mx-auto my-5">
+              <div className="grid grid-cols-12  gap-[4vw] max-w-screen-xl mx-auto px-5 2xl:px-0 my-5">
                 {coreValue.map((coreItems)=>(
                     <div key={coreItems.id} className="col-span-12 lg:col-span-6 flex justify-start lg:justify-center gap-2 font-['inter'] py-3">
                       <div>
@@ -418,18 +418,21 @@ const HomePage = () => {
             </div>
             ))}
             </div>
-          <div className="bg-[#314bb2] px-5 pt-3 pb-[12rem] md:pt-24 md:pb-[20rem] clip-path-3 z-10">
+          <div className="bg-[#314bb2] px-5 pt-3 pb-[12rem] md:pt-24 md:pb-[14rem] clip-path-3 z-10">
+            <div className="max-w-screen-xl mx-auto">
             <div className="grid grid-cols-12 justify-start lg:justify-center items-center gap-[2vw] my-10 font-['koulen']">
-              {orgChart.map((items)=>(
-               <div key={items.id} className="col-span-6 lg:col-span-4 2xl:col-span-3 first:col-span-12 flex flex-col items-center justify-center lg:inline-flex justify-start lg:justify-center items-center gap-5 w-full max-w-[23rem] mx-auto overflow-hidden">
-                <img src={items.image} alt="Founder" className="w-[5rem] h-[5rem] lg:w-[10rem] lg:h-[10rem] rounded-full"/>
-                <div className="font-['lexend']">
-                  <h1 className="text-center lg:text-start text-[16px]  lg:text-[24px] text-[#ffffff]">{defaultLangCode === 'en' ? items.nameEn: items.nameKh}</h1>
-                  <p className="text-center lg:text-start text-[16px]  lg:text-[20px] text-[#ffffff]">{defaultLangCode === 'en' ? items.positionEn: items.positionKh}</p>
-                </div>
+
+                {orgChart.map((items)=>(
+                    <div key={items.id} className="col-span-6 lg:col-span-2 first:col-span-12 flex flex-col items-center justify-center lg:inline-flex justify-start lg:justify-center items-center gap-5 w-full mx-auto overflow-hidden">
+                      <img src={items.image} alt="Founder" className="w-[5rem] h-[5rem] lg:w-[8rem] lg:h-[8rem] rounded-full"/>
+                      <div className="font-['lexend']">
+                        <h1 className="text-center lg:text-start text-[16px] text-[#ffffff]">{defaultLangCode === 'en' ? items.nameEn: items.nameKh}</h1>
+                        <p className="text-center lg:text-start text-[16px] text-[#ffffff]">{defaultLangCode === 'en' ? items.positionEn: items.positionKh}</p>
+                      </div>
+                    </div>
+                ))}
               </div>
-              ))}
-              </div>
+            </div>
           </div>
 
           <div className="w-full max-w-screen-xl mx-auto my-3 md:my-10">
@@ -460,9 +463,9 @@ const HomePage = () => {
             {translations['os_detail'] || 'Loading...'}
           </p>
         </div>
-        <div className="flex flex-wrap 2xl:flex-nowrap justify-center gap-[10vw] lg:gap-[5vw] xl:gap-[2vw] px-5 py-10 text-[#182761]">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-12 justify-center gap-[10vw] lg:gap-[5vw] xl:gap-[2vw] px-5 py-10 text-[#182761]">
           {servicesValue.map((cards)=>(
-              <div  key={cards.id} className="relative flex flex-col gap-[2vw] bg-[#eee] w-[35rem] mx-auto">
+              <div  key={cards.id} className="relative col-span-6 flex flex-col gap-[2vw] bg-[#eee]">
                 <div className="relative flex flex-col justify-center service-icon w-[5rem] h-[5rem] mx-auto rotate-[46deg] z-[10] translate-y-[-50%]">
                   <img src={cards.image} alt="" className="w-[2.5rem] h-[2.5rem] mx-auto rotate-[-46deg] z-[30]"/>
                 </div>
@@ -485,7 +488,7 @@ const HomePage = () => {
 
           <div className="bg-[#314bb2] clip-path-4">
             <div className="flex items-center justify-center py-[10vh] md:pt-[20vh] md:pb-12 xl:pt-[26vh] xl:pb-16">
-              <div className="w-full max-w-screen md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto">
+              <div className="w-full max-w-screen md:max-w-screen-xl mx-auto p-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2vw] lg:gap-[3vw]">
                   {whyUs.map((items,index)=>(
                   <div key={items.index} className="flex gap-5 justify-items-start md:block px-2 text-start w-full max-w-sm mx-auto p-2 cursor-default hover:shadow-xl hover:bg-[#001F31] hover:rounded-md hover:backdrop-blur-[30px] hover:bg-opacity-50 hover:scale-[1.0] md:hover:scale-[1.1] transition-all duration-150">

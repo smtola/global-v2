@@ -28,7 +28,7 @@ const Navbar = ({home,about,services,client,translations,language}) => {
   return (
     <>
       <header className="bg-[#ffffff] font-['inter'] font-medium shadow-md z-[99999] fixed w-full">
-        <div className="w-full px-5 max-w-screen-xl mx-auto py-5 z-50">
+        <div className="w-full px-5 2xl:px-0 max-w-screen-xl mx-auto py-5 z-50">
           <div className="flex items-center justify-between z-50">
             <div className="z-20">
               <img src={imgLogo} alt="logo" className="w-[16rem] lg:w-[20rem]" />
@@ -69,9 +69,9 @@ const Navbar = ({home,about,services,client,translations,language}) => {
             </li>
           </ul>
         </div>
-        <div className="relative z-[9999] ">
-          <nav className="hidden md:block bg-[#314bb2] w-full sm:max-w-[550px] md:max-w-screen-md xl:max-w-screen-lg mx-auto p-5 absolute translate-x-[-50%] left-[50%] -top-4">
-            <div className="w-full max-w-screen-xl mx-auto ">
+        <div className="relative z-[9999] px-5">
+          <nav className="hidden md:block bg-[#314bb2] w-full max-w-screen-xl mx-auto p-5 absolute translate-x-[-50%] left-[50%] -top-4">
+            <div className="w-full max-w-screen-xl mx-auto">
               <ul className="flex justify-center items-center gap-[3vw] text-[#eee]">
                 <li className="cursor-pointer font- hover:font-bold active:font-bold">
                   <NavLink to="/#home" onClick={()=> scrollToSection(home)}>{translations['home'] || 'Home'}</NavLink></li>
