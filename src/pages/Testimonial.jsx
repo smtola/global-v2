@@ -63,8 +63,8 @@ const Testimonial = () => {
                             <div className="grid grid-cols-12 justify-between items-center my-10">
                                 <img src={items.image ||  'https://via.placeholder.com/150'} alt="" className="col-span-4 w-[80px] h-[80px] mx-auto rounded-full"/>
                                 <div className="col-span-8">
-                                    <h4 className="text-lg font-semibold text-gray-800 text-wrap">{defaultLangCode === 'en' ? items.nameEn : items.nameKh}</h4>
-                                    <p className="text-gray-500 text-wrap">
+                                    <h4 className="text-[14px] font-semibold text-gray-800 text-wrap">{defaultLangCode === 'en' ? items.nameEn : items.nameKh}</h4>
+                                    <p className="text-gray-500 text-[12px] text-wrap">
                                         {defaultLangCode === 'en' ? (items.companyEn.split('\n').map((line, index) => (
                                                 <span key={index}>
                                                     {line}
