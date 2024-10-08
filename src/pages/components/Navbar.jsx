@@ -28,7 +28,7 @@ const Navbar = ({home,about,services,client,translations,language}) => {
   return (
     <>
       <header className="bg-[#ffffff] font-['inter'] font-medium shadow-md z-[99999] fixed w-full">
-        <div className="w-full px-5 xl:max-w-screen-sm 2xl:max-w-screen-xl mx-auto py-5 z-50">
+        <div className="w-full px-5 max-w-screen-xl mx-auto py-5 z-50">
           <div className="flex items-center justify-between z-50">
             <div className="z-20">
               <img src={imgLogo} alt="logo" className="w-[16rem] lg:w-[20rem]" />
