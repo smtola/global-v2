@@ -76,7 +76,7 @@ const Footer = () => {
     </div>
     <div className="w-full bg-[#314bb2] p-5">
       <h1 className="text-[#eee] text-center text-[16px] font-['inter']">
-        Copyright @ {new Date().getFullYear()}, <b>Global Consultancy</b>
+        Copyright © *{new Date().getFullYear()}, <b>Global Consultancy*, All rights reserved.</b>
       </h1>
     </div>
   </footer>
